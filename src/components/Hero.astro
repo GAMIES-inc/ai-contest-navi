@@ -1,5 +1,8 @@
 ---
 import { xProfileUrl } from "@/lib/site";
+import CalendarDays from "@lucide/astro/icons/calendar-days";
+import Clock3 from "@lucide/astro/icons/clock-3";
+import Search from "@lucide/astro/icons/search";
 
 type Props = {
   activeCount: number;
@@ -9,6 +12,21 @@ const { activeCount } = Astro.props;
 ---
 
 <section class="home-hero">
+  <div class="hero-visual-stage" aria-label="AI創作コンテストのキービジュアル">
+    <picture>
+      <source media="(max-width: 640px)" srcset="/images/hero-mobile.webp" type="image/webp" />
+      <source media="(max-width: 640px)" srcset="/images/hero-mobile.png" />
+      <source srcset="/images/hero-pc.webp" type="image/webp" />
+      <img
+        src="/images/hero-pc.png"
+        alt="AI創作のクリエイターと画像・動画・漫画・音楽の制作画面"
+        loading="eager"
+        decoding="async"
+        width="1600"
+        height="900"
+      />
+    </picture>
+  </div>
   <div class="site-shell home-hero-grid">
     <div class="home-hero-copy">
       <p class="eyebrow">AI Creative Contest Media</p>
@@ -19,15 +37,15 @@ const { activeCount } = Astro.props;
       </p>
       <div class="home-hero-actions">
         <a class="button primary hero-cta" href="/contests">
-          <span class="button-icon">〆</span>
+          <span class="button-icon"><Clock3 size={22} stroke-width={2.2} /></span>
           締切順で見る
         </a>
         <a class="button hero-cta" href="#categories">
-          <span class="button-icon">□</span>
+          <span class="button-icon"><Search size={22} stroke-width={2.2} /></span>
           ジャンルで探す
         </a>
         <a class="button gold hero-cta" href="/calendar">
-          <span class="button-icon">日</span>
+          <span class="button-icon"><CalendarDays size={22} stroke-width={2.2} /></span>
           カレンダーで見る
         </a>
       </div>
@@ -35,27 +53,6 @@ const { activeCount } = Astro.props;
         <span>募集中 {activeCount}件</span>
         <span>公式情報ベース</span>
         <a href={xProfileUrl} target="_blank" rel="noreferrer">Xで更新を見る</a>
-      </div>
-    </div>
-
-    <div class="hero-visual-stage" aria-label="AI創作コンテストのキービジュアル">
-      <picture>
-        <source media="(max-width: 640px)" srcset="/images/hero-mobile.webp" type="image/webp" />
-        <source media="(max-width: 640px)" srcset="/images/hero-mobile.png" />
-        <source srcset="/images/hero-pc.webp" type="image/webp" />
-        <img
-          src="/images/hero-pc.png"
-          alt="AI創作のクリエイターと画像・動画・漫画・音楽の制作画面"
-          loading="eager"
-          decoding="async"
-          width="1600"
-          height="900"
-        />
-      </picture>
-      <div class="hero-visual-badges" aria-hidden="true">
-        <span>締切</span>
-        <span>賞金・賞品</span>
-        <span>応募形式</span>
       </div>
     </div>
   </div>
