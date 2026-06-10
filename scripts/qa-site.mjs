@@ -4,6 +4,7 @@ const routes = [
   "/archive",
   "/guides",
   "/guides/start-ai-contest",
+  "/guides/how-to-read-contest-guidelines",
   "/guides/how-to-make-ai-video",
   "/guides/how-to-make-ai-manga",
   "/guides/ai-contest-checklist",

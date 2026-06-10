@@ -31,6 +31,7 @@ export const guideCategories: Array<"すべて" | GuideCategory> = [
 
 const guideOrder = [
   "start-ai-contest",
+  "how-to-read-contest-guidelines",
   "how-to-make-ai-video",
   "how-to-make-ai-manga",
   "ai-contest-checklist",
