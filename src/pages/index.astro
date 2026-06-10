@@ -12,7 +12,6 @@ const featured = await getFeaturedContests(3);
 const closingSoon = await getClosingSoonContests(5);
 const activeContests = await getActiveContests();
 const deadlinePicks = closingSoon.length > 0 ? closingSoon : activeContests.slice(0, 5);
-const heroContest = featured[0] ?? activeContests[0];
 const categoryCounts = Object.fromEntries(
   publicCategories.map((category) => [
     category,
@@ -26,9 +25,9 @@ const categoryCounts = Object.fromEntries(
   description="AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介します。"
   ogImage="/brand-x-pinned.png"
 >
-  <Hero contest={heroContest} activeCount={activeContests.length} />
+  <Hero activeCount={activeContests.length} />
 
-  <section class="section top-section">
+  <section id="featured" class="section top-section">
     <div class="site-shell">
       <div class="section-head">
         <div>

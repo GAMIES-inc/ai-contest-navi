@@ -16,12 +16,12 @@ const statusLabel =
       : contest.status === "ended"
         ? "終了"
         : "掲載中";
-const thumbnail = contest.thumbnail || "/brand-thumbnail.svg";
+const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? "/images/contest-fallback.png" : contest.thumbnail;
 ---
 
 <article class={`contest-card ${variant === "featured" ? "contest-card-featured" : ""}`}>
   <a class="contest-thumb" href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
-    <img src={thumbnail} alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/brand-thumbnail.svg';" />
+    <img src={thumbnail} alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/images/contest-fallback.png';" />
     <span class={`status-badge ${contest.status}`}>{statusLabel}</span>
   </a>
   <div class="contest-body">

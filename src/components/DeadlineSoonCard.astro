@@ -7,13 +7,13 @@ type Props = {
 };
 
 const { contest } = Astro.props;
-const thumbnail = contest.thumbnail || "/brand-thumbnail.svg";
+const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? "/images/contest-fallback.png" : contest.thumbnail;
 const days = getDaysUntilDeadline(contest.deadline);
 const primaryCategory = categoryLabels[contest.categories[0]];
 ---
 
 <a class="deadline-card" href={`/contests/${contest.slug}`}>
-  <img src={thumbnail} alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/brand-thumbnail.svg';" />
+  <img src={thumbnail} alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/images/contest-fallback.png';" />
   <div class="deadline-card-body">
     <div class="deadline-card-top">
       <span class="urgency-badge">{days >= 0 ? `あと${days}日` : "終了"}</span>

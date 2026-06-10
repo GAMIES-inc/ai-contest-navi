@@ -8,6 +8,7 @@ npm-debug.log*
 .astro-dev*.log
 .astro-preview*.log
 .preview.*.log
+qa-screenshots/
 .DS_Store
 
 # Local research/source artifacts

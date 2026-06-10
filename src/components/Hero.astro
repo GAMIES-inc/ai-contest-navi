@@ -1,14 +1,11 @@
 ---
-import type { Contest } from "@/data/contests";
-import { formatDate } from "@/lib/contests";
 import { xProfileUrl } from "@/lib/site";
 
 type Props = {
-  contest?: Contest;
   activeCount: number;
 };
 
-const { contest, activeCount } = Astro.props;
+const { activeCount } = Astro.props;
 ---
 
 <section class="home-hero">
@@ -18,7 +15,7 @@ const { contest, activeCount } = Astro.props;
       <h1>AI作品の応募先、<br />ここで見つかる。</h1>
       <p class="hero-subcopy">締切・賞金・応募方法をひと目でチェック</p>
       <p class="hero-description">
-        AI画像・動画・漫画・音楽など、生成AIで参加できるコンテストを締切順に整理しています。
+        AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテストをわかりやすく紹介する情報メディアです。
       </p>
       <div class="home-hero-actions">
         <a class="button primary hero-cta" href="/contests">
@@ -41,22 +38,16 @@ const { contest, activeCount } = Astro.props;
       </div>
     </div>
 
-    <div class="hero-visual-card" aria-label="AI創作コンテストのキービジュアル">
-      <img
-        src="/images/hero-creative.webp"
-        alt="AI創作のクリエイターと画像・動画・漫画・音楽の制作画面"
-        loading="eager"
-        decoding="async"
-      />
-      {
-        contest && (
-          <a class="hero-contest-chip" href={`/contests/${contest.slug}`}>
-            <span>注目コンテスト</span>
-            <strong>{contest.title}</strong>
-            <small>締切 {formatDate(contest.deadline)} / {contest.difficulty}</small>
-          </a>
-        )
-      }
+    <div class="hero-visual-stage" aria-label="AI創作コンテストのキービジュアル">
+      <picture>
+        <source media="(max-width: 640px)" srcset="/images/hero-mobile.png" />
+        <img
+          src="/images/hero-pc.png"
+          alt="AI創作のクリエイターと画像・動画・漫画・音楽の制作画面"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
     </div>
   </div>
 </section>

@@ -1,0 +1,27 @@
+---
+import { xProfileUrl } from "@/lib/site";
+---
+
+<footer class="site-footer">
+  <div class="site-shell footer-panel">
+    <div class="footer-brand">
+      <a class="brand footer-logo" href="/" aria-label="AIコンテストナビ トップ">
+        <span class="brand-mark"><img src="/brand-x-icon.png" alt="" /></span>
+        <span>AIコンテストナビ</span>
+      </a>
+      <p>AI作品の応募先を、締切・賞金・応募方法とともに探せる情報メディアです。</p>
+      <p class="footer-note">掲載情報は公式ページ等をもとに要約しています。応募前には必ず公式ページをご確認ください。</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <a href="/contests">コンテスト一覧</a>
+      <a href="/calendar">締切カレンダー</a>
+      <a href="/categories/ai-image">AI画像</a>
+      <a href="/categories/ai-video">AI動画</a>
+      <a href="/archive">アーカイブ</a>
+      <a href="/submit">掲載について</a>
+    </nav>
+    <div class="footer-social">
+      <a class="button primary" href={xProfileUrl} target="_blank" rel="noreferrer">Xで更新を見る</a>
+    </div>
+  </div>
+</footer>
