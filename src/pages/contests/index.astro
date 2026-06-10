@@ -1,0 +1,23 @@
+---
+import ContestCard from "@/components/ContestCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getActiveContests } from "@/lib/contests";
+
+const contests = await getActiveContests();
+---
+
+<BaseLayout title="コンテスト一覧" description="生成AIで参加できるコンテストを締切順に一覧で紹介します。">
+  <section class="page-hero">
+    <div class="site-shell">
+      <p class="eyebrow">Contest List</p>
+      <h1>コンテスト一覧</h1>
+      <p class="lead">AI画像・AI動画・AI漫画・AI音楽など、現在応募しやすいコンテストを締切順に並べています。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell grid">
+      {contests.map((contest) => <ContestCard contest={contest} />)}
+    </div>
+  </section>
+</BaseLayout>

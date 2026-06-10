@@ -1,0 +1,14 @@
+---
+import { categoryLabels, publicCategories } from "@/lib/contests";
+---
+
+<div class="category-grid">
+  {
+    publicCategories.map((category) => (
+      <a class="category-card" href={`/categories/${category}`}>
+        <strong>{categoryLabels[category]}</strong>
+        <span>このジャンルの募集を見る</span>
+      </a>
+    ))
+  }
+</div>

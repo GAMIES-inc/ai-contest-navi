@@ -1,0 +1,100 @@
+---
+import ContestCard from "@/components/ContestCard.astro";
+import CategoryLinks from "@/components/CategoryLinks.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { formatDate, getActiveContests, getClosingSoonContests, getFeaturedContests } from "@/lib/contests";
+
+const featured = await getFeaturedContests(6);
+const closingSoon = await getClosingSoonContests(4);
+const activeContests = await getActiveContests();
+const heroContest = featured[0] ?? activeContests[0];
+---
+
+<BaseLayout
+  title="AIコンテストナビ"
+  description="AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介します。"
+  ogImage="/og-home.svg"
+>
+  <section class="hero">
+    <div class="site-shell hero-grid">
+      <div>
+        <p class="eyebrow">AI Creative Contest Media</p>
+        <h1>AIコンテストナビ</h1>
+        <p class="lead">AI作品の応募先、ここで見つかる。</p>
+        <p class="lead">AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介します。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="/contests">締切順で見る</a>
+          <a class="button" href="#categories">ジャンルで探す</a>
+          <a class="button gold" href="/calendar">カレンダーで見る</a>
+        </div>
+      </div>
+      {
+        heroContest && (
+          <a class="hero-card" href={`/contests/${heroContest.slug}`}>
+            <img src={heroContest.thumbnail} alt="" />
+            <div class="hero-card-body">
+              <div class="hero-card-title">{heroContest.title}</div>
+              <div class="hero-card-meta">
+                <span class="pill">締切 {formatDate(heroContest.deadline)}</span>
+                <span class="pill">{heroContest.difficulty}</span>
+              </div>
+            </div>
+          </a>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">注目コンテスト</h2>
+          <p class="section-copy">まず見ておきたいAI創作コンテストをピックアップ。</p>
+        </div>
+        <a class="button" href="/contests">すべて見る</a>
+      </div>
+      <div class="grid">
+        {featured.map((contest) => <ContestCard contest={contest} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">締切間近</h2>
+          <p class="section-copy">制作スケジュールに入れやすい、締切が近い募集。</p>
+        </div>
+        <a class="button" href="/calendar">カレンダーを見る</a>
+      </div>
+      <div class="grid">
+        {closingSoon.map((contest) => <ContestCard contest={contest} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="categories" class="section">
+    <div class="site-shell">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">ジャンル別導線</h2>
+          <p class="section-copy">制作スタイルに合う応募先をジャンルから探せます。</p>
+        </div>
+      </div>
+      <CategoryLinks />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell content-panel">
+      <h2 class="section-title">締切カレンダーで見逃しを減らす</h2>
+      <p class="section-copy">応募予定のコンテストを締切順に確認できます。細かい条件を比較したい場合は一覧ページも便利です。</p>
+      <div class="hero-actions">
+        <a class="button primary" href="/calendar">締切カレンダーへ</a>
+        <a class="button" href="/submit">掲載について</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

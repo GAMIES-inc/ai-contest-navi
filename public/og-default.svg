@@ -1,0 +1,9 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#06101D"/>
+  <path d="M0 104H1200M0 248H1200M0 392H1200M0 536H1200M180 0V630M420 0V630M660 0V630M900 0V630" stroke="#5EE7FF" stroke-opacity=".08"/>
+  <rect x="92" y="86" width="1016" height="458" fill="#0E2138" fill-opacity=".76" stroke="#5EE7FF" stroke-opacity=".28"/>
+  <path d="M138 478L312 326L506 390L696 210L852 276L1062 142" stroke="#21D4FD" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="132" y="188" fill="#EAF6FF" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="800">AIコンテストナビ</text>
+  <text x="134" y="272" fill="#A8BFD2" font-family="Arial, Helvetica, sans-serif" font-size="36">生成AIで参加できるコンテスト情報</text>
+  <text x="134" y="520" fill="#F6C65B" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="5">IMAGE / VIDEO / MANGA / MUSIC</text>
+</svg>

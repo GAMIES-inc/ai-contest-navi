@@ -1,0 +1,70 @@
+---
+type Props = {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+};
+
+import "@/styles/global.css";
+
+const {
+  title,
+  description,
+  canonical = new URL(Astro.url.pathname, Astro.site).toString(),
+  ogImage = "/og-default.svg",
+} = Astro.props;
+
+const pageTitle = title.includes("AIコンテストナビ") ? title : `${title} | AIコンテストナビ`;
+const resolvedOgImage = new URL(ogImage, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AIコンテストナビ" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedOgImage} />
+    <link rel="icon" href="/brand-thumbnail.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-shell nav">
+        <a class="brand" href="/" aria-label="AIコンテストナビ トップ">
+          <span class="brand-mark">AI</span>
+          <span>AIコンテストナビ</span>
+        </a>
+        <nav class="nav-links" aria-label="メインナビゲーション">
+          <a href="/contests">コンテスト一覧</a>
+          <a href="/categories/ai-image">AI画像</a>
+          <a href="/categories/ai-video">AI動画</a>
+          <a href="/calendar">締切カレンダー</a>
+          <a href="/archive">アーカイブ</a>
+          <a class="nav-cta" href="/submit">掲載について</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="site-shell">
+        <strong>AIコンテストナビ</strong>
+        <p>掲載情報は公式ページ等をもとに要約しています。応募前には必ず公式ページをご確認ください。</p>
+        <p><a href="/archive">終了済みコンテストを見る</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="ページが見つかりません"
+  description="お探しのページは見つかりませんでした。AIコンテストナビの一覧から募集中のコンテストを探せます。"
+>
+  <section class="page-hero">
+    <div class="site-shell content-panel">
+      <p class="eyebrow">404</p>
+      <h1>ページが見つかりませんでした</h1>
+      <p class="lead">URLが変わったか、まだ公開されていないページの可能性があります。</p>
+      <div class="hero-actions">
+        <a class="button primary" href="/contests">コンテスト一覧へ</a>
+        <a class="button" href="/">トップへ戻る</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

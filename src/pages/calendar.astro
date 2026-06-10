@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { categoryLabels, formatDate, getActiveContests, getDaysUntilDeadline } from "@/lib/contests";
+
+const contests = await getActiveContests();
+---
+
+<BaseLayout title="締切カレンダー" description="AI創作コンテストの締切をカレンダー風に確認できます。">
+  <section class="page-hero">
+    <div class="site-shell">
+      <p class="eyebrow">Deadline Calendar</p>
+      <h1>締切カレンダー</h1>
+      <p class="lead">締切日が近い順に、応募予定を確認できます。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell calendar-list">
+      {
+        contests.map((contest) => {
+          const days = getDaysUntilDeadline(contest.deadline);
+          return (
+            <a class="calendar-item" href={`/contests/${contest.slug}`}>
+              <div class="date-block">{formatDate(contest.deadline)}</div>
+              <div>
+                <strong>{contest.title}</strong>
+                <div class="meta-line">
+                  {contest.categories.map((category) => categoryLabels[category]).join(" / ")} ・ {contest.applicationMethod}
+                </div>
+              </div>
+              <span class="pill">{days >= 0 ? `あと${days}日` : "終了"}</span>
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+</BaseLayout>

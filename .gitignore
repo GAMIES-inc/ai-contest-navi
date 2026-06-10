@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+npm-debug.log*
+.astro-dev*.log
+.preview.*.log
+.DS_Store
+
+# Local research/source artifacts
+conversation.pdf
+conversation_contact_sheet.jpg
+extracted_*.jpg
+tmp_sources/
+calendar_blueprint.md

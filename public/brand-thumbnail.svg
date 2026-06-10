@@ -1,0 +1,35 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06101D"/>
+      <stop offset=".58" stop-color="#0A2340"/>
+      <stop offset="1" stop-color="#071321"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="120" y1="520" x2="1080" y2="160" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#21D4FD"/>
+      <stop offset=".55" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#F6C65B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 92H1200" stroke="#5EE7FF" stroke-opacity=".12"/>
+  <path d="M0 188H1200" stroke="#5EE7FF" stroke-opacity=".08"/>
+  <path d="M0 284H1200" stroke="#5EE7FF" stroke-opacity=".08"/>
+  <path d="M0 380H1200" stroke="#5EE7FF" stroke-opacity=".08"/>
+  <path d="M0 476H1200" stroke="#5EE7FF" stroke-opacity=".08"/>
+  <path d="M0 572H1200" stroke="#5EE7FF" stroke-opacity=".12"/>
+  <path d="M160 0V675" stroke="#5EE7FF" stroke-opacity=".08"/>
+  <path d="M352 0V675" stroke="#5EE7FF" stroke-opacity=".06"/>
+  <path d="M544 0V675" stroke="#5EE7FF" stroke-opacity=".06"/>
+  <path d="M736 0V675" stroke="#5EE7FF" stroke-opacity=".06"/>
+  <path d="M928 0V675" stroke="#5EE7FF" stroke-opacity=".06"/>
+  <path d="M1120 0V675" stroke="#5EE7FF" stroke-opacity=".08"/>
+  <path d="M84 522L310 292L498 368L704 178L848 248L1116 96" stroke="url(#accent)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M772 118H1078L982 314H676L772 118Z" fill="#21D4FD" fill-opacity=".1" stroke="#5EE7FF" stroke-opacity=".28"/>
+  <path d="M112 94H642V396H112V94Z" fill="#0E2138" fill-opacity=".76" stroke="#5EE7FF" stroke-opacity=".26"/>
+  <text x="148" y="184" fill="#EAF6FF" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800">AI CONTEST</text>
+  <text x="148" y="266" fill="#EAF6FF" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800">NAVI</text>
+  <text x="148" y="340" fill="#9FC5DD" font-family="Arial, Helvetica, sans-serif" font-size="32">AI作品の応募先、ここで見つかる。</text>
+  <text x="148" y="600" fill="#5EE7FF" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="4">IMAGE / VIDEO / MANGA / MUSIC</text>
+  <text x="930" y="570" fill="#F6C65B" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Deadline First</text>
+</svg>

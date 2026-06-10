@@ -1,0 +1,56 @@
+---
+import { categoryLabels, formatDate } from "@/lib/contests";
+import type { Contest } from "@/data/contests";
+
+type Props = {
+  contest: Contest;
+};
+
+const { contest } = Astro.props;
+const statusLabel =
+  contest.status === "closing-soon"
+    ? "締切間近"
+    : contest.status === "open"
+      ? "募集中"
+      : contest.status === "ended"
+        ? "終了"
+        : "掲載中";
+---
+
+<article class="contest-card">
+  <a class="contest-thumb" href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
+    <img src={contest.thumbnail} alt="" loading="lazy" />
+    <span class={`status-badge ${contest.status}`}>{statusLabel}</span>
+  </a>
+  <div class="contest-body">
+    <div class="card-topline">
+      <span class="deadline-chip">締切 {formatDate(contest.deadline)}</span>
+      <span class={`mini-status ${contest.status}`}>{statusLabel}</span>
+    </div>
+    <div class="tags compact">
+      {contest.categories.slice(0, 3).map((category) => <span class="tag">{categoryLabels[category]}</span>)}
+    </div>
+    <h3 class="contest-title">
+      <a href={`/contests/${contest.slug}`}>{contest.title}</a>
+    </h3>
+    <p class="contest-description">{contest.description}</p>
+    <div class="details">
+      <div class="detail-row">
+        <span class="detail-label">賞金/賞品</span>
+        <span>{contest.prize}</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">応募形式</span>
+        <span>{contest.applicationMethod}</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">参加目安</span>
+        <span>{contest.difficulty}</span>
+      </div>
+    </div>
+    <div class="card-actions">
+      <a class="button primary" href={`/contests/${contest.slug}`}>詳細を見る</a>
+      <a class="button" href={contest.officialUrl} target="_blank" rel="noreferrer">公式サイト</a>
+    </div>
+  </div>
+</article>

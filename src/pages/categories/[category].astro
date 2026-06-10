@@ -1,0 +1,32 @@
+---
+import ContestCard from "@/components/ContestCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { categoryLabels, getContestsByCategory, publicCategories } from "@/lib/contests";
+import type { ContestCategory } from "@/data/contests";
+
+export function getStaticPaths() {
+  return publicCategories.map((category) => ({
+    params: { category },
+  }));
+}
+
+const category = Astro.params.category as ContestCategory;
+const contests = await getContestsByCategory(category);
+const label = categoryLabels[category];
+---
+
+<BaseLayout title={`${label}のコンテスト`} description={`${label}で参加できるAI創作コンテストを紹介します。`}>
+  <section class="page-hero">
+    <div class="site-shell">
+      <p class="eyebrow">Category</p>
+      <h1>{label}</h1>
+      <p class="lead">{label}で参加できる生成AIコンテストを締切順にまとめています。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell grid">
+      {contests.map((contest) => <ContestCard contest={contest} />)}
+    </div>
+  </section>
+</BaseLayout>

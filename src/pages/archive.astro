@@ -1,0 +1,39 @@
+---
+import ContestCard from "@/components/ContestCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getEndedContests } from "@/lib/contests";
+
+const contests = await getEndedContests();
+---
+
+<BaseLayout
+  title="終了済みコンテスト"
+  description="AIコンテストナビで掲載した、応募期間が終了したAI創作コンテストのアーカイブです。"
+  ogImage="/og-default.svg"
+>
+  <section class="page-hero">
+    <div class="site-shell">
+      <p class="eyebrow">Contest Archive</p>
+      <h1>終了済みコンテスト</h1>
+      <p class="lead">過去に掲載したAI創作コンテストのアーカイブです。次回開催や傾向チェックに使えます。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell">
+      {
+        contests.length > 0 ? (
+          <div class="grid">
+            {contests.map((contest) => <ContestCard contest={contest} />)}
+          </div>
+        ) : (
+          <div class="empty-state">
+            <h2>まだ終了済みコンテストはありません</h2>
+            <p>締切日を過ぎたコンテストは、自動的にこのページへ移動します。</p>
+            <a class="button primary" href="/contests">募集中のコンテストを見る</a>
+          </div>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>
