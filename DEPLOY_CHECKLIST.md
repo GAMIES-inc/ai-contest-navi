@@ -13,7 +13,9 @@ git push -u origin main
 
 ## 2. Cloudflare Pages
 
-Cloudflare PagesでGitHubリポジトリを接続します。
+現在の公開サイトはCloudflare Pagesへ直接デプロイ済みです。
+
+GitHubからの自動デプロイは `.github/workflows/deploy-cloudflare-pages.yml` で行います。
 
 - Framework preset: `Astro`
 - Build command: `npm run build`
@@ -21,12 +23,23 @@ Cloudflare PagesでGitHubリポジトリを接続します。
 - Node version: `20.19.5`
 - Production branch: `main`
 
-環境変数:
+Cloudflare Pages側の環境変数:
 
 - `SITE_URL`: Cloudflare Pagesの公開URL
 - `NOTION_TOKEN`: Notion Integration Token
 - `NOTION_DATABASE_ID`: Notion DB ID
 - `NODE_VERSION`: `20.19.5`
+
+GitHub Actions secrets:
+
+- `SITE_URL`: 設定済み
+- `NOTION_TOKEN`: 設定済み
+- `NOTION_DATABASE_ID`: 設定済み
+- `CLOUDFLARE_ACCOUNT_ID`: 設定済み
+- `CLOUDFLARE_API_TOKEN`: CloudflareでAPIトークンを作成して追加する
+
+`CLOUDFLARE_API_TOKEN` はCloudflare dashboardの My Profile > API Tokens から作成します。
+必要権限は Account > Cloudflare Pages > Edit です。
 
 ## 3. 公開後QA
 
