@@ -13,7 +13,7 @@ import { getActiveContests, getClosingSoonContests, getFeaturedContests, publicC
 const featured = await getFeaturedContests(3);
 const closingSoon = await getClosingSoonContests(5);
 const activeContests = await getActiveContests();
-const featuredGuides = getFeaturedGuides(3);
+const featuredGuides = await getFeaturedGuides(3);
 const deadlinePicks = closingSoon.length > 0 ? closingSoon : activeContests.slice(0, 5);
 const categoryCounts = Object.fromEntries(
   publicCategories.map((category) => [

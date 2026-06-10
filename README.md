@@ -124,6 +124,14 @@ npm run notion:sync-slugs
 npm run notion:sync-thumbnails
 ```
 
+サムネイル品質を確認する場合:
+
+```bash
+npm run notion:audit-thumbnails
+```
+
+この監査では、未設定、ロゴやアイコンっぽいURL、fallback画像、Notion一時ファイルURLなどを検出します。検出されたページは、Notionの `サムネイル` に16:9の専用画像URLを入れるとカードの見た目が良くなります。
+
 既存サムネイルも上書きして取り直す場合:
 
 ```bash
@@ -156,7 +164,9 @@ npm run notion:sync-thumbnails -- --force
 
 AI作品を作って応募するまでを支援する読み物は、ブログではなく「ガイド」として扱います。
 
-現在のガイド記事は Notion ではなく、Astro側の `src/data/guides.ts` で管理しています。新しいガイドを追加する場合は、このファイルに以下の情報を追加してください。
+現在のガイド記事は Notion ではなく、Astro Content Collectionで管理しています。新しいガイドを追加する場合は、`src/content/guides/*.md` にMarkdownファイルを追加してください。`src/data/guides.ts` は記事取得と関連ガイド抽出のヘルパーです。
+
+ガイドのURL slugはファイル名で決まります。例えば `src/content/guides/start-ai-contest.md` は `/guides/start-ai-contest` になります。公開後はファイル名を変えるとURLも変わるため、基本的に変更しないでください。
 
 - `title`
 - `slug`
@@ -169,7 +179,6 @@ AI作品を作って応募するまでを支援する読み物は、ブログで
 - `updatedAt`
 - `featured`
 - `learnings`
-- `sections`
 - `checklist`
 - `seoTitle`
 - `seoDescription`
@@ -183,7 +192,7 @@ AI作品を作って応募するまでを支援する読み物は、ブログで
 
 コンテスト詳細ページでは、コンテストのジャンルに応じて関連ガイドを表示します。AI漫画なら漫画ガイドと応募前チェック、AI動画なら動画ガイドと応募前チェックのように、応募前の不安を自然に解消する導線にしています。
 
-将来的にガイド記事が増えたら、`src/content/guides/*.mdx` または Notion側の別DBへ移行できます。
+将来的にガイド記事が増えたら、`src/content/guides/*.mdx` に拡張するか、Notion側にガイド用DBを作ってCMS化できます。
 
 ## 公開前チェックリスト
 

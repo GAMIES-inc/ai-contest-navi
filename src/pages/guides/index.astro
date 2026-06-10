@@ -3,8 +3,11 @@ import GuideCard from "@/components/GuideCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getAllGuides, getGuidesByCategory, guideCategories } from "@/data/guides";
 
-const guides = getAllGuides();
+const guides = await getAllGuides();
 const groupedCategories = guideCategories.filter((category) => category !== "すべて");
+const guidesByCategory = new Map(
+  await Promise.all(groupedCategories.map(async (category) => [category, await getGuidesByCategory(category)] as const)),
+);
 ---
 
 <BaseLayout
@@ -40,7 +43,7 @@ const groupedCategories = guideCategories.filter((category) => category !== "す
 
   {
     groupedCategories.map((category) => {
-      const items = getGuidesByCategory(category);
+      const items = guidesByCategory.get(category) ?? [];
       if (items.length === 0) return null;
       return (
         <section id={category} class="section guide-category-section">

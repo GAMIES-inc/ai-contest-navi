@@ -19,7 +19,7 @@ if (!contest) {
 const fallbackThumbnail = "/images/contest-fallback.png";
 const ogImage = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? fallbackThumbnail : contest.thumbnail;
 const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? fallbackThumbnail : contest.thumbnail;
-const relatedGuides = getGuidesForContestCategories(contest.categories, 3);
+const relatedGuides = await getGuidesForContestCategories(contest.categories, 3);
 ---
 
 <BaseLayout

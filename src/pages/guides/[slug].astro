@@ -5,28 +5,32 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import {
   formatGuideDate,
   getAllGuides,
-  getGuideBySlug,
+  getGuideEntryBySlug,
   getRelatedGuides,
+  normalizeGuide,
 } from "@/data/guides";
 import { getActiveContests } from "@/lib/contests";
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
-  return getAllGuides().map((guide) => ({
+  return (await getAllGuides()).map((guide) => ({
     params: { slug: guide.slug },
   }));
 }
 
-const guide = getGuideBySlug(Astro.params.slug ?? "");
+const guideEntry = await getGuideEntryBySlug(Astro.params.slug ?? "");
 
-if (!guide) {
+if (!guideEntry) {
   return Astro.redirect("/guides");
 }
 
+const guide = normalizeGuide(guideEntry);
+const { Content } = await render(guideEntry);
 const activeContests = await getActiveContests();
 const relatedContests = activeContests
   .filter((contest) => contest.categories.some((category) => guide.relatedContestCategories.includes(category)))
   .slice(0, 3);
-const relatedGuides = getRelatedGuides(guide, 3);
+const relatedGuides = await getRelatedGuides(guide, 3);
 ---
 
 <BaseLayout
@@ -67,19 +71,7 @@ const relatedGuides = getRelatedGuides(guide, 3);
       </div>
 
       <article class="guide-body">
-        {guide.sections.map((section) => (
-          <section>
-            <h2>{section.heading}</h2>
-            <p>{section.body}</p>
-            {
-              section.bullets && (
-                <ul>
-                  {section.bullets.map((item) => <li>{item}</li>)}
-                </ul>
-              )
-            }
-          </section>
-        ))}
+        <Content />
       </article>
 
       <div class="guide-checklist">

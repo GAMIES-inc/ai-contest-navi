@@ -1123,16 +1123,19 @@ h1 {
 
 .category-card::before {
   position: absolute;
+  z-index: 0;
   top: 0;
   left: 0;
-  width: 70px;
-  height: 70px;
+  width: 58px;
+  height: 58px;
   content: "";
-  background: linear-gradient(135deg, var(--category-accent, var(--cyan)) 0 50%, transparent 51%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--category-accent, var(--cyan)) 72%, transparent) 0 50%, transparent 51%);
+  opacity: 0.72;
 }
 
 .category-card::after {
   position: absolute;
+  z-index: 1;
   right: 14px;
   bottom: 14px;
   width: 34px;
@@ -1144,6 +1147,11 @@ h1 {
   display: grid;
   place-items: center;
   font-weight: 900;
+}
+
+.category-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .category-card-cyan {
@@ -1468,24 +1476,28 @@ h1 {
 
 .guide-body {
   display: grid;
-  gap: 24px;
+  gap: 0;
   margin-bottom: 18px;
 }
 
-.guide-body section {
-  border-bottom: 1px solid rgba(136, 205, 255, 0.1);
-  padding-bottom: 22px;
+.guide-body h2 {
+  margin-top: 30px;
 }
 
-.guide-body section:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
+.guide-body h2:first-child {
+  margin-top: 0;
 }
 
 .guide-body p {
   color: #cfe3f2;
   font-size: 1rem;
   line-height: 1.9;
+}
+
+.guide-body p + ul,
+.guide-body ul + h2,
+.guide-body p + h2 {
+  margin-top: 18px;
 }
 
 .guide-checklist {
@@ -2331,6 +2343,10 @@ h1 {
     min-height: 142px;
     border-radius: 14px;
     padding: 13px;
+  }
+
+  .category-card::before {
+    display: none;
   }
 
   .category-icon {

@@ -12,13 +12,15 @@
     "preview": "astro preview",
     "astro": "astro",
     "notion:sync-slugs": "node scripts/sync-notion-slugs.mjs",
+    "notion:audit-thumbnails": "node scripts/audit-notion-thumbnails.mjs",
     "notion:sync-thumbnails": "node scripts/sync-notion-thumbnails.mjs",
     "qa:site": "node scripts/qa-site.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
     "@lucide/astro": "^1.17.0",
-    "astro": "^5.13.8"
+    "astro": "^5.13.8",
+    "sharp": "^0.35.0"
   },
   "devDependencies": {
     "typescript": "^5.9.2"
