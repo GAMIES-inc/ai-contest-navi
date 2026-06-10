@@ -8,7 +8,7 @@ GitHubで新しいリポジトリを作ったら、以下を実行します。
 
 ```bash
 git remote add origin https://github.com/<user>/<repo>.git
-git push -u origin codex/cloudflare-ready
+git push -u origin main
 ```
 
 ## 2. Cloudflare Pages
@@ -19,6 +19,7 @@ Cloudflare PagesでGitHubリポジトリを接続します。
 - Build command: `npm run build`
 - Output directory: `dist`
 - Node version: `20.19.5`
+- Production branch: `main`
 
 環境変数:
 
