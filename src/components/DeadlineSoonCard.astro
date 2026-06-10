@@ -1,0 +1,25 @@
+---
+import type { Contest } from "@/data/contests";
+import { categoryLabels, formatDate, getDaysUntilDeadline } from "@/lib/contests";
+
+type Props = {
+  contest: Contest;
+};
+
+const { contest } = Astro.props;
+const thumbnail = contest.thumbnail || "/brand-thumbnail.svg";
+const days = getDaysUntilDeadline(contest.deadline);
+const primaryCategory = categoryLabels[contest.categories[0]];
+---
+
+<a class="deadline-card" href={`/contests/${contest.slug}`}>
+  <img src={thumbnail} alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/brand-thumbnail.svg';" />
+  <div class="deadline-card-body">
+    <div class="deadline-card-top">
+      <span class="urgency-badge">{days >= 0 ? `あと${days}日` : "終了"}</span>
+      <span class="tag">{primaryCategory}</span>
+    </div>
+    <strong>{contest.title}</strong>
+    <small>{formatDate(contest.deadline)} / {contest.prize}</small>
+  </div>
+</a>

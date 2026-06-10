@@ -1,0 +1,48 @@
+---
+import type { ContestCategory } from "@/data/contests";
+import { categoryLabels } from "@/lib/contests";
+
+type Props = {
+  category: ContestCategory;
+  count?: number;
+};
+
+const { category, count = 0 } = Astro.props;
+
+const meta: Record<string, { description: string; icon: string; tone: string }> = {
+  "ai-image": {
+    description: "画像生成・加工の応募先",
+    icon: "IMG",
+    tone: "cyan",
+  },
+  "ai-video": {
+    description: "AI映像・短編動画の募集",
+    icon: "VID",
+    tone: "blue",
+  },
+  "ai-manga": {
+    description: "漫画・イラスト作品向け",
+    icon: "COM",
+    tone: "green",
+  },
+  "ai-music": {
+    description: "作曲・音声作品を探す",
+    icon: "MUS",
+    tone: "purple",
+  },
+  other: {
+    description: "複合ジャンルや新形式",
+    icon: "AI",
+    tone: "gold",
+  },
+};
+
+const item = meta[category] ?? meta.other;
+---
+
+<a class={`category-card category-card-${item.tone}`} href={`/categories/${category}`}>
+  <span class="category-icon" aria-hidden="true">{item.icon}</span>
+  <strong>{categoryLabels[category]}</strong>
+  <span>{item.description}</span>
+  <small>{count}件募集中</small>
+</a>

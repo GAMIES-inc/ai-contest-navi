@@ -1,14 +1,24 @@
 ---
+import CalendarCta from "@/components/CalendarCta.astro";
 import ContestCard from "@/components/ContestCard.astro";
+import DeadlineSoonCard from "@/components/DeadlineSoonCard.astro";
 import CategoryLinks from "@/components/CategoryLinks.astro";
+import Hero from "@/components/Hero.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { formatDate, getActiveContests, getClosingSoonContests, getFeaturedContests } from "@/lib/contests";
-import { xProfileUrl } from "@/lib/site";
+import type { ContestCategory } from "@/data/contests";
+import { getActiveContests, getClosingSoonContests, getFeaturedContests, publicCategories } from "@/lib/contests";
 
-const featured = await getFeaturedContests(6);
-const closingSoon = await getClosingSoonContests(4);
+const featured = await getFeaturedContests(3);
+const closingSoon = await getClosingSoonContests(5);
 const activeContests = await getActiveContests();
+const deadlinePicks = closingSoon.length > 0 ? closingSoon : activeContests.slice(0, 5);
 const heroContest = featured[0] ?? activeContests[0];
+const categoryCounts = Object.fromEntries(
+  publicCategories.map((category) => [
+    category,
+    activeContests.filter((contest) => contest.categories.includes(category)).length,
+  ]),
+) as Partial<Record<ContestCategory, number>>;
 ---
 
 <BaseLayout
@@ -16,43 +26,9 @@ const heroContest = featured[0] ?? activeContests[0];
   description="AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介します。"
   ogImage="/brand-x-pinned.png"
 >
-  <section class="hero">
-    <div class="site-shell hero-grid">
-      <div>
-        <p class="eyebrow">AI Creative Contest Media</p>
-        <h1>AIコンテストナビ</h1>
-        <p class="lead">AI作品の応募先、ここで見つかる。</p>
-        <p class="lead">AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介します。</p>
-        <div class="hero-actions">
-          <a class="button primary" href="/contests">締切順で見る</a>
-          <a class="button" href="#categories">ジャンルで探す</a>
-          <a class="button gold" href="/calendar">カレンダーで見る</a>
-          <a class="button" href={xProfileUrl} target="_blank" rel="noreferrer">Xで更新を見る</a>
-        </div>
-        <div class="hero-points" aria-label="サイトの特徴">
-          <span>締切順で探せる</span>
-          <span>AI画像・動画・漫画・音楽対応</span>
-          <span>公式情報を確認しながら掲載</span>
-        </div>
-      </div>
-      {
-        heroContest && (
-          <div class="hero-media-stack">
-            <div class="hero-media">
-              <img class="hero-brand-visual" src="/brand-x-pinned.png" alt="AIコンテストナビ AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介" loading="eager" decoding="async" />
-            </div>
-            <a class="hero-feature-link" href={`/contests/${heroContest.slug}`}>
-              <span>注目コンテスト</span>
-              <strong>{heroContest.title}</strong>
-              <small>締切 {formatDate(heroContest.deadline)} / {heroContest.difficulty}</small>
-            </a>
-          </div>
-        )
-      }
-    </div>
-  </section>
+  <Hero contest={heroContest} activeCount={activeContests.length} />
 
-  <section class="section">
+  <section class="section top-section">
     <div class="site-shell">
       <div class="section-head">
         <div>
@@ -61,13 +37,13 @@ const heroContest = featured[0] ?? activeContests[0];
         </div>
         <a class="button" href="/contests">すべて見る</a>
       </div>
-      <div class="grid">
-        {featured.map((contest) => <ContestCard contest={contest} />)}
+      <div class="featured-grid">
+        {featured.map((contest) => <ContestCard contest={contest} variant="featured" />)}
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section top-section">
     <div class="site-shell">
       <div class="section-head">
         <div>
@@ -76,8 +52,8 @@ const heroContest = featured[0] ?? activeContests[0];
         </div>
         <a class="button" href="/calendar">カレンダーを見る</a>
       </div>
-      <div class="grid">
-        {closingSoon.map((contest) => <ContestCard contest={contest} />)}
+      <div class="deadline-rail">
+        {deadlinePicks.map((contest) => <DeadlineSoonCard contest={contest} />)}
       </div>
     </div>
   </section>
@@ -86,22 +62,13 @@ const heroContest = featured[0] ?? activeContests[0];
     <div class="site-shell">
       <div class="section-head">
         <div>
-          <h2 class="section-title">ジャンル別導線</h2>
+          <h2 class="section-title">ジャンル別で探す</h2>
           <p class="section-copy">制作スタイルに合う応募先をジャンルから探せます。</p>
         </div>
       </div>
-      <CategoryLinks />
+      <CategoryLinks counts={categoryCounts} />
     </div>
   </section>
 
-  <section class="section">
-    <div class="site-shell content-panel">
-      <h2 class="section-title">締切カレンダーで見逃しを減らす</h2>
-      <p class="section-copy">応募予定のコンテストを締切順に確認できます。細かい条件を比較したい場合は一覧ページも便利です。</p>
-      <div class="hero-actions">
-        <a class="button primary" href="/calendar">締切カレンダーへ</a>
-        <a class="button" href="/submit">掲載について</a>
-      </div>
-    </div>
-  </section>
+  <CalendarCta />
 </BaseLayout>

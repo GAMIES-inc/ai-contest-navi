@@ -4,9 +4,10 @@ import type { Contest } from "@/data/contests";
 
 type Props = {
   contest: Contest;
+  variant?: "default" | "featured";
 };
 
-const { contest } = Astro.props;
+const { contest, variant = "default" } = Astro.props;
 const statusLabel =
   contest.status === "closing-soon"
     ? "締切間近"
@@ -18,7 +19,7 @@ const statusLabel =
 const thumbnail = contest.thumbnail || "/brand-thumbnail.svg";
 ---
 
-<article class="contest-card">
+<article class={`contest-card ${variant === "featured" ? "contest-card-featured" : ""}`}>
   <a class="contest-thumb" href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
     <img src={thumbnail} alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/brand-thumbnail.svg';" />
     <span class={`status-badge ${contest.status}`}>{statusLabel}</span>
@@ -29,7 +30,7 @@ const thumbnail = contest.thumbnail || "/brand-thumbnail.svg";
       <span class={`mini-status ${contest.status}`}>{statusLabel}</span>
     </div>
     <div class="tags compact">
-      {contest.categories.slice(0, 3).map((category) => <span class="tag">{categoryLabels[category]}</span>)}
+      {contest.categories.slice(0, variant === "featured" ? 2 : 3).map((category) => <span class="tag">{categoryLabels[category]}</span>)}
     </div>
     <h3 class="contest-title">
       <a href={`/contests/${contest.slug}`}>{contest.title}</a>

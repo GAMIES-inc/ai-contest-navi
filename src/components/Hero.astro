@@ -1,0 +1,62 @@
+---
+import type { Contest } from "@/data/contests";
+import { formatDate } from "@/lib/contests";
+import { xProfileUrl } from "@/lib/site";
+
+type Props = {
+  contest?: Contest;
+  activeCount: number;
+};
+
+const { contest, activeCount } = Astro.props;
+---
+
+<section class="home-hero">
+  <div class="site-shell home-hero-grid">
+    <div class="home-hero-copy">
+      <p class="eyebrow">AI Creative Contest Media</p>
+      <h1>AI作品の応募先、<br />ここで見つかる。</h1>
+      <p class="hero-subcopy">締切・賞金・応募方法をひと目でチェック</p>
+      <p class="hero-description">
+        AI画像・動画・漫画・音楽など、生成AIで参加できるコンテストを締切順に整理しています。
+      </p>
+      <div class="home-hero-actions">
+        <a class="button primary hero-cta" href="/contests">
+          <span class="button-icon">〆</span>
+          締切順で見る
+        </a>
+        <a class="button hero-cta" href="#categories">
+          <span class="button-icon">□</span>
+          ジャンルで探す
+        </a>
+        <a class="button gold hero-cta" href="/calendar">
+          <span class="button-icon">日</span>
+          カレンダーで見る
+        </a>
+      </div>
+      <div class="hero-trust-row" aria-label="掲載方針">
+        <span>募集中 {activeCount}件</span>
+        <span>公式情報ベース</span>
+        <a href={xProfileUrl} target="_blank" rel="noreferrer">Xで更新を見る</a>
+      </div>
+    </div>
+
+    <div class="hero-visual-card" aria-label="AI創作コンテストのキービジュアル">
+      <img
+        src="/images/hero-creative.webp"
+        alt="AI創作のクリエイターと画像・動画・漫画・音楽の制作画面"
+        loading="eager"
+        decoding="async"
+      />
+      {
+        contest && (
+          <a class="hero-contest-chip" href={`/contests/${contest.slug}`}>
+            <span>注目コンテスト</span>
+            <strong>{contest.title}</strong>
+            <small>締切 {formatDate(contest.deadline)} / {contest.difficulty}</small>
+          </a>
+        )
+      }
+    </div>
+  </div>
+</section>

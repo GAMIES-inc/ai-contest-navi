@@ -1,14 +1,19 @@
 ---
-import { categoryLabels, publicCategories } from "@/lib/contests";
+import CategoryCard from "@/components/CategoryCard.astro";
+import type { ContestCategory } from "@/data/contests";
+import { publicCategories } from "@/lib/contests";
+
+type Props = {
+  counts?: Partial<Record<ContestCategory, number>>;
+};
+
+const { counts = {} } = Astro.props;
 ---
 
 <div class="category-grid">
   {
     publicCategories.map((category) => (
-      <a class="category-card" href={`/categories/${category}`}>
-        <strong>{categoryLabels[category]}</strong>
-        <span>このジャンルの募集を見る</span>
-      </a>
+      <CategoryCard category={category} count={counts[category] ?? 0} />
     ))
   }
 </div>
