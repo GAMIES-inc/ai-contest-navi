@@ -5,7 +5,7 @@ category: "はじめ方"
 readTime: "8分"
 difficulty: "初心者向け"
 icon: "start"
-coverImage: "/images/guides/start-ai-contest-eyecatch.png"
+coverImage: "/images/guides/start-ai-contest-eyecatch.jpg"
 coverAlt: "AIコンテストの始め方 作品を作る前に知っておきたいこと"
 relatedCategories: ["選び方", "応募前チェック"]
 relatedContestCategories: ["ai-image", "ai-video", "ai-manga", "ai-music"]

@@ -5,7 +5,7 @@ category: "応募前チェック"
 readTime: "7分"
 difficulty: "初心者向け"
 icon: "check"
-coverImage: "/images/guides/work-final-check-eyecatch.png"
+coverImage: "/images/guides/work-final-check-eyecatch.jpg"
 coverAlt: "作品づくりと応募前チェック 仕上げと提出前に見直したいこと"
 relatedCategories: ["はじめ方", "応募前チェック"]
 relatedContestCategories: ["ai-image", "ai-video", "ai-manga", "ai-music", "other"]

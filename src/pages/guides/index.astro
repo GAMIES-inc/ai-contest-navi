@@ -4,7 +4,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getAllGuides, getGuidesByCategory, guideCategories } from "@/data/guides";
 
 const guides = await getAllGuides();
-const groupedCategories = guideCategories.filter((category) => category !== "すべて");
+const groupedCategories = guideCategories.filter(
+  (category) => category !== "すべて" && guides.some((guide) => guide.category === category),
+);
 const guidesByCategory = new Map(
   await Promise.all(groupedCategories.map(async (category) => [category, await getGuidesByCategory(category)] as const)),
 );

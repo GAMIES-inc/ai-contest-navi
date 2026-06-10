@@ -17,12 +17,23 @@ const statusLabel =
         ? "終了"
         : "掲載中";
 const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? "/images/contest-fallback.png" : contest.thumbnail;
+const isFallbackThumbnail = thumbnail === "/images/contest-fallback.png";
 ---
 
 <article class={`contest-card ${variant === "featured" ? "contest-card-featured" : ""}`}>
-  <a class="contest-thumb" href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
-    <img src={thumbnail} alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/images/contest-fallback.png';" />
+  <a class={`contest-thumb ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
+    <img
+      src={thumbnail}
+      alt=""
+      loading="lazy"
+      decoding="async"
+      onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.contest-thumb')?.classList.add('is-fallback');"
+    />
     <span class={`status-badge ${contest.status}`}>{statusLabel}</span>
+    <span class="fallback-thumb-label" aria-hidden="true">
+      <span>AI CONTEST NAVI</span>
+      <strong>公式画像確認中</strong>
+    </span>
   </a>
   <div class="contest-body">
     <div class="card-topline">
@@ -38,7 +49,7 @@ const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.
     <p class="contest-description">{contest.description}</p>
     <div class="card-facts" aria-label="コンテストの主要情報">
       <div class="card-fact">
-        <span>賞金/賞品</span>
+        <span>賞金・賞品</span>
         <strong>{contest.prize}</strong>
       </div>
       <div class="card-fact">

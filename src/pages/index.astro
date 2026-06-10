@@ -7,13 +7,13 @@ import GuideCard from "@/components/GuideCard.astro";
 import Hero from "@/components/Hero.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { ContestCategory } from "@/data/contests";
-import { getFeaturedGuides } from "@/data/guides";
+import { getAllGuides } from "@/data/guides";
 import { getActiveContests, getClosingSoonContests, getFeaturedContests, publicCategories } from "@/lib/contests";
 
 const featured = await getFeaturedContests(3);
 const closingSoon = await getClosingSoonContests(5);
 const activeContests = await getActiveContests();
-const featuredGuides = await getFeaturedGuides(3);
+const featuredGuides = (await getAllGuides()).slice(0, 3);
 const deadlinePicks = closingSoon.length > 0 ? closingSoon : activeContests.slice(0, 5);
 const categoryCounts = Object.fromEntries(
   publicCategories.map((category) => [

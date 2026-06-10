@@ -8,12 +8,25 @@ type Props = {
 
 const { contest } = Astro.props;
 const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? "/images/contest-fallback.png" : contest.thumbnail;
+const isFallbackThumbnail = thumbnail === "/images/contest-fallback.png";
 const days = getDaysUntilDeadline(contest.deadline);
 const primaryCategory = categoryLabels[contest.categories[0]];
 ---
 
-<a class="deadline-card" href={`/contests/${contest.slug}`}>
-  <img src={thumbnail} alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/images/contest-fallback.png';" />
+<a class={`deadline-card ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`}>
+  <span class="deadline-thumb">
+    <img
+      src={thumbnail}
+      alt=""
+      loading="lazy"
+      decoding="async"
+      onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.deadline-card')?.classList.add('is-fallback');"
+    />
+    <span class="fallback-thumb-label" aria-hidden="true">
+      <span>AI CONTEST NAVI</span>
+      <strong>公式画像確認中</strong>
+    </span>
+  </span>
   <div class="deadline-card-body">
     <div class="deadline-card-top">
       <span class="urgency-badge">{days >= 0 ? `あと${days}日` : "終了"}</span>

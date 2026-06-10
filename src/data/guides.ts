@@ -33,10 +33,6 @@ const guideOrder = [
   "start-ai-contest",
   "how-to-read-contest-guidelines",
   "ai-contest-work-final-check",
-  "how-to-make-ai-video",
-  "how-to-make-ai-manga",
-  "ai-contest-checklist",
-  "how-to-choose-beginner-contest",
 ];
 
 export async function getAllGuides(): Promise<Guide[]> {
@@ -78,14 +74,16 @@ export async function getGuidesForContestCategories(categories: ContestCategory[
       guide,
       score: guide.relatedContestCategories.filter((category) => categories.includes(category)).length,
     }))
-    .filter((item) => item.score > 0 || item.guide.slug === "ai-contest-checklist")
+    .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score);
 
   const unique = new Map<string, Guide>();
   for (const item of scored) unique.set(item.guide.slug, item.guide);
 
-  const checklist = guides.find((guide) => guide.slug === "ai-contest-checklist");
-  if (checklist) unique.set("ai-contest-checklist", checklist);
+  for (const guide of guides) {
+    if (unique.size >= limit) break;
+    unique.set(guide.slug, guide);
+  }
 
   return Array.from(unique.values()).slice(0, limit);
 }
