@@ -6,6 +6,7 @@ dist/
 !.env.example
 npm-debug.log*
 .astro-dev*.log
+.astro-preview*.log
 .preview.*.log
 .DS_Store
 
