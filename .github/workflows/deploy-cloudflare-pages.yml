@@ -38,7 +38,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name ai-contest-navi --branch main
+          command: pages deploy dist --project-name ai-contest-navi --branch codex/cloudflare-ready
 
       - name: Verify live site
         if: ${{ env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}

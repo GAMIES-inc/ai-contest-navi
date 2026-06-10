@@ -22,6 +22,7 @@ npm run build
 - 現在は GitHub Actions から Cloudflare Pages へデプロイします
 - `main` ブランチへpushすると `.github/workflows/deploy-cloudflare-pages.yml` が動きます
 - Direct Uploadで作成したPagesプロジェクトでも、この構成ならGitHub更新ごとに自動デプロイできます
+- このPagesプロジェクトは作成時のproduction branchが `codex/cloudflare-ready` のため、Actionsでは `main` の内容をビルドしたうえで `codex/cloudflare-ready` ブランチ扱いでPagesへアップロードします
 - 公開URL: `https://ai-contest-navi.pages.dev/`
 
 Cloudflare Pages側の設定値:
