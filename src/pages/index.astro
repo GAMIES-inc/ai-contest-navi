@@ -3,14 +3,17 @@ import CalendarCta from "@/components/CalendarCta.astro";
 import ContestCard from "@/components/ContestCard.astro";
 import DeadlineSoonCard from "@/components/DeadlineSoonCard.astro";
 import CategoryLinks from "@/components/CategoryLinks.astro";
+import GuideCard from "@/components/GuideCard.astro";
 import Hero from "@/components/Hero.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { ContestCategory } from "@/data/contests";
+import { getFeaturedGuides } from "@/data/guides";
 import { getActiveContests, getClosingSoonContests, getFeaturedContests, publicCategories } from "@/lib/contests";
 
 const featured = await getFeaturedContests(3);
 const closingSoon = await getClosingSoonContests(5);
 const activeContests = await getActiveContests();
+const featuredGuides = getFeaturedGuides(3);
 const deadlinePicks = closingSoon.length > 0 ? closingSoon : activeContests.slice(0, 5);
 const categoryCounts = Object.fromEntries(
   publicCategories.map((category) => [
@@ -66,6 +69,21 @@ const categoryCounts = Object.fromEntries(
         </div>
       </div>
       <CategoryLinks counts={categoryCounts} />
+    </div>
+  </section>
+
+  <section class="section guide-strip-section">
+    <div class="site-shell">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">応募前に読んでおきたいガイド</h2>
+          <p class="section-copy">AI作品を作るところから、応募前のチェックまで。</p>
+        </div>
+        <a class="button" href="/guides">ガイドをもっと見る</a>
+      </div>
+      <div class="guide-grid guide-grid-home">
+        {featuredGuides.map((guide) => <GuideCard guide={guide} compact />)}
+      </div>
     </div>
   </section>
 

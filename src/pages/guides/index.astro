@@ -1,0 +1,75 @@
+---
+import GuideCard from "@/components/GuideCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getAllGuides, getGuidesByCategory, guideCategories } from "@/data/guides";
+
+const guides = getAllGuides();
+const groupedCategories = guideCategories.filter((category) => category !== "すべて");
+---
+
+<BaseLayout
+  title="AIコンテスト応募ガイド"
+  description="AI作品を作って、応募して、チャンスにつなげるための実用ガイド。"
+  canonical={new URL("/guides", Astro.site).toString()}
+  ogImage="/og-default.svg"
+>
+  <section class="page-hero guide-page-hero">
+    <div class="site-shell">
+      <p class="eyebrow">Guides</p>
+      <h1>AIコンテスト応募ガイド</h1>
+      <p class="lead">AI作品を作って、応募して、チャンスにつなげるための実用ガイド。</p>
+      <div class="hero-actions">
+        <a class="button primary" href="/contests">コンテスト一覧へ</a>
+        <a class="button" href="/calendar">締切カレンダーへ</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell">
+      <div class="guide-filter-row" aria-label="ガイドカテゴリ">
+        <a href="#all">すべて</a>
+        {groupedCategories.map((category) => <a href={`#${category}`}>{category}</a>)}
+      </div>
+
+      <div id="all" class="guide-grid guide-grid-list">
+        {guides.map((guide) => <GuideCard guide={guide} />)}
+      </div>
+    </div>
+  </section>
+
+  {
+    groupedCategories.map((category) => {
+      const items = getGuidesByCategory(category);
+      if (items.length === 0) return null;
+      return (
+        <section id={category} class="section guide-category-section">
+          <div class="site-shell">
+            <div class="section-head">
+              <div>
+                <h2 class="section-title">{category}</h2>
+                <p class="section-copy">目的に近いガイドから読み始められます。</p>
+              </div>
+            </div>
+            <div class="guide-grid guide-grid-list">
+              {items.map((guide) => <GuideCard guide={guide} compact />)}
+            </div>
+          </div>
+        </section>
+      );
+    })
+  }
+
+  <section class="section">
+    <div class="site-shell">
+      <div class="guide-bottom-cta">
+        <div>
+          <p class="eyebrow">Find Contest</p>
+          <h2>参加できるAIコンテストを探す</h2>
+          <p>作りたい作品形式が決まったら、締切順やジャンル別で応募先を探してみましょう。</p>
+        </div>
+        <a class="button primary" href="/contests">コンテスト一覧を見る</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

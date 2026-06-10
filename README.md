@@ -152,12 +152,47 @@ npm run notion:sync-thumbnails -- --force
 
 終了済みコンテストは `/archive` に表示されます。Notion側で `終了` にしたコンテストも、要手動確認でなければアーカイブ対象になります。
 
+## ガイド記事
+
+AI作品を作って応募するまでを支援する読み物は、ブログではなく「ガイド」として扱います。
+
+現在のガイド記事は Notion ではなく、Astro側の `src/data/guides.ts` で管理しています。新しいガイドを追加する場合は、このファイルに以下の情報を追加してください。
+
+- `title`
+- `slug`
+- `description`
+- `category`
+- `readTime`
+- `difficulty`
+- `relatedContestCategories`
+- `publishedAt`
+- `updatedAt`
+- `featured`
+- `learnings`
+- `sections`
+- `checklist`
+- `seoTitle`
+- `seoDescription`
+
+追加されるルート:
+
+- `/guides`
+- `/guides/[slug]`
+
+トップページでは、`featured: true` のガイドから3件だけを「応募前に読んでおきたいガイド」として表示します。トップページの主役はコンテスト検索なので、ガイドはジャンル導線の下、締切カレンダーCTAの上に補助導線として配置しています。
+
+コンテスト詳細ページでは、コンテストのジャンルに応じて関連ガイドを表示します。AI漫画なら漫画ガイドと応募前チェック、AI動画なら動画ガイドと応募前チェックのように、応募前の不安を自然に解消する導線にしています。
+
+将来的にガイド記事が増えたら、`src/content/guides/*.mdx` または Notion側の別DBへ移行できます。
+
 ## 公開前チェックリスト
 
 - `npm run build` が成功する
 - `/` が表示される
 - `/contests` が表示される
 - `/archive` が表示される
+- `/guides` が表示される
+- `/guides/start-ai-contest` など主要ガイド詳細が表示される
 - 主要な詳細ページが表示される
 - `/categories/ai-image`、`/categories/ai-video`、`/categories/ai-manga`、`/categories/ai-music`、`/categories/other` が表示される
 - `/calendar` が表示される

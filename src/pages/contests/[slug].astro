@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import GuideCard from "@/components/GuideCard.astro";
+import { getGuidesForContestCategories } from "@/data/guides";
 import { categoryLabels, formatDate, getAllContests, getContestBySlug } from "@/lib/contests";
 
 export async function getStaticPaths() {
@@ -17,6 +19,7 @@ if (!contest) {
 const fallbackThumbnail = "/images/contest-fallback.png";
 const ogImage = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? fallbackThumbnail : contest.thumbnail;
 const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? fallbackThumbnail : contest.thumbnail;
+const relatedGuides = getGuidesForContestCategories(contest.categories, 3);
 ---
 
 <BaseLayout
@@ -63,36 +66,58 @@ const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.
     </div>
   </section>
 
+  <section class="section contest-detail-main">
+    <div class="site-shell contest-article-layout">
+      <article class="contest-article-panel">
+        <p class="eyebrow">Contest Guide</p>
+        <h2>このコンテストについて</h2>
+        <p>{contest.description}</p>
+        <p>制作中のAI作品を応募先につなげたい人、締切を決めて作品を完成させたい人に向いています。</p>
+
+        <div class="article-divider"></div>
+
+        <h2>参加者向けポイント</h2>
+        <ul class="article-point-list">
+          <li>締切、ジャンル、賞金・賞品を先に確認して、制作スケジュールに合うか判断できます。</li>
+          <li>応募形式とAI使用条件を見て、手元の作品をそのまま応募できるか整理できます。</li>
+          <li>詳細な規約や権利条件は、応募直前に公式ページで再確認すると安心です。</li>
+        </ul>
+
+        <div class="article-divider"></div>
+
+        <h2>注意したいポイント</h2>
+        <p>{contest.rightsNote}</p>
+        <p>掲載情報は要約です。応募前には必ず公式ページで最新の募集要項を確認してください。</p>
+        <p><a class="button primary" href={contest.officialUrl} target="_blank" rel="noreferrer">公式ページで確認する</a></p>
+      </article>
+
+      <aside class="contest-side-panel" aria-label="応募前に見ること">
+        <h2>応募前に見ること</h2>
+        <div class="info-grid">
+          <div class="info-box"><span>締切日</span><strong>{formatDate(contest.deadline)}</strong></div>
+          <div class="info-box"><span>応募形式</span><strong>{contest.applicationMethod}</strong></div>
+          <div class="info-box"><span>賞金・賞品</span><strong>{contest.prize}</strong></div>
+          <div class="info-box"><span>AI使用条件</span><strong>{contest.aiUsage}</strong></div>
+          <div class="info-box"><span>参加しやすさ</span><strong>{contest.difficulty}</strong></div>
+          <div class="info-box"><span>権利まわり</span><strong>{contest.rightsNote}</strong></div>
+          <div class="info-box info-box-wide"><span>公式ページ</span><strong><a href={contest.officialUrl} target="_blank" rel="noreferrer">{contest.officialUrl}</a></strong></div>
+        </div>
+        <p class="notice-box">応募前に必ず公式ページで、締切・提出形式・AI利用条件・著作権や二次利用条件をご確認ください。</p>
+      </aside>
+    </div>
+  </section>
   <section class="section">
-    <div class="site-shell content-panel">
-      <h2>応募前に見ること</h2>
-      <div class="info-grid">
-        <div class="info-box"><span>締切日</span><strong>{formatDate(contest.deadline)}</strong></div>
-        <div class="info-box"><span>応募形式</span><strong>{contest.applicationMethod}</strong></div>
-        <div class="info-box"><span>賞金・賞品</span><strong>{contest.prize}</strong></div>
-        <div class="info-box"><span>AI使用条件</span><strong>{contest.aiUsage}</strong></div>
-        <div class="info-box"><span>参加しやすさ</span><strong>{contest.difficulty}</strong></div>
-        <div class="info-box"><span>権利まわり</span><strong>{contest.rightsNote}</strong></div>
-        <div class="info-box info-box-wide"><span>公式ページ</span><strong><a href={contest.officialUrl} target="_blank" rel="noreferrer">{contest.officialUrl}</a></strong></div>
+    <div class="site-shell">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">応募前に役立つガイド</h2>
+          <p class="section-copy">作り方や応募前チェックを確認してから、安心して応募へ進めます。</p>
+        </div>
+        <a class="button" href="/guides">ガイド一覧へ</a>
       </div>
-      <p class="notice-box">掲載情報は要約です。応募前に必ず公式ページで、締切・提出形式・AI利用条件・著作権や二次利用条件をご確認ください。</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="site-shell content-panel">
-      <h2>このコンテストの見どころ</h2>
-      <p>{contest.description}</p>
-      <p>制作中のAI作品を応募先につなげたい人、締切を決めて作品を完成させたい人に向いています。</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="site-shell content-panel">
-      <h2>注意したいポイント</h2>
-      <p>{contest.rightsNote}</p>
-      <p>掲載情報は要約です。応募前には必ず公式ページで最新の募集要項を確認してください。</p>
-      <p><a class="button" href={contest.officialUrl} target="_blank" rel="noreferrer">公式ページ</a></p>
+      <div class="guide-grid guide-grid-home">
+        {relatedGuides.map((guide) => <GuideCard guide={guide} compact />)}
+      </div>
     </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,45 @@
+---
+import type { Guide } from "@/data/guides";
+import BookOpen from "@lucide/astro/icons/book-open";
+import CheckCheck from "@lucide/astro/icons/check-check";
+import Clock3 from "@lucide/astro/icons/clock-3";
+import Film from "@lucide/astro/icons/film";
+import Images from "@lucide/astro/icons/images";
+import PenLine from "@lucide/astro/icons/pen-line";
+import Route from "@lucide/astro/icons/route";
+import Sparkles from "@lucide/astro/icons/sparkles";
+
+type Props = {
+  guide: Guide;
+  compact?: boolean;
+};
+
+const { guide, compact = false } = Astro.props;
+
+const iconMap = {
+  start: Route,
+  video: Film,
+  manga: BookOpen,
+  check: CheckCheck,
+  choose: Sparkles,
+  image: Images,
+  column: PenLine,
+};
+
+const Icon = iconMap[guide.icon as keyof typeof iconMap] ?? BookOpen;
+---
+
+<article class={`guide-card ${compact ? "guide-card-compact" : ""}`}>
+  <a class="guide-card-link" href={`/guides/${guide.slug}`} aria-label={`${guide.title}を読む`}>
+    <span class="guide-icon" aria-hidden="true"><Icon size={30} stroke-width={1.9} /></span>
+    <span class="guide-category">{guide.category}</span>
+    <h3>{guide.title}</h3>
+    <p>{guide.description}</p>
+    <span class="guide-benefit">{guide.learnings[0]}</span>
+    <span class="guide-meta-row">
+      <span><Clock3 size={15} stroke-width={2} />{guide.readTime}</span>
+      <span>{guide.difficulty}</span>
+    </span>
+    <span class="guide-button">ガイドを見る</span>
+  </a>
+</article>

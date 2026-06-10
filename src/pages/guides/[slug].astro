@@ -1,0 +1,137 @@
+---
+import ContestCard from "@/components/ContestCard.astro";
+import GuideCard from "@/components/GuideCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import {
+  formatGuideDate,
+  getAllGuides,
+  getGuideBySlug,
+  getRelatedGuides,
+} from "@/data/guides";
+import { getActiveContests } from "@/lib/contests";
+
+export async function getStaticPaths() {
+  return getAllGuides().map((guide) => ({
+    params: { slug: guide.slug },
+  }));
+}
+
+const guide = getGuideBySlug(Astro.params.slug ?? "");
+
+if (!guide) {
+  return Astro.redirect("/guides");
+}
+
+const activeContests = await getActiveContests();
+const relatedContests = activeContests
+  .filter((contest) => contest.categories.some((category) => guide.relatedContestCategories.includes(category)))
+  .slice(0, 3);
+const relatedGuides = getRelatedGuides(guide, 3);
+---
+
+<BaseLayout
+  title={guide.seoTitle}
+  description={guide.seoDescription}
+  canonical={new URL(`/guides/${guide.slug}`, Astro.site).toString()}
+  ogImage="/og-default.svg"
+>
+  <section class="page-hero guide-article-hero">
+    <div class="site-shell guide-article-shell">
+      <nav class="breadcrumb" aria-label="パンくず">
+        <a href="/">ホーム</a>
+        <span>/</span>
+        <a href="/guides">ガイド</a>
+        <span>/</span>
+        <span>{guide.title}</span>
+      </nav>
+      <div class="guide-article-header">
+        <span class="guide-category">{guide.category}</span>
+        <h1>{guide.title}</h1>
+        <p class="lead">{guide.description}</p>
+        <div class="guide-article-meta">
+          <span>読む時間 {guide.readTime}</span>
+          <span>{guide.difficulty}</span>
+          <span>更新日 {formatGuideDate(guide.updatedAt)}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell guide-article-shell">
+      <div class="guide-learnings">
+        <h2>この記事でわかること</h2>
+        <ul>
+          {guide.learnings.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <article class="guide-body">
+        {guide.sections.map((section) => (
+          <section>
+            <h2>{section.heading}</h2>
+            <p>{section.body}</p>
+            {
+              section.bullets && (
+                <ul>
+                  {section.bullets.map((item) => <li>{item}</li>)}
+                </ul>
+              )
+            }
+          </section>
+        ))}
+      </article>
+
+      <div class="guide-checklist">
+        <h2>応募前チェックリスト</h2>
+        <div>
+          {guide.checklist.map((item) => (
+            <span>{item}</span>
+          ))}
+        </div>
+      </div>
+
+      <p class="notice-box">
+        応募条件や権利の扱いはコンテストごとに異なります。応募前には必ず公式ページの募集要項をご確認ください。
+      </p>
+    </div>
+  </section>
+
+  {
+    relatedContests.length > 0 && (
+      <section class="section">
+        <div class="site-shell">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">関連コンテスト</h2>
+              <p class="section-copy">このガイドと一緒に見ておきたい応募先です。</p>
+            </div>
+            <a class="button" href="/contests">一覧を見る</a>
+          </div>
+          <div class="grid guide-related-contests">
+            {relatedContests.map((contest) => <ContestCard contest={contest} />)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    relatedGuides.length > 0 && (
+      <section class="section">
+        <div class="site-shell">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">関連ガイド</h2>
+              <p class="section-copy">応募前に続けて読んでおくと安心です。</p>
+            </div>
+            <a class="button" href="/guides">ガイド一覧へ</a>
+          </div>
+          <div class="guide-grid guide-grid-home">
+            {relatedGuides.map((item) => <GuideCard guide={item} compact />)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
