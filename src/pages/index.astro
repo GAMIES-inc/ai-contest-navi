@@ -37,8 +37,10 @@ const heroContest = featured[0] ?? activeContests[0];
       </div>
       {
         heroContest && (
-          <div class="hero-media">
-            <img class="hero-brand-visual" src="/brand-x-pinned.png" alt="AIコンテストナビ AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介" loading="eager" decoding="async" />
+          <div class="hero-media-stack">
+            <div class="hero-media">
+              <img class="hero-brand-visual" src="/brand-x-pinned.png" alt="AIコンテストナビ AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介" loading="eager" decoding="async" />
+            </div>
             <a class="hero-feature-link" href={`/contests/${heroContest.slug}`}>
               <span>注目コンテスト</span>
               <strong>{heroContest.title}</strong>
