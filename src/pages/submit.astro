@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { xProfileUrl } from "@/lib/site";
 ---
 
 <BaseLayout title="掲載について" description="AIコンテストナビへの掲載方針と、掲載依頼についての案内です。">
@@ -21,6 +22,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       <p>PR掲載がある場合は、掲載区分としてPRであることが分かるように表示します。</p>
       <h2>将来の掲載依頼フロー</h2>
       <p>現在はMVPのため、掲載依頼フォームは準備中です。今後、Notion DBまたはフォームから掲載候補を受け付ける設計にできます。</p>
+      <p><a class="button primary" href={xProfileUrl} target="_blank" rel="noreferrer">XでAIコンテストナビを見る</a></p>
     </div>
   </section>
 </BaseLayout>

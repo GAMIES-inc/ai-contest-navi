@@ -3,6 +3,7 @@ import ContestCard from "@/components/ContestCard.astro";
 import CategoryLinks from "@/components/CategoryLinks.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { formatDate, getActiveContests, getClosingSoonContests, getFeaturedContests } from "@/lib/contests";
+import { xProfileUrl } from "@/lib/site";
 
 const featured = await getFeaturedContests(6);
 const closingSoon = await getClosingSoonContests(4);
@@ -13,7 +14,7 @@ const heroContest = featured[0] ?? activeContests[0];
 <BaseLayout
   title="AIコンテストナビ"
   description="AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介します。"
-  ogImage="/og-home.svg"
+  ogImage="/brand-x-pinned.png"
 >
   <section class="hero">
     <div class="site-shell hero-grid">
@@ -26,6 +27,7 @@ const heroContest = featured[0] ?? activeContests[0];
           <a class="button primary" href="/contests">締切順で見る</a>
           <a class="button" href="#categories">ジャンルで探す</a>
           <a class="button gold" href="/calendar">カレンダーで見る</a>
+          <a class="button" href={xProfileUrl} target="_blank" rel="noreferrer">Xで更新を見る</a>
         </div>
         <div class="hero-points" aria-label="サイトの特徴">
           <span>締切順で探せる</span>
@@ -35,16 +37,14 @@ const heroContest = featured[0] ?? activeContests[0];
       </div>
       {
         heroContest && (
-          <a class="hero-card" href={`/contests/${heroContest.slug}`}>
-            <img src={heroContest.thumbnail || "/brand-thumbnail.svg"} alt="" loading="eager" decoding="async" onerror="this.onerror=null;this.src='/brand-thumbnail.svg';" />
-            <div class="hero-card-body">
-              <div class="hero-card-title">{heroContest.title}</div>
-              <div class="hero-card-meta">
-                <span class="pill">締切 {formatDate(heroContest.deadline)}</span>
-                <span class="pill">{heroContest.difficulty}</span>
-              </div>
-            </div>
-          </a>
+          <div class="hero-media">
+            <img class="hero-brand-visual" src="/brand-x-pinned.png" alt="AIコンテストナビ AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介" loading="eager" decoding="async" />
+            <a class="hero-feature-link" href={`/contests/${heroContest.slug}`}>
+              <span>注目コンテスト</span>
+              <strong>{heroContest.title}</strong>
+              <small>締切 {formatDate(heroContest.deadline)} / {heroContest.difficulty}</small>
+            </a>
+          </div>
         )
       }
     </div>
