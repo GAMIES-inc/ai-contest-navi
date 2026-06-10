@@ -42,7 +42,7 @@ console.log(`QA target: ${baseUrl}`);
 
 for (const route of routes) {
   const url = new URL(route, baseUrl).toString();
-  const response = await fetch(url, { redirect: "manual" });
+  const response = await fetch(url, { redirect: "follow" });
   const html = await response.text();
 
   assert(response.status === 200, `${route} returned ${response.status}`);
