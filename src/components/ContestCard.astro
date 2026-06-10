@@ -15,11 +15,12 @@ const statusLabel =
       : contest.status === "ended"
         ? "終了"
         : "掲載中";
+const thumbnail = contest.thumbnail || "/brand-thumbnail.svg";
 ---
 
 <article class="contest-card">
   <a class="contest-thumb" href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
-    <img src={contest.thumbnail} alt="" loading="lazy" />
+    <img src={thumbnail} alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/brand-thumbnail.svg';" />
     <span class={`status-badge ${contest.status}`}>{statusLabel}</span>
   </a>
   <div class="contest-body">
@@ -34,18 +35,18 @@ const statusLabel =
       <a href={`/contests/${contest.slug}`}>{contest.title}</a>
     </h3>
     <p class="contest-description">{contest.description}</p>
-    <div class="details">
-      <div class="detail-row">
-        <span class="detail-label">賞金/賞品</span>
-        <span>{contest.prize}</span>
+    <div class="card-facts" aria-label="コンテストの主要情報">
+      <div class="card-fact">
+        <span>賞金/賞品</span>
+        <strong>{contest.prize}</strong>
       </div>
-      <div class="detail-row">
-        <span class="detail-label">応募形式</span>
-        <span>{contest.applicationMethod}</span>
+      <div class="card-fact">
+        <span>応募形式</span>
+        <strong>{contest.applicationMethod}</strong>
       </div>
-      <div class="detail-row">
-        <span class="detail-label">参加目安</span>
-        <span>{contest.difficulty}</span>
+      <div class="card-fact">
+        <span>参加目安</span>
+        <strong>{contest.difficulty}</strong>
       </div>
     </div>
     <div class="card-actions">

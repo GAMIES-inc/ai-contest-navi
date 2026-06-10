@@ -27,11 +27,16 @@ const heroContest = featured[0] ?? activeContests[0];
           <a class="button" href="#categories">ジャンルで探す</a>
           <a class="button gold" href="/calendar">カレンダーで見る</a>
         </div>
+        <div class="hero-points" aria-label="サイトの特徴">
+          <span>締切順で探せる</span>
+          <span>AI画像・動画・漫画・音楽対応</span>
+          <span>公式情報を確認しながら掲載</span>
+        </div>
       </div>
       {
         heroContest && (
           <a class="hero-card" href={`/contests/${heroContest.slug}`}>
-            <img src={heroContest.thumbnail} alt="" />
+            <img src={heroContest.thumbnail || "/brand-thumbnail.svg"} alt="" loading="eager" decoding="async" onerror="this.onerror=null;this.src='/brand-thumbnail.svg';" />
             <div class="hero-card-body">
               <div class="hero-card-title">{heroContest.title}</div>
               <div class="hero-card-meta">

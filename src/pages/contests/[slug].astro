@@ -15,6 +15,7 @@ if (!contest) {
 }
 
 const ogImage = contest.thumbnail === "/brand-thumbnail.svg" ? "/og-contest.svg" : contest.thumbnail;
+const thumbnail = contest.thumbnail || "/brand-thumbnail.svg";
 ---
 
 <BaseLayout
@@ -32,13 +33,31 @@ const ogImage = contest.thumbnail === "/brand-thumbnail.svg" ? "/og-contest.svg"
         <div class="tags">
           {contest.categories.map((category) => <span class="tag">{categoryLabels[category]}</span>)}
         </div>
+        <div class="detail-summary" aria-label="コンテストの要点">
+          <div>
+            <span>締切</span>
+            <strong>{formatDate(contest.deadline)}</strong>
+          </div>
+          <div>
+            <span>応募形式</span>
+            <strong>{contest.applicationMethod}</strong>
+          </div>
+          <div>
+            <span>賞金・賞品</span>
+            <strong>{contest.prize}</strong>
+          </div>
+          <div>
+            <span>AI条件</span>
+            <strong>{contest.aiUsage}</strong>
+          </div>
+        </div>
         <div class="hero-actions">
           <a class="button primary" href={contest.officialUrl} target="_blank" rel="noreferrer">公式サイトを見る</a>
           <a class="button" href="/contests">一覧に戻る</a>
         </div>
       </div>
       <div class="detail-image">
-        <img src={contest.thumbnail} alt="" />
+        <img src={thumbnail} alt="" loading="eager" decoding="async" onerror="this.onerror=null;this.src='/brand-thumbnail.svg';" />
       </div>
     </div>
   </section>
@@ -53,6 +72,7 @@ const ogImage = contest.thumbnail === "/brand-thumbnail.svg" ? "/og-contest.svg"
         <div class="info-box"><span>AI使用条件</span><strong>{contest.aiUsage}</strong></div>
         <div class="info-box"><span>参加しやすさ</span><strong>{contest.difficulty}</strong></div>
         <div class="info-box"><span>権利まわり</span><strong>{contest.rightsNote}</strong></div>
+        <div class="info-box info-box-wide"><span>公式ページ</span><strong><a href={contest.officialUrl} target="_blank" rel="noreferrer">{contest.officialUrl}</a></strong></div>
       </div>
       <p class="notice-box">掲載情報は要約です。応募前に必ず公式ページで、締切・提出形式・AI利用条件・著作権や二次利用条件をご確認ください。</p>
     </div>

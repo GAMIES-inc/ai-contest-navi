@@ -19,9 +19,17 @@ npm run build
 
 ## Cloudflare Pages
 
+- 現在は GitHub Actions から Cloudflare Pages へデプロイします
+- `main` ブランチへpushすると `.github/workflows/deploy-cloudflare-pages.yml` が動きます
+- Direct Uploadで作成したPagesプロジェクトでも、この構成ならGitHub更新ごとに自動デプロイできます
+- 公開URL: `https://ai-contest-navi.pages.dev/`
+
+Cloudflare Pages側の設定値:
+
 - Framework preset: `Astro`
 - Build command: `npm run build`
 - Output directory: `dist`
+- Production branch: `main`
 - Node.js version: `20.19.5`
 - Wrangler config: `wrangler.toml`
 
@@ -31,6 +39,14 @@ npm run build
 - `NOTION_TOKEN`: Notion API連携用
 - `NOTION_DATABASE_ID`: Notion DB連携用
 - `NODE_VERSION`: `20.19.5`
+
+GitHub ActionsのSecrets:
+
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
+- `SITE_URL`
+- `NOTION_TOKEN`
+- `NOTION_DATABASE_ID`
 
 サイトマップ:
 
@@ -91,6 +107,7 @@ Notion DB側で想定している主なプロパティ:
 - 自動生成時はビルドログに警告を出します
 - slugは英小文字、数字、ハイフンで管理してください
 - 公開後にslugを変えるとURLが変わるため、基本的に変更しないでください
+- 例: `first-ai-manga-contest`、`aaiff-2026`
 
 データ取得処理は `src/lib/notion.ts`、サイト側で使う取得関数は `src/lib/contests.ts` に分離しています。
 
@@ -121,7 +138,13 @@ npm run notion:sync-thumbnails -- --force
 5. 可能なら `サムネイル` に画像URLまたはファイルを入れる
 6. `npm run build` で生成ページを確認する
 
-サムネイルが未入力の場合は `/brand-thumbnail.svg` を表示します。
+サムネイル推奨:
+
+- 比率: 16:9
+- 推奨サイズ: 1200 x 675px 以上
+- 形式: JPG / PNG / WebP / Notionのファイル / 外部画像URL
+- 未入力または画像読み込み失敗時は `/brand-thumbnail.svg` を表示します
+- 詳細ページのOGPは、サムネイルがある場合はその画像、ない場合は `/og-contest.svg` を使います
 
 締切日を過ぎたコンテストは、Notion側のステータスが `募集中` のままでも、サイト表示上は自動で `終了` 扱いになります。トップページ、一覧、カテゴリ、カレンダーには表示されません。
 
@@ -147,14 +170,12 @@ npm run notion:sync-thumbnails -- --force
 
 ## GitHub / Deploy準備
 
-GitHubに初回pushする例:
+通常の更新フロー:
 
 ```bash
 git add .
-git commit -m "Build AI contest navi site"
-git branch -M main
-git remote add origin https://github.com/<user>/<repo>.git
-git push -u origin main
+git commit -m "Update site"
+git push origin main
 ```
 
-Cloudflare Pagesでは、GitHubリポジトリを接続して上記のBuild command / Output directory / 環境変数を設定してください。
+push後、GitHub Actionsの `Deploy to Cloudflare Pages` が成功すれば公開サイトへ反映されます。
