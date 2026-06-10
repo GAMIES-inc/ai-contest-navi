@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">2026 Movinpic AI video contest thumbnail</title>
+  <desc id="desc">Brand thumbnail for AI Contest Navi</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06101d"/>
+      <stop offset="0.48" stop-color="#0b2544"/>
+      <stop offset="1" stop-color="#071321"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#21d4fd"/>
+      <stop offset=".65" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#f6c65b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="78" y="92" width="1044" height="491" rx="10" fill="none" stroke="#88cdff" stroke-opacity=".26" stroke-width="2"/>
+  <rect x="118" y="152" width="360" height="220" rx="18" fill="#0e2138" stroke="#5ee7ff" stroke-opacity=".32"/>
+  <path d="M262 212L262 312L348 262Z" fill="#21d4fd"/>
+  <rect x="118" y="416" width="964" height="12" rx="6" fill="url(#accent)"/>
+  <circle cx="376" cy="422" r="22" fill="#f6c65b"/>
+  <text x="522" y="180" fill="#a8bfd2" font-family="Arial, sans-serif" font-size="30" font-weight="700">AI CONTEST NAVI</text>
+  <text x="522" y="274" fill="#eef8ff" font-family="Arial, sans-serif" font-size="66" font-weight="800">2026 Movinpic</text>
+  <text x="522" y="354" fill="#eef8ff" font-family="Arial, sans-serif" font-size="66" font-weight="800">AI Video Contest</text>
+  <text x="122" y="508" fill="#bfefff" font-family="Arial, sans-serif" font-size="34" font-weight="700">AI video / short movie competition</text>
+  <rect x="122" y="538" width="182" height="48" rx="24" fill="#21d4fd"/>
+  <text x="158" y="570" fill="#03101b" font-family="Arial, sans-serif" font-size="23" font-weight="800">AI Video</text>
+  <rect x="326" y="538" width="174" height="48" rx="24" fill="#f6c65b"/>
+  <text x="364" y="570" fill="#06101d" font-family="Arial, sans-serif" font-size="23" font-weight="800">Contest</text>
+</svg>

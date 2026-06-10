@@ -22,7 +22,7 @@ npm run build
 - 現在は GitHub Actions から Cloudflare Pages へデプロイします
 - `main` ブランチへpushすると `.github/workflows/deploy-cloudflare-pages.yml` が動きます
 - Direct Uploadで作成したPagesプロジェクトでも、この構成ならGitHub更新ごとに自動デプロイできます
-- このPagesプロジェクトは作成時のproduction branchが `codex/cloudflare-ready` のため、Actionsでは `main` の内容をビルドしたうえで `codex/cloudflare-ready` ブランチ扱いでPagesへアップロードします
+- Cloudflare Pagesのproduction branchは `main` に設定済みです
 - 公開URL: `https://ai-contest-navi.pages.dev/`
 
 Cloudflare Pages側の設定値:
@@ -146,6 +146,7 @@ npm run notion:sync-thumbnails -- --force
 - 形式: JPG / PNG / WebP / Notionのファイル / 外部画像URL
 - 未入力または画像読み込み失敗時は `/brand-thumbnail.svg` を表示します
 - 詳細ページのOGPは、サムネイルがある場合はその画像、ない場合は `/og-contest.svg` を使います
+- 公式ページにOGP画像がない場合は、`public/thumb-*.svg` に16:9のブランドサムネイルを追加し、その公開URLをNotionの `サムネイル` に入れます
 
 締切日を過ぎたコンテストは、Notion側のステータスが `募集中` のままでも、サイト表示上は自動で `終了` 扱いになります。トップページ、一覧、カテゴリ、カレンダーには表示されません。
 

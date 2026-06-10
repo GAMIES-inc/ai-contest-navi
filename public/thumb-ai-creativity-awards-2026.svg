@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">2026 AI Creativity Awards thumbnail</title>
+  <desc id="desc">Brand thumbnail for AI Contest Navi</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06101d"/>
+      <stop offset="0.5" stop-color="#0d2a48"/>
+      <stop offset="1" stop-color="#04101b"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#21d4fd"/>
+      <stop offset="1" stop-color="#f6c65b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M80 96H1120V579H80Z" fill="none" stroke="#5ee7ff" stroke-opacity=".34" stroke-width="2"/>
+  <path d="M80 144H1120" stroke="url(#line)" stroke-width="6"/>
+  <g fill="none" stroke="#21d4fd" stroke-opacity=".24" stroke-width="1">
+    <path d="M180 240H1020"/>
+    <path d="M180 320H1020"/>
+    <path d="M180 400H1020"/>
+    <path d="M180 480H1020"/>
+  </g>
+  <text x="118" y="138" fill="#a8bfd2" font-family="Arial, sans-serif" font-size="30" font-weight="700">AI CONTEST NAVI</text>
+  <text x="118" y="286" fill="#eef8ff" font-family="Arial, sans-serif" font-size="76" font-weight="800">2026 AI</text>
+  <text x="118" y="378" fill="#eef8ff" font-family="Arial, sans-serif" font-size="76" font-weight="800">Creativity Awards</text>
+  <text x="120" y="456" fill="#bfefff" font-family="Arial, sans-serif" font-size="34" font-weight="700">AI creative competition information</text>
+  <rect x="120" y="504" width="246" height="54" rx="27" fill="#21d4fd"/>
+  <text x="154" y="540" fill="#03101b" font-family="Arial, sans-serif" font-size="25" font-weight="800">AI Creative</text>
+  <rect x="390" y="504" width="190" height="54" rx="27" fill="#f6c65b"/>
+  <text x="426" y="540" fill="#06101d" font-family="Arial, sans-serif" font-size="25" font-weight="800">Awards</text>
+</svg>
