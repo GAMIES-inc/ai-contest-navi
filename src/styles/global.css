@@ -1422,6 +1422,21 @@ h1 {
   max-width: 840px;
 }
 
+.guide-cover {
+  overflow: hidden;
+  margin: 28px 0 0;
+  border: 1px solid rgba(136, 205, 255, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.guide-cover img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
 .guide-article-meta {
   display: flex;
   flex-wrap: wrap;
@@ -1492,6 +1507,20 @@ h1 {
   color: #cfe3f2;
   font-size: 1rem;
   line-height: 1.9;
+}
+
+.guide-body img {
+  width: 100%;
+  height: auto;
+  margin: 16px 0 22px;
+  border: 1px solid rgba(136, 205, 255, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.26);
+}
+
+.guide-body figure {
+  margin: 22px 0;
 }
 
 .guide-body p + ul,

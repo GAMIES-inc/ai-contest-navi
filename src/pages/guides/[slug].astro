@@ -37,7 +37,7 @@ const relatedGuides = await getRelatedGuides(guide, 3);
   title={guide.seoTitle}
   description={guide.seoDescription}
   canonical={new URL(`/guides/${guide.slug}`, Astro.site).toString()}
-  ogImage="/og-default.svg"
+  ogImage={guide.coverImage ?? "/og-default.svg"}
 >
   <section class="page-hero guide-article-hero">
     <div class="site-shell guide-article-shell">
@@ -58,6 +58,13 @@ const relatedGuides = await getRelatedGuides(guide, 3);
           <span>更新日 {formatGuideDate(guide.updatedAt)}</span>
         </div>
       </div>
+      {
+        guide.coverImage && (
+          <figure class="guide-cover">
+            <img src={guide.coverImage} alt={guide.coverAlt ?? ""} loading="eager" decoding="async" />
+          </figure>
+        )
+      }
     </div>
   </section>
 

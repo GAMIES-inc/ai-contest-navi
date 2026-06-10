@@ -12,6 +12,8 @@ const guides = defineCollection({
     readTime: z.string(),
     difficulty: z.enum(["初心者向け", "初心者〜中級者向け", "全員向け"]),
     icon: z.string().default("start"),
+    coverImage: z.string().optional(),
+    coverAlt: z.string().optional(),
     relatedCategories: z.array(z.enum(guideCategories)).default([]),
     relatedContestCategories: z.array(z.enum(contestCategories)).default([]),
     publishedAt: z.string(),
