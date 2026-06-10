@@ -42,4 +42,12 @@ jobs:
 
       - name: Verify live site
         if: ${{ env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
-        run: npm run qa:site
+        run: |
+          for attempt in 1 2 3 4 5; do
+            echo "Live QA attempt ${attempt}/5"
+            if npm run qa:site; then
+              exit 0
+            fi
+            sleep 20
+          done
+          npm run qa:site
