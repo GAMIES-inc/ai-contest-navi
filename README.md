@@ -181,3 +181,12 @@ git push origin main
 ```
 
 push後、GitHub Actionsの `Deploy to Cloudflare Pages` が成功すれば公開サイトへ反映されます。
+
+## Design / Media Notes
+
+- トップページのヒーローは `public/images/hero-pc.png` / `public/images/hero-mobile.png` を元画像として保持し、表示時は軽量な WebP を優先します。
+- WebP版は `public/images/hero-pc.webp` / `public/images/hero-mobile.webp` / `public/images/contest-fallback.webp` です。
+- トップページのOGPは `public/images/hero-pc.png` を使用します。Xで共有したときに、サイトの第一印象と同じビジュアルになります。
+- Notionでサムネイルが未入力、または旧fallbackの `/brand-thumbnail.svg` の場合、サイト上では `public/images/contest-fallback.png` を表示します。
+- コンテスト個別サムネイルは 16:9、推奨 `1200 x 675px` 以上。文字を入れる場合はスマホカードで読める大きさにしてください。
+- トップのカードは詳細情報を詰め込みすぎず、タイトル・締切・ジャンル・賞金/賞品・短い紹介を優先します。応募条件や権利まわりは詳細ページで読ませる方針です。

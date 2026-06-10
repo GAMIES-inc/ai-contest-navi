@@ -40,14 +40,23 @@ const { activeCount } = Astro.props;
 
     <div class="hero-visual-stage" aria-label="AI創作コンテストのキービジュアル">
       <picture>
+        <source media="(max-width: 640px)" srcset="/images/hero-mobile.webp" type="image/webp" />
         <source media="(max-width: 640px)" srcset="/images/hero-mobile.png" />
+        <source srcset="/images/hero-pc.webp" type="image/webp" />
         <img
           src="/images/hero-pc.png"
           alt="AI創作のクリエイターと画像・動画・漫画・音楽の制作画面"
           loading="eager"
           decoding="async"
+          width="1600"
+          height="900"
         />
       </picture>
+      <div class="hero-visual-badges" aria-hidden="true">
+        <span>締切</span>
+        <span>賞金・賞品</span>
+        <span>応募形式</span>
+      </div>
     </div>
   </div>
 </section>

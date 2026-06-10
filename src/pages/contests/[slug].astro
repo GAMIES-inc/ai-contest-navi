@@ -14,8 +14,9 @@ if (!contest) {
   return Astro.redirect("/contests");
 }
 
-const ogImage = contest.thumbnail === "/brand-thumbnail.svg" ? "/og-contest.svg" : contest.thumbnail;
-const thumbnail = contest.thumbnail || "/brand-thumbnail.svg";
+const fallbackThumbnail = "/images/contest-fallback.png";
+const ogImage = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? fallbackThumbnail : contest.thumbnail;
+const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? fallbackThumbnail : contest.thumbnail;
 ---
 
 <BaseLayout
@@ -57,7 +58,7 @@ const thumbnail = contest.thumbnail || "/brand-thumbnail.svg";
         </div>
       </div>
       <div class="detail-image">
-        <img src={thumbnail} alt="" loading="eager" decoding="async" onerror="this.onerror=null;this.src='/brand-thumbnail.svg';" />
+        <img src={thumbnail} alt="" loading="eager" decoding="async" onerror="this.onerror=null;this.src='/images/contest-fallback.png';" />
       </div>
     </div>
   </section>
