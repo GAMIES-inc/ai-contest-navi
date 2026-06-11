@@ -1,0 +1,9 @@
+name = "ai-contest-navi"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-06-10"
+
+# 本番の database_id はこのサンプルにだけ記載し、実値はCloudflare側で発行されたものを入れてください。
+[[d1_databases]]
+binding = "ANALYTICS_DB"
+database_name = "ai_contest_navi_analytics"
+database_id = "ここにCloudflareで作成されたdatabase_idを入れる"

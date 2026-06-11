@@ -21,14 +21,17 @@ const contests = await getActiveContests();
           const days = getDaysUntilDeadline(contest.deadline);
           return (
             <a class="calendar-item" href={`/contests/${contest.slug}`}>
-              <div class="date-block">{formatDate(contest.deadline)}</div>
-              <div>
+              <div class="date-block">
+                <span>締切</span>
+                <strong>{formatDate(contest.deadline)}</strong>
+              </div>
+              <div class="calendar-item-main">
                 <strong>{contest.title}</strong>
                 <div class="meta-line">
                   {contest.categories.map((category) => categoryLabels[category]).join(" / ")} ・ {contest.applicationMethod}
                 </div>
               </div>
-              <span class="pill">{days >= 0 ? `あと${days}日` : "終了"}</span>
+              <span class={`pill ${days <= 7 ? "urgent" : ""}`}>{days >= 0 ? `あと${days}日` : "終了"}</span>
             </a>
           );
         })

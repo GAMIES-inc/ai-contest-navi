@@ -1,19 +1,20 @@
 ---
 import type { Contest } from "@/data/contests";
-import { categoryLabels, formatDate, getDaysUntilDeadline } from "@/lib/contests";
+import { categoryLabels, formatDate, getContestImage, getContestPlaceholderType, getDaysUntilDeadline, isContestFallbackImage } from "@/lib/contests";
 
 type Props = {
   contest: Contest;
 };
 
 const { contest } = Astro.props;
-const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? "/images/contest-fallback.png" : contest.thumbnail;
-const isFallbackThumbnail = thumbnail === "/images/contest-fallback.png";
+const thumbnail = getContestImage(contest);
+const isFallbackThumbnail = isContestFallbackImage(thumbnail);
+const placeholderType = getContestPlaceholderType(contest);
 const days = getDaysUntilDeadline(contest.deadline);
 const primaryCategory = categoryLabels[contest.categories[0]];
 ---
 
-<a class={`deadline-card ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`}>
+<a class={`deadline-card placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`}>
   <span class="deadline-thumb">
     <img
       src={thumbnail}
@@ -22,10 +23,6 @@ const primaryCategory = categoryLabels[contest.categories[0]];
       decoding="async"
       onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.deadline-card')?.classList.add('is-fallback');"
     />
-    <span class="fallback-thumb-label" aria-hidden="true">
-      <span>AI CONTEST NAVI</span>
-      <strong>公式画像確認中</strong>
-    </span>
   </span>
   <div class="deadline-card-body">
     <div class="deadline-card-top">

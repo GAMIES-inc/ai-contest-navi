@@ -38,7 +38,7 @@ const guidesByCategory = new Map(
       </div>
 
       <div id="all" class="guide-grid guide-grid-list">
-        {guides.map((guide) => <GuideCard guide={guide} />)}
+        {guides.map((guide) => <GuideCard guide={guide} minimal />)}
       </div>
     </div>
   </section>
@@ -57,7 +57,7 @@ const guidesByCategory = new Map(
               </div>
             </div>
             <div class="guide-grid guide-grid-list">
-              {items.map((guide) => <GuideCard guide={guide} compact />)}
+              {items.map((guide) => <GuideCard guide={guide} compact minimal />)}
             </div>
           </div>
         </section>

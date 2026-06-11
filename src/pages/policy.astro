@@ -1,0 +1,94 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import XContactButton from "@/components/XContactButton.astro";
+
+const requestItems = [
+  "対象ページのURL",
+  "修正・差し替え・掲載停止を希望する箇所",
+  "ご依頼内容",
+  "ご依頼理由",
+  "確認できる公式URLまたは参考情報",
+  "ご連絡元の会社名・団体名・お名前",
+];
+---
+
+<BaseLayout
+  title="掲載方針・権利者の方へ"
+  description="AIコンテストナビの掲載方針、画像・ロゴ等の取り扱い、掲載内容の修正・削除依頼についてご案内します。"
+  canonical={new URL("/policy", Astro.site).toString()}
+  ogImage="/og-default.svg"
+>
+  <section class="page-hero policy-hero">
+    <div class="site-shell">
+      <p class="eyebrow">Publication Policy</p>
+      <h1>掲載方針・権利者の方へ</h1>
+      <p class="lead">
+        AIコンテストナビは、公式ページ・募集要項・公式SNSなどの公開情報をもとに、AI作品を応募できるコンテスト情報を整理して紹介する情報サイトです。
+      </p>
+      <div class="hero-actions">
+        <XContactButton label="XのDMで連絡する" />
+        <a class="button" href="/submit">掲載について見る</a>
+      </div>
+      <p class="cta-note">掲載内容の修正、画像差し替え、掲載停止のご依頼はXのDMよりご連絡ください。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell policy-layout">
+      <article class="policy-panel">
+        <h2>掲載方針</h2>
+        <p>
+          AIコンテストナビは、AI作品を応募できるコンテスト情報を紹介するための情報サイトです。主催者の公式ページ、募集要項、公式SNS、公開されている告知素材などを確認したうえで、コンテスト名、概要、締切、賞金・賞品、応募形式、AI利用条件、関連画像などを掲載する場合があります。
+        </p>
+        <p>
+          掲載している情報は、応募を検討している方がコンテスト内容を把握しやすいよう、公開情報をもとに整理したものです。当サイトは、各コンテストの公式サイトではありません。また、特別に明記している場合を除き、各コンテストの主催者・権利者による公式な承認、協賛、提携を示すものではありません。
+        </p>
+        <p>
+          掲載内容には正確性を期していますが、応募条件、締切、賞金・賞品、AI利用条件、権利条件などは変更される場合があります。応募前には、必ず各コンテストの公式ページ・募集要項にて最新情報をご確認ください。
+        </p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>アクセス解析について</h2>
+        <p>
+          当サイトでは、サイト改善および掲載効果の確認のため、ページ閲覧数や公式ページへの遷移数などを集計する場合があります。計測は、ページ別・コンテスト別・流入元別の傾向を把握するためのものであり、個人を特定することを目的としたものではありません。
+        </p>
+        <p>
+          IPアドレスやCookieを用いた個人追跡は行わず、取得した情報はサイト改善および掲載効果の確認に利用します。
+        </p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>画像・ロゴ・キービジュアル等の取り扱い</h2>
+        <p>
+          掲載している画像、ロゴ、キービジュアル等の権利は、各権利者または主催者に帰属します。当サイトでの掲載は、コンテスト情報の紹介、応募者への案内、公式ページへの送客を目的としたものです。
+        </p>
+        <p>
+          掲載内容や画像について、主催者・権利者・関係者の方から修正、差し替え、掲載停止のご希望がある場合は、XのDMよりご連絡ください。内容を確認のうえ、必要に応じて修正、画像の差し替え、または掲載停止の対応を行います。
+        </p>
+      </article>
+
+      <article class="policy-panel policy-request-panel">
+        <div>
+          <h2>修正・掲載停止をご希望の場合</h2>
+          <p>
+            XのDMでご連絡いただく際は、確認をスムーズに行うため、可能な範囲で以下の情報をお送りください。
+          </p>
+        </div>
+        <div class="policy-check-grid">
+          {requestItems.map((item) => <span>{item}</span>)}
+        </div>
+        <p>
+          権利関係や公式情報の確認が必要な場合、対応までお時間をいただくことがあります。明らかな誤りや問題が確認できる場合は、速やかに修正または掲載停止を行います。
+        </p>
+        <div class="policy-cta-box">
+          <div>
+            <strong>XのDMよりご連絡ください</strong>
+            <span>掲載内容の修正、画像差し替え、掲載停止のご依頼を受け付けています。</span>
+          </div>
+          <XContactButton label="XのDMで連絡する" />
+        </div>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

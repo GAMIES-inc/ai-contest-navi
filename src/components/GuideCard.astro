@@ -7,14 +7,36 @@ import Clock3 from "@lucide/astro/icons/clock-3";
 type Props = {
   guide: Guide;
   compact?: boolean;
+  minimal?: boolean;
 };
 
-const { guide, compact = false } = Astro.props;
+const { guide, compact = false, minimal = false } = Astro.props;
 const coverImage = guide.coverImage ?? "/images/contest-fallback.png";
 const coverAlt = guide.coverAlt ?? "";
+const guideCardCopy: Record<string, { category: string; description: string; kicker: string }> = {
+  "start-ai-contest": {
+    category: "はじめ方",
+    description: "作品を作る前に知っておきたいことを、ジャンル選びから応募前チェックまで解説。",
+    kicker: "応募先を探す前に決めること",
+  },
+  "how-to-read-contest-guidelines": {
+    category: "応募前チェック",
+    description: "テーマ、締切、提出形式、AI利用ルール、権利条件、審査基準の見方を解説。",
+    kicker: "作る前にここだけは確認",
+  },
+  "ai-contest-work-final-check": {
+    category: "応募準備",
+    description: "作品の軸、仕上げ、テーマ性、タイトル・説明文、提出前チェックを解説。",
+    kicker: "完成度を上げて応募する",
+  },
+};
+const displayCopy = guideCardCopy[guide.slug];
+const displayCategory = displayCopy?.category ?? guide.category;
+const displayDescription = displayCopy?.description ?? guide.description;
+const displayKicker = displayCopy?.kicker ?? guide.learnings[0];
 ---
 
-<article class={`guide-card ${compact ? "guide-card-compact" : ""}`}>
+<article class={`guide-card ${compact ? "guide-card-compact" : ""} ${minimal ? "guide-card-minimal" : ""}`}>
   <a class="guide-card-link" href={`/guides/${guide.slug}`} aria-label={`${guide.title}を読む`}>
     <span class="guide-cover-thumb">
       <img
@@ -26,17 +48,21 @@ const coverAlt = guide.coverAlt ?? "";
         onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.guide-card')?.classList.add('is-fallback');"
       />
       <span class="guide-cover-shade" aria-hidden="true"></span>
-      <span class="guide-category">{guide.category}</span>
+      <span class="guide-category">{displayCategory}</span>
     </span>
     <span class="guide-card-content">
       <h3>{guide.title}</h3>
-      <p>{guide.description}</p>
-      <span class="guide-benefit">{guide.learnings[0]}</span>
-      <span class="guide-meta-row">
-        <span><Clock3 size={15} stroke-width={2} />{guide.readTime}</span>
-        <span><CheckCheck size={15} stroke-width={2} />{guide.difficulty}</span>
-      </span>
-      <span class="guide-button">読む <ArrowRight size={16} stroke-width={2.2} /></span>
+      <p>{displayDescription}</p>
+      <span class="guide-benefit">{displayKicker}</span>
+      {!minimal && (
+        <>
+          <span class="guide-meta-row">
+            <span><Clock3 size={15} stroke-width={2} />{guide.readTime}</span>
+            <span><CheckCheck size={15} stroke-width={2} />{guide.difficulty}</span>
+          </span>
+          <span class="guide-button">読む <ArrowRight size={16} stroke-width={2.2} /></span>
+        </>
+      )}
     </span>
   </a>
 </article>

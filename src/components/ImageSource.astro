@@ -1,0 +1,29 @@
+---
+type Props = {
+  label?: string;
+  url?: string;
+  rightsOwner?: string;
+};
+
+const { label, url, rightsOwner } = Astro.props;
+---
+
+{
+  (label || rightsOwner) && (
+    <p class="image-source">
+      {label && (
+        <>
+          画像出典：
+          {url ? (
+            <a href={url} target="_blank" rel="noreferrer">
+              {label}
+            </a>
+          ) : (
+            <span>{label}</span>
+          )}
+        </>
+      )}
+      {rightsOwner && <span>{label ? " / " : ""}権利者：{rightsOwner}</span>}
+    </p>
+  )
+}

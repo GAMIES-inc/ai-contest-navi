@@ -1,0 +1,17 @@
+---
+import { xContactUrl } from "@/lib/site";
+
+type Props = {
+  label?: string;
+  variant?: "primary" | "secondary" | "text";
+  className?: string;
+};
+
+const { label = "XのDMで連絡する", variant = "primary", className = "" } = Astro.props;
+const classNames =
+  variant === "text"
+    ? `x-contact-link ${className}`
+    : `button ${variant === "primary" ? "primary" : ""} ${className}`.trim();
+---
+
+<a class={classNames} href={xContactUrl} target="_blank" rel="noreferrer">{label}</a>

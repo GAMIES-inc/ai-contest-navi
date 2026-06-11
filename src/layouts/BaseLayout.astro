@@ -8,7 +8,7 @@ type Props = {
 
 import "@/styles/global.css";
 import Footer from "@/components/Footer.astro";
-import { xProfileUrl } from "@/lib/site";
+import { xContactUrl, xProfileUrl } from "@/lib/site";
 
 const {
   title,
@@ -19,6 +19,8 @@ const {
 
 const pageTitle = title.includes("AIコンテストナビ") ? title : `${title} | AIコンテストナビ`;
 const resolvedOgImage = new URL(ogImage, Astro.site).toString();
+const enableFirstPartyAnalytics = import.meta.env.PUBLIC_ENABLE_FIRST_PARTY_ANALYTICS === "true";
+const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
 ---
 
 <!doctype html>
@@ -40,6 +42,15 @@ const resolvedOgImage = new URL(ogImage, Astro.site).toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={resolvedOgImage} />
     <link rel="icon" href="/brand-x-icon.png" type="image/png" />
+    {
+      cloudflareWebAnalyticsToken && (
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: cloudflareWebAnalyticsToken })}
+        />
+      )
+    }
   </head>
   <body>
     <header class="site-header">
@@ -69,7 +80,9 @@ const resolvedOgImage = new URL(ogImage, Astro.site).toString();
             <a href="/calendar">締切カレンダー</a>
             <a href="/guides">ガイド</a>
             <a href="/archive">アーカイブ</a>
+            <a href="/policy">掲載方針</a>
             <a href={xProfileUrl} target="_blank" rel="noreferrer">Xで更新を見る</a>
+            <a href={xContactUrl} target="_blank" rel="noreferrer">Xで連絡する</a>
             <a class="nav-cta" href="/submit">掲載について</a>
           </div>
         </details>
@@ -79,5 +92,66 @@ const resolvedOgImage = new URL(ogImage, Astro.site).toString();
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      {`
+        (() => {
+          const currentParams = new URLSearchParams(window.location.search);
+          const relayParams = new URLSearchParams();
+          ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((key) => {
+            const value = currentParams.get(key);
+            if (value) relayParams.set(key, value);
+          });
+          if (currentParams.get("no_track") === "1") relayParams.set("no_track", "1");
+          if (!relayParams.toString()) return;
+
+          document.querySelectorAll('a[href^="/go/"]').forEach((link) => {
+            try {
+              const url = new URL(link.getAttribute("href") || "", window.location.origin);
+              relayParams.forEach((value, key) => {
+                if (!url.searchParams.has(key)) url.searchParams.set(key, value);
+              });
+              link.setAttribute("href", url.pathname + url.search + url.hash);
+            } catch {}
+          });
+        })();
+      `}
+    </script>
+    {
+      enableFirstPartyAnalytics && (
+        <script is:inline>
+          {`
+            (() => {
+              if (window.__aiContestNaviPageviewSent) return;
+              window.__aiContestNaviPageviewSent = true;
+              const params = new URLSearchParams(window.location.search);
+              if (params.get("no_track") === "1") return;
+              const payload = {
+                path: window.location.pathname,
+                title: document.title,
+                utm_source: params.get("utm_source") || "",
+                utm_medium: params.get("utm_medium") || "",
+                utm_campaign: params.get("utm_campaign") || "",
+                utm_content: params.get("utm_content") || "",
+                utm_term: params.get("utm_term") || ""
+              };
+              const body = JSON.stringify(payload);
+              const url = "/api/analytics/pageview";
+              try {
+                if (navigator.sendBeacon) {
+                  navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
+                  return;
+                }
+                fetch(url, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body,
+                  keepalive: true
+                }).catch(() => {});
+              } catch {}
+            })();
+          `}
+        </script>
+      )
+    }
   </body>
 </html>

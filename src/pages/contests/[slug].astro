@@ -1,8 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import GuideCard from "@/components/GuideCard.astro";
+import ImageSource from "@/components/ImageSource.astro";
+import OfficialInfoNotice from "@/components/OfficialInfoNotice.astro";
+import RightsNotice from "@/components/RightsNotice.astro";
 import { getGuidesForContestCategories } from "@/data/guides";
-import { categoryLabels, formatDate, getAllContests, getContestBySlug } from "@/lib/contests";
+import { categoryLabels, formatDate, getAllContests, getContestBySlug, getContestImage, getContestPlaceholderType, isContestFallbackImage } from "@/lib/contests";
 
 export async function getStaticPaths() {
   return (await getAllContests()).map((contest) => ({
@@ -17,9 +20,48 @@ if (!contest) {
 }
 
 const fallbackThumbnail = "/images/contest-fallback.png";
-const ogImage = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? fallbackThumbnail : contest.thumbnail;
-const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? fallbackThumbnail : contest.thumbnail;
+const thumbnail = getContestImage(contest);
+const isFallbackThumbnail = isContestFallbackImage(thumbnail);
+const placeholderType = getContestPlaceholderType(contest);
+const ogImage = isFallbackThumbnail ? fallbackThumbnail : thumbnail;
+const imageSourceLabel = !isFallbackThumbnail ? contest.imageSourceLabel || "公式ページ" : "";
+const imageSourceUrl = !isFallbackThumbnail ? contest.imageSourceUrl || contest.officialUrl : "";
 const relatedGuides = await getGuidesForContestCategories(contest.categories, 3);
+const officialCtaLabel = "公式で応募条件を確認する";
+const officialGoHref = (from: string) => `/go/${contest.slug}?link=official&from=${from}`;
+const detailFacts = [
+  { label: "締切", value: formatDate(contest.deadline) },
+  { label: "ジャンル", value: contest.categories.map((category) => categoryLabels[category]).join(" / ") },
+  { label: "応募形式", value: contest.applicationMethod },
+  { label: "賞金・賞品", value: contest.prize, emphasis: true },
+  { label: "AI使用条件", value: contest.aiUsage },
+  { label: "参加しやすさ", value: contest.difficulty },
+  { label: "権利まわり", value: contest.rightsNote },
+  { label: "公式ページ", value: contest.officialUrl, url: officialGoHref("detail_info") },
+];
+const isSocialApplication =
+  /x\.com|twitter\.com/i.test(contest.officialUrl) ||
+  /X|SNS|#|ハッシュタグ|フォロー|リポスト|投稿/i.test(`${contest.title} ${contest.description} ${contest.applicationMethod}`);
+const checklistItems = [
+  "締切日・時間",
+  "応募対象",
+  "提出形式",
+  "AI利用条件",
+  "賞金・賞品",
+  "権利条件",
+  "公式ページの最新情報",
+  ...(isSocialApplication ? ["指定アカウントのフォロー", "対象投稿のリポスト", "指定ハッシュタグ", "投稿形式"] : []),
+];
+const hasVideo = contest.categories.includes("ai-video");
+const hasManga = contest.categories.includes("ai-manga");
+const hasImage = contest.categories.includes("ai-image") || contest.categories.includes("ai-illustration");
+const recommendedFor = contest.slug.includes("jacc")
+  ? ["AI動画を15〜30秒で制作できる人", "X投稿で応募できる人", "指定ツールや指定ハッシュタグに沿って応募できる人"]
+  : [
+      hasVideo ? "AI動画やショート映像を制作したい人" : hasManga ? "AI漫画やストーリー作品を形にしたい人" : hasImage ? "AI画像・イラスト作品を応募したい人" : "AI創作作品をコンテストに出してみたい人",
+      `${contest.applicationMethod}で応募できる人`,
+      "応募要項と権利条件を公式ページで確認できる人",
+    ];
 ---
 
 <BaseLayout
@@ -55,13 +97,26 @@ const relatedGuides = await getGuidesForContestCategories(contest.categories, 3)
             <strong>{contest.aiUsage}</strong>
           </div>
         </div>
-        <div class="hero-actions">
-          <a class="button primary" href={contest.officialUrl} target="_blank" rel="noreferrer">公式サイトを見る</a>
+        <div class="hero-actions detail-primary-actions">
+          <a
+            class="button primary"
+            href={officialGoHref("detail_hero")}
+            target="_blank"
+            rel="noopener"
+            data-analytics-link="official"
+            data-contest-slug={contest.slug}
+          >
+            {officialCtaLabel}
+          </a>
           <a class="button" href="/contests">一覧に戻る</a>
         </div>
+        <OfficialInfoNotice />
       </div>
-      <div class="detail-image">
-        <img src={thumbnail} alt="" loading="eager" decoding="async" onerror="this.onerror=null;this.src='/images/contest-fallback.png';" />
+      <div class="detail-image-wrap">
+        <div class={`detail-image placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`}>
+          <img src={thumbnail} alt={contest.imageAlt || `${contest.title}のキービジュアル`} loading="eager" decoding="async" onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.detail-image')?.classList.add('is-fallback');" />
+        </div>
+        <ImageSource label={imageSourceLabel} url={imageSourceUrl} rightsOwner={contest.imageRightsOwner} />
       </div>
     </div>
   </section>
@@ -76,10 +131,29 @@ const relatedGuides = await getGuidesForContestCategories(contest.categories, 3)
 
         <div class="article-divider"></div>
 
+        <section class="decision-panel recommended-panel" aria-labelledby="recommended-for">
+          <h2 id="recommended-for">このコンテストに向いている人</h2>
+          <div class="recommended-list">
+            {recommendedFor.map((item) => <span>{item}</span>)}
+          </div>
+        </section>
+
+        <section class="decision-panel checklist-panel" aria-labelledby="entry-checklist">
+          <div>
+            <h2 id="entry-checklist">応募前チェック</h2>
+            <p>応募前に、公式ページで以下の条件を確認しておくと安心です。</p>
+          </div>
+          <div class="checklist-grid">
+            {checklistItems.map((item) => <span>{item}</span>)}
+          </div>
+        </section>
+
+        <div class="article-divider"></div>
+
         <h2>参加者向けポイント</h2>
         <ul class="article-point-list">
           <li>締切、ジャンル、賞金・賞品を先に確認して、制作スケジュールに合うか判断できます。</li>
-          <li>応募形式とAI使用条件を見て、手元の作品をそのまま応募できるか整理できます。</li>
+          <li>応募形式とAI使用条件を確認して、手元の作品をそのまま応募できるか整理できます。</li>
           <li>詳細な規約や権利条件は、応募直前に公式ページで再確認すると安心です。</li>
         </ul>
 
@@ -87,22 +161,49 @@ const relatedGuides = await getGuidesForContestCategories(contest.categories, 3)
 
         <h2>注意したいポイント</h2>
         <p>{contest.rightsNote}</p>
-        <p>掲載情報は要約です。応募前には必ず公式ページで最新の募集要項を確認してください。</p>
-        <p><a class="button primary" href={contest.officialUrl} target="_blank" rel="noreferrer">公式ページで確認する</a></p>
+        <p>掲載情報は要約です。応募前には必ず公式ページで最新の募集要項をご確認ください。</p>
+        <p>
+          <a
+            class="button primary"
+            href={officialGoHref("detail_bottom")}
+            target="_blank"
+            rel="noopener"
+            data-analytics-link="official"
+            data-contest-slug={contest.slug}
+          >
+            {officialCtaLabel}
+          </a>
+        </p>
+        <RightsNotice />
       </article>
 
       <aside class="contest-side-panel" aria-label="応募前に見ること">
         <h2>応募前に見ること</h2>
-        <div class="info-grid">
-          <div class="info-box"><span>締切日</span><strong>{formatDate(contest.deadline)}</strong></div>
-          <div class="info-box"><span>応募形式</span><strong>{contest.applicationMethod}</strong></div>
-          <div class="info-box"><span>賞金・賞品</span><strong>{contest.prize}</strong></div>
-          <div class="info-box"><span>AI使用条件</span><strong>{contest.aiUsage}</strong></div>
-          <div class="info-box"><span>参加しやすさ</span><strong>{contest.difficulty}</strong></div>
-          <div class="info-box"><span>権利まわり</span><strong>{contest.rightsNote}</strong></div>
-          <div class="info-box info-box-wide"><span>公式ページ</span><strong><a href={contest.officialUrl} target="_blank" rel="noreferrer">{contest.officialUrl}</a></strong></div>
+        <div class="info-grid detail-info-grid">
+          {detailFacts.map((fact) => (
+            <div class={`info-box ${fact.url ? "info-box-wide" : ""} ${fact.emphasis ? "info-box-emphasis" : ""}`}>
+              <span>{fact.label}</span>
+              <strong>
+                {
+                  fact.url ? (
+                    <a
+                      href={fact.url}
+                      target="_blank"
+                      rel={fact.url.startsWith("/go/") ? "noopener" : "noreferrer"}
+                      data-analytics-link={fact.url.startsWith("/go/") ? "official" : undefined}
+                      data-contest-slug={fact.url.startsWith("/go/") ? contest.slug : undefined}
+                    >
+                      {fact.value}
+                    </a>
+                  ) : (
+                    fact.value
+                  )
+                }
+              </strong>
+            </div>
+          ))}
         </div>
-        <p class="notice-box">応募前に必ず公式ページで、締切・提出形式・AI利用条件・著作権や二次利用条件をご確認ください。</p>
+        <p class="notice-box">応募前には、締切・提出形式・AI利用条件・著作権や二次利用条件を公式ページで確認してください。</p>
       </aside>
     </div>
   </section>
@@ -116,7 +217,7 @@ const relatedGuides = await getGuidesForContestCategories(contest.categories, 3)
         <a class="button" href="/guides">ガイド一覧へ</a>
       </div>
       <div class="guide-grid guide-grid-home">
-        {relatedGuides.map((guide) => <GuideCard guide={guide} compact />)}
+        {relatedGuides.map((guide) => <GuideCard guide={guide} compact minimal />)}
       </div>
     </div>
   </section>

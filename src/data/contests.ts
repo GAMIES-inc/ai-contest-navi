@@ -9,6 +9,10 @@ export type ContestCategory =
   | "design"
   | "other";
 
+export type ContestImageStatus = "official" | "provided" | "public-info" | "placeholder" | "checking";
+
+export type ContestPlaceholderType = "ai-image" | "ai-video" | "ai-manga" | "ai-music" | "design" | "idea" | "other";
+
 export type Contest = {
   title: string;
   slug: string;
@@ -23,6 +27,14 @@ export type Contest = {
   rightsNote: string;
   officialUrl: string;
   thumbnail: string;
+  image?: string;
+  imageAlt?: string;
+  imageSourceLabel?: string;
+  imageSourceUrl?: string;
+  imageRightsOwner?: string;
+  imageStatus?: ContestImageStatus;
+  imageRemovalNote?: string;
+  placeholderType?: ContestPlaceholderType;
   featured: boolean;
 };
 

@@ -66,7 +66,7 @@ async function loadContests(): Promise<Contest[]> {
   }
 
   const pages = await queryDatabase(token, databaseId);
-  const normalized = pages.map(normalizeNotionPage).filter(Boolean);
+  const normalized = pages.map(normalizeNotionPage).filter((contest): contest is Contest => Boolean(contest));
 
   if (normalized.length === 0) {
     console.warn("[notion] No valid contest pages found. Using local fallback data.");
@@ -147,6 +147,14 @@ function normalizeNotionPage(page: NotionPage): Contest | null {
       "要確認",
     officialUrl: getUrl(props["公式URL"]) || "#",
     thumbnail: getThumbnail(props["サムネイル"], page.cover),
+    image: getThumbnail(props["画像"], page.cover),
+    imageAlt: getPlainText(props["画像Alt"]) || `${title}のキービジュアル`,
+    imageSourceLabel: getPlainText(props["画像出典"]) || getPlainText(props["画像出典ラベル"]),
+    imageSourceUrl: getUrl(props["画像出典URL"]) || getUrl(props["公式URL"]),
+    imageRightsOwner: getPlainText(props["画像権利者"]) || getPlainText(props["主催者"]),
+    imageStatus: mapImageStatus(getSelectName(props["画像ステータス"])),
+    imageRemovalNote: getPlainText(props["画像補足"]),
+    placeholderType: mapPlaceholderType(getSelectName(props["プレースホルダー種別"])),
     featured: getCheckbox(props["注目表示"]) || getSelectName(props["掲載優先度"]) === "高" || getSelectName(props["PR区分"]) === "PR強化対象",
   };
 }
@@ -267,6 +275,26 @@ function mapCategories(values: string[]): ContestCategory[] {
 
   if (categories.size === 0) categories.add("other");
   return [...categories];
+}
+
+function mapImageStatus(value: string): Contest["imageStatus"] | undefined {
+  if (value === "公式画像") return "official";
+  if (value === "提供素材") return "provided";
+  if (value === "公開情報") return "public-info";
+  if (value === "プレースホルダー") return "placeholder";
+  if (value === "確認中") return "checking";
+  return undefined;
+}
+
+function mapPlaceholderType(value: string): Contest["placeholderType"] | undefined {
+  if (value === "AI画像") return "ai-image";
+  if (value === "AI動画") return "ai-video";
+  if (value === "AI漫画") return "ai-manga";
+  if (value === "AI音楽") return "ai-music";
+  if (value === "デザイン") return "design";
+  if (value === "企画・アイデア") return "idea";
+  if (value === "その他") return "other";
+  return undefined;
 }
 
 function createSlug(title: string, pageId: string): string {

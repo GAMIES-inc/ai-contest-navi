@@ -1,5 +1,5 @@
 ---
-import { categoryLabels, formatDate } from "@/lib/contests";
+import { categoryLabels, formatDate, getContestImage, getContestPlaceholderType, isContestFallbackImage } from "@/lib/contests";
 import type { Contest } from "@/data/contests";
 
 type Props = {
@@ -16,12 +16,13 @@ const statusLabel =
       : contest.status === "ended"
         ? "終了"
         : "掲載中";
-const thumbnail = !contest.thumbnail || contest.thumbnail === "/brand-thumbnail.svg" ? "/images/contest-fallback.png" : contest.thumbnail;
-const isFallbackThumbnail = thumbnail === "/images/contest-fallback.png";
+const thumbnail = getContestImage(contest);
+const isFallbackThumbnail = isContestFallbackImage(thumbnail);
+const placeholderType = getContestPlaceholderType(contest);
 ---
 
 <article class={`contest-card ${variant === "featured" ? "contest-card-featured" : ""}`}>
-  <a class={`contest-thumb ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
+  <a class={`contest-thumb placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
     <img
       src={thumbnail}
       alt=""
@@ -30,10 +31,6 @@ const isFallbackThumbnail = thumbnail === "/images/contest-fallback.png";
       onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.contest-thumb')?.classList.add('is-fallback');"
     />
     <span class={`status-badge ${contest.status}`}>{statusLabel}</span>
-    <span class="fallback-thumb-label" aria-hidden="true">
-      <span>AI CONTEST NAVI</span>
-      <strong>公式画像確認中</strong>
-    </span>
   </a>
   <div class="contest-body">
     <div class="card-topline">
@@ -63,7 +60,16 @@ const isFallbackThumbnail = thumbnail === "/images/contest-fallback.png";
     </div>
     <div class="card-actions">
       <a class="button primary" href={`/contests/${contest.slug}`}>詳細を見る</a>
-      <a class="button" href={contest.officialUrl} target="_blank" rel="noreferrer">公式サイト</a>
+      <a
+        class="button"
+        href={`/go/${contest.slug}?link=official&from=contest_card`}
+        target="_blank"
+        rel="noopener"
+        data-analytics-link="official"
+        data-contest-slug={contest.slug}
+      >
+        公式サイト
+      </a>
     </div>
   </div>
 </article>

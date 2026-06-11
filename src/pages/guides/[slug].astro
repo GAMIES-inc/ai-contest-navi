@@ -26,6 +26,14 @@ if (!guideEntry) {
 
 const guide = normalizeGuide(guideEntry);
 const { Content } = await render(guideEntry);
+const tocItems = guide.body
+  .split(/\r?\n/)
+  .filter((line) => line.startsWith("## ") && !line.startsWith("### "))
+  .map((line, index) => ({
+    id: `guide-section-${index + 1}`,
+    label: line.replace(/^##\s+/, "").trim(),
+  }))
+  .filter((item) => item.label.length > 0);
 const activeContests = await getActiveContests();
 const relatedContests = activeContests
   .filter((contest) => contest.categories.some((category) => guide.relatedContestCategories.includes(category)))
@@ -77,9 +85,27 @@ const relatedGuides = await getRelatedGuides(guide, 3);
         </ul>
       </div>
 
+      {
+        tocItems.length > 0 && (
+          <nav class="guide-toc" aria-label="目次">
+            <h2>目次</h2>
+            <ol>
+              {tocItems.map((item) => (
+                <li><a href={`#${item.id}`}>{item.label}</a></li>
+              ))}
+            </ol>
+          </nav>
+        )
+      }
+
       <article class="guide-body">
         <Content />
       </article>
+      <script is:inline>
+        document.querySelectorAll(".guide-body h2").forEach((heading, index) => {
+          if (!heading.id) heading.id = `guide-section-${index + 1}`;
+        });
+      </script>
 
       <div class="guide-checklist">
         <h2>応募前チェックリスト</h2>
@@ -127,7 +153,7 @@ const relatedGuides = await getRelatedGuides(guide, 3);
             <a class="button" href="/guides">ガイド一覧へ</a>
           </div>
           <div class="guide-grid guide-grid-home">
-            {relatedGuides.map((item) => <GuideCard guide={item} compact />)}
+            {relatedGuides.map((item) => <GuideCard guide={item} compact minimal />)}
           </div>
         </div>
       </section>

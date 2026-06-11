@@ -1,4 +1,4 @@
-import type { Contest, ContestCategory } from "@/data/contests";
+import type { Contest, ContestCategory, ContestPlaceholderType } from "@/data/contests";
 import { getContestsFromNotionOrFallback } from "@/lib/notion";
 
 export const categoryLabels: Record<ContestCategory, string> = {
@@ -63,6 +63,26 @@ export function getDaysUntilDeadline(date: string, now = new Date()): number {
   const deadline = new Date(`${date}T23:59:59+09:00`);
   const diff = deadline.getTime() - now.getTime();
   return Math.ceil(diff / (1000 * 60 * 60 * 24));
+}
+
+export function getContestImage(contest: Contest): string {
+  if (contest.imageStatus === "placeholder") return "/images/contest-fallback.png";
+  const image = contest.image || contest.thumbnail;
+  return !image || image === "/brand-thumbnail.svg" ? "/images/contest-fallback.png" : image;
+}
+
+export function isContestFallbackImage(src: string): boolean {
+  return src === "/images/contest-fallback.png" || src === "/brand-thumbnail.svg";
+}
+
+export function getContestPlaceholderType(contest: Contest): ContestPlaceholderType {
+  if (contest.placeholderType) return contest.placeholderType;
+  if (contest.categories.includes("ai-video")) return "ai-video";
+  if (contest.categories.includes("ai-manga")) return "ai-manga";
+  if (contest.categories.includes("ai-music")) return "ai-music";
+  if (contest.categories.includes("design")) return "design";
+  if (contest.categories.includes("ai-image") || contest.categories.includes("ai-illustration")) return "ai-image";
+  return "other";
 }
 
 function applyRuntimeStatus(contest: Contest, now = new Date()): Contest {

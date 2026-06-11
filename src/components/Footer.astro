@@ -1,5 +1,5 @@
 ---
-import { xProfileUrl } from "@/lib/site";
+import { xContactUrl, xProfileUrl } from "@/lib/site";
 ---
 
 <footer class="site-footer">
@@ -19,6 +19,8 @@ import { xProfileUrl } from "@/lib/site";
       <a href="/guides">ガイド</a>
       <a href="/archive">アーカイブ</a>
       <a href="/submit">掲載について</a>
+      <a href="/policy">掲載方針・権利者の方へ</a>
+      <a href={xContactUrl} target="_blank" rel="noreferrer">Xで連絡する</a>
     </nav>
     <div class="footer-social">
       <a class="button primary" href={xProfileUrl} target="_blank" rel="noreferrer">Xで更新を見る</a>

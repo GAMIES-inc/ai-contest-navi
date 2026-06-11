@@ -1,3 +1,8 @@
 name = "ai-contest-navi"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-06-10"
+
+[[d1_databases]]
+binding = "ANALYTICS_DB"
+database_name = "ai_contest_navi_analytics"
+database_id = "1055450e-9235-4377-9695-d81fa3d6e432"

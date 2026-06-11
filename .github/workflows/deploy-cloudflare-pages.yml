@@ -10,6 +10,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
+      PUBLIC_ENABLE_FIRST_PARTY_ANALYTICS: "true"
       SITE_URL: ${{ secrets.SITE_URL }}
       NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
       NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}

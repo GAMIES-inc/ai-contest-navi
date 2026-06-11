@@ -15,6 +15,16 @@ const closingSoon = await getClosingSoonContests(5);
 const activeContests = await getActiveContests();
 const featuredGuides = (await getAllGuides()).slice(0, 3);
 const deadlinePicks = closingSoon.length > 0 ? closingSoon : activeContests.slice(0, 5);
+const filterChips = [
+  { label: "締切間近", href: "#deadline-soon" },
+  { label: "初心者向け", href: "/contests" },
+  { label: "賞金あり", href: "/contests" },
+  { label: "SNS投稿で応募", href: "/contests" },
+  { label: "AI画像", href: "/categories/ai-image" },
+  { label: "AI動画", href: "/categories/ai-video" },
+  { label: "AI漫画", href: "/categories/ai-manga" },
+  { label: "AI音楽", href: "/categories/ai-music" },
+];
 const categoryCounts = Object.fromEntries(
   publicCategories.map((category) => [
     category,
@@ -29,6 +39,19 @@ const categoryCounts = Object.fromEntries(
   ogImage="/images/hero-pc.png"
 >
   <Hero activeCount={activeContests.length} />
+
+  <section class="quick-filter-section" aria-label="条件からコンテストを探す">
+    <div class="site-shell">
+      <div class="quick-filter-panel">
+        <span class="quick-filter-title">条件で探す</span>
+        <div class="quick-filter-list">
+          {filterChips.map((chip) => (
+            <a class="quick-filter-chip" href={chip.href}>{chip.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="featured" class="section top-section">
     <div class="site-shell">
@@ -45,7 +68,7 @@ const categoryCounts = Object.fromEntries(
     </div>
   </section>
 
-  <section class="section top-section">
+  <section id="deadline-soon" class="section top-section">
     <div class="site-shell">
       <div class="section-head">
         <div>
@@ -82,7 +105,7 @@ const categoryCounts = Object.fromEntries(
         <a class="button" href="/guides">ガイドをもっと見る</a>
       </div>
       <div class="guide-grid guide-grid-home">
-        {featuredGuides.map((guide) => <GuideCard guide={guide} compact />)}
+        {featuredGuides.map((guide) => <GuideCard guide={guide} compact minimal />)}
       </div>
     </div>
   </section>
