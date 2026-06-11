@@ -1726,6 +1726,7 @@ h1 {
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  grid-template-columns: 138px 112px minmax(0, 1fr) auto;
   box-shadow: 0 14px 38px rgba(0, 0, 0, 0.18);
 }
 
@@ -1748,6 +1749,73 @@ h1 {
 
 .calendar-item:hover::before {
   opacity: 1;
+}
+
+.calendar-thumb {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 112px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(33, 212, 253, 0.22);
+  background: linear-gradient(135deg, rgba(21, 55, 96, 0.9), rgba(5, 17, 32, 0.95));
+  box-shadow: inset 0 0 26px rgba(33, 212, 253, 0.08);
+}
+
+.calendar-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.calendar-item.is-fallback .calendar-thumb img {
+  opacity: 0.28;
+  filter: saturate(0.85) contrast(1.08);
+}
+
+.calendar-item.is-fallback .calendar-thumb::before {
+  content: "AI";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  color: rgba(220, 250, 255, 0.92);
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow: 0 0 18px rgba(33, 212, 253, 0.45);
+}
+
+.calendar-item.is-fallback.placeholder-ai-image .calendar-thumb::before {
+  content: "▧";
+}
+
+.calendar-item.is-fallback.placeholder-ai-video .calendar-thumb::before {
+  content: "▶";
+}
+
+.calendar-item.is-fallback.placeholder-ai-manga .calendar-thumb::before {
+  content: "▤";
+}
+
+.calendar-item.is-fallback.placeholder-ai-music .calendar-thumb::before {
+  content: "♪";
+}
+
+.calendar-item.is-fallback.placeholder-design .calendar-thumb::before {
+  content: "◇";
+}
+
+.calendar-item.is-fallback.placeholder-idea .calendar-thumb::before {
+  content: "!";
+}
+
+.calendar-item.is-fallback .fallback-thumb-label {
+  display: none;
 }
 
 .date-block {
@@ -2174,14 +2242,21 @@ h1 {
   }
 
   .calendar-item {
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: 96px minmax(0, 1fr) auto;
     grid-template-areas:
-      "date badge"
-      "main main";
+      "thumb main badge"
+      "thumb date date";
     gap: 12px 14px;
-    align-items: start;
+    align-items: center;
     border-radius: 18px;
     padding: 14px;
+  }
+
+  .calendar-thumb {
+    grid-area: thumb;
+    width: 96px;
+    height: 76px;
+    min-height: 0;
   }
 
   .calendar-item .date-block {
@@ -2747,18 +2822,26 @@ h1 {
   }
 
   .calendar-item {
-    grid-template-columns: 1fr;
+    grid-template-columns: 86px minmax(0, 1fr);
     grid-template-areas:
-      "badge"
-      "main"
-      "date";
-    gap: 10px;
+      "thumb badge"
+      "thumb main"
+      "date date";
+    gap: 10px 12px;
     border-radius: 16px;
     padding: 14px;
+    align-items: start;
+  }
+
+  .calendar-thumb {
+    width: 86px;
+    height: 86px;
+    min-height: 0;
+    border-radius: 13px;
   }
 
   .calendar-item .pill {
-    justify-self: start;
+    justify-self: end;
     order: 0;
   }
 

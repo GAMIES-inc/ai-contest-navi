@@ -1,6 +1,14 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { categoryLabels, formatDate, getActiveContests, getDaysUntilDeadline } from "@/lib/contests";
+import {
+  categoryLabels,
+  formatDate,
+  getActiveContests,
+  getContestImage,
+  getContestPlaceholderType,
+  getDaysUntilDeadline,
+  isContestFallbackImage,
+} from "@/lib/contests";
 
 const contests = await getActiveContests();
 ---
@@ -19,8 +27,20 @@ const contests = await getActiveContests();
       {
         contests.map((contest) => {
           const days = getDaysUntilDeadline(contest.deadline);
+          const thumbnail = getContestImage(contest);
+          const isFallbackThumbnail = isContestFallbackImage(thumbnail);
+          const placeholderType = getContestPlaceholderType(contest);
           return (
-            <a class="calendar-item" href={`/contests/${contest.slug}`}>
+            <a class={`calendar-item placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`}>
+              <span class="calendar-thumb" aria-hidden="true">
+                <img
+                  src={thumbnail}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.calendar-item')?.classList.add('is-fallback');"
+                />
+              </span>
               <div class="date-block">
                 <span>締切</span>
                 <strong>{formatDate(contest.deadline)}</strong>
