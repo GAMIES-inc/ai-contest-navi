@@ -17,6 +17,7 @@ export type Contest = {
   title: string;
   slug: string;
   description: string;
+  catchcopy?: string;
   deadline: string;
   status: ContestStatus;
   categories: ContestCategory[];
@@ -27,6 +28,8 @@ export type Contest = {
   rightsNote: string;
   officialUrl: string;
   thumbnail: string;
+  entryFlow?: string[];
+  recommendedFor?: string[];
   image?: string;
   imageAlt?: string;
   imageSourceLabel?: string;
@@ -35,6 +38,8 @@ export type Contest = {
   imageStatus?: ContestImageStatus;
   imageRemovalNote?: string;
   placeholderType?: ContestPlaceholderType;
+  thumbnailQuality?: string;
+  thumbnailNote?: string;
   spotlight?: boolean;
   featured: boolean;
 };

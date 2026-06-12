@@ -135,6 +135,7 @@ function normalizeNotionPage(page: NotionPage): Contest | null {
     title,
     slug: explicitSlug || createSlug(title, page.id),
     description: getPlainText(props["紹介文"]) || getPlainText(props["概要"]) || getPlainText(props["共有用一言"]) || "",
+    catchcopy: getPlainText(props["一言キャッチコピー"]) || getPlainText(props["詳細ページ一言"]),
     deadline: getDate(props["締切日"]) || "2099-12-31",
     status: mapStatus(getSelectName(props["ステータス"]) || getSelectName(props["開催ステータス"]) || getSelectName(props["公開ステータス"])),
     categories: mapCategories(getMultiSelectNames(props["ジャンル"]).concat(getMultiSelectNames(props["対象作品形式"]))),
@@ -149,6 +150,8 @@ function normalizeNotionPage(page: NotionPage): Contest | null {
       "要確認",
     officialUrl: getUrl(props["公式URL"]) || "#",
     thumbnail: getThumbnail(props["サムネイル"], page.cover),
+    entryFlow: parseList(getPlainText(props["応募の流れ"])),
+    recommendedFor: uniqueStrings(getMultiSelectNames(props["向いている人"]).concat(parseList(getPlainText(props["向いている人メモ"])))),
     image: getThumbnail(props["画像"], page.cover),
     imageAlt: getPlainText(props["画像Alt"]) || `${title}のキービジュアル`,
     imageSourceLabel: getPlainText(props["画像出典"]) || getPlainText(props["画像出典ラベル"]),
@@ -157,6 +160,8 @@ function normalizeNotionPage(page: NotionPage): Contest | null {
     imageStatus: mapImageStatus(getSelectName(props["画像ステータス"])),
     imageRemovalNote: getPlainText(props["画像補足"]),
     placeholderType: mapPlaceholderType(getSelectName(props["プレースホルダー種別"])),
+    thumbnailQuality: getSelectName(props["サムネイル品質"]) || getPlainText(props["サムネイル品質"]),
+    thumbnailNote: getPlainText(props["サムネイル改善メモ"]),
     spotlight,
     featured: spotlight || getSelectName(props["掲載優先度"]) === "高" || getSelectName(props["PR区分"]) === "PR強化対象",
   };
@@ -232,6 +237,20 @@ function getUrl(property: NotionProperty | undefined): string {
 
 function getCheckbox(property: NotionProperty | undefined): boolean {
   return property?.checkbox ?? false;
+}
+
+function parseList(value: string): string[] {
+  if (!value) return [];
+  return uniqueStrings(
+    value
+      .split(/\r?\n|、|,/u)
+      .map((item) => item.replace(/^[\s\-・*]+/u, "").trim())
+      .filter(Boolean),
+  );
+}
+
+function uniqueStrings(values: string[]): string[] {
+  return values.filter((item, index, array) => item && array.indexOf(item) === index);
 }
 
 function getThumbnail(property: NotionProperty | undefined, cover?: NotionCover): string {

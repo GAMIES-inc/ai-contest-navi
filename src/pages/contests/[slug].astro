@@ -97,7 +97,8 @@ const difficultyShort = (() => {
   return formatCompact(contest.difficulty, 14);
 })();
 const heroCatchcopy = shortLead(contest.description, 30);
-const heroLeadLines = buildInlineLines(heroCatchcopy, 18);
+const detailCatchcopy = contest.catchcopy ? shortLead(contest.catchcopy, 30) : heroCatchcopy;
+const detailLeadLines = buildInlineLines(detailCatchcopy, 18);
 const buildTitleLines = (title: string) => {
   const words = title.split(/\s+/u).filter(Boolean);
   if (words.length >= 3) {
@@ -117,12 +118,23 @@ const quickFacts = [
   { label: "AI条件", value: aiUsageShort, icon: Brain },
   { label: "参加しやすさ", value: difficultyShort, icon: UserRound },
 ];
-const flowSteps = [
+const fallbackFlowSteps = [
   { title: "作品やアイデアを用意", body: `${workFormat}の条件に合わせて、応募する内容を整えます。`, icon: Lightbulb },
   { title: "公式条件を確認して応募", body: `締切・提出形式を確認し、${applicationShort}で進めます。`, icon: ClipboardList },
   { title: "結果や案内を待つ", body: "応募後は公式からの連絡や発表を確認します。", icon: Send },
 ];
-const recommendedFor = [
+const flowIcons = [Lightbulb, ClipboardList, Send];
+const flowSteps = contest.entryFlow?.length
+  ? contest.entryFlow.slice(0, 3).map((item, index) => {
+      const [title, body] = item.split(/[:：]/u).map((part) => part.trim());
+      return {
+        title: title || item,
+        body: body || (index === 0 ? "応募に必要な準備を進めます。" : index === 1 ? "公式条件を確認しながら応募します。" : "応募後の案内を確認します。"),
+        icon: flowIcons[index] ?? Send,
+      };
+    })
+  : fallbackFlowSteps;
+const fallbackRecommendedFor = [
   contest.title.match(/U-?18|18歳|学生|中高生/i) ? "中高生向け" : "",
   /初心者/.test(contest.difficulty) ? "初めて参加する" : "",
   hasVideo ? "AI動画を出したい" : "",
@@ -134,6 +146,7 @@ const recommendedFor = [
   isSocialApplication ? "X投稿で応募したい" : "オンラインで応募したい",
   "公式条件を確認しながら進めたい",
 ].filter((item, index, array) => item && array.indexOf(item) === index).slice(0, 6);
+const recommendedFor = (contest.recommendedFor?.length ? contest.recommendedFor : fallbackRecommendedFor).slice(0, 6);
 ---
 
 <BaseLayout
@@ -150,7 +163,7 @@ const recommendedFor = [
           {titleLines.map((line) => <span class="detail-title-line">{line}</span>)}
         </h1>
         <p class="lead">
-          {heroLeadLines.map((line) => <span class="detail-lead-line">{line}</span>)}
+          {detailLeadLines.map((line) => <span class="detail-lead-line">{line}</span>)}
         </p>
         <div class="tags">
           {contest.categories.map((category) => <span class="tag">{categoryLabels[category]}</span>)}
