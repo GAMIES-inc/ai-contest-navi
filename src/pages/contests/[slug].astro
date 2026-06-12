@@ -2,10 +2,20 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import GuideCard from "@/components/GuideCard.astro";
 import ImageSource from "@/components/ImageSource.astro";
-import OfficialInfoNotice from "@/components/OfficialInfoNotice.astro";
 import RightsNotice from "@/components/RightsNotice.astro";
 import { getGuidesForContestCategories } from "@/data/guides";
 import { categoryLabels, formatDate, getAllContests, getContestBySlug, getContestImage, getContestPlaceholderType, isContestFallbackImage } from "@/lib/contests";
+import Brain from "@lucide/astro/icons/brain";
+import CalendarDays from "@lucide/astro/icons/calendar-days";
+import ClipboardList from "@lucide/astro/icons/clipboard-list";
+import FileCheck from "@lucide/astro/icons/file-check";
+import Lightbulb from "@lucide/astro/icons/lightbulb";
+import ListChecks from "@lucide/astro/icons/list-checks";
+import Send from "@lucide/astro/icons/send";
+import Sparkles from "@lucide/astro/icons/sparkles";
+import TriangleAlert from "@lucide/astro/icons/triangle-alert";
+import Trophy from "@lucide/astro/icons/trophy";
+import UserRound from "@lucide/astro/icons/user-round";
 
 export async function getStaticPaths() {
   return (await getAllContests()).map((contest) => ({
@@ -29,39 +39,101 @@ const imageSourceUrl = !isFallbackThumbnail ? contest.imageSourceUrl || contest.
 const relatedGuides = await getGuidesForContestCategories(contest.categories, 3);
 const officialCtaLabel = "公式で応募条件を確認する";
 const officialGoHref = (from: string) => `/go/${contest.slug}?link=official&from=${from}`;
-const detailFacts = [
-  { label: "締切", value: formatDate(contest.deadline) },
-  { label: "ジャンル", value: contest.categories.map((category) => categoryLabels[category]).join(" / ") },
-  { label: "応募形式", value: contest.applicationMethod },
-  { label: "賞金・賞品", value: contest.prize, emphasis: true },
-  { label: "AI使用条件", value: contest.aiUsage },
-  { label: "参加しやすさ", value: contest.difficulty },
-  { label: "権利まわり", value: contest.rightsNote },
-  { label: "公式ページ", value: contest.officialUrl, url: officialGoHref("detail_info") },
-];
 const isSocialApplication =
   /x\.com|twitter\.com/i.test(contest.officialUrl) ||
   /X|SNS|#|ハッシュタグ|フォロー|リポスト|投稿/i.test(`${contest.title} ${contest.description} ${contest.applicationMethod}`);
-const checklistItems = [
-  "締切日・時間",
-  "応募対象",
-  "提出形式",
-  "AI利用条件",
-  "賞金・賞品",
-  "権利条件",
-  "公式ページの最新情報",
-  ...(isSocialApplication ? ["指定アカウントのフォロー", "対象投稿のリポスト", "指定ハッシュタグ", "投稿形式"] : []),
-];
 const hasVideo = contest.categories.includes("ai-video");
 const hasManga = contest.categories.includes("ai-manga");
 const hasImage = contest.categories.includes("ai-image") || contest.categories.includes("ai-illustration");
-const recommendedFor = contest.slug.includes("jacc")
-  ? ["AI動画を15〜30秒で制作できる人", "X投稿で応募できる人", "指定ツールや指定ハッシュタグに沿って応募できる人"]
-  : [
-      hasVideo ? "AI動画やショート映像を制作したい人" : hasManga ? "AI漫画やストーリー作品を形にしたい人" : hasImage ? "AI画像・イラスト作品を応募したい人" : "AI創作作品をコンテストに出してみたい人",
-      `${contest.applicationMethod}で応募できる人`,
-      "応募要項と権利条件を公式ページで確認できる人",
-    ];
+const hasMusic = contest.categories.includes("ai-music");
+const hasDesign = contest.categories.includes("design");
+const formatCompact = (value: string, max = 22) => {
+  const normalized = value.replace(/\s+/g, " ").trim();
+  return normalized.length > max ? `${normalized.slice(0, max - 1)}…` : normalized;
+};
+const firstSentence = (value: string, max = 58) => {
+  const sentence = value.split("。").find(Boolean)?.trim() || value.trim();
+  return formatCompact(sentence, max);
+};
+const shortLead = (value: string, max = 30) => {
+  const sentence = value.split("。").find(Boolean)?.trim() || value.trim();
+  return sentence.length > max ? `${sentence.slice(0, max)}。` : sentence;
+};
+const buildInlineLines = (value: string, max = 18) => value.match(new RegExp(`.{1,${max}}`, "gu")) ?? [value];
+const applicationShort = (() => {
+  const text = `${contest.applicationMethod} ${contest.officialUrl}`;
+  if (/YouTube/i.test(text)) return "YouTube提出";
+  if (isSocialApplication) return "X投稿";
+  if (/フォーム|form/i.test(text)) return "公式フォーム";
+  if (/メール|mail/i.test(text)) return "メール応募";
+  if (/サイト|提出|応募ページ|entry/i.test(text)) return "サイト提出";
+  return formatCompact(contest.applicationMethod, 14);
+})();
+const workFormat = (() => {
+  const formats = [
+    hasImage ? "画像" : "",
+    hasVideo ? "動画" : "",
+    hasManga ? "漫画" : "",
+    hasMusic ? "音楽" : "",
+    hasDesign ? "デザイン" : "",
+  ].filter(Boolean);
+  return formats.length ? formats.join(" / ") : categoryLabels[contest.categories[0]] || "AI作品";
+})();
+const prizeShort = (() => {
+  const match = contest.prize.match(/賞金総額\s*[0-9,]+円|[0-9,]+万円|[0-9,]+円|表彰あり|賞あり/);
+  return match ? match[0] : formatCompact(contest.prize, 18);
+})();
+const aiUsageShort = (() => {
+  if (/必須/.test(contest.aiUsage)) return "AI活用必須";
+  if (/一部/.test(contest.aiUsage)) return "AI一部可";
+  if (/可|OK/.test(contest.aiUsage)) return "AI利用可";
+  return formatCompact(contest.aiUsage, 16);
+})();
+const difficultyShort = (() => {
+  if (/初心者/.test(contest.difficulty)) return "初心者向け";
+  if (/上級/.test(contest.difficulty)) return "上級者向け";
+  if (/作品力/.test(contest.difficulty)) return "作品力必要";
+  if (/標準/.test(contest.difficulty)) return "標準";
+  return formatCompact(contest.difficulty, 14);
+})();
+const heroCatchcopy = shortLead(contest.description, 30);
+const heroLeadLines = buildInlineLines(heroCatchcopy, 18);
+const buildTitleLines = (title: string) => {
+  const words = title.split(/\s+/u).filter(Boolean);
+  if (words.length >= 3) {
+    return [words.slice(0, 2).join(" "), words.slice(2).join(" ")];
+  }
+  if (title.length > 18) {
+    return title.match(/.{1,12}/gu) ?? [title];
+  }
+  return [title];
+};
+const titleLines = buildTitleLines(contest.title);
+const quickFacts = [
+  { label: "締切", value: formatDate(contest.deadline), icon: CalendarDays },
+  { label: "作品形式", value: workFormat, icon: FileCheck },
+  { label: "応募方法", value: applicationShort, icon: Send },
+  { label: "賞金・賞品", value: prizeShort, icon: Trophy, emphasis: true },
+  { label: "AI条件", value: aiUsageShort, icon: Brain },
+  { label: "参加しやすさ", value: difficultyShort, icon: UserRound },
+];
+const flowSteps = [
+  { title: "作品やアイデアを用意", body: `${workFormat}の条件に合わせて、応募する内容を整えます。`, icon: Lightbulb },
+  { title: "公式条件を確認して応募", body: `締切・提出形式を確認し、${applicationShort}で進めます。`, icon: ClipboardList },
+  { title: "結果や案内を待つ", body: "応募後は公式からの連絡や発表を確認します。", icon: Send },
+];
+const recommendedFor = [
+  contest.title.match(/U-?18|18歳|学生|中高生/i) ? "中高生向け" : "",
+  /初心者/.test(contest.difficulty) ? "初めて参加する" : "",
+  hasVideo ? "AI動画を出したい" : "",
+  hasManga ? "AI漫画を出したい" : "",
+  hasImage ? "AI画像を出したい" : "",
+  hasMusic ? "AI音楽を出したい" : "",
+  /アイデア|企画|プレゼン/.test(`${contest.title} ${contest.description} ${contest.applicationMethod}`) ? "AIアイデアを形にしたい" : "",
+  /プレゼン/.test(`${contest.title} ${contest.description}`) ? "プレゼン経験を積みたい" : "",
+  isSocialApplication ? "X投稿で応募したい" : "オンラインで応募したい",
+  "公式条件を確認しながら進めたい",
+].filter((item, index, array) => item && array.indexOf(item) === index).slice(0, 6);
 ---
 
 <BaseLayout
@@ -71,31 +143,17 @@ const recommendedFor = contest.slug.includes("jacc")
   ogImage={ogImage}
 >
   <section class="page-hero">
-    <div class="site-shell detail-hero">
-      <div>
-        <p class="eyebrow">Contest Detail</p>
-        <h1>{contest.title}</h1>
-        <p class="lead">{contest.description}</p>
+    <div class="site-shell detail-hero detail-hero-redesign">
+      <div class="detail-hero-copy">
+        <p class="eyebrow">CONTEST DETAIL</p>
+        <h1>
+          {titleLines.map((line) => <span class="detail-title-line">{line}</span>)}
+        </h1>
+        <p class="lead">
+          {heroLeadLines.map((line) => <span class="detail-lead-line">{line}</span>)}
+        </p>
         <div class="tags">
           {contest.categories.map((category) => <span class="tag">{categoryLabels[category]}</span>)}
-        </div>
-        <div class="detail-summary" aria-label="コンテストの要点">
-          <div>
-            <span>締切</span>
-            <strong>{formatDate(contest.deadline)}</strong>
-          </div>
-          <div>
-            <span>応募形式</span>
-            <strong>{contest.applicationMethod}</strong>
-          </div>
-          <div>
-            <span>賞金・賞品</span>
-            <strong>{contest.prize}</strong>
-          </div>
-          <div>
-            <span>AI条件</span>
-            <strong>{contest.aiUsage}</strong>
-          </div>
         </div>
         <div class="hero-actions detail-primary-actions">
           <a
@@ -110,11 +168,16 @@ const recommendedFor = contest.slug.includes("jacc")
           </a>
           <a class="button" href="/contests">一覧に戻る</a>
         </div>
-        <OfficialInfoNotice />
       </div>
       <div class="detail-image-wrap">
         <div class={`detail-image placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`}>
           <img src={thumbnail} alt={contest.imageAlt || `${contest.title}のキービジュアル`} loading="eager" decoding="async" onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.detail-image')?.classList.add('is-fallback');" />
+          <div class="detail-image-overlay" aria-label="コンテストの主要情報">
+            <span>締切 {formatDate(contest.deadline)}</span>
+            <span>{workFormat}</span>
+            <span>{applicationShort}</span>
+            <span>{prizeShort}</span>
+          </div>
         </div>
         <ImageSource label={imageSourceLabel} url={imageSourceUrl} rightsOwner={contest.imageRightsOwner} />
       </div>
@@ -122,89 +185,89 @@ const recommendedFor = contest.slug.includes("jacc")
   </section>
 
   <section class="section contest-detail-main">
-    <div class="site-shell contest-article-layout">
-      <article class="contest-article-panel">
-        <p class="eyebrow">Contest Guide</p>
-        <h2>このコンテストについて</h2>
-        <p>{contest.description}</p>
-        <p>制作中のAI作品を応募先につなげたい人、締切を決めて作品を完成させたい人に向いています。</p>
-
-        <div class="article-divider"></div>
-
-        <section class="decision-panel recommended-panel" aria-labelledby="recommended-for">
-          <h2 id="recommended-for">このコンテストに向いている人</h2>
-          <div class="recommended-list">
-            {recommendedFor.map((item) => <span>{item}</span>)}
-          </div>
-        </section>
-
-        <section class="decision-panel checklist-panel" aria-labelledby="entry-checklist">
-          <div>
-            <h2 id="entry-checklist">応募前チェック</h2>
-            <p>応募前に、公式ページで以下の条件を確認しておくと安心です。</p>
-          </div>
-          <div class="checklist-grid">
-            {checklistItems.map((item) => <span>{item}</span>)}
-          </div>
-        </section>
-
-        <div class="article-divider"></div>
-
-        <h2>参加者向けポイント</h2>
-        <ul class="article-point-list">
-          <li>締切、ジャンル、賞金・賞品を先に確認して、制作スケジュールに合うか判断できます。</li>
-          <li>応募形式とAI使用条件を確認して、手元の作品をそのまま応募できるか整理できます。</li>
-          <li>詳細な規約や権利条件は、応募直前に公式ページで再確認すると安心です。</li>
-        </ul>
-
-        <div class="article-divider"></div>
-
-        <h2>注意したいポイント</h2>
-        <p>{contest.rightsNote}</p>
-        <p>掲載情報は要約です。応募前には必ず公式ページで最新の募集要項をご確認ください。</p>
-        <p>
-          <a
-            class="button primary"
-            href={officialGoHref("detail_bottom")}
-            target="_blank"
-            rel="noopener"
-            data-analytics-link="official"
-            data-contest-slug={contest.slug}
-          >
-            {officialCtaLabel}
-          </a>
-        </p>
-        <RightsNotice />
-      </article>
-
-      <aside class="contest-side-panel" aria-label="応募前に見ること">
-        <h2>応募前に見ること</h2>
-        <div class="info-grid detail-info-grid">
-          {detailFacts.map((fact) => (
-            <div class={`info-box ${fact.url ? "info-box-wide" : ""} ${fact.emphasis ? "info-box-emphasis" : ""}`}>
-              <span>{fact.label}</span>
-              <strong>
-                {
-                  fact.url ? (
-                    <a
-                      href={fact.url}
-                      target="_blank"
-                      rel={fact.url.startsWith("/go/") ? "noopener" : "noreferrer"}
-                      data-analytics-link={fact.url.startsWith("/go/") ? "official" : undefined}
-                      data-contest-slug={fact.url.startsWith("/go/") ? contest.slug : undefined}
-                    >
-                      {fact.value}
-                    </a>
-                  ) : (
-                    fact.value
-                  )
-                }
-              </strong>
-            </div>
-          ))}
+    <div class="site-shell contest-decision-layout">
+      <section class="contest-about-card" aria-labelledby="contest-about">
+        <div class="contest-about-icon" aria-hidden="true">
+          <Lightbulb size={42} stroke-width={1.8} />
         </div>
-        <p class="notice-box">応募前には、締切・提出形式・AI利用条件・著作権や二次利用条件を公式ページで確認してください。</p>
-      </aside>
+        <div>
+          <p class="eyebrow">Contest Guide</p>
+          <h2 id="contest-about">このコンテストについて</h2>
+          <p>{contest.description}</p>
+          <p>まずは締切・作品形式・応募方法を確認し、自分の作品やアイデアで無理なく応募できるかを判断してみてください。</p>
+        </div>
+      </section>
+
+      <section class="detail-section-block" aria-labelledby="quick-facts">
+        <h2 id="quick-facts" class="detail-section-title">
+          <ListChecks size={25} stroke-width={2.1} />
+          30秒でわかる応募早見表
+        </h2>
+        <div class="quick-facts-grid">
+          {quickFacts.map((fact) => {
+            const Icon = fact.icon;
+            return (
+              <div class={`quick-fact-card ${fact.emphasis ? "is-emphasis" : ""}`}>
+                <Icon size={30} stroke-width={1.9} />
+                <span>{fact.label}</span>
+                <strong>{fact.value}</strong>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section class="detail-section-block" aria-labelledby="entry-flow">
+        <h2 id="entry-flow" class="detail-section-title">
+          <ClipboardList size={25} stroke-width={2.1} />
+          応募の流れ
+        </h2>
+        <div class="entry-flow-grid">
+          {flowSteps.map((step, index) => {
+            const StepIcon = step.icon;
+            return (
+              <article class="entry-flow-card">
+                <span class="entry-flow-number">{index + 1}</span>
+                <StepIcon size={28} stroke-width={1.9} />
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section class="detail-section-block" aria-labelledby="recommended-for">
+        <h2 id="recommended-for" class="detail-section-title">
+          <Sparkles size={25} stroke-width={2.1} />
+          このコンテストに向いている人
+        </h2>
+        <div class="recommended-chip-list">
+          {recommendedFor.map((item) => <span>{item}</span>)}
+        </div>
+      </section>
+
+      <section class="detail-caution-box" aria-labelledby="detail-caution">
+        <TriangleAlert size={34} stroke-width={1.9} />
+        <div>
+          <h2 id="detail-caution">注意したいポイント</h2>
+          <p>最新の公式ルール・締切・提出条件は必ず公式ページでご確認ください。権利条件や二次利用の扱いも、応募前に公式情報で確認しておくと安心です。</p>
+        </div>
+        <a
+          class="button primary"
+          href={officialGoHref("detail_bottom")}
+          target="_blank"
+          rel="noopener"
+          data-analytics-link="official"
+          data-contest-slug={contest.slug}
+        >
+          {officialCtaLabel}
+        </a>
+      </section>
+
+      <RightsNotice />
     </div>
   </section>
   <section class="section">
