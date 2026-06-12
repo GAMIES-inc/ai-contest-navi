@@ -129,6 +129,8 @@ function normalizeNotionPage(page: NotionPage): Contest | null {
     console.warn(`[notion] Missing slug for "${title}". Using generated fallback slug.`);
   }
 
+  const spotlight = getCheckbox(props["注目表示"]);
+
   return {
     title,
     slug: explicitSlug || createSlug(title, page.id),
@@ -155,7 +157,8 @@ function normalizeNotionPage(page: NotionPage): Contest | null {
     imageStatus: mapImageStatus(getSelectName(props["画像ステータス"])),
     imageRemovalNote: getPlainText(props["画像補足"]),
     placeholderType: mapPlaceholderType(getSelectName(props["プレースホルダー種別"])),
-    featured: getCheckbox(props["注目表示"]) || getSelectName(props["掲載優先度"]) === "高" || getSelectName(props["PR区分"]) === "PR強化対象",
+    spotlight,
+    featured: spotlight || getSelectName(props["掲載優先度"]) === "高" || getSelectName(props["PR区分"]) === "PR強化対象",
   };
 }
 

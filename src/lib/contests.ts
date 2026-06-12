@@ -26,6 +26,7 @@ export async function getAllContests(): Promise<Contest[]> {
 export async function getFeaturedContests(limit = 6): Promise<Contest[]> {
   return (await getActiveContests())
     .filter((contest) => contest.featured)
+    .sort((a, b) => Number(Boolean(b.spotlight)) - Number(Boolean(a.spotlight)) || a.deadline.localeCompare(b.deadline))
     .slice(0, limit);
 }
 

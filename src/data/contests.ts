@@ -35,6 +35,7 @@ export type Contest = {
   imageStatus?: ContestImageStatus;
   imageRemovalNote?: string;
   placeholderType?: ContestPlaceholderType;
+  spotlight?: boolean;
   featured: boolean;
 };
 
