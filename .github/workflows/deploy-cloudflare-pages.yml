@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # 00:10 JST daily. Archive expired Notion contests before the daily build.
+    - cron: "10 15 * * *"
   workflow_dispatch:
 
 jobs:
@@ -29,6 +32,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Archive expired Notion contests
+        if: ${{ env.NOTION_TOKEN != '' && env.NOTION_DATABASE_ID != '' }}
+        run: npm run notion:archive-expired
 
       - name: Build
         run: npm run build

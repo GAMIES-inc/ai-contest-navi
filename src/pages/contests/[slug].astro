@@ -39,9 +39,17 @@ const imageSourceUrl = !isFallbackThumbnail ? contest.imageSourceUrl || contest.
 const relatedGuides = await getGuidesForContestCategories(contest.categories, 3);
 const officialCtaLabel = "公式で応募条件を確認する";
 const officialGoHref = (from: string) => `/go/${contest.slug}?link=official&from=${from}`;
+const isXUrl = (value: string) => {
+  try {
+    const hostname = new URL(value).hostname.replace(/^www\./, "");
+    return hostname === "x.com" || hostname === "twitter.com";
+  } catch {
+    return false;
+  }
+};
 const isSocialApplication =
-  /x\.com|twitter\.com/i.test(contest.officialUrl) ||
-  /X|SNS|#|ハッシュタグ|フォロー|リポスト|投稿/i.test(`${contest.title} ${contest.description} ${contest.applicationMethod}`);
+  isXUrl(contest.officialUrl) ||
+  /X|SNS|twitter|フォロー|リポスト|引用投稿/i.test(`${contest.title} ${contest.description} ${contest.applicationMethod}`);
 const hasVideo = contest.categories.includes("ai-video");
 const hasManga = contest.categories.includes("ai-manga");
 const hasImage = contest.categories.includes("ai-image") || contest.categories.includes("ai-illustration");
@@ -63,6 +71,7 @@ const buildInlineLines = (value: string, max = 18) => value.match(new RegExp(`.{
 const applicationShort = (() => {
   const text = `${contest.applicationMethod} ${contest.officialUrl}`;
   if (/YouTube/i.test(text)) return "YouTube提出";
+  if (/note\.com|noteに|noteの/i.test(text)) return "note投稿";
   if (isSocialApplication) return "X投稿";
   if (/フォーム|form/i.test(text)) return "公式フォーム";
   if (/メール|mail/i.test(text)) return "メール応募";
