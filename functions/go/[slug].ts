@@ -1,4 +1,5 @@
 import {
+  classifyOutboundClickTrust,
   classifyPage,
   clamp,
   getCountry,
@@ -40,10 +41,26 @@ export async function onRequest(context: PagesContext): Promise<Response> {
 
   const requestUrl = new URL(context.request.url);
   const referrerUrl = getReferrerUrl(context.request);
-  const sourcePath = referrerUrl ? normalizePath(referrerUrl.pathname) : "";
+  const requestSourcePath = requestUrl.searchParams.get("source_path");
+  const sourcePath = referrerUrl ? normalizePath(referrerUrl.pathname) : requestSourcePath ? normalizePath(requestSourcePath) : "";
   const sourceClassification = sourcePath ? classifyPage(sourcePath) : { pageType: "other" as const };
   const referrerUtm = getUtmFromUrl(referrerUrl);
   const requestUtm = getUtmFromUrl(requestUrl);
+  const clickUtm = {
+    utm_source: referrerUtm.utm_source || requestUtm.utm_source,
+    utm_medium: referrerUtm.utm_medium || requestUtm.utm_medium,
+    utm_campaign: referrerUtm.utm_campaign || requestUtm.utm_campaign,
+    utm_content: referrerUtm.utm_content || requestUtm.utm_content,
+    utm_term: referrerUtm.utm_term || requestUtm.utm_term,
+  };
+  const referrerHost = getReferrerHost(context.request);
+  const clickBot = isBot(context.request);
+  const clickTrust = classifyOutboundClickTrust({
+    sourcePath,
+    referrerHost,
+    utm: clickUtm,
+    isBot: clickBot,
+  });
 
   if (!shouldSkipTracking(context.request, referrerUrl)) {
     try {
@@ -52,8 +69,9 @@ export async function onRequest(context: PagesContext): Promise<Response> {
           id, created_at, contest_slug, contest_title, link_key,
           destination_url, destination_domain, source_path, source_page_type,
           source_page_id, referrer_host, utm_source, utm_medium, utm_campaign,
-          utm_content, utm_term, country, is_bot
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+          utm_content, utm_term, country, is_bot, click_trust, click_source_kind,
+          click_trust_reasons
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       )
         .bind(
           crypto.randomUUID(),
@@ -66,14 +84,17 @@ export async function onRequest(context: PagesContext): Promise<Response> {
           sourcePath || null,
           sourceClassification.pageType,
           sourceClassification.pageId ?? null,
-          getReferrerHost(context.request),
-          referrerUtm.utm_source || requestUtm.utm_source || null,
-          referrerUtm.utm_medium || requestUtm.utm_medium || null,
-          referrerUtm.utm_campaign || requestUtm.utm_campaign || null,
-          referrerUtm.utm_content || requestUtm.utm_content || null,
-          referrerUtm.utm_term || requestUtm.utm_term || null,
+          referrerHost,
+          clickUtm.utm_source || null,
+          clickUtm.utm_medium || null,
+          clickUtm.utm_campaign || null,
+          clickUtm.utm_content || null,
+          clickUtm.utm_term || null,
           getCountry(context.request) || null,
-          isBot(context.request)
+          clickBot,
+          clickTrust.trust,
+          clickTrust.sourceKind,
+          clickTrust.reasons.join(",")
         )
         .run();
     } catch (error) {

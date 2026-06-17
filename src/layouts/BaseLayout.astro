@@ -95,14 +95,25 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
     <script is:inline>
       {`
         (() => {
+          const noTrackStorageKey = "aiContestNaviNoTrack";
           const currentParams = new URLSearchParams(window.location.search);
+          try {
+            if (currentParams.get("no_track") === "1") localStorage.setItem(noTrackStorageKey, "1");
+            if (currentParams.get("track") === "1" || currentParams.get("no_track") === "0") localStorage.removeItem(noTrackStorageKey);
+          } catch {}
+
+          let storedNoTrack = false;
+          try {
+            storedNoTrack = localStorage.getItem(noTrackStorageKey) === "1";
+          } catch {}
+
           const relayParams = new URLSearchParams();
+          relayParams.set("source_path", window.location.pathname || "/");
           ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((key) => {
             const value = currentParams.get(key);
             if (value) relayParams.set(key, value);
           });
-          if (currentParams.get("no_track") === "1") relayParams.set("no_track", "1");
-          if (!relayParams.toString()) return;
+          if (currentParams.get("no_track") === "1" || storedNoTrack) relayParams.set("no_track", "1");
 
           document.querySelectorAll('a[href^="/go/"]').forEach((link) => {
             try {
@@ -124,7 +135,11 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
               if (window.__aiContestNaviPageviewSent) return;
               window.__aiContestNaviPageviewSent = true;
               const params = new URLSearchParams(window.location.search);
-              if (params.get("no_track") === "1") return;
+              let storedNoTrack = false;
+              try {
+                storedNoTrack = localStorage.getItem("aiContestNaviNoTrack") === "1";
+              } catch {}
+              if (params.get("no_track") === "1" || storedNoTrack) return;
               const payload = {
                 path: window.location.pathname,
                 title: document.title,

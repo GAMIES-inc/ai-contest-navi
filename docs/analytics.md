@@ -10,6 +10,8 @@ AIコンテストナビでは、Cloudflare Web Analytics と Cloudflare D1 を�
 - ガイド記事PV
 - 掲載ページPV
 - 公式ページ送客クリック
+- 信頼できる公式ページ送客クリック
+- 要確認クリック / 怪しいクリック
 - 詳細PVに対する公式送客クリック率
 - UTM別流入
 - UTM別送客クリック
@@ -110,11 +112,30 @@ curl -H "Authorization: Bearer $ANALYTICS_ADMIN_TOKEN" \
 
 - `totals.pageViews`
 - `totals.outboundClicks`
+- `totals.trustedOutboundClicks`
+- `totals.reviewOutboundClicks`
+- `totals.suspiciousOutboundClicks`
+- `clickTrust[]`
 - `contests[].detailPageViews`
 - `contests[].officialClicks`
+- `contests[].trustedOfficialClicks`
+- `contests[].reviewOfficialClicks`
+- `contests[].suspiciousOfficialClicks`
 - `contests[].clickThroughRate`
+- `contests[].trustedClickThroughRate`
 - `campaigns[].pageViews`
 - `campaigns[].outboundClicks`
+- `campaigns[].trustedOutboundClicks`
+
+`outboundClicks` / `officialClicks` は全記録の参考値です。主催者向けに「送客数」として出す場合は、原則として `trustedOutboundClicks` / `trustedOfficialClicks` を使います。
+
+クリック信頼度:
+
+- `trusted`: botではなく、AIコンテストナビ上のページから `/go/` がクリックされたと見なせるもの
+- `review`: UTMやreferrerはあるが、サイト上クリックとしては確定しきれないもの
+- `suspicious`: bot判定、またはページ文脈なしで `/go/` だけが直接叩かれたもの
+
+自分やAI編集時の確認を除外したい場合は、本番URLに `?no_track=1` を付けて一度開きます。同じブラウザでは `localStorage` に除外設定が残り、ページビューと `/go/` クリックの両方を送信しません。解除する場合は `?track=1` または `?no_track=0` を付けて開きます。
 
 ## UTM運用例
 
@@ -366,8 +387,9 @@ summary APIで取得したJSONをもとに、主催者には以下のような�
 掲載期間：2026年6月1日〜6月30日
 
 コンテスト詳細PV：320
-公式ページ送客クリック：48
-公式送客率：15.0%
+信頼できる公式ページ送客クリック：44
+要確認/怪しいクリック：4
+信頼できる公式送客率：13.8%
 
 X経由流入：120
 X経由公式送客クリック：18
@@ -382,12 +404,15 @@ X経由公式送客クリック：18
 数字の対応:
 
 - コンテスト詳細PV: `contests[].detailPageViews`
-- 公式ページ送客クリック: `contests[].officialClicks`
-- 公式送客率: `contests[].clickThroughRate`
+- 信頼できる公式ページ送客クリック: `contests[].trustedOfficialClicks`
+- 要確認クリック: `contests[].reviewOfficialClicks`
+- 怪しいクリック: `contests[].suspiciousOfficialClicks`
+- 信頼できる公式送客率: `contests[].trustedClickThroughRate`
+- 全公式クリック参考値: `contests[].officialClicks`
 - X経由流入: `campaigns[]` の `utmSource = "x"` の `pageViews`
-- X経由公式送客クリック: `campaigns[]` の `utmSource = "x"` の `outboundClicks`
+- X経由公式送客クリック: `campaigns[]` の `utmSource = "x"` の `trustedOutboundClicks`
 - 締切リマインド投稿経由流入: 該当 `utmCampaign` の `pageViews`
-- 締切リマインド投稿経由公式送客クリック: 該当 `utmCampaign` の `outboundClicks`
+- 締切リマインド投稿経由公式送客クリック: 該当 `utmCampaign` の `trustedOutboundClicks`
 
 ## コンテスト別summary APIで見られる値
 
@@ -402,11 +427,17 @@ curl -H "Authorization: Bearer $ANALYTICS_ADMIN_TOKEN" \
 
 - 詳細PV: `contests[].detailPageViews`
 - 公式クリック数: `contests[].officialClicks`
+- 信頼できる公式クリック数: `contests[].trustedOfficialClicks`
+- 要確認クリック数: `contests[].reviewOfficialClicks`
+- 怪しいクリック数: `contests[].suspiciousOfficialClicks`
 - 公式送客率: `contests[].clickThroughRate`
+- 信頼できる公式送客率: `contests[].trustedClickThroughRate`
 - UTM別PV: `campaigns[].pageViews`
 - UTM別公式クリック: `campaigns[].outboundClicks`
+- UTM別信頼公式クリック: `campaigns[].trustedOutboundClicks`
 - 日別PV: `daily[].pageViews`
 - 日別公式クリック: `daily[].outboundClicks`
+- 日別信頼公式クリック: `daily[].trustedOutboundClicks`
 - 日別集計の基準タイムゾーン: `period.timezone`
 
 `period.timezone` は `Asia/Tokyo` です。DB保存はUTCですが、summary APIの期間指定と `daily` は日本時間基準で返します。
