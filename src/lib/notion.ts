@@ -139,15 +139,15 @@ function normalizeNotionPage(page: NotionPage): Contest | null {
     deadline: getDate(props["締切日"]) || "2099-12-31",
     status: mapStatus(getSelectName(props["ステータス"]) || getSelectName(props["開催ステータス"]) || getSelectName(props["公開ステータス"])),
     categories: mapCategories(getMultiSelectNames(props["ジャンル"]).concat(getMultiSelectNames(props["対象作品形式"]))),
-    prize: getPlainText(props["賞金・賞品"]) || "要確認",
-    applicationMethod: getSelectName(props["応募形式"]) || getPlainText(props["応募方法"]) || "要確認",
+    prize: getPlainText(props["賞金・賞品"]) || "公式ページを参照",
+    applicationMethod: getSelectName(props["応募形式"]) || getPlainText(props["応募方法"]) || "公式ページの応募方法を参照",
     difficulty: mapDifficulty(getSelectName(props["参加しやすさ"]) || getPlainText(props["参加しやすさ"])),
-    aiUsage: getSelectName(props["AI使用条件"]) || getPlainText(props["AI使用条件"]) || "要確認",
+    aiUsage: getSelectName(props["AI使用条件"]) || getPlainText(props["AI使用条件"]) || "公式募集要項に準拠",
     rightsNote:
       getSelectName(props["権利注意度"]) ||
       getPlainText(props["著作権・二次利用条件"]) ||
-      getSelectName(props["規約注意度"]) ||
-      "要確認",
+      formatRulesCaution(getSelectName(props["規約注意度"])) ||
+      "公式募集要項に準拠",
     officialUrl: getUrl(props["公式URL"]) || "#",
     thumbnail: getThumbnail(props["サムネイル"], page.cover),
     entryFlow: parseList(getPlainText(props["応募の流れ"])),
@@ -280,7 +280,14 @@ function mapDifficulty(value: string): string {
   if (value === "高") return "初心者向け";
   if (value === "中") return "標準";
   if (value === "低") return "作品力必要";
-  return value || "要確認";
+  return value || "標準";
+}
+
+function formatRulesCaution(value: string): string {
+  if (value === "高") return "権利・提出条件の確認項目が多め";
+  if (value === "中") return "一般的な応募規約の確認が必要";
+  if (value === "低") return "基本的な応募規約の確認で進めやすい";
+  return "";
 }
 
 function mapCategories(values: string[]): ContestCategory[] {
