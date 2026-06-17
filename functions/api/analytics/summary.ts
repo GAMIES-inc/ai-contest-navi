@@ -35,7 +35,6 @@ const HAS_UTM_SQL = `(COALESCE(utm_source, '') != '' OR COALESCE(utm_medium, '')
 const SAME_SITE_REFERRER_SQL = `(LOWER(COALESCE(referrer_host, '')) = 'ai-contest-navi.pages.dev' OR LOWER(COALESCE(referrer_host, '')) LIKE '%.ai-contest-navi.pages.dev' OR LOWER(COALESCE(referrer_host, '')) IN ('localhost', '127.0.0.1', '[::1]'))`;
 const TRUSTED_SOURCE_PATH_SQL = `(COALESCE(source_path, '') IN ('/', '/contests', '/calendar', '/categories', '/guides', '/archive', '/submit') OR COALESCE(source_path, '') LIKE '/contests/%' OR COALESCE(source_path, '') LIKE '/calendar/%' OR COALESCE(source_path, '') LIKE '/categories/%' OR COALESCE(source_path, '') LIKE '/guides/%' OR COALESCE(source_path, '') LIKE '/archive/%' OR COALESCE(source_path, '') LIKE '/submit/%')`;
 const CLICK_TRUST_SQL = `CASE
-  WHEN click_trust IN ('trusted', 'review', 'suspicious') THEN click_trust
   WHEN COALESCE(is_bot, 0) != 0 THEN 'suspicious'
   WHEN ${TRUSTED_SOURCE_PATH_SQL} AND (COALESCE(referrer_host, '') = '' OR ${SAME_SITE_REFERRER_SQL}) THEN 'trusted'
   WHEN ${TRUSTED_SOURCE_PATH_SQL} THEN 'review'

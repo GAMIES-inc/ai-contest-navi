@@ -1,5 +1,4 @@
 import {
-  classifyOutboundClickTrust,
   classifyPage,
   clamp,
   getCountry,
@@ -55,12 +54,6 @@ export async function onRequest(context: PagesContext): Promise<Response> {
   };
   const referrerHost = getReferrerHost(context.request);
   const clickBot = isBot(context.request);
-  const clickTrust = classifyOutboundClickTrust({
-    sourcePath,
-    referrerHost,
-    utm: clickUtm,
-    isBot: clickBot,
-  });
 
   if (!shouldSkipTracking(context.request, referrerUrl)) {
     try {
@@ -69,9 +62,8 @@ export async function onRequest(context: PagesContext): Promise<Response> {
           id, created_at, contest_slug, contest_title, link_key,
           destination_url, destination_domain, source_path, source_page_type,
           source_page_id, referrer_host, utm_source, utm_medium, utm_campaign,
-          utm_content, utm_term, country, is_bot, click_trust, click_source_kind,
-          click_trust_reasons
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+          utm_content, utm_term, country, is_bot
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       )
         .bind(
           crypto.randomUUID(),
@@ -91,10 +83,7 @@ export async function onRequest(context: PagesContext): Promise<Response> {
           clickUtm.utm_content || null,
           clickUtm.utm_term || null,
           getCountry(context.request) || null,
-          clickBot,
-          clickTrust.trust,
-          clickTrust.sourceKind,
-          clickTrust.reasons.join(",")
+          clickBot
         )
         .run();
     } catch (error) {

@@ -31,26 +31,7 @@ export type UtmParams = {
   utm_term?: string;
 };
 
-export type ClickTrust = "trusted" | "review" | "suspicious";
-export type ClickSourceKind = "onsite" | "external" | "direct" | "unknown";
-
-export type ClickTrustInput = {
-  sourcePath?: string;
-  referrerHost?: string;
-  utm?: UtmParams;
-  isBot?: number;
-};
-
-export type ClickTrustResult = {
-  trust: ClickTrust;
-  sourceKind: ClickSourceKind;
-  reasons: string[];
-};
-
 const BOT_PATTERN = /bot|crawler|spider|preview|facebookexternalhit|slackbot|discordbot|twitterbot/i;
-const SAME_SITE_HOST_PATTERN = /(^|\.)ai-contest-navi\.pages\.dev$|^localhost$|^127\.0\.0\.1$|^\[::1\]$/i;
-const TRUSTED_SOURCE_PATH_PATTERN =
-  /^\/($|contests(?:\/|$)|calendar(?:\/|$)|categories(?:\/|$)|guides(?:\/|$)|archive(?:\/|$)|submit(?:\/|$))/;
 
 export function classifyPage(path: string): PageClassification {
   const normalized = normalizePath(path);
@@ -125,56 +106,6 @@ export function getUtmFromRecord(record: Record<string, unknown>): UtmParams {
     utm_content: clamp(record.utm_content, 160),
     utm_term: clamp(record.utm_term, 160),
   };
-}
-
-export function classifyOutboundClickTrust(input: ClickTrustInput): ClickTrustResult {
-  const sourcePath = input.sourcePath ? normalizePath(input.sourcePath) : "";
-  const referrerHost = clamp(input.referrerHost, 120).toLowerCase();
-  const hasSourcePath = Boolean(sourcePath);
-  const hasReferrerHost = Boolean(referrerHost);
-  const sameSiteReferrer = hasReferrerHost && SAME_SITE_HOST_PATTERN.test(referrerHost);
-  const trustedSourcePath = hasSourcePath && TRUSTED_SOURCE_PATH_PATTERN.test(sourcePath);
-  const hasUtm = hasAnyUtm(input.utm);
-
-  if (input.isBot) {
-    return { trust: "suspicious", sourceKind: "unknown", reasons: ["bot_user_agent"] };
-  }
-
-  if (trustedSourcePath && (!hasReferrerHost || sameSiteReferrer)) {
-    return {
-      trust: "trusted",
-      sourceKind: "onsite",
-      reasons: hasUtm ? ["onsite_source_path", "utm_present"] : ["onsite_source_path"],
-    };
-  }
-
-  if (trustedSourcePath && hasReferrerHost) {
-    return { trust: "review", sourceKind: "external", reasons: ["onsite_path_external_referrer"] };
-  }
-
-  if (sameSiteReferrer) {
-    return { trust: "review", sourceKind: "onsite", reasons: ["same_site_referrer_without_path"] };
-  }
-
-  if (!hasSourcePath && !hasReferrerHost) {
-    return hasUtm
-      ? { trust: "review", sourceKind: "direct", reasons: ["utm_without_page_context"] }
-      : { trust: "suspicious", sourceKind: "direct", reasons: ["direct_go_request"] };
-  }
-
-  if (hasUtm) {
-    return { trust: "review", sourceKind: hasReferrerHost ? "external" : "unknown", reasons: ["utm_without_onsite_context"] };
-  }
-
-  if (hasReferrerHost) {
-    return { trust: "review", sourceKind: "external", reasons: ["external_or_unknown_referrer"] };
-  }
-
-  return { trust: "suspicious", sourceKind: "unknown", reasons: ["unknown_source"] };
-}
-
-function hasAnyUtm(utm: UtmParams | undefined): boolean {
-  return Boolean(utm?.utm_source || utm?.utm_medium || utm?.utm_campaign || utm?.utm_content || utm?.utm_term);
 }
 
 export function shouldSkipTracking(request: Request, extraUrl?: URL | null): boolean {
