@@ -1,6 +1,6 @@
 export const siteContact = {
-  xHandle: "AIContestNavi",
-  xProfileUrl: "https://x.com/AIContestNavi",
+  xHandle: "yuru_contest_navi",
+  xProfileUrl: "https://x.com/yuru_contest_navi",
   xDmUrl: "",
 } as const;
 

@@ -69,7 +69,7 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
         </a>
         <nav class="nav-links" aria-label="メインナビゲーション">
           <a href="/contests">コンテストを探す</a>
-          <a href="/#categories">カテゴリーから探す</a>
+          <a href="/categories">カテゴリーから探す</a>
           <a href="/guides/start-ai-contest">初めての方へ</a>
           <a href="/submit">掲載希望の方へ</a>
           <a href={xProfileUrl} target="_blank" rel="noreferrer">お知らせ</a>
@@ -86,7 +86,7 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
           </summary>
           <div class="mobile-menu-panel">
             <a href="/contests">コンテストを探す</a>
-            <a href="/#categories">カテゴリーから探す</a>
+            <a href="/categories">カテゴリーから探す</a>
             <a href="/calendar">締切カレンダー</a>
             <a href="/guides/start-ai-contest">初めての方へ</a>
             <a href="/archive">アーカイブ</a>
@@ -105,11 +105,18 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
     <script is:inline>
       {`
         (() => {
-          const noTrackStorageKey = "aiContestNaviNoTrack";
+          const noTrackStorageKey = "yuruContestNaviNoTrack";
+          const legacyNoTrackStorageKey = ["ai", "Contest", "Navi", "NoTrack"].join("");
           const currentParams = new URLSearchParams(window.location.search);
           try {
             if (currentParams.get("no_track") === "1") localStorage.setItem(noTrackStorageKey, "1");
-            if (currentParams.get("track") === "1" || currentParams.get("no_track") === "0") localStorage.removeItem(noTrackStorageKey);
+            if (currentParams.get("track") === "1" || currentParams.get("no_track") === "0") {
+              localStorage.removeItem(noTrackStorageKey);
+              localStorage.removeItem(legacyNoTrackStorageKey);
+            } else if (localStorage.getItem(legacyNoTrackStorageKey) === "1") {
+              localStorage.setItem(noTrackStorageKey, "1");
+              localStorage.removeItem(legacyNoTrackStorageKey);
+            }
           } catch {}
 
           let storedNoTrack = false;
@@ -142,12 +149,12 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
         <script is:inline>
           {`
             (() => {
-              if (window.__aiContestNaviPageviewSent) return;
-              window.__aiContestNaviPageviewSent = true;
+              if (window.__yuruContestNaviPageviewSent) return;
+              window.__yuruContestNaviPageviewSent = true;
               const params = new URLSearchParams(window.location.search);
               let storedNoTrack = false;
               try {
-                storedNoTrack = localStorage.getItem("aiContestNaviNoTrack") === "1";
+                storedNoTrack = localStorage.getItem("yuruContestNaviNoTrack") === "1";
               } catch {}
               if (params.get("no_track") === "1" || storedNoTrack) return;
               const payload = {

@@ -1,0 +1,62 @@
+---
+import CategoryLinks from "@/components/CategoryLinks.astro";
+import ContestCard from "@/components/ContestCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { ContestCategory } from "@/data/contests";
+import { getActiveContests, publicCategories } from "@/lib/contests";
+
+const activeContests = await getActiveContests();
+const categoryCounts = Object.fromEntries(
+  publicCategories.map((category) => [
+    category,
+    activeContests.filter((contest) => contest.categories.includes(category)).length,
+  ]),
+) as Partial<Record<ContestCategory, number>>;
+const beginnerPicks = activeContests
+  .filter((contest) => /初心者|初めて|標準|ゆる/.test(contest.difficulty))
+  .slice(0, 3);
+const fallbackPicks = activeContests.slice(0, 3);
+const picks = beginnerPicks.length ? beginnerPicks : fallbackPicks;
+---
+
+<BaseLayout
+  title="作りたいものから探す"
+  description="イラスト・AI画像・動画・写真・音楽・X投稿など、作りたいものに近い入口からコンテストを探せます。"
+  canonical={new URL("/categories", Astro.site).toString()}
+  ogImage="/images/brand/yuru-og-home.webp"
+>
+  <section class="page-hero">
+    <div class="site-shell">
+      <p class="eyebrow">Categories</p>
+      <h1>作りたいものから探す</h1>
+      <p class="lead">近いジャンルから、無理なく探せます。迷ったら大きな入口から選んでみてください。</p>
+    </div>
+  </section>
+
+  <section class="section creation-section">
+    <div class="site-shell">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">4つの入口</h2>
+          <p class="section-copy">描く・撮る・書く・投稿する。作りたいものに近い募集を見つけやすくしました。</p>
+        </div>
+      </div>
+      <CategoryLinks counts={categoryCounts} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">迷ったら見たいコンテスト</h2>
+          <p class="section-copy">初心者でも見比べやすい募集をいくつかピックアップしています。</p>
+        </div>
+        <a class="button" href="/contests">一覧を見る</a>
+      </div>
+      <div class="grid">
+        {picks.map((contest) => <ContestCard contest={contest} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

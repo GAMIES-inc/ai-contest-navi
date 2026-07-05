@@ -4,7 +4,7 @@
   <rect x="76" y="74" width="1048" height="482" fill="#0E2138" fill-opacity=".78" stroke="#21D4FD" stroke-opacity=".32"/>
   <path d="M776 128H1050L960 314H686L776 128Z" fill="#21D4FD" fill-opacity=".12" stroke="#5EE7FF" stroke-opacity=".34"/>
   <path d="M136 460H508L624 338L754 400L940 206" stroke="#21D4FD" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="128" y="176" fill="#5EE7FF" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">AI CONTEST NAVI</text>
+  <text x="128" y="176" fill="#5EE7FF" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">YURU CONTEST NAVI</text>
   <text x="128" y="274" fill="#EAF6FF" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800">コンテスト詳細</text>
   <text x="128" y="350" fill="#A8BFD2" font-family="Arial, Helvetica, sans-serif" font-size="34">締切・賞品・応募形式をまとめて確認</text>
   <text x="128" y="526" fill="#F6C65B" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="5">CHECK BEFORE ENTRY</text>

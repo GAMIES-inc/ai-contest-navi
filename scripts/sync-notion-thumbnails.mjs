@@ -123,7 +123,7 @@ async function updatePageThumbnail(pageId, imageUrl, type) {
 async function findOgImage(pageUrl) {
   const response = await fetch(pageUrl, {
     headers: {
-      "User-Agent": "AIContestNaviBot/1.0 (+https://ai-contest-navi.pages.dev)",
+      "User-Agent": "YuruContestNaviBot/1.0 (+https://ai-contest-navi.pages.dev)",
       Accept: "text/html,application/xhtml+xml",
     },
     redirect: "follow",

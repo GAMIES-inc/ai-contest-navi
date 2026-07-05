@@ -86,7 +86,7 @@ const workFormat = (() => {
     hasMusic ? "音楽" : "",
     hasDesign ? "デザイン" : "",
   ].filter(Boolean);
-  return formats.length ? formats.join(" / ") : categoryLabels[contest.categories[0]] || "AI作品";
+  return formats.length ? formats.join(" / ") : categoryLabels[contest.categories[0]] || "作品";
 })();
 const prizeShort = (() => {
   const match = contest.prize.match(/賞金総額\s*[0-9,]+円|[0-9,]+万円|[0-9,]+円|表彰あり|賞あり/);
@@ -124,7 +124,7 @@ const quickFacts = [
   { label: "作品形式", value: workFormat, icon: FileCheck },
   { label: "応募方法", value: applicationShort, icon: Send },
   { label: "賞金・賞品", value: prizeShort, icon: Trophy, emphasis: true },
-  { label: "AI条件", value: aiUsageShort, icon: Brain },
+  { label: "AI利用", value: aiUsageShort, icon: Brain },
   { label: "参加しやすさ", value: difficultyShort, icon: UserRound },
 ];
 const fallbackFlowSteps = [
@@ -146,11 +146,11 @@ const flowSteps = contest.entryFlow?.length
 const fallbackRecommendedFor = [
   contest.title.match(/U-?18|18歳|学生|中高生/i) ? "中高生向け" : "",
   /初心者/.test(contest.difficulty) ? "初めて参加する" : "",
-  hasVideo ? "AI動画を出したい" : "",
-  hasManga ? "AI漫画を出したい" : "",
-  hasImage ? "AI画像を出したい" : "",
-  hasMusic ? "AI音楽を出したい" : "",
-  /アイデア|企画|プレゼン/.test(`${contest.title} ${contest.description} ${contest.applicationMethod}`) ? "AIアイデアを形にしたい" : "",
+  hasVideo ? "動画を出したい" : "",
+  hasManga ? "漫画を出したい" : "",
+  hasImage ? "画像作品を出したい" : "",
+  hasMusic ? "音楽作品を出したい" : "",
+  /アイデア|企画|プレゼン/.test(`${contest.title} ${contest.description} ${contest.applicationMethod}`) ? "アイデアを形にしたい" : "",
   /プレゼン/.test(`${contest.title} ${contest.description}`) ? "プレゼン経験を積みたい" : "",
   isSocialApplication ? "X投稿で応募したい" : "オンラインで応募したい",
   "公式条件を確認しながら進めたい",
@@ -193,7 +193,7 @@ const recommendedFor = (contest.recommendedFor?.length ? contest.recommendedFor 
       </div>
       <div class="detail-image-wrap">
         <div class={`detail-image placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`}>
-          <img src={thumbnail} data-fallback-src={fallbackThumbnail} alt={contest.imageAlt || `${contest.title}のキービジュアル`} loading="eager" decoding="async" onerror="this.onerror=null;this.src=this.dataset.fallbackSrc || '/images/contest-fallback.png';" />
+          <img src={thumbnail} data-fallback-src={fallbackThumbnail} alt={contest.imageAlt || `${contest.title}のキービジュアル`} loading="eager" decoding="async" onerror="this.onerror=null;this.src=this.dataset.fallbackSrc || '/images/contests/yuru-thumb-ai-image.webp';" />
           <div class="detail-image-overlay" aria-label="コンテストの主要情報">
             <span>締切 {formatDate(contest.deadline)}</span>
             <span>{workFormat}</span>

@@ -6849,6 +6849,16 @@ h3 {
   background: var(--cream);
 }
 
+.deadline-showcase-panel .deadline-card.is-fallback .deadline-thumb {
+  background: #fff5e7;
+}
+
+.deadline-showcase-panel .deadline-card.is-fallback .deadline-thumb img {
+  display: block;
+  opacity: 1;
+  filter: none;
+}
+
 .deadline-showcase-panel .deadline-thumb img {
   width: 100%;
   height: auto;

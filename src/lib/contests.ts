@@ -34,6 +34,12 @@ const yuruPlaceholderImages: Record<ContestPlaceholderType, string> = {
   other: "/images/contests/yuru-thumb-photo.webp",
 };
 
+const unreliableImageUrls = [
+  "https://www.dhw.ac.jp/p/articon/img/fb_main.png",
+  "https://aaiff.ai/logo.png",
+  "https://pbs.twimg.com/amplify_video_thumb/2063918534825324544/img/0uiMSoKluH1KXz4T.jpg",
+];
+
 export async function getAllContests(): Promise<Contest[]> {
   return (await getContestsFromNotionOrFallback()).map((contest) => applyRuntimeStatus(contest));
 }
@@ -85,7 +91,7 @@ export function getContestImage(contest: Contest): string {
   const placeholderImage = getContestFallbackImage(contest);
   if (contest.imageStatus === "placeholder") return placeholderImage;
   const image = contest.image || contest.thumbnail;
-  return !image || image === "/brand-thumbnail.svg" || image === "/images/contest-fallback.png" ? placeholderImage : image;
+  return !image || image === "/brand-thumbnail.svg" || image === "/images/contest-fallback.png" || isUnreliableContestImage(image) ? placeholderImage : image;
 }
 
 export function getContestFallbackImage(contest: Contest): string {
@@ -93,7 +99,11 @@ export function getContestFallbackImage(contest: Contest): string {
 }
 
 export function isContestFallbackImage(src: string): boolean {
-  return src === "/images/contest-fallback.png" || src === "/brand-thumbnail.svg";
+  return src === "/images/contest-fallback.png" || src === "/brand-thumbnail.svg" || src.startsWith("/images/contests/yuru-thumb-");
+}
+
+function isUnreliableContestImage(src: string): boolean {
+  return unreliableImageUrls.includes(src);
 }
 
 export function getContestPlaceholderType(contest: Contest): ContestPlaceholderType {

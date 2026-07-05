@@ -27,9 +27,9 @@
   <path d="M84 522L310 292L498 368L704 178L848 248L1116 96" stroke="url(#accent)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M772 118H1078L982 314H676L772 118Z" fill="#21D4FD" fill-opacity=".1" stroke="#5EE7FF" stroke-opacity=".28"/>
   <path d="M112 94H642V396H112V94Z" fill="#0E2138" fill-opacity=".76" stroke="#5EE7FF" stroke-opacity=".26"/>
-  <text x="148" y="184" fill="#EAF6FF" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800">AI CONTEST</text>
+  <text x="148" y="184" fill="#EAF6FF" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800">YURU CONTEST</text>
   <text x="148" y="266" fill="#EAF6FF" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="800">NAVI</text>
-  <text x="148" y="340" fill="#9FC5DD" font-family="Arial, Helvetica, sans-serif" font-size="32">AI作品の応募先、ここで見つかる。</text>
-  <text x="148" y="600" fill="#5EE7FF" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="4">IMAGE / VIDEO / MANGA / MUSIC</text>
-  <text x="930" y="570" fill="#F6C65B" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Deadline First</text>
+  <text x="148" y="340" fill="#9FC5DD" font-family="Arial, Helvetica, sans-serif" font-size="32">気軽に参加できるコンテストが見つかる。</text>
+  <text x="148" y="600" fill="#5EE7FF" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="4">ILLUSTRATION / VIDEO / PHOTO / MUSIC</text>
+  <text x="930" y="570" fill="#F6C65B" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Yuru Entry</text>
 </svg>

@@ -11,7 +11,7 @@ type Props = {
 };
 
 const { guide, compact = false, minimal = false } = Astro.props;
-const coverImage = guide.coverImage ?? "/images/contest-fallback.png";
+const coverImage = guide.coverImage ?? "/images/guides/yuru-start-guide.webp";
 const coverAlt = guide.coverAlt ?? "";
 const guideCardCopy: Record<string, { category: string; description: string; kicker: string }> = {
   "start-ai-contest": {
@@ -45,7 +45,7 @@ const displayKicker = displayCopy?.kicker ?? guide.learnings[0];
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.guide-card')?.classList.add('is-fallback');"
+        onerror="this.onerror=null;this.src='/images/guides/yuru-start-guide.webp';this.closest('.guide-card')?.classList.add('is-fallback');"
       />
       <span class="guide-cover-shade" aria-hidden="true"></span>
       <span class="guide-category">{displayCategory}</span>

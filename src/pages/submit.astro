@@ -2,10 +2,10 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import XContactButton from "@/components/XContactButton.astro";
 
-const targets = ["AI画像", "AI動画", "AI漫画", "AI音楽", "AIイラスト", "デザイン", "企画・アイデア", "その他AI創作"];
+const targets = ["イラスト", "AI画像", "動画", "写真", "音楽", "X投稿キャンペーン", "デザイン", "文章・アイデア", "学生向け", "その他"];
 const flow = [
   ["1", "情報提供", "公式ページや募集要項のURLをお送りください。"],
-  ["2", "公式情報を確認", "応募条件、締切、提出形式、AI利用条件などを確認します。"],
+  ["2", "公式情報を確認", "応募条件、締切、提出形式、AI利用条件がある場合はその内容も確認します。"],
   ["3", "掲載内容を整理", "応募者が見やすい形に要約し、必要に応じて確認します。"],
   ["4", "公開・更新", "掲載後も、締切や公式情報に変更があれば更新します。"],
 ];
@@ -19,7 +19,7 @@ const requiredItems = [
   "ジャンル",
   "賞金・賞品",
   "応募形式",
-  "AI利用条件",
+  "AI利用条件（ある場合）",
   "著作権・二次利用条件",
   "掲載用画像またはキービジュアル",
   "画像の利用可否",
@@ -47,7 +47,7 @@ const cannotList = [
         <p class="eyebrow">Submit Contest</p>
         <h1>コンテストの掲載依頼</h1>
         <p class="lead">
-          コンテスト情報を、公式情報にもとづいてゆるコンテストなびに掲載します。AI画像、AI動画、AI漫画、AI音楽、デザインなど、作品を募集するコンテストの情報提供を受け付けています。
+          コンテスト情報を、公式情報にもとづいてゆるコンテストなびに掲載します。イラスト・AI画像・動画・写真・音楽・X投稿キャンペーン・デザインなど、作品やアイデアを募集する情報を受け付けています。
         </p>
         <div class="hero-actions">
           <XContactButton label="Xで掲載依頼する" />
@@ -59,7 +59,7 @@ const cannotList = [
         <span>締切</span>
         <span>賞金・賞品</span>
         <span>応募形式</span>
-        <span>AI利用条件</span>
+        <span>AI条件</span>
         <span>権利条件</span>
         <span>公式URL</span>
       </div>
@@ -72,7 +72,7 @@ const cannotList = [
         <div>
           <h2 class="section-title">掲載対象</h2>
           <p class="section-copy">
-            AI画像、AI動画、AI漫画、AI音楽、AIイラスト、デザイン、映像制作、企画・アイデア募集など、生成AIを活用した作品を応募できるコンテストを掲載対象にします。
+            イラスト、AI画像、動画、写真、音楽、X投稿キャンペーン、デザイン、文章・アイデア募集など、初心者にも参加しやすいコンテストを中心に掲載します。
           </p>
         </div>
       </div>
