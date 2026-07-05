@@ -1,7 +1,7 @@
 import { contests as fallbackContests, type Contest, type ContestCategory, type ContestStatus } from "@/data/contests";
 
 const NOTION_VERSION = "2022-06-28";
-const FALLBACK_THUMBNAIL = "/brand-thumbnail.svg";
+const FALLBACK_THUMBNAIL = "/images/contest-fallback.png";
 
 type NotionRichText = {
   plain_text?: string;
@@ -299,6 +299,7 @@ function mapCategories(values: string[]): ContestCategory[] {
     if (["AI漫画", "漫画"].includes(value)) categories.add("ai-manga");
     if (["AI音楽", "音楽", "音楽/音声"].includes(value)) categories.add("ai-music");
     if (["AIイラスト", "イラスト", "塗り絵", "線画"].includes(value)) categories.add("ai-illustration");
+    if (["写真", "フォト", "フォトコンテスト"].includes(value)) categories.add("photo");
     if (["デザイン"].includes(value)) categories.add("design");
   }
 
@@ -320,6 +321,7 @@ function mapPlaceholderType(value: string): Contest["placeholderType"] | undefin
   if (value === "AI動画") return "ai-video";
   if (value === "AI漫画") return "ai-manga";
   if (value === "AI音楽") return "ai-music";
+  if (value === "写真") return "photo";
   if (value === "デザイン") return "design";
   if (value === "企画・アイデア") return "idea";
   if (value === "その他") return "other";

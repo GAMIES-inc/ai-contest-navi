@@ -4,7 +4,7 @@ import GuideCard from "@/components/GuideCard.astro";
 import ImageSource from "@/components/ImageSource.astro";
 import RightsNotice from "@/components/RightsNotice.astro";
 import { getGuidesForContestCategories } from "@/data/guides";
-import { categoryLabels, formatDate, getAllContests, getContestBySlug, getContestImage, getContestPlaceholderType, isContestFallbackImage } from "@/lib/contests";
+import { categoryLabels, formatDate, getAllContests, getContestBySlug, getContestFallbackImage, getContestImage, getContestPlaceholderType, isContestFallbackImage } from "@/lib/contests";
 import Brain from "@lucide/astro/icons/brain";
 import CalendarDays from "@lucide/astro/icons/calendar-days";
 import ClipboardList from "@lucide/astro/icons/clipboard-list";
@@ -29,7 +29,7 @@ if (!contest) {
   return Astro.redirect("/contests");
 }
 
-const fallbackThumbnail = "/images/contest-fallback.png";
+const fallbackThumbnail = getContestFallbackImage(contest);
 const thumbnail = getContestImage(contest);
 const isFallbackThumbnail = isContestFallbackImage(thumbnail);
 const placeholderType = getContestPlaceholderType(contest);
@@ -193,7 +193,7 @@ const recommendedFor = (contest.recommendedFor?.length ? contest.recommendedFor 
       </div>
       <div class="detail-image-wrap">
         <div class={`detail-image placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`}>
-          <img src={thumbnail} alt={contest.imageAlt || `${contest.title}のキービジュアル`} loading="eager" decoding="async" onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.detail-image')?.classList.add('is-fallback');" />
+          <img src={thumbnail} data-fallback-src={fallbackThumbnail} alt={contest.imageAlt || `${contest.title}のキービジュアル`} loading="eager" decoding="async" onerror="this.onerror=null;this.src=this.dataset.fallbackSrc || '/images/contest-fallback.png';" />
           <div class="detail-image-overlay" aria-label="コンテストの主要情報">
             <span>締切 {formatDate(contest.deadline)}</span>
             <span>{workFormat}</span>

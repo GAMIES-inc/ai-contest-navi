@@ -1,8 +1,8 @@
 ---
-import CalendarCta from "@/components/CalendarCta.astro";
 import ContestCard from "@/components/ContestCard.astro";
 import DeadlineSoonCard from "@/components/DeadlineSoonCard.astro";
 import CategoryLinks from "@/components/CategoryLinks.astro";
+import CtaSection from "@/components/CtaSection.astro";
 import GuideCard from "@/components/GuideCard.astro";
 import Hero from "@/components/Hero.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -10,21 +10,11 @@ import type { ContestCategory } from "@/data/contests";
 import { getAllGuides } from "@/data/guides";
 import { getActiveContests, getClosingSoonContests, getFeaturedContests, publicCategories } from "@/lib/contests";
 
-const featured = await getFeaturedContests(3);
+const featured = await getFeaturedContests(4);
 const closingSoon = await getClosingSoonContests(5);
 const activeContests = await getActiveContests();
 const featuredGuides = (await getAllGuides()).slice(0, 3);
 const deadlinePicks = closingSoon.length > 0 ? closingSoon : activeContests.slice(0, 5);
-const filterChips = [
-  { label: "締切間近", href: "#deadline-soon" },
-  { label: "初心者向け", href: "/contests" },
-  { label: "賞金あり", href: "/contests" },
-  { label: "SNS投稿で応募", href: "/contests" },
-  { label: "AI画像", href: "/categories/ai-image" },
-  { label: "AI動画", href: "/categories/ai-video" },
-  { label: "AI漫画", href: "/categories/ai-manga" },
-  { label: "AI音楽", href: "/categories/ai-music" },
-];
 const categoryCounts = Object.fromEntries(
   publicCategories.map((category) => [
     category,
@@ -34,31 +24,18 @@ const categoryCounts = Object.fromEntries(
 ---
 
 <BaseLayout
-  title="AIコンテストナビ"
-  description="AI画像・AI動画・AI漫画・AI音楽など、生成AIで参加できるコンテスト情報を紹介します。"
-  ogImage="/images/hero-pc.png"
+  title="ゆるコンテストなび"
+  description="やさしい・たのしい・ゆるっと参加。初心者でも気軽に参加できるコンテストを探せる案内サイトです。"
+  ogImage="/images/brand/yuru-og-home.webp"
 >
-  <Hero activeCount={activeContests.length} />
-
-  <section class="quick-filter-section" aria-label="条件からコンテストを探す">
-    <div class="site-shell">
-      <div class="quick-filter-panel">
-        <span class="quick-filter-title">条件で探す</span>
-        <div class="quick-filter-list">
-          {filterChips.map((chip) => (
-            <a class="quick-filter-chip" href={chip.href}>{chip.label}</a>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
+  <Hero featured={featured} />
 
   <section id="featured" class="section top-section">
     <div class="site-shell">
       <div class="section-head">
         <div>
-          <h2 class="section-title">注目コンテスト</h2>
-          <p class="section-copy">まず見ておきたいAI創作コンテストをピックアップ。</p>
+          <h2 class="section-title">注目のコンテスト</h2>
+          <p class="section-copy">まず見ておきたい、参加しやすい募集をピックアップ。</p>
         </div>
         <a class="button" href="/contests">すべて見る</a>
       </div>
@@ -68,17 +45,17 @@ const categoryCounts = Object.fromEntries(
     </div>
   </section>
 
-  <section id="deadline-soon" class="section top-section">
+  <section class="section guide-strip-section">
     <div class="site-shell">
       <div class="section-head">
         <div>
-          <h2 class="section-title">締切間近</h2>
-          <p class="section-copy">制作スケジュールに入れやすい、締切が近い募集。</p>
+          <h2 class="section-title">初めての方へ</h2>
+          <p class="section-copy">応募の流れ、選び方、応募前のポイントをやさしくまとめました。</p>
         </div>
-        <a class="button" href="/calendar">カレンダーを見る</a>
+        <a class="button" href="/guides">もっと見る</a>
       </div>
-      <div class="deadline-rail">
-        {deadlinePicks.map((contest) => <DeadlineSoonCard contest={contest} />)}
+      <div class="guide-grid guide-grid-home">
+        {featuredGuides.map((guide) => <GuideCard guide={guide} compact minimal />)}
       </div>
     </div>
   </section>
@@ -87,28 +64,28 @@ const categoryCounts = Object.fromEntries(
     <div class="site-shell">
       <div class="section-head">
         <div>
-          <h2 class="section-title">ジャンル別で探す</h2>
-          <p class="section-copy">制作スタイルに合う応募先をジャンルから探せます。</p>
+          <h2 class="section-title">カテゴリーから探す</h2>
+          <p class="section-copy">作りたいものに近いジャンルから、無理なく探せます。</p>
         </div>
       </div>
       <CategoryLinks counts={categoryCounts} />
     </div>
   </section>
 
-  <section class="section guide-strip-section">
+  <section id="deadline-soon" class="section top-section">
     <div class="site-shell">
       <div class="section-head">
         <div>
-          <h2 class="section-title">応募前に読んでおきたいガイド</h2>
-          <p class="section-copy">AI作品を作るところから、応募前のチェックまで。</p>
+          <h2 class="section-title">締切が近いコンテスト</h2>
+          <p class="section-copy">そろそろ準備したい、締切が近い募集。</p>
         </div>
-        <a class="button" href="/guides">ガイドをもっと見る</a>
+        <a class="button" href="/calendar">すべて見る</a>
       </div>
-      <div class="guide-grid guide-grid-home">
-        {featuredGuides.map((guide) => <GuideCard guide={guide} compact minimal />)}
+      <div class="deadline-rail">
+        {deadlinePicks.map((contest) => <DeadlineSoonCard contest={contest} />)}
       </div>
     </div>
   </section>
 
-  <CalendarCta />
+  <CtaSection />
 </BaseLayout>

@@ -1,23 +1,41 @@
 ---
 import ContestCard from "@/components/ContestCard.astro";
+import SearchBar from "@/components/SearchBar.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getActiveContests } from "@/lib/contests";
 
 const contests = await getActiveContests();
 ---
 
-<BaseLayout title="コンテスト一覧" description="生成AIで参加できるコンテストを締切順に一覧で紹介します。">
+<BaseLayout title="コンテスト一覧" description="気軽に参加しやすいコンテストを締切順に一覧で紹介します。">
   <section class="page-hero">
     <div class="site-shell">
       <p class="eyebrow">Contest List</p>
       <h1>コンテスト一覧</h1>
-      <p class="lead">AI画像・AI動画・AI漫画・AI音楽など、現在応募しやすいコンテストを締切順に並べています。</p>
+      <p class="lead">気軽に参加しやすいコンテストを、締切順にゆるっと探せます。</p>
+      <SearchBar className="list-search" placeholder="キーワードで絞り込み" buttonLabel="探す" />
     </div>
   </section>
 
   <section class="section">
-    <div class="site-shell grid">
+    <div class="site-shell grid contest-list-grid">
       {contests.map((contest) => <ContestCard contest={contest} />)}
     </div>
   </section>
+  <script is:inline>
+    {`
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const keyword = (params.get("keyword") || "").trim();
+        const input = document.querySelector(".list-search input");
+        if (input && keyword) input.value = keyword;
+        if (!keyword) return;
+        const normalized = keyword.toLowerCase();
+        document.querySelectorAll(".contest-card").forEach((card) => {
+          const text = card.textContent.toLowerCase();
+          card.hidden = !text.includes(normalized);
+        });
+      })();
+    `}
+  </script>
 </BaseLayout>

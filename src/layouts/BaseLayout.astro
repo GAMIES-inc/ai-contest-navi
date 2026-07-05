@@ -10,14 +10,15 @@ import "@/styles/global.css";
 import Footer from "@/components/Footer.astro";
 import { xContactUrl, xProfileUrl } from "@/lib/site";
 
+const siteName = "ゆるコンテストなび";
 const {
   title,
   description,
   canonical = new URL(Astro.url.pathname, Astro.site).toString(),
-  ogImage = "/og-default.svg",
+  ogImage = "/images/brand/yuru-og-home.webp",
 } = Astro.props;
 
-const pageTitle = title.includes("AIコンテストナビ") ? title : `${title} | AIコンテストナビ`;
+const pageTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 const resolvedOgImage = new URL(ogImage, Astro.site).toString();
 const enableFirstPartyAnalytics = import.meta.env.PUBLIC_ENABLE_FIRST_PARTY_ANALYTICS === "true";
 const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
@@ -32,7 +33,7 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="AIコンテストナビ" />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -41,7 +42,7 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={resolvedOgImage} />
-    <link rel="icon" href="/brand-x-icon.png" type="image/png" />
+    <link rel="icon" href="/images/brand/yuru-rosette-watercolor.png" type="image/png" />
     {
       cloudflareWebAnalyticsToken && (
         <script
@@ -55,19 +56,28 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
   <body>
     <header class="site-header">
       <div class="site-shell nav">
-        <a class="brand" href="/" aria-label="AIコンテストナビ トップ">
-          <span class="brand-mark"><img src="/brand-x-icon.png" alt="" /></span>
-          <span>AIコンテストナビ</span>
+        <a class="brand brand-lockup" href="/" aria-label={`${siteName} トップ`}>
+          <img
+            class="brand-logo-img"
+            src="/images/brand/yuru-logo-lockup.png"
+            alt={siteName}
+            width="1823"
+            height="433"
+            loading="eager"
+            decoding="async"
+          />
         </a>
         <nav class="nav-links" aria-label="メインナビゲーション">
-          <a href="/contests">コンテスト一覧</a>
-          <a href="/#categories">ジャンルで探す</a>
-          <a href="/calendar">締切カレンダー</a>
-          <a href="/guides">ガイド</a>
-          <a href="/archive">アーカイブ</a>
-          <a href={xProfileUrl} target="_blank" rel="noreferrer">X</a>
-          <a class="nav-cta" href="/submit">掲載について</a>
+          <a href="/contests">コンテストを探す</a>
+          <a href="/#categories">カテゴリーから探す</a>
+          <a href="/guides/start-ai-contest">初めての方へ</a>
+          <a href="/submit">掲載希望の方へ</a>
+          <a href={xProfileUrl} target="_blank" rel="noreferrer">お知らせ</a>
         </nav>
+        <div class="nav-actions">
+          <a class="nav-favorite" href="/contests#favorites" aria-label="お気に入りを見る">お気に入り</a>
+          <a class="nav-cta" href="/submit">コンテストを掲載する</a>
+        </div>
         <details class="mobile-menu">
           <summary aria-label="メニューを開く">
             <span></span>
@@ -75,15 +85,15 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
             <span></span>
           </summary>
           <div class="mobile-menu-panel">
-            <a href="/contests">コンテスト一覧</a>
-            <a href="/#categories">ジャンルで探す</a>
+            <a href="/contests">コンテストを探す</a>
+            <a href="/#categories">カテゴリーから探す</a>
             <a href="/calendar">締切カレンダー</a>
-            <a href="/guides">ガイド</a>
+            <a href="/guides/start-ai-contest">初めての方へ</a>
             <a href="/archive">アーカイブ</a>
-            <a href="/policy">掲載方針</a>
-            <a href={xProfileUrl} target="_blank" rel="noreferrer">Xで更新を見る</a>
+            <a href={xProfileUrl} target="_blank" rel="noreferrer">お知らせ</a>
             <a href={xContactUrl} target="_blank" rel="noreferrer">Xで連絡する</a>
-            <a class="nav-cta" href="/submit">掲載について</a>
+            <a class="nav-favorite" href="/contests#favorites">お気に入り</a>
+            <a class="nav-cta" href="/submit">コンテストを掲載する</a>
           </div>
         </details>
       </div>
@@ -168,5 +178,46 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
         </script>
       )
     }
+    <script is:inline>
+      {`
+        (() => {
+          const key = "yuruContestFavorites";
+          const readFavorites = () => {
+            try {
+              return new Set(JSON.parse(localStorage.getItem(key) || "[]"));
+            } catch {
+              return new Set();
+            }
+          };
+          const writeFavorites = (items) => {
+            try {
+              localStorage.setItem(key, JSON.stringify([...items]));
+            } catch {}
+          };
+          const updateButtons = () => {
+            const favorites = readFavorites();
+            document.querySelectorAll("[data-favorite-slug]").forEach((button) => {
+              const slug = button.getAttribute("data-favorite-slug");
+              const active = Boolean(slug && favorites.has(slug));
+              button.classList.toggle("is-active", active);
+              button.setAttribute("aria-pressed", active ? "true" : "false");
+            });
+          };
+          document.addEventListener("click", (event) => {
+            const button = event.target instanceof Element ? event.target.closest("[data-favorite-slug]") : null;
+            if (!(button instanceof HTMLElement)) return;
+            event.preventDefault();
+            const slug = button.getAttribute("data-favorite-slug");
+            if (!slug) return;
+            const favorites = readFavorites();
+            if (favorites.has(slug)) favorites.delete(slug);
+            else favorites.add(slug);
+            writeFavorites(favorites);
+            updateButtons();
+          });
+          updateButtons();
+        })();
+      `}
+    </script>
   </body>
 </html>

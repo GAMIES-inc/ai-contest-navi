@@ -1,11 +1,13 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#06101D"/>
-  <path d="M0 96H1200M0 216H1200M0 336H1200M0 456H1200M160 0V630M400 0V630M640 0V630M880 0V630M1120 0V630" stroke="#5EE7FF" stroke-opacity=".08"/>
-  <path d="M92 500L300 310L470 370L682 170L858 248L1108 96" stroke="#21D4FD" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M92 500L300 310L470 370L682 170L858 248L1108 96" stroke="#F6C65B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".7"/>
-  <rect x="86" y="84" width="668" height="326" fill="#0E2138" fill-opacity=".86" stroke="#5EE7FF" stroke-opacity=".28"/>
-  <text x="126" y="182" fill="#EAF6FF" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="800">AIコンテストナビ</text>
-  <text x="128" y="266" fill="#5EE7FF" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">AI作品の応募先、ここで見つかる。</text>
-  <text x="128" y="344" fill="#A8BFD2" font-family="Arial, Helvetica, sans-serif" font-size="30">AI画像 / AI動画 / AI漫画 / AI音楽</text>
-  <text x="128" y="558" fill="#F6C65B" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="5">DEADLINE FIRST CREATIVE MEDIA</text>
+  <rect width="1200" height="630" fill="#FFF8EC"/>
+  <rect x="80" y="70" width="1040" height="490" rx="44" fill="#FFFFFF" stroke="#EADFD0" stroke-width="3"/>
+  <text x="132" y="202" fill="#FF6A3D" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="800">ゆる</text>
+  <text x="292" y="202" fill="#08204A" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="800">コンテスト</text>
+  <text x="680" y="202" fill="#43C3B8" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800">なび</text>
+  <text x="132" y="306" fill="#08204A" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="800">気軽に参加できる</text>
+  <text x="132" y="370" fill="#08204A" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="800">コンテストが見つかる</text>
+  <text x="136" y="450" fill="#64708A" font-family="Arial, Helvetica, sans-serif" font-size="30">やさしい・たのしい・ゆるっと参加！</text>
+  <circle cx="932" cy="286" r="128" fill="#FFE8C4"/>
+  <path d="M932 170L962 252H1050L979 304L1006 388L932 338L858 388L885 304L814 252H902L932 170Z" fill="#FF6A3D"/>
+  <path d="M792 472H1018" stroke="#43C3B8" stroke-width="34" stroke-linecap="round"/>
 </svg>

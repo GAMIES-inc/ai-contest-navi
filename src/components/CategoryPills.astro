@@ -1,0 +1,38 @@
+---
+import Camera from "@lucide/astro/icons/camera";
+import ImageIcon from "@lucide/astro/icons/image";
+import Music from "@lucide/astro/icons/music";
+import Paintbrush from "@lucide/astro/icons/paintbrush";
+import Video from "@lucide/astro/icons/video";
+
+type Pill = {
+  label: string;
+  href: string;
+  Icon: typeof Paintbrush;
+  tone?: string;
+};
+
+type Props = {
+  className?: string;
+  pills?: Pill[];
+};
+
+const defaultPills: Pill[] = [
+  { label: "イラスト", href: "/categories/ai-illustration", Icon: Paintbrush, tone: "coral" },
+  { label: "AI画像", href: "/categories/ai-image", Icon: ImageIcon, tone: "mint" },
+  { label: "動画", href: "/categories/ai-video", Icon: Video, tone: "blue" },
+  { label: "写真", href: "/contests?keyword=%E5%86%99%E7%9C%9F", Icon: Camera, tone: "orange" },
+  { label: "音楽", href: "/categories/ai-music", Icon: Music, tone: "pink" },
+];
+
+const { className = "", pills = defaultPills } = Astro.props;
+---
+
+<div class={`category-pills ${className}`} aria-label="カテゴリーから探す">
+  {pills.map(({ label, href, Icon, tone }) => (
+    <a class={`category-pill category-pill-${tone ?? "mint"}`} href={href}>
+      <Icon size={17} stroke-width={2.1} aria-hidden="true" />
+      {label}
+    </a>
+  ))}
+</div>

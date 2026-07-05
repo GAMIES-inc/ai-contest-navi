@@ -1,9 +1,12 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#06101D"/>
-  <path d="M0 104H1200M0 248H1200M0 392H1200M0 536H1200M180 0V630M420 0V630M660 0V630M900 0V630" stroke="#5EE7FF" stroke-opacity=".08"/>
-  <rect x="92" y="86" width="1016" height="458" fill="#0E2138" fill-opacity=".76" stroke="#5EE7FF" stroke-opacity=".28"/>
-  <path d="M138 478L312 326L506 390L696 210L852 276L1062 142" stroke="#21D4FD" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="132" y="188" fill="#EAF6FF" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="800">AIコンテストナビ</text>
-  <text x="134" y="272" fill="#A8BFD2" font-family="Arial, Helvetica, sans-serif" font-size="36">生成AIで参加できるコンテスト情報</text>
-  <text x="134" y="520" fill="#F6C65B" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="5">IMAGE / VIDEO / MANGA / MUSIC</text>
+  <rect width="1200" height="630" fill="#FFF8EC"/>
+  <rect x="78" y="72" width="1044" height="486" rx="42" fill="#FFFFFF" stroke="#EADFD0" stroke-width="3"/>
+  <circle cx="924" cy="220" r="94" fill="#FFE8C4"/>
+  <text x="132" y="210" fill="#FF6A3D" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="800">ゆる</text>
+  <text x="292" y="210" fill="#08204A" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="800">コンテスト</text>
+  <text x="682" y="210" fill="#43C3B8" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800">なび</text>
+  <text x="134" y="306" fill="#08204A" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">気軽に参加できるコンテストが見つかる</text>
+  <text x="136" y="382" fill="#64708A" font-family="Arial, Helvetica, sans-serif" font-size="30">やさしい・たのしい・ゆるっと参加！</text>
+  <path d="M882 240L924 124L966 240L864 170H984L882 240Z" fill="#FF6A3D"/>
+  <path d="M168 454H592" stroke="#FF6A3D" stroke-width="8" stroke-linecap="round" stroke-dasharray="26 22"/>
 </svg>

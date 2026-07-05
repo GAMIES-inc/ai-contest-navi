@@ -6,7 +6,8 @@ export const categoryLabels: Record<ContestCategory, string> = {
   "ai-video": "AI動画",
   "ai-manga": "AI漫画",
   "ai-music": "AI音楽",
-  "ai-illustration": "AIイラスト",
+  "ai-illustration": "イラスト",
+  photo: "写真",
   design: "デザイン",
   other: "その他",
 };
@@ -14,10 +15,24 @@ export const categoryLabels: Record<ContestCategory, string> = {
 export const publicCategories: ContestCategory[] = [
   "ai-image",
   "ai-video",
+  "ai-illustration",
+  "photo",
   "ai-manga",
   "ai-music",
+  "design",
   "other",
 ];
+
+const yuruPlaceholderImages: Record<ContestPlaceholderType, string> = {
+  "ai-image": "/images/contests/yuru-thumb-ai-image.webp",
+  "ai-video": "/images/contests/yuru-thumb-video.webp",
+  "ai-manga": "/images/contests/yuru-thumb-illustration.webp",
+  "ai-music": "/images/contests/yuru-thumb-video.webp",
+  photo: "/images/contests/yuru-thumb-photo.webp",
+  design: "/images/contests/yuru-thumb-illustration.webp",
+  idea: "/images/contests/yuru-thumb-ai-image.webp",
+  other: "/images/contests/yuru-thumb-photo.webp",
+};
 
 export async function getAllContests(): Promise<Contest[]> {
   return (await getContestsFromNotionOrFallback()).map((contest) => applyRuntimeStatus(contest));
@@ -67,9 +82,14 @@ export function getDaysUntilDeadline(date: string, now = new Date()): number {
 }
 
 export function getContestImage(contest: Contest): string {
-  if (contest.imageStatus === "placeholder") return "/images/contest-fallback.png";
+  const placeholderImage = getContestFallbackImage(contest);
+  if (contest.imageStatus === "placeholder") return placeholderImage;
   const image = contest.image || contest.thumbnail;
-  return !image || image === "/brand-thumbnail.svg" ? "/images/contest-fallback.png" : image;
+  return !image || image === "/brand-thumbnail.svg" || image === "/images/contest-fallback.png" ? placeholderImage : image;
+}
+
+export function getContestFallbackImage(contest: Contest): string {
+  return yuruPlaceholderImages[getContestPlaceholderType(contest)];
 }
 
 export function isContestFallbackImage(src: string): boolean {
@@ -81,6 +101,7 @@ export function getContestPlaceholderType(contest: Contest): ContestPlaceholderT
   if (contest.categories.includes("ai-video")) return "ai-video";
   if (contest.categories.includes("ai-manga")) return "ai-manga";
   if (contest.categories.includes("ai-music")) return "ai-music";
+  if (contest.categories.includes("photo")) return "photo";
   if (contest.categories.includes("design")) return "design";
   if (contest.categories.includes("ai-image") || contest.categories.includes("ai-illustration")) return "ai-image";
   return "other";

@@ -15,19 +15,19 @@ const coverImage = guide.coverImage ?? "/images/contest-fallback.png";
 const coverAlt = guide.coverAlt ?? "";
 const guideCardCopy: Record<string, { category: string; description: string; kicker: string }> = {
   "start-ai-contest": {
-    category: "はじめ方",
-    description: "作品を作る前に知っておきたいことを、ジャンル選びから応募前チェックまで解説。",
-    kicker: "応募先を探す前に決めること",
+    category: "はじめての方へ",
+    description: "応募までの流れや、最初に見るポイントをやさしくまとめました。",
+    kicker: "まずはここから",
   },
   "how-to-read-contest-guidelines": {
-    category: "応募前チェック",
-    description: "テーマ、締切、提出形式、AI利用ルール、権利条件、審査基準の見方を解説。",
-    kicker: "作る前にここだけは確認",
+    category: "選び方",
+    description: "テーマ、締切、応募形式など、自分に合う募集の見つけ方を紹介します。",
+    kicker: "迷ったときの見方",
   },
   "ai-contest-work-final-check": {
-    category: "応募準備",
-    description: "作品の軸、仕上げ、テーマ性、タイトル・説明文、提出前チェックを解説。",
-    kicker: "完成度を上げて応募する",
+    category: "応募前チェック",
+    description: "提出前に確認したい権利、形式、タイトル、説明文のポイントを整理します。",
+    kicker: "出す前に安心",
   },
 };
 const displayCopy = guideCardCopy[guide.slug];

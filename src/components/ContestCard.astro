@@ -1,6 +1,12 @@
 ---
-import { categoryLabels, formatDate, getContestImage, getContestPlaceholderType, isContestFallbackImage } from "@/lib/contests";
+import { categoryLabels, formatDate, getContestFallbackImage, getContestImage, getContestPlaceholderType, isContestFallbackImage } from "@/lib/contests";
 import type { Contest } from "@/data/contests";
+import Gift from "@lucide/astro/icons/gift";
+import Heart from "@lucide/astro/icons/heart";
+import ImageIcon from "@lucide/astro/icons/image";
+import Send from "@lucide/astro/icons/send";
+import Sprout from "@lucide/astro/icons/sprout";
+import Star from "@lucide/astro/icons/star";
 
 type Props = {
   contest: Contest;
@@ -8,58 +14,61 @@ type Props = {
 };
 
 const { contest, variant = "default" } = Astro.props;
-const statusLabel =
-  contest.status === "closing-soon"
-    ? "締切間近"
-    : contest.status === "open"
-      ? "募集中"
-      : contest.status === "ended"
-        ? "終了"
-        : "掲載中";
 const thumbnail = getContestImage(contest);
+const fallbackThumbnail = getContestFallbackImage(contest);
+const thumbnailLoading = thumbnail.startsWith("/images/contests/yuru-thumb-") ? "eager" : "lazy";
 const isFallbackThumbnail = isContestFallbackImage(thumbnail);
 const placeholderType = getContestPlaceholderType(contest);
+const primaryCategory = categoryLabels[contest.categories[0]] ?? "コンテスト";
+const hasPrize = /賞金|万円|円|ギフト|Amazon|賞品|表彰|入賞/.test(contest.prize);
+const isBeginner = /初心者|初めて|標準|ゆる/.test(contest.difficulty);
+const isXApplication = /X|SNS|twitter|リポスト|引用投稿|投稿/i.test(`${contest.title} ${contest.description} ${contest.applicationMethod}`);
+const isImageOnly = contest.categories.some((category) => category === "ai-image" || category === "ai-illustration") && !contest.categories.includes("ai-video") && !contest.categories.includes("ai-manga");
+const effortTags = [
+  isBeginner ? { label: "初心者OK", Icon: Sprout, tone: "mint" } : null,
+  isImageOnly ? { label: "画像1枚でOK", Icon: ImageIcon, tone: "blue" } : null,
+  isXApplication ? { label: "X投稿だけ", Icon: Send, tone: "navy" } : null,
+  hasPrize ? { label: "賞金あり", Icon: Gift, tone: "pink" } : null,
+  { label: "ゆるっと参加", Icon: Star, tone: "orange" },
+].filter(Boolean).slice(0, 3) as { label: string; Icon: typeof Star; tone: string }[];
 ---
 
 <article class={`contest-card ${variant === "featured" ? "contest-card-featured" : ""}`}>
   <a class={`contest-thumb placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
     <img
       src={thumbnail}
+      data-fallback-src={fallbackThumbnail}
       alt=""
-      loading="lazy"
+      loading={thumbnailLoading}
       decoding="async"
-      onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.contest-thumb')?.classList.add('is-fallback');"
+      onerror="this.onerror=null;this.src=this.dataset.fallbackSrc || '/images/contest-fallback.png';"
     />
-    <span class={`status-badge ${contest.status}`}>{statusLabel}</span>
+    <span class="category-label">{primaryCategory}</span>
   </a>
+  <button class="favorite-button" type="button" data-favorite-slug={contest.slug} aria-label={`${contest.title}をお気に入りに追加`} aria-pressed="false">
+    <Heart size={18} stroke-width={2.2} aria-hidden="true" />
+  </button>
   <div class="contest-body">
-    <div class="card-topline">
-      <span class="deadline-chip">締切 {formatDate(contest.deadline)}</span>
-      <span class={`mini-status ${contest.status}`}>{statusLabel}</span>
-    </div>
-    <div class="tags compact">
-      {contest.categories.slice(0, variant === "featured" ? 2 : 3).map((category) => <span class="tag">{categoryLabels[category]}</span>)}
-    </div>
     <h3 class="contest-title">
       <a href={`/contests/${contest.slug}`}>{contest.title}</a>
     </h3>
-    <p class="contest-description">{contest.description}</p>
-    <div class="card-facts" aria-label="コンテストの主要情報">
-      <div class="card-fact">
-        <span>賞金・賞品</span>
-        <strong>{contest.prize}</strong>
+    <dl class="contest-summary">
+      <div>
+        <dt>応募締切</dt>
+        <dd>{formatDate(contest.deadline)} まで</dd>
       </div>
-      <div class="card-fact">
-        <span>応募形式</span>
-        <strong>{contest.applicationMethod}</strong>
+      <div>
+        <dt>賞金・賞品</dt>
+        <dd>{contest.prize}</dd>
       </div>
-      <div class="card-fact">
-        <span>参加目安</span>
-        <strong>{contest.difficulty}</strong>
-      </div>
+    </dl>
+    <div class="soft-tag-row" aria-label="参加しやすさ">
+      {effortTags.map(({ label, Icon, tone }) => (
+        <span class={`soft-tag soft-tag-${tone}`}><Icon size={14} stroke-width={2.1} aria-hidden="true" />{label}</span>
+      ))}
     </div>
     <div class="card-actions">
-      <a class="button primary" href={`/contests/${contest.slug}`}>詳細を見る</a>
+      <a class="button primary" href={`/contests/${contest.slug}`}>くわしく見る</a>
       <a
         class="button"
         href={`/go/${contest.slug}?link=official&from=contest_card`}
@@ -68,7 +77,7 @@ const placeholderType = getContestPlaceholderType(contest);
         data-analytics-link="official"
         data-contest-slug={contest.slug}
       >
-        公式サイト
+        公式へ
       </a>
     </div>
   </div>

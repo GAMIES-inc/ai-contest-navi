@@ -1,0 +1,25 @@
+---
+import Search from "@lucide/astro/icons/search";
+
+type Props = {
+  action?: string;
+  placeholder?: string;
+  buttonLabel?: string;
+  value?: string;
+  className?: string;
+};
+
+const {
+  action = "/contests",
+  placeholder = "キーワードでコンテストを検索",
+  buttonLabel = "検索",
+  value = "",
+  className = "",
+} = Astro.props;
+---
+
+<form class={`search-bar ${className}`} action={action} method="get" role="search">
+  <Search size={20} stroke-width={2.2} aria-hidden="true" />
+  <input name="keyword" type="search" value={value} placeholder={placeholder} aria-label={placeholder} />
+  <button type="submit">{buttonLabel}</button>
+</form>

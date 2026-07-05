@@ -4,6 +4,7 @@ import {
   categoryLabels,
   formatDate,
   getActiveContests,
+  getContestFallbackImage,
   getContestImage,
   getContestPlaceholderType,
   getDaysUntilDeadline,
@@ -13,12 +14,12 @@ import {
 const contests = await getActiveContests();
 ---
 
-<BaseLayout title="締切カレンダー" description="AI創作コンテストの締切をカレンダー風に確認できます。">
+<BaseLayout title="締切カレンダー" description="コンテストの締切をカレンダー風に確認できます。">
   <section class="page-hero">
     <div class="site-shell">
       <p class="eyebrow">Deadline Calendar</p>
       <h1>締切カレンダー</h1>
-      <p class="lead">締切日が近い順に、応募予定を確認できます。</p>
+      <p class="lead">気になる募集の締切を、近い順にやさしく確認できます。</p>
     </div>
   </section>
 
@@ -28,6 +29,7 @@ const contests = await getActiveContests();
         contests.map((contest) => {
           const days = getDaysUntilDeadline(contest.deadline);
           const thumbnail = getContestImage(contest);
+          const fallbackThumbnail = getContestFallbackImage(contest);
           const isFallbackThumbnail = isContestFallbackImage(thumbnail);
           const placeholderType = getContestPlaceholderType(contest);
           return (
@@ -35,10 +37,11 @@ const contests = await getActiveContests();
               <span class="calendar-thumb" aria-hidden="true">
                 <img
                   src={thumbnail}
+                  data-fallback-src={fallbackThumbnail}
                   alt=""
                   loading="lazy"
                   decoding="async"
-                  onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.calendar-item')?.classList.add('is-fallback');"
+                  onerror="this.onerror=null;this.src=this.dataset.fallbackSrc || '/images/contest-fallback.png';"
                 />
               </span>
               <div class="date-block">

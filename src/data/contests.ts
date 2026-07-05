@@ -6,12 +6,13 @@ export type ContestCategory =
   | "ai-manga"
   | "ai-music"
   | "ai-illustration"
+  | "photo"
   | "design"
   | "other";
 
 export type ContestImageStatus = "official" | "provided" | "public-info" | "placeholder" | "checking";
 
-export type ContestPlaceholderType = "ai-image" | "ai-video" | "ai-manga" | "ai-music" | "design" | "idea" | "other";
+export type ContestPlaceholderType = "ai-image" | "ai-video" | "ai-manga" | "ai-music" | "photo" | "design" | "idea" | "other";
 
 export type Contest = {
   title: string;

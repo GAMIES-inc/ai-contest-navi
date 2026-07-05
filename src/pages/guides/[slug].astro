@@ -45,7 +45,7 @@ const relatedGuides = await getRelatedGuides(guide, 3);
   title={guide.seoTitle}
   description={guide.seoDescription}
   canonical={new URL(`/guides/${guide.slug}`, Astro.site).toString()}
-  ogImage={guide.coverImage ?? "/og-default.svg"}
+  ogImage={guide.coverImage ?? "/images/brand/yuru-og-home.webp"}
 >
   <section class="page-hero guide-article-hero">
     <div class="site-shell guide-article-shell">

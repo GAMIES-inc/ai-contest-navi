@@ -5,7 +5,7 @@ category: "応募前チェック"
 readTime: "7分"
 difficulty: "初心者向け"
 icon: "check"
-coverImage: "/images/guides/read-guidelines-eyecatch.jpg"
+coverImage: "/images/guides/yuru-choose-guide.webp"
 coverAlt: "応募要項の読み方 AIコンテストに出す前に確認したいこと"
 relatedCategories: ["はじめ方", "選び方"]
 relatedContestCategories: ["ai-image", "ai-video", "ai-manga", "ai-music", "other"]

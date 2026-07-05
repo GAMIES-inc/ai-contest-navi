@@ -1,6 +1,6 @@
 ---
 import type { Contest } from "@/data/contests";
-import { categoryLabels, formatDate, getContestImage, getContestPlaceholderType, getDaysUntilDeadline, isContestFallbackImage } from "@/lib/contests";
+import { categoryLabels, formatDate, getContestFallbackImage, getContestImage, getContestPlaceholderType, getDaysUntilDeadline, isContestFallbackImage } from "@/lib/contests";
 
 type Props = {
   contest: Contest;
@@ -8,6 +8,8 @@ type Props = {
 
 const { contest } = Astro.props;
 const thumbnail = getContestImage(contest);
+const fallbackThumbnail = getContestFallbackImage(contest);
+const thumbnailLoading = thumbnail.startsWith("/images/contests/yuru-thumb-") ? "eager" : "lazy";
 const isFallbackThumbnail = isContestFallbackImage(thumbnail);
 const placeholderType = getContestPlaceholderType(contest);
 const days = getDaysUntilDeadline(contest.deadline);
@@ -18,10 +20,11 @@ const primaryCategory = categoryLabels[contest.categories[0]];
   <span class="deadline-thumb">
     <img
       src={thumbnail}
+      data-fallback-src={fallbackThumbnail}
       alt=""
-      loading="lazy"
+      loading={thumbnailLoading}
       decoding="async"
-      onerror="this.onerror=null;this.src='/images/contest-fallback.png';this.closest('.deadline-card')?.classList.add('is-fallback');"
+      onerror="this.onerror=null;this.src=this.dataset.fallbackSrc || '/images/contest-fallback.png';"
     />
   </span>
   <div class="deadline-card-body">
