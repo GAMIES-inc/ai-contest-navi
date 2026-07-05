@@ -1,6 +1,17 @@
 ---
 import type { Contest } from "@/data/contests";
-import { categoryLabels, formatDate, getContestFallbackImage, getContestImage, getContestPlaceholderType, getDaysUntilDeadline, isContestFallbackImage } from "@/lib/contests";
+import {
+  categoryLabels,
+  getContestFallbackImage,
+  getContestImage,
+  getContestPlaceholderType,
+  getDaysUntilDeadline,
+  isContestFallbackImage,
+} from "@/lib/contests";
+import CalendarDays from "@lucide/astro/icons/calendar-days";
+import Clock3 from "@lucide/astro/icons/clock-3";
+import Gift from "@lucide/astro/icons/gift";
+import Sparkles from "@lucide/astro/icons/sparkles";
 
 type Props = {
   contest: Contest;
@@ -13,7 +24,14 @@ const thumbnailLoading = thumbnail.startsWith("/images/contests/yuru-thumb-") ? 
 const isFallbackThumbnail = isContestFallbackImage(thumbnail);
 const placeholderType = getContestPlaceholderType(contest);
 const days = getDaysUntilDeadline(contest.deadline);
-const primaryCategory = categoryLabels[contest.categories[0]];
+const primaryCategory = categoryLabels[contest.categories[0]] ?? "コンテスト";
+const deadlineDate = new Intl.DateTimeFormat("ja-JP", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  weekday: "short",
+}).format(new Date(`${contest.deadline}T00:00:00+09:00`));
+const prizeLabel = contest.prize.split(/[。、]/u)[0]?.trim() || contest.prize;
 ---
 
 <a class={`deadline-card placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`}>
@@ -26,13 +44,25 @@ const primaryCategory = categoryLabels[contest.categories[0]];
       decoding="async"
       onerror="this.onerror=null;this.src=this.dataset.fallbackSrc || '/images/contest-fallback.png';"
     />
+    <span class="deadline-count-badge">
+      <Clock3 size={19} stroke-width={2.4} aria-hidden="true" />
+      {days >= 0 ? `あと${days}日` : "終了"}
+    </span>
   </span>
-  <div class="deadline-card-body">
-    <div class="deadline-card-top">
-      <span class="urgency-badge">{days >= 0 ? `あと${days}日` : "終了"}</span>
-      <span class="tag">{primaryCategory}</span>
-    </div>
+  <span class="deadline-card-body">
+    <span class="deadline-category-pill">
+      <Sparkles size={16} stroke-width={2.2} aria-hidden="true" />
+      {primaryCategory}
+    </span>
     <strong>{contest.title}</strong>
-    <small>{formatDate(contest.deadline)} / {contest.prize}</small>
-  </div>
+    <span class="deadline-card-divider" aria-hidden="true"></span>
+    <span class="deadline-meta-row">
+      <CalendarDays size={18} stroke-width={2.1} aria-hidden="true" />
+      締切：{deadlineDate}
+    </span>
+    <span class="deadline-meta-row">
+      <Gift size={18} stroke-width={2.1} aria-hidden="true" />
+      {prizeLabel}
+    </span>
+  </span>
 </a>

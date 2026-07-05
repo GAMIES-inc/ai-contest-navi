@@ -1,19 +1,97 @@
 ---
-import CategoryCard from "@/components/CategoryCard.astro";
 import type { ContestCategory } from "@/data/contests";
-import { publicCategories } from "@/lib/contests";
+import BookOpen from "@lucide/astro/icons/book-open";
+import GraduationCap from "@lucide/astro/icons/graduation-cap";
+import Megaphone from "@lucide/astro/icons/megaphone";
+import Music from "@lucide/astro/icons/music";
+import Paintbrush from "@lucide/astro/icons/paintbrush";
+import PenLine from "@lucide/astro/icons/pen-line";
+import Sprout from "@lucide/astro/icons/sprout";
+import Trophy from "@lucide/astro/icons/trophy";
+import Video from "@lucide/astro/icons/video";
+import WandSparkles from "@lucide/astro/icons/wand-sparkles";
 
 type Props = {
   counts?: Partial<Record<ContestCategory, number>>;
 };
 
 const { counts = {} } = Astro.props;
+const count = (...categories: ContestCategory[]) => categories.reduce((sum, category) => sum + (counts[category] ?? 0), 0);
+
+const primaryGroups = [
+  {
+    title: "描く・つくる",
+    description: "イラストやアート作品で参加",
+    href: "/categories/ai-illustration",
+    total: count("ai-illustration", "ai-image"),
+    tone: "coral",
+    Icon: Paintbrush,
+  },
+  {
+    title: "撮る・映す",
+    description: "写真や動画で参加",
+    href: "/categories/ai-video",
+    total: count("ai-video", "photo"),
+    tone: "mint",
+    Icon: Video,
+  },
+  {
+    title: "書く・考える",
+    description: "文章・企画・アイデアで参加",
+    href: "/categories/design",
+    total: count("design", "other"),
+    tone: "yellow",
+    Icon: PenLine,
+  },
+  {
+    title: "投稿する",
+    description: "X投稿やキャンペーンに参加",
+    href: "/contests?keyword=X",
+    total: counts.other ?? 0,
+    tone: "purple",
+    Icon: Megaphone,
+  },
+];
+
+const detailPills = [
+  { label: "AI作品", href: "/categories/ai-image", Icon: WandSparkles, tone: "mint" },
+  { label: "音楽", href: "/categories/ai-music", Icon: Music, tone: "purple" },
+  { label: "デザイン", href: "/categories/design", Icon: Paintbrush, tone: "yellow" },
+  { label: "漫画", href: "/categories/ai-manga", Icon: BookOpen, tone: "green" },
+  { label: "学生向け", href: "/contests?keyword=%E5%AD%A6%E7%94%9F", Icon: GraduationCap, tone: "blue" },
+  { label: "賞金あり", href: "/contests?keyword=%E8%B3%9E%E9%87%91", Icon: Trophy, tone: "orange" },
+  { label: "初心者OK", href: "/contests?keyword=%E5%88%9D%E5%BF%83%E8%80%85", Icon: Sprout, tone: "green" },
+];
 ---
 
-<div class="category-grid">
-  {
-    publicCategories.map((category) => (
-      <CategoryCard category={category} count={counts[category] ?? 0} />
-    ))
-  }
+<div class="creation-search">
+  <div class="creation-grid">
+    {
+      primaryGroups.map(({ title, description, href, total, tone, Icon }) => (
+        <a class={`creation-card creation-card-${tone}`} href={href}>
+          <span class="creation-card-corner" aria-hidden="true"></span>
+          <span class="creation-icon-wrap" aria-hidden="true"><Icon size={48} stroke-width={1.85} /></span>
+          <strong>{title}</strong>
+          <span>{description}</span>
+          <small>{total}件見つかる</small>
+          <span class="creation-arrow" aria-hidden="true">→</span>
+        </a>
+      ))
+    }
+  </div>
+  <div class="creation-more-row">
+    <span aria-hidden="true"></span>
+    <strong>もっと細かく探す</strong>
+    <span aria-hidden="true"></span>
+  </div>
+  <div class="creation-pill-row" aria-label="細かい条件から探す">
+    {
+      detailPills.map(({ label, href, Icon, tone }) => (
+        <a class={`creation-filter-pill creation-filter-pill-${tone}`} href={href}>
+          <Icon size={22} stroke-width={2.1} aria-hidden="true" />
+          {label}
+        </a>
+      ))
+    }
+  </div>
 </div>

@@ -60,29 +60,32 @@ const categoryCounts = Object.fromEntries(
     </div>
   </section>
 
-  <section id="categories" class="section">
+  <section id="categories" class="section creation-section">
     <div class="site-shell">
       <div class="section-head">
         <div>
-          <h2 class="section-title">カテゴリーから探す</h2>
-          <p class="section-copy">作りたいものに近いジャンルから、無理なく探せます。</p>
+          <h2 class="section-title">作りたいものから探す</h2>
+          <p class="section-copy">近いジャンルから、無理なく探せます。</p>
         </div>
       </div>
       <CategoryLinks counts={categoryCounts} />
     </div>
   </section>
 
-  <section id="deadline-soon" class="section top-section">
+  <section id="deadline-soon" class="section deadline-showcase-section">
     <div class="site-shell">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">締切が近いコンテスト</h2>
-          <p class="section-copy">そろそろ準備したい、締切が近い募集。</p>
+      <div class="deadline-showcase-panel">
+        <div class="section-head deadline-showcase-head">
+          <div>
+            <h2 class="section-title deadline-title"><span>締切が近い</span><span>コンテスト</span></h2>
+            <p class="section-copy">そろそろ準備したい、締切が近い募集。</p>
+          </div>
+          <a class="button deadline-more-button" href="/calendar">すべて見る</a>
         </div>
-        <a class="button" href="/calendar">すべて見る</a>
-      </div>
-      <div class="deadline-rail">
-        {deadlinePicks.map((contest) => <DeadlineSoonCard contest={contest} />)}
+        <div class="deadline-rail">
+          {deadlinePicks.slice(0, 4).map((contest) => <DeadlineSoonCard contest={contest} />)}
+        </div>
+        <p class="deadline-footnote">毎日更新！締切まであとわずかなコンテストをピックアップしています。</p>
       </div>
     </div>
   </section>
