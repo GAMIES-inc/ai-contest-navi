@@ -301,6 +301,7 @@ function mapCategories(values: string[]): ContestCategory[] {
     if (["AIイラスト", "イラスト", "塗り絵", "線画"].includes(value)) categories.add("ai-illustration");
     if (["写真", "フォト", "フォトコンテスト"].includes(value)) categories.add("photo");
     if (["デザイン"].includes(value)) categories.add("design");
+    if (["文章", "小説", "エッセイ", "作文", "企画", "アイデア"].includes(value)) categories.add("writing");
   }
 
   if (categories.size === 0) categories.add("other");

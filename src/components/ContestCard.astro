@@ -22,12 +22,15 @@ const placeholderType = getContestPlaceholderType(contest);
 const primaryCategory = categoryLabels[contest.categories[0]] ?? "コンテスト";
 const hasPrize = /賞金|万円|円|ギフト|Amazon|賞品|表彰|入賞/.test(contest.prize);
 const isBeginner = /初心者|初めて|標準|ゆる/.test(contest.difficulty);
-const isXApplication = /X|SNS|twitter|リポスト|引用投稿|投稿/i.test(`${contest.title} ${contest.description} ${contest.applicationMethod}`);
+const applicationText = `${contest.title} ${contest.description} ${contest.applicationMethod}`;
+const isXApplication = /X|SNS|twitter|リポスト|引用投稿/i.test(applicationText);
+const isPostApplication = !isXApplication && /note|投稿|ハッシュタグ/i.test(applicationText);
 const isImageOnly = contest.categories.some((category) => category === "ai-image" || category === "ai-illustration") && !contest.categories.includes("ai-video") && !contest.categories.includes("ai-manga");
 const effortTags = [
   isBeginner ? { label: "初心者OK", Icon: Sprout, tone: "mint" } : null,
   isImageOnly ? { label: "画像1枚でOK", Icon: ImageIcon, tone: "blue" } : null,
   isXApplication ? { label: "X投稿だけ", Icon: Send, tone: "navy" } : null,
+  isPostApplication ? { label: "投稿だけ", Icon: Send, tone: "navy" } : null,
   hasPrize ? { label: "賞金あり", Icon: Gift, tone: "pink" } : null,
   { label: "ゆるっと参加", Icon: Star, tone: "orange" },
 ].filter(Boolean).slice(0, 3) as { label: string; Icon: typeof Star; tone: string }[];

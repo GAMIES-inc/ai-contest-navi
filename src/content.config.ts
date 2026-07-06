@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 
 const guideCategories = ["はじめ方", "AI動画", "AI漫画", "AI画像", "応募前チェック", "選び方", "コラム"] as const;
-const contestCategories = ["ai-image", "ai-video", "ai-manga", "ai-music", "ai-illustration", "photo", "design", "other"] as const;
+const contestCategories = ["ai-image", "ai-video", "ai-manga", "ai-music", "ai-illustration", "photo", "design", "writing", "other"] as const;
 
 const guides = defineCollection({
   type: "content",

@@ -8,11 +8,21 @@ export type ContestCategory =
   | "ai-illustration"
   | "photo"
   | "design"
+  | "writing"
   | "other";
 
 export type ContestImageStatus = "official" | "provided" | "public-info" | "placeholder" | "checking";
 
-export type ContestPlaceholderType = "ai-image" | "ai-video" | "ai-manga" | "ai-music" | "photo" | "design" | "idea" | "other";
+export type ContestPlaceholderType =
+  | "ai-image"
+  | "ai-video"
+  | "ai-manga"
+  | "ai-music"
+  | "photo"
+  | "design"
+  | "writing"
+  | "idea"
+  | "other";
 
 export type Contest = {
   title: string;

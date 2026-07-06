@@ -3,12 +3,13 @@ import { getContestsFromNotionOrFallback } from "@/lib/notion";
 
 export const categoryLabels: Record<ContestCategory, string> = {
   "ai-image": "AI画像",
-  "ai-video": "AI動画",
-  "ai-manga": "AI漫画",
-  "ai-music": "AI音楽",
+  "ai-video": "動画",
+  "ai-manga": "漫画",
+  "ai-music": "音楽",
   "ai-illustration": "イラスト",
   photo: "写真",
   design: "デザイン",
+  writing: "文章・アイデア",
   other: "その他",
 };
 
@@ -20,6 +21,7 @@ export const publicCategories: ContestCategory[] = [
   "ai-manga",
   "ai-music",
   "design",
+  "writing",
   "other",
 ];
 
@@ -30,6 +32,7 @@ const yuruPlaceholderImages: Record<ContestPlaceholderType, string> = {
   "ai-music": "/images/contests/yuru-thumb-video.webp",
   photo: "/images/contests/yuru-thumb-photo.webp",
   design: "/images/contests/yuru-thumb-illustration.webp",
+  writing: "/images/contests/yuru-thumb-ai-image.webp",
   idea: "/images/contests/yuru-thumb-ai-image.webp",
   other: "/images/contests/yuru-thumb-photo.webp",
 };
@@ -113,6 +116,7 @@ export function getContestPlaceholderType(contest: Contest): ContestPlaceholderT
   if (contest.categories.includes("ai-music")) return "ai-music";
   if (contest.categories.includes("photo")) return "photo";
   if (contest.categories.includes("design")) return "design";
+  if (contest.categories.includes("writing")) return "writing";
   if (contest.categories.includes("ai-image") || contest.categories.includes("ai-illustration")) return "ai-image";
   return "other";
 }
