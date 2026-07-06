@@ -92,9 +92,8 @@ export function getDaysUntilDeadline(date: string, now = new Date()): number {
 
 export function getContestImage(contest: Contest): string {
   const placeholderImage = getContestFallbackImage(contest);
-  if (contest.imageStatus === "placeholder") return placeholderImage;
-  const image = contest.image || contest.thumbnail;
-  return !image || image === "/brand-thumbnail.svg" || image === "/images/contest-fallback.png" || isUnreliableContestImage(image) ? placeholderImage : image;
+  const sourceImage = [contest.thumbnail, contest.image].find(isUsableContestImage);
+  return sourceImage || placeholderImage;
 }
 
 export function getContestFallbackImage(contest: Contest): string {
@@ -102,11 +101,26 @@ export function getContestFallbackImage(contest: Contest): string {
 }
 
 export function isContestFallbackImage(src: string): boolean {
-  return src === "/images/contest-fallback.png" || src === "/brand-thumbnail.svg" || src.startsWith("/images/contests/yuru-thumb-");
+  return (
+    src.endsWith("/images/contest-fallback.png") ||
+    src.endsWith("/brand-thumbnail.svg") ||
+    src.includes("/images/contests/yuru-thumb-")
+  );
 }
 
 function isUnreliableContestImage(src: string): boolean {
-  return unreliableImageUrls.includes(src);
+  const normalized = src.toLowerCase();
+  return (
+    unreliableImageUrls.includes(src) ||
+    normalized.includes("s3.us-west-2.amazonaws.com/secure.notion-static.com") ||
+    /(?:favicon|apple-touch-icon|\/icon|logo|mark|symbol|no[_-]?image|no[_-]?img)/i.test(src)
+  );
+}
+
+function isUsableContestImage(src: string | undefined): src is string {
+  if (!src) return false;
+  if (isContestFallbackImage(src)) return false;
+  return !isUnreliableContestImage(src);
 }
 
 export function getContestPlaceholderType(contest: Contest): ContestPlaceholderType {
