@@ -4,7 +4,6 @@ import DeadlineSoonCard from "@/components/DeadlineSoonCard.astro";
 import CategoryLinks from "@/components/CategoryLinks.astro";
 import CtaSection from "@/components/CtaSection.astro";
 import GuideCard from "@/components/GuideCard.astro";
-import Hero from "@/components/Hero.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { ContestCategory } from "@/data/contests";
 import { getAllGuides } from "@/data/guides";
@@ -28,8 +27,6 @@ const categoryCounts = Object.fromEntries(
   description="イラスト・AI画像・動画・写真・音楽・X投稿など、初心者にも参加しやすいコンテストを紹介。締切・賞品・応募方法もわかりやすくチェックできます。"
   ogImage="/images/brand/yuru-og-home.webp"
 >
-  <Hero />
-
   <section id="featured" class="section top-section">
     <div class="site-shell">
       <div class="section-head">
