@@ -6149,7 +6149,8 @@ h3 {
 .home-hero.home-hero-artist {
   position: relative;
   overflow: hidden;
-  min-height: 470px;
+  height: clamp(360px, 36vw, 500px);
+  min-height: 0;
   padding: 0;
   background: #fffaf3;
   isolation: isolate;
@@ -6166,15 +6167,7 @@ h3 {
 }
 
 .home-hero.home-hero-artist::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: block;
-  background:
-    linear-gradient(90deg, rgba(255, 250, 243, 0.98) 0%, rgba(255, 250, 243, 0.94) 37%, rgba(255, 250, 243, 0.55) 54%, rgba(255, 250, 243, 0.06) 76%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 250, 243, 0.18) 62%, #fffaf3 100%);
-  pointer-events: none;
+  display: none;
 }
 
 .home-hero.home-hero-artist::after {
@@ -6427,7 +6420,8 @@ h3 {
 
 @media (max-width: 1120px) {
   .home-hero.home-hero-artist {
-    min-height: 560px;
+    height: 420px;
+    min-height: 0;
   }
 
   .home-hero-artist .home-hero-grid {
@@ -6442,9 +6436,7 @@ h3 {
   }
 
   .home-hero.home-hero-artist::before {
-    background:
-      linear-gradient(90deg, rgba(255, 250, 243, 0.98) 0%, rgba(255, 250, 243, 0.9) 34%, rgba(255, 250, 243, 0.24) 62%, rgba(255, 250, 243, 0.04) 100%),
-      linear-gradient(180deg, rgba(255, 250, 243, 0.34) 0%, rgba(255, 250, 243, 0.06) 52%, rgba(255, 250, 243, 0.72) 100%);
+    display: none;
   }
 
   .guide-grid-home {
@@ -6454,7 +6446,8 @@ h3 {
 
 @media (max-width: 760px) {
   .home-hero.home-hero-artist {
-    min-height: 490px;
+    height: 310px;
+    min-height: 0;
     padding: 0;
   }
 
@@ -6467,13 +6460,11 @@ h3 {
 
   .hero-artist-bg {
     height: 100%;
-    object-position: 52% center;
+    object-position: 66% center;
   }
 
   .home-hero.home-hero-artist::before {
-    background:
-      linear-gradient(90deg, rgba(255, 250, 243, 0.99) 0%, rgba(255, 250, 243, 0.94) 45%, rgba(255, 250, 243, 0.34) 70%, rgba(255, 250, 243, 0.04) 100%),
-      linear-gradient(180deg, rgba(255, 250, 243, 0.5) 0%, rgba(255, 250, 243, 0.1) 46%, rgba(255, 250, 243, 0.9) 100%);
+    display: none;
   }
 
   .home-hero-artist .home-hero-copy {

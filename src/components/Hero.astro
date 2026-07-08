@@ -1,14 +1,4 @@
----
-import type { Contest } from "@/data/contests";
-import CategoryPills from "@/components/CategoryPills.astro";
-import SearchBar from "@/components/SearchBar.astro";
-
-type Props = {
-  featured?: Contest[];
-};
----
-
-<section class="home-hero home-hero-artist">
+<section class="home-hero home-hero-artist" aria-label="ゆるコンテストなびのメインビジュアル">
   <img
     class="hero-artist-bg"
     src="/images/hero/yuru-artist-hero.webp"
@@ -17,14 +7,4 @@ type Props = {
     decoding="async"
     fetchpriority="high"
   />
-  <div class="site-shell home-hero-grid">
-    <div class="home-hero-copy">
-      <p class="eyebrow">Yuru Contest Navi</p>
-      <h1><span>気軽</span>に参加できる<br />コンテストが<span>見つかる</span></h1>
-      <p class="hero-subcopy">やさしい・たのしい・ゆるっと参加！</p>
-      <p class="hero-description">あなたにぴったりのコンテストを見つけよう。</p>
-      <SearchBar className="hero-search" />
-      <CategoryPills className="hero-category-pills" />
-    </div>
-  </div>
 </section>
