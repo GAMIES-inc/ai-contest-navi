@@ -1,0 +1,200 @@
+---
+import CategoryPills from "@/components/CategoryPills.astro";
+---
+
+<section class="home-hero home-hero-watercolor" aria-labelledby="home-hero-title">
+  <img
+    class="home-hero-watercolor-bg"
+    src="/images/decorations/yuru-cta-watercolor.webp"
+    alt="水彩の画材や花、文具をあしらったゆるコンテストなびのメインビジュアル"
+    width="1916"
+    height="853"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+  <div class="site-shell home-hero-watercolor-inner">
+    <div class="home-hero-watercolor-copy">
+      <h1 id="home-hero-title">
+        <span class="hero-copy-line hero-copy-line-first"><span class="hero-copy-coral">ちょっと</span>出してみたい、</span>
+        <span class="hero-copy-line">が<span class="hero-copy-mint">見つかる</span>。</span>
+      </h1>
+      <p>
+        ガチじゃなくても、はじめてでも。<br />
+        気軽に参加できるコンテストを集めました。
+      </p>
+    </div>
+    <CategoryPills className="hero-category-pills hero-category-pills-watercolor" />
+  </div>
+</section>
+
+<style>
+  .home-hero-watercolor {
+    position: relative;
+    min-height: 500px;
+    overflow: hidden;
+    padding: 0;
+    border-bottom: 1px solid rgba(234, 223, 206, 0.74);
+    background: #fffaf3;
+    isolation: isolate;
+  }
+
+  .home-hero-watercolor-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -30%;
+    z-index: -2;
+    width: 130%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.94) contrast(0.98);
+  }
+
+  .home-hero-watercolor::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    display: block;
+    content: "";
+    background: rgba(255, 250, 243, 0.16);
+    pointer-events: none;
+  }
+
+  .home-hero-watercolor-inner {
+    display: flex;
+    min-height: 500px;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 42px;
+  }
+
+  .home-hero-watercolor-copy {
+    width: min(100%, 820px);
+  }
+
+  .home-hero-watercolor-copy h1 {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(3rem, 4.2vw, 4.15rem);
+    font-weight: 950;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-wrap: balance;
+    text-shadow:
+      0 2px 0 rgba(255, 255, 255, 0.92),
+      0 8px 30px rgba(255, 250, 243, 0.9);
+  }
+
+  .home-hero-watercolor-copy h1 > span {
+    display: inline;
+  }
+
+  .home-hero-watercolor-copy .hero-copy-line {
+    display: block;
+  }
+
+  .hero-copy-line-first {
+    white-space: nowrap;
+  }
+
+  .hero-copy-coral {
+    margin-right: 0.12em;
+    color: var(--coral);
+  }
+
+  .hero-copy-mint {
+    margin-left: 0.12em;
+    color: var(--mint);
+  }
+
+  .home-hero-watercolor-copy p {
+    margin: 24px 0 0;
+    color: var(--text);
+    font-size: clamp(1rem, 1.45vw, 1.22rem);
+    font-weight: 800;
+    line-height: 1.85;
+    text-shadow: 0 2px 16px rgba(255, 250, 243, 0.96);
+  }
+
+  :global(.hero-category-pills-watercolor) {
+    width: min(100%, 940px);
+    margin-top: 34px;
+  }
+
+  :global(.category-pill-purple svg) {
+    color: #7767de;
+  }
+
+  @media (max-width: 980px) {
+    .home-hero-watercolor-bg {
+      left: -44%;
+      width: 144%;
+      opacity: 0.82;
+    }
+
+    .home-hero-watercolor-copy {
+      width: min(100%, 720px);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .home-hero-watercolor {
+      min-height: 440px;
+    }
+
+    .home-hero-watercolor-bg {
+      left: -92%;
+      width: 210%;
+      opacity: 0.78;
+      object-position: center;
+    }
+
+    .home-hero-watercolor::before {
+      background: rgba(255, 250, 243, 0.28);
+    }
+
+    .home-hero-watercolor-inner {
+      min-height: 440px;
+      justify-content: flex-end;
+      padding-top: 68px;
+      padding-bottom: 26px;
+    }
+
+    .home-hero-watercolor-copy {
+      width: min(100%, 360px);
+    }
+
+    .home-hero-watercolor-copy h1 {
+      font-size: clamp(1.94rem, 8.25vw, 2.2rem);
+      line-height: 1.22;
+    }
+
+    .home-hero-watercolor-copy p {
+      margin-top: 18px;
+      font-size: 0.98rem;
+      line-height: 1.72;
+    }
+
+    :global(.hero-category-pills-watercolor) {
+      width: calc(100vw - 28px);
+      margin-top: 24px;
+      padding-bottom: 4px;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .home-hero-watercolor-bg {
+      left: -114%;
+      width: 234%;
+      opacity: 0.72;
+    }
+
+    .home-hero-watercolor-copy h1 {
+      font-size: clamp(1.9rem, 8.25vw, 2.16rem);
+    }
+  }
+</style>
