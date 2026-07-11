@@ -1,0 +1,23 @@
+name: Contest review reminder
+
+on:
+  schedule:
+    # Monday 09:00 JST
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+jobs:
+  review-reminder:
+    runs-on: ubuntu-latest
+    env:
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20.19.5
+          cache: npm
+      - run: npm ci
+      - name: List contests requiring review
+        run: npm run notion:review-reminder

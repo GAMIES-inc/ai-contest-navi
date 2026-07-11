@@ -25,6 +25,9 @@ const routes = [
   "/categories/other",
   "/calendar",
   "/submit",
+  "/about",
+  "/terms",
+  "/privacy",
   "/404.html",
 ];
 
@@ -40,6 +43,9 @@ const assetRoutes = [
 
 const baseUrl = normalizeBaseUrl(
   process.argv.find((arg) => arg.startsWith("--base="))?.slice("--base=".length) || process.env.SITE_URL,
+);
+const canonicalBaseUrl = normalizeBaseUrl(
+  process.argv.find((arg) => arg.startsWith("--canonical-base="))?.slice("--canonical-base=".length) || baseUrl,
 );
 
 if (!baseUrl) {
@@ -63,13 +69,13 @@ for (const route of routes) {
   const canonical = attr(html, /<link\s+rel=["']canonical["'][^>]*>/i, "href");
   assert(Boolean(canonical), `${route} missing canonical`);
   if (canonical) {
-    assert(canonical.startsWith(baseUrl), `${route} canonical is not SITE_URL based: ${canonical}`);
+    assert(canonical.startsWith(canonicalBaseUrl), `${route} canonical is not SITE_URL based: ${canonical}`);
   }
 
   const ogUrl = attr(html, /<meta\s+property=["']og:url["'][^>]*>/i, "content");
   assert(Boolean(ogUrl), `${route} missing og:url`);
   if (ogUrl) {
-    assert(ogUrl.startsWith(baseUrl), `${route} og:url is not SITE_URL based: ${ogUrl}`);
+    assert(ogUrl.startsWith(canonicalBaseUrl), `${route} og:url is not SITE_URL based: ${ogUrl}`);
   }
 
   const ogImage = attr(html, /<meta\s+property=["']og:image["'][^>]*>/i, "content");
@@ -91,15 +97,29 @@ for (const route of assetRoutes) {
 }
 
 const robots = await text("/robots.txt");
-assert(robots.includes(`${baseUrl}/sitemap-index.xml`), "robots.txt does not point to sitemap-index.xml");
+assert(robots.includes(`${canonicalBaseUrl}/sitemap-index.xml`), "robots.txt does not point to sitemap-index.xml");
 
 const sitemapIndex = await text("/sitemap-index.xml");
-assert(sitemapIndex.includes(`${baseUrl}/sitemap-0.xml`), "sitemap-index.xml does not point to sitemap-0.xml");
+assert(sitemapIndex.includes(`${canonicalBaseUrl}/sitemap-0.xml`), "sitemap-index.xml does not point to sitemap-0.xml");
 
 const sitemap = await text("/sitemap-0.xml");
 for (const route of routes.filter((route) => route !== "/404.html")) {
-  const expected = new URL(route, baseUrl).toString().replace(/\/?$/, "/");
+  const expected = new URL(route, canonicalBaseUrl).toString().replace(/\/?$/, "/");
   assert(sitemap.includes(expected), `sitemap missing ${expected}`);
+}
+
+const listedUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const alreadyChecked = new Set(routes.map((route) => new URL(route, baseUrl).toString().replace(/\/$/, "")));
+for (const url of listedUrls) {
+  if (alreadyChecked.has(url.replace(/\/$/, ""))) continue;
+  const localUrl = new URL(new URL(url).pathname, baseUrl).toString();
+  const response = await fetch(localUrl, { redirect: "follow" });
+  const html = await response.text();
+  assert(response.status === 200, `${url} returned ${response.status}`);
+  assert(match(html, /<title>.+?<\/title>/is), `${url} missing title`);
+  assert(match(html, /<meta\s+name=["']description["'][^>]+>/i), `${url} missing description`);
+  assert(Boolean(attr(html, /<link\s+rel=["']canonical["'][^>]*>/i, "href")), `${url} missing canonical`);
+  console.log(`OK sitemap ${new URL(url).pathname}`);
 }
 
 if (failures.length > 0) {

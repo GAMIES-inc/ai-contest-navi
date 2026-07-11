@@ -137,6 +137,7 @@ function normalizeNotionPage(page: NotionPage): Contest | null {
     description: getPlainText(props["紹介文"]) || getPlainText(props["概要"]) || getPlainText(props["共有用一言"]) || "",
     catchcopy: getPlainText(props["一言キャッチコピー"]) || getPlainText(props["詳細ページ一言"]),
     deadline: getDate(props["締切日"]) || "2099-12-31",
+    lastVerifiedAt: getDate(props["最終確認日"]) || getDate(props["情報確認日"]),
     status: mapStatus(getSelectName(props["ステータス"]) || getSelectName(props["開催ステータス"]) || getSelectName(props["公開ステータス"])),
     categories: mapCategories(getMultiSelectNames(props["ジャンル"]).concat(getMultiSelectNames(props["対象作品形式"]))),
     prize: getPlainText(props["賞金・賞品"]) || "公式ページを参照",

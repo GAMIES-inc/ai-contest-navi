@@ -15,8 +15,11 @@
     "notion:audit-thumbnails": "node scripts/audit-notion-thumbnails.mjs",
     "notion:sync-thumbnails": "node scripts/sync-notion-thumbnails.mjs",
     "notion:archive-expired": "node scripts/archive-expired-notion-contests.mjs",
+    "notion:audit-quality": "node scripts/audit-notion-quality.mjs",
+    "notion:review-reminder": "node scripts/check-contest-review.mjs",
     "notion:ensure-detail-fields": "node scripts/ensure-notion-detail-fields.mjs",
     "notion:enrich-detail-fields": "node scripts/enrich-notion-detail-fields.mjs",
+    "contest:extract-draft": "node scripts/extract-contest-draft.mjs",
     "qa:site": "node scripts/qa-site.mjs"
   },
   "dependencies": {

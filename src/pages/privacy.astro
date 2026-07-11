@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="プライバシーポリシー"
+  description="ゆるコンテストなびにおけるアクセス情報等の取り扱いをご案内します。"
+  canonical={new URL("/privacy", Astro.site).toString()}
+  ogImage="/images/brand/yuru-og-home.webp"
+>
+  <section class="page-hero policy-hero">
+    <div class="site-shell">
+      <p class="eyebrow">Privacy Policy</p>
+      <h1>プライバシーポリシー</h1>
+      <p class="lead">サイト改善に必要な情報を、目的を明確にして取り扱います。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell policy-layout">
+      <article class="policy-panel">
+        <h2>取得する情報</h2>
+        <p>当サイトでは、閲覧ページ、アクセス日時、参照元、公式ページへの遷移など、サイト利用に関する情報を集計する場合があります。</p>
+        <p>お問い合わせをいただいた場合は、ご連絡に含まれるアカウント名、会社名・団体名、ご依頼内容などを対応に必要な範囲で取り扱います。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>利用目的</h2>
+        <p>取得した情報は、サイトの改善、掲載効果の確認、不正利用の防止、お問い合わせ・掲載依頼への対応に利用します。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>アクセス解析</h2>
+        <p>当サイト独自のアクセス集計およびCloudflare Web Analyticsを利用する場合があります。個人を特定することを目的とせず、サイト全体の利用傾向を把握するために使用します。</p>
+        <p>当サイト独自の計測では、IPアドレスやCookieを用いた個人追跡は行いません。運営・編集時の確認アクセスは、除外設定を利用して集計から分けています。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>第三者提供と安全管理</h2>
+        <p>法令にもとづく場合を除き、取得した情報を本人の同意なく第三者へ提供しません。情報は利用目的に必要な範囲で保管し、不要になった情報は適切に削除します。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>お問い合わせ</h2>
+        <p>本ポリシーに関するご連絡は、<a href="/about">運営情報</a>に記載の公式Xアカウントからお願いします。</p>
+        <p>制定日：2026年7月11日</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

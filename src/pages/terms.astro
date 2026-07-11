@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="利用規約"
+  description="ゆるコンテストなびをご利用いただく際の条件をご案内します。"
+  canonical={new URL("/terms", Astro.site).toString()}
+  ogImage="/images/brand/yuru-og-home.webp"
+>
+  <section class="page-hero policy-hero">
+    <div class="site-shell">
+      <p class="eyebrow">Terms of Use</p>
+      <h1>利用規約</h1>
+      <p class="lead">安心して情報をご利用いただくための基本的なルールです。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell policy-layout">
+      <article class="policy-panel">
+        <h2>掲載情報について</h2>
+        <p>当サイトは、主催者の公式ページ、募集要項、公式SNSなどの公開情報をもとに、コンテスト情報を要約して紹介します。</p>
+        <p>掲載内容は更新や変更が行われる場合があります。応募条件、締切、賞金・賞品、権利条件などは、応募前に必ず公式ページで最新情報をご確認ください。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>免責事項</h2>
+        <p>当サイトの情報を利用したことによって生じた損害について、運営者は法令上責任を負う場合を除き責任を負いません。各コンテストへの応募、契約、権利処理などは利用者ご自身の判断で行ってください。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>禁止事項</h2>
+        <p>当サイトや第三者の権利を侵害する行為、不正アクセス、運営を妨害する行為、掲載情報を誤認させる形で利用する行為を禁止します。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>著作権・画像</h2>
+        <p>当サイト上の文章・デザイン等の権利は運営者または正当な権利者に帰属します。掲載するコンテスト画像、ロゴ、キービジュアル等の権利は各主催者・権利者に帰属します。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>規約の変更</h2>
+        <p>必要に応じて本規約を変更することがあります。重要な変更は当サイトまたは公式Xアカウントでお知らせします。</p>
+        <p>制定日：2026年7月11日</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

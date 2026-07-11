@@ -14,6 +14,20 @@ if (!token || !databaseId) {
 }
 
 const desiredProperties = {
+  "最終確認日": { date: {} },
+  "URL疎通確認日": { date: {} },
+  "運用ステータス": {
+    select: {
+      options: [
+        { name: "候補", color: "gray" },
+        { name: "確認中", color: "yellow" },
+        { name: "公開", color: "green" },
+        { name: "終了", color: "default" },
+        { name: "非公開", color: "red" },
+        { name: "修正待ち", color: "orange" },
+      ],
+    },
+  },
   "一言キャッチコピー": { rich_text: {} },
   "応募の流れ": { rich_text: {} },
   "向いている人": {

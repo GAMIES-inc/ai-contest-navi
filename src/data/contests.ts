@@ -30,6 +30,7 @@ export type Contest = {
   description: string;
   catchcopy?: string;
   deadline: string;
+  lastVerifiedAt?: string;
   status: ContestStatus;
   categories: ContestCategory[];
   prize: string;

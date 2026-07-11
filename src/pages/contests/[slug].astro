@@ -7,6 +7,7 @@ import { getGuidesForContestCategories } from "@/data/guides";
 import { categoryLabels, formatDate, getAllContests, getContestBySlug, getContestFallbackImage, getContestImage, getContestPlaceholderType, isContestFallbackImage } from "@/lib/contests";
 import Brain from "@lucide/astro/icons/brain";
 import CalendarDays from "@lucide/astro/icons/calendar-days";
+import CalendarPlus from "@lucide/astro/icons/calendar-plus";
 import ClipboardList from "@lucide/astro/icons/clipboard-list";
 import FileCheck from "@lucide/astro/icons/file-check";
 import Lightbulb from "@lucide/astro/icons/lightbulb";
@@ -39,6 +40,20 @@ const imageSourceUrl = !isFallbackThumbnail ? contest.imageSourceUrl || contest.
 const relatedGuides = await getGuidesForContestCategories(contest.categories, 3);
 const officialCtaLabel = "公式で応募条件を確認する";
 const officialGoHref = (from: string) => `/go/${contest.slug}?link=official&from=${from}`;
+const calendarDate = (() => {
+  const start = contest.deadline.replaceAll("-", "");
+  const endDate = new Date(`${contest.deadline}T00:00:00+09:00`);
+  endDate.setDate(endDate.getDate() + 1);
+  const end = `${endDate.getFullYear()}${String(endDate.getMonth() + 1).padStart(2, "0")}${String(endDate.getDate()).padStart(2, "0")}`;
+  return `${start}/${end}`;
+})();
+const googleCalendarUrl = `https://calendar.google.com/calendar/render?${new URLSearchParams({
+  action: "TEMPLATE",
+  text: `${contest.title} 応募締切`,
+  dates: calendarDate,
+  details: `応募前に公式ページで最新の応募条件をご確認ください。\n${contest.officialUrl}`,
+  location: contest.officialUrl,
+}).toString()}`;
 const isXUrl = (value: string) => {
   try {
     const hostname = new URL(value).hostname.replace(/^www\./, "");
@@ -188,8 +203,13 @@ const recommendedFor = (contest.recommendedFor?.length ? contest.recommendedFor 
           >
             {officialCtaLabel}
           </a>
+          <a class="button detail-calendar-button" href={googleCalendarUrl} target="_blank" rel="noopener">
+            <CalendarPlus size={19} stroke-width={2} />
+            締切をカレンダーに追加
+          </a>
           <a class="button" href="/contests">一覧に戻る</a>
         </div>
+        {contest.lastVerifiedAt && <p class="detail-verified-date">情報確認日：{formatDate(contest.lastVerifiedAt)}</p>}
       </div>
       <div class="detail-image-wrap">
         <div class={`detail-image placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`}>

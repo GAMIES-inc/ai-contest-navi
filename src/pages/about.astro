@@ -1,0 +1,41 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import XContactButton from "@/components/XContactButton.astro";
+---
+
+<BaseLayout
+  title="運営情報"
+  description="ゆるコンテストなびの運営方針とお問い合わせ先をご案内します。"
+  canonical={new URL("/about", Astro.site).toString()}
+  ogImage="/images/brand/yuru-og-home.webp"
+>
+  <section class="page-hero policy-hero">
+    <div class="site-shell">
+      <p class="eyebrow">About Us</p>
+      <h1>運営情報</h1>
+      <p class="lead">気軽に参加できるコンテストとの出会いを、公式情報にもとづいて分かりやすく案内します。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-shell policy-layout">
+      <article class="policy-panel">
+        <h2>ゆるコンテストなびについて</h2>
+        <p>ゆるコンテストなびは、イラスト・AI画像・動画・写真・音楽・文章・X投稿など、幅広い創作コンテストを紹介する情報サイトです。</p>
+        <p>初心者の方にも参加条件をつかみやすいよう、締切、賞金・賞品、応募方法、作品形式などを公式ページや募集要項から整理しています。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>運営者</h2>
+        <p><strong>運営：GAMIES</strong></p>
+        <p>掲載情報の確認、サイト運営、掲載希望・修正依頼への対応を行っています。</p>
+      </article>
+
+      <article class="policy-panel">
+        <h2>お問い合わせ</h2>
+        <p>掲載依頼、掲載内容の修正、画像の差し替え、掲載停止などのご連絡は、ゆるコンテストなび公式Xアカウントへお願いします。</p>
+        <p><XContactButton label="Xで問い合わせる" /></p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
