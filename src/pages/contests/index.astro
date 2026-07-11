@@ -2,9 +2,15 @@
 import ContestCard from "@/components/ContestCard.astro";
 import SearchBar from "@/components/SearchBar.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getActiveContests } from "@/lib/contests";
+import { categoryLabels, getActiveContests } from "@/lib/contests";
+import Clock3 from "@lucide/astro/icons/clock-3";
+import Heart from "@lucide/astro/icons/heart";
+import RotateCcw from "@lucide/astro/icons/rotate-ccw";
+import Sprout from "@lucide/astro/icons/sprout";
+import Trophy from "@lucide/astro/icons/trophy";
 
 const contests = await getActiveContests();
+const categoryFilters = ["ai-illustration", "ai-image", "ai-video", "photo", "writing", "ai-music", "design", "other"] as const;
 ---
 
 <BaseLayout title="コンテスト一覧" description="気軽に参加しやすいコンテストを締切順に一覧で紹介します。">
@@ -17,25 +23,183 @@ const contests = await getActiveContests();
     </div>
   </section>
 
-  <section class="section">
-    <div class="site-shell grid contest-list-grid">
-      {contests.map((contest) => <ContestCard contest={contest} />)}
+  <section id="favorites" class="section contest-discovery-section">
+    <div class="site-shell">
+      <div class="contest-filter-panel" aria-label="コンテストの絞り込み">
+        <div class="contest-filter-group">
+          <p class="contest-filter-label">ジャンル</p>
+          <div class="contest-filter-scroll" data-category-filters>
+            <button class="contest-filter-chip is-active" type="button" data-category="all" aria-pressed="true">すべて</button>
+            {categoryFilters.map((category) => (
+              <button class="contest-filter-chip" type="button" data-category={category} aria-pressed="false">{categoryLabels[category]}</button>
+            ))}
+          </div>
+        </div>
+        <div class="contest-filter-row">
+          <div class="contest-filter-group">
+            <p class="contest-filter-label">条件</p>
+            <div class="contest-filter-scroll" data-quick-filters>
+              <button class="contest-filter-chip" type="button" data-quick="closing" aria-pressed="false"><Clock3 size={16} />締切間近</button>
+              <button class="contest-filter-chip" type="button" data-quick="beginner" aria-pressed="false"><Sprout size={16} />初心者OK</button>
+              <button class="contest-filter-chip" type="button" data-quick="prize" aria-pressed="false"><Trophy size={16} />賞金あり</button>
+              <button class="contest-filter-chip" type="button" data-quick="favorites" aria-pressed="false"><Heart size={16} />お気に入り</button>
+            </div>
+          </div>
+          <label class="contest-sort-control">
+            <span>並び順</span>
+            <select data-contest-sort>
+              <option value="deadline-asc">締切が近い順</option>
+              <option value="deadline-desc">締切が遠い順</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="contest-results-bar">
+        <p data-result-count aria-live="polite">{contests.length}件のコンテスト</p>
+        <button class="contest-filter-reset" type="button" data-filter-reset hidden><RotateCcw size={16} />条件をリセット</button>
+      </div>
+
+      <div class="grid contest-list-grid" data-contest-grid>
+        {contests.map((contest) => <ContestCard contest={contest} />)}
+      </div>
+      <div class="contest-empty-state" data-contest-empty hidden>
+        <h2>条件に合うコンテストが見つかりませんでした</h2>
+        <p>キーワードや条件を少し広げると、見つかりやすくなります。</p>
+        <button class="button primary" type="button" data-empty-reset>すべての募集を見る</button>
+      </div>
     </div>
   </section>
   <script is:inline>
-    {`
       (() => {
+        const storageKey = "yuruContestFavorites";
         const params = new URLSearchParams(window.location.search);
-        const keyword = (params.get("keyword") || "").trim();
-        const input = document.querySelector(".list-search input");
-        if (input && keyword) input.value = keyword;
-        if (!keyword) return;
-        const normalized = keyword.toLowerCase();
-        document.querySelectorAll(".contest-card").forEach((card) => {
-          const text = card.textContent.toLowerCase();
-          card.hidden = !text.includes(normalized);
+        const form = document.querySelector(".list-search");
+        const input = form?.querySelector("input");
+        const cards = [...document.querySelectorAll("[data-contest-card]")];
+        const grid = document.querySelector("[data-contest-grid]");
+        const count = document.querySelector("[data-result-count]");
+        const empty = document.querySelector("[data-contest-empty]");
+        const reset = document.querySelector("[data-filter-reset]");
+        const emptyReset = document.querySelector("[data-empty-reset]");
+        const sort = document.querySelector("[data-contest-sort]");
+        const categoryButtons = [...document.querySelectorAll("[data-category]")];
+        const quickButtons = [...document.querySelectorAll("[data-quick]")];
+
+        const state = {
+          keyword: (params.get("keyword") || "").trim(),
+          category: params.get("category") || "all",
+          quick: params.get("filter") || (window.location.hash === "#favorites" ? "favorites" : ""),
+          sort: params.get("sort") || "deadline-asc",
+        };
+
+        const readFavorites = () => {
+          try { return new Set(JSON.parse(localStorage.getItem(storageKey) || "[]")); }
+          catch { return new Set(); }
+        };
+
+        const syncUrl = () => {
+          const next = new URLSearchParams();
+          if (state.keyword) next.set("keyword", state.keyword);
+          if (state.category !== "all") next.set("category", state.category);
+          if (state.quick) next.set("filter", state.quick);
+          if (state.sort !== "deadline-asc") next.set("sort", state.sort);
+          const query = next.toString();
+          const hash = state.quick === "favorites" ? "#favorites" : "";
+          history.replaceState(null, "", window.location.pathname + (query ? "?" + query : "") + hash);
+        };
+
+        const syncControls = () => {
+          if (input) input.value = state.keyword;
+          if (sort) sort.value = state.sort;
+          categoryButtons.forEach((button) => {
+            const active = button.dataset.category === state.category;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", active ? "true" : "false");
+          });
+          quickButtons.forEach((button) => {
+            const active = button.dataset.quick === state.quick;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", active ? "true" : "false");
+          });
+        };
+
+        const apply = () => {
+          const normalized = state.keyword.toLocaleLowerCase("ja");
+          const favorites = readFavorites();
+          let visible = 0;
+          cards
+            .sort((a, b) => {
+              const comparison = (a.dataset.contestDeadline || "").localeCompare(b.dataset.contestDeadline || "");
+              return state.sort === "deadline-desc" ? -comparison : comparison;
+            })
+            .forEach((card) => {
+              if (grid) grid.append(card);
+              const categories = (card.dataset.contestCategories || "").split(" ");
+              const matchesKeyword = !normalized || (card.textContent || "").toLocaleLowerCase("ja").includes(normalized);
+              const matchesCategory = state.category === "all" || categories.includes(state.category);
+              const matchesQuick = !state.quick
+                || (state.quick === "closing" && card.dataset.contestStatus === "closing-soon")
+                || (state.quick === "beginner" && card.dataset.contestBeginner === "true")
+                || (state.quick === "prize" && card.dataset.contestPrize === "true")
+                || (state.quick === "favorites" && favorites.has(card.dataset.contestSlug || ""));
+              const show = matchesKeyword && matchesCategory && matchesQuick;
+              card.hidden = !show;
+              if (show) visible += 1;
+            });
+
+          if (count) count.textContent = visible + "件のコンテスト";
+          if (empty) {
+            empty.hidden = visible !== 0;
+            const title = empty.querySelector("h2");
+            const copy = empty.querySelector("p");
+            if (state.quick === "favorites" && favorites.size === 0) {
+              if (title) title.textContent = "お気に入りはまだありません";
+              if (copy) copy.textContent = "気になる募集のハートを押すと、ここでまとめて見られます。";
+            } else {
+              if (title) title.textContent = "条件に合うコンテストが見つかりませんでした";
+              if (copy) copy.textContent = "キーワードや条件を少し広げると、見つかりやすくなります。";
+            }
+          }
+          if (reset) reset.hidden = !(state.keyword || state.category !== "all" || state.quick || state.sort !== "deadline-asc");
+          syncControls();
+          syncUrl();
+        };
+
+        const clear = () => {
+          state.keyword = "";
+          state.category = "all";
+          state.quick = "";
+          state.sort = "deadline-asc";
+          apply();
+        };
+
+        form?.addEventListener("submit", (event) => {
+          event.preventDefault();
+          state.keyword = input?.value.trim() || "";
+          apply();
         });
+        categoryButtons.forEach((button) => button.addEventListener("click", () => {
+          state.category = button.dataset.category || "all";
+          apply();
+        }));
+        quickButtons.forEach((button) => button.addEventListener("click", () => {
+          const value = button.dataset.quick || "";
+          state.quick = state.quick === value ? "" : value;
+          apply();
+        }));
+        sort?.addEventListener("change", () => {
+          state.sort = sort.value;
+          apply();
+        });
+        reset?.addEventListener("click", clear);
+        emptyReset?.addEventListener("click", clear);
+        window.addEventListener("yuru:favorites-changed", apply);
+        window.addEventListener("hashchange", () => {
+          state.quick = window.location.hash === "#favorites" ? "favorites" : state.quick;
+          apply();
+        });
+        apply();
       })();
-    `}
   </script>
 </BaseLayout>

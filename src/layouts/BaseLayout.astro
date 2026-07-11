@@ -103,7 +103,6 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
     </main>
     <Footer />
     <script is:inline>
-      {`
         (() => {
           const noTrackStorageKey = "yuruContestNaviNoTrack";
           const legacyNoTrackStorageKey = ["ai", "Contest", "Navi", "NoTrack"].join("");
@@ -142,12 +141,10 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
             } catch {}
           });
         })();
-      `}
     </script>
     {
       enableFirstPartyAnalytics && (
         <script is:inline>
-          {`
             (() => {
               if (window.__yuruContestNaviPageviewSent) return;
               window.__yuruContestNaviPageviewSent = true;
@@ -181,12 +178,10 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
                 }).catch(() => {});
               } catch {}
             })();
-          `}
         </script>
       )
     }
     <script is:inline>
-      {`
         (() => {
           const key = "yuruContestFavorites";
           const readFavorites = () => {
@@ -208,6 +203,8 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
               const active = Boolean(slug && favorites.has(slug));
               button.classList.toggle("is-active", active);
               button.setAttribute("aria-pressed", active ? "true" : "false");
+              const label = button.getAttribute("data-favorite-label") || "このコンテスト";
+              button.setAttribute("aria-label", active ? `${label}をお気に入りから削除` : `${label}をお気に入りに追加`);
             });
           };
           document.addEventListener("click", (event) => {
@@ -221,10 +218,10 @@ const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYT
             else favorites.add(slug);
             writeFavorites(favorites);
             updateButtons();
+            window.dispatchEvent(new CustomEvent("yuru:favorites-changed", { detail: { favorites: [...favorites] } }));
           });
           updateButtons();
         })();
-      `}
     </script>
   </body>
 </html>

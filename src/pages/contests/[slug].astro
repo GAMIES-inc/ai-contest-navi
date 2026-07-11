@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ContestCard from "@/components/ContestCard.astro";
 import GuideCard from "@/components/GuideCard.astro";
 import ImageSource from "@/components/ImageSource.astro";
 import RightsNotice from "@/components/RightsNotice.astro";
 import { getGuidesForContestCategories } from "@/data/guides";
-import { categoryLabels, formatDate, getAllContests, getContestBySlug, getContestFallbackImage, getContestImage, getContestPlaceholderType, isContestFallbackImage } from "@/lib/contests";
+import { categoryLabels, formatDate, getAllContests, getContestBySlug, getContestFallbackImage, getContestImage, getContestPlaceholderType, getDaysUntilDeadline, isContestFallbackImage } from "@/lib/contests";
 import Brain from "@lucide/astro/icons/brain";
 import CalendarDays from "@lucide/astro/icons/calendar-days";
 import CalendarPlus from "@lucide/astro/icons/calendar-plus";
@@ -38,6 +39,14 @@ const ogImage = isFallbackThumbnail ? fallbackThumbnail : thumbnail;
 const imageSourceLabel = !isFallbackThumbnail ? contest.imageSourceLabel || "公式ページ" : "";
 const imageSourceUrl = !isFallbackThumbnail ? contest.imageSourceUrl || contest.officialUrl : "";
 const relatedGuides = await getGuidesForContestCategories(contest.categories, 3);
+const relatedContests = (await getAllContests())
+  .filter((item) => item.slug !== contest.slug && (item.status === "open" || item.status === "closing-soon"))
+  .sort((a, b) => {
+    const aOverlap = a.categories.filter((category) => contest.categories.includes(category)).length;
+    const bOverlap = b.categories.filter((category) => contest.categories.includes(category)).length;
+    return bOverlap - aOverlap || a.deadline.localeCompare(b.deadline);
+  })
+  .slice(0, 3);
 const officialCtaLabel = "公式で応募条件を確認する";
 const officialGoHref = (from: string) => `/go/${contest.slug}?link=official&from=${from}`;
 const calendarDate = (() => {
@@ -123,17 +132,13 @@ const difficultyShort = (() => {
 const heroCatchcopy = shortLead(contest.description, 30);
 const detailCatchcopy = contest.catchcopy ? shortLead(contest.catchcopy, 30) : heroCatchcopy;
 const detailLeadLines = buildInlineLines(detailCatchcopy, 18);
-const buildTitleLines = (title: string) => {
-  const words = title.split(/\s+/u).filter(Boolean);
-  if (words.length >= 3) {
-    return [words.slice(0, 2).join(" "), words.slice(2).join(" ")];
-  }
-  if (title.length > 18) {
-    return title.match(/.{1,12}/gu) ?? [title];
-  }
-  return [title];
-};
-const titleLines = buildTitleLines(contest.title);
+const titleWords = contest.title.split(/\s+/u).filter(Boolean);
+const daysUntilDeadline = getDaysUntilDeadline(contest.deadline);
+const deadlineUrgency = daysUntilDeadline === 0
+  ? "今日が締切です"
+  : daysUntilDeadline === 1
+    ? "締切まであと1日"
+    : `締切まであと${daysUntilDeadline}日`;
 const quickFacts = [
   { label: "締切", value: formatDate(contest.deadline), icon: CalendarDays },
   { label: "作品形式", value: workFormat, icon: FileCheck },
@@ -184,7 +189,7 @@ const recommendedFor = (contest.recommendedFor?.length ? contest.recommendedFor 
       <div class="detail-hero-copy">
         <p class="eyebrow">CONTEST DETAIL</p>
         <h1>
-          {titleLines.map((line) => <span class="detail-title-line">{line}</span>)}
+          {titleWords.map((word) => <span class="detail-title-word">{word}</span>)}
         </h1>
         <p class="lead">
           {detailLeadLines.map((line) => <span class="detail-lead-line">{line}</span>)}
@@ -200,6 +205,7 @@ const recommendedFor = (contest.recommendedFor?.length ? contest.recommendedFor 
             rel="noopener"
             data-analytics-link="official"
             data-contest-slug={contest.slug}
+            data-detail-primary-cta
           >
             {officialCtaLabel}
           </a>
@@ -209,6 +215,7 @@ const recommendedFor = (contest.recommendedFor?.length ? contest.recommendedFor 
           </a>
           <a class="button" href="/contests">一覧に戻る</a>
         </div>
+        <p class="detail-deadline-note"><CalendarDays size={17} stroke-width={2.1} />{deadlineUrgency}・{formatDate(contest.deadline)}まで</p>
         {contest.lastVerifiedAt && <p class="detail-verified-date">情報確認日：{formatDate(contest.lastVerifiedAt)}</p>}
       </div>
       <div class="detail-image-wrap">
@@ -312,6 +319,22 @@ const recommendedFor = (contest.recommendedFor?.length ? contest.recommendedFor 
       <RightsNotice />
     </div>
   </section>
+  {relatedContests.length > 0 && (
+    <section class="section related-contests-section">
+      <div class="site-shell">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">似ている募集中のコンテスト</h2>
+            <p class="section-copy">同じジャンルから、比べて選べる募集を集めました。</p>
+          </div>
+          <a class="button" href="/contests">すべて見る</a>
+        </div>
+        <div class="grid contest-list-grid related-contest-grid">
+          {relatedContests.map((item) => <ContestCard contest={item} />)}
+        </div>
+      </div>
+    </section>
+  )}
   <section class="section">
     <div class="site-shell">
       <div class="section-head">
@@ -326,4 +349,33 @@ const recommendedFor = (contest.recommendedFor?.length ? contest.recommendedFor 
       </div>
     </div>
   </section>
+  <div class="detail-sticky-spacer" aria-hidden="true"></div>
+  <div class="detail-sticky-cta" aria-label="公式ページへの応募導線">
+    <span>{deadlineUrgency}</span>
+    <a
+      class="button primary"
+      href={officialGoHref("detail_sticky")}
+      target="_blank"
+      rel="noopener"
+      data-analytics-link="official"
+      data-contest-slug={contest.slug}
+    >
+      公式条件を確認
+    </a>
+  </div>
+  <script is:inline>
+    (() => {
+      const primary = document.querySelector("[data-detail-primary-cta]");
+      const sticky = document.querySelector(".detail-sticky-cta");
+      if (!primary || !sticky) return;
+      if (!("IntersectionObserver" in window)) {
+        sticky.classList.add("is-visible");
+        return;
+      }
+      const observer = new IntersectionObserver(([entry]) => {
+        sticky.classList.toggle("is-visible", !entry.isIntersecting);
+      }, { threshold: 0.05 });
+      observer.observe(primary);
+    })();
+  </script>
 </BaseLayout>

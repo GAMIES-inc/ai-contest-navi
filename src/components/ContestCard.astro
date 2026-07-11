@@ -20,7 +20,7 @@ const thumbnailLoading = thumbnail.startsWith("/images/contests/yuru-thumb-") ? 
 const isFallbackThumbnail = isContestFallbackImage(thumbnail);
 const placeholderType = getContestPlaceholderType(contest);
 const primaryCategory = categoryLabels[contest.categories[0]] ?? "コンテスト";
-const hasPrize = /賞金|万円|円|ギフト|Amazon|賞品|表彰|入賞/.test(contest.prize);
+const hasPrize = !/賞金なし|賞品なし/.test(contest.prize) && /[0-9,]+(?:万)?円|ギフト(?:カード|券)|Amazon|賞金総額|懸賞金/.test(contest.prize);
 const isBeginner = /初心者|初めて|標準|ゆる/.test(contest.difficulty);
 const applicationText = `${contest.title} ${contest.description} ${contest.applicationMethod}`;
 const isXApplication = /X|SNS|twitter|リポスト|引用投稿/i.test(applicationText);
@@ -36,7 +36,16 @@ const effortTags = [
 ].filter(Boolean).slice(0, 3) as { label: string; Icon: typeof Star; tone: string }[];
 ---
 
-<article class={`contest-card ${variant === "featured" ? "contest-card-featured" : ""}`}>
+<article
+  class={`contest-card ${variant === "featured" ? "contest-card-featured" : ""}`}
+  data-contest-card
+  data-contest-slug={contest.slug}
+  data-contest-categories={contest.categories.join(" ")}
+  data-contest-deadline={contest.deadline}
+  data-contest-status={contest.status}
+  data-contest-beginner={isBeginner ? "true" : "false"}
+  data-contest-prize={hasPrize ? "true" : "false"}
+>
   <a class={`contest-thumb placeholder-${placeholderType} ${isFallbackThumbnail ? "is-fallback" : ""}`} href={`/contests/${contest.slug}`} aria-label={`${contest.title}の詳細を見る`}>
     <img
       src={thumbnail}
@@ -48,7 +57,7 @@ const effortTags = [
     />
     <span class="category-label">{primaryCategory}</span>
   </a>
-  <button class="favorite-button" type="button" data-favorite-slug={contest.slug} aria-label={`${contest.title}をお気に入りに追加`} aria-pressed="false">
+  <button class="favorite-button" type="button" data-favorite-slug={contest.slug} data-favorite-label={contest.title} aria-label={`${contest.title}をお気に入りに追加`} aria-pressed="false">
     <Heart size={18} stroke-width={2.2} aria-hidden="true" />
   </button>
   <div class="contest-body">
