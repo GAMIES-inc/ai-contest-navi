@@ -100,6 +100,10 @@ const categoryFilters = ["ai-illustration", "ai-image", "ai-video", "photo", "wr
 
         const syncUrl = () => {
           const next = new URLSearchParams();
+          ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "no_track", "track"].forEach((key) => {
+            const value = params.get(key);
+            if (value) next.set(key, value);
+          });
           if (state.keyword) next.set("keyword", state.keyword);
           if (state.category !== "all") next.set("category", state.category);
           if (state.quick) next.set("filter", state.quick);
