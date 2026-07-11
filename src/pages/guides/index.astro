@@ -1,15 +1,9 @@
 ---
 import GuideCard from "@/components/GuideCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getAllGuides, getGuidesByCategory, guideCategories } from "@/data/guides";
+import { getAllGuides } from "@/data/guides";
 
 const guides = await getAllGuides();
-const groupedCategories = guideCategories.filter(
-  (category) => category !== "すべて" && guides.some((guide) => guide.category === category),
-);
-const guidesByCategory = new Map(
-  await Promise.all(groupedCategories.map(async (category) => [category, await getGuidesByCategory(category)] as const)),
-);
 ---
 
 <BaseLayout
@@ -22,59 +16,26 @@ const guidesByCategory = new Map(
     <div class="site-shell">
       <p class="eyebrow">Guides</p>
       <h1>コンテスト応募ガイド</h1>
-      <p class="lead">初めてでも迷いにくい、選び方・応募の流れ・提出前チェックのガイド。</p>
+      <p class="lead">初めての応募に必要なことを、3つにまとめました。</p>
       <div class="hero-actions">
-        <a class="button primary" href="/contests">コンテスト一覧へ</a>
-        <a class="button" href="/calendar">締切カレンダーへ</a>
+        <a class="button primary" href="/contests">コンテストを探す</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="site-shell">
-      <div class="guide-filter-row" aria-label="ガイドカテゴリ">
-        <a href="#all">すべて</a>
-        {groupedCategories.map((category) => <a href={`#${category}`}>{category}</a>)}
-      </div>
-
-      <div id="all" class="guide-grid guide-grid-list">
+      <div class="guide-grid guide-grid-list">
         {guides.map((guide) => <GuideCard guide={guide} minimal />)}
       </div>
     </div>
   </section>
-
-  {
-    groupedCategories.map((category) => {
-      const items = guidesByCategory.get(category) ?? [];
-      if (items.length === 0) return null;
-      return (
-        <section id={category} class="section guide-category-section">
-          <div class="site-shell">
-            <div class="section-head">
-              <div>
-                <h2 class="section-title">{category}</h2>
-                <p class="section-copy">目的に近いガイドから読み始められます。</p>
-              </div>
-            </div>
-            <div class="guide-grid guide-grid-list">
-              {items.map((guide) => <GuideCard guide={guide} compact minimal />)}
-            </div>
-          </div>
-        </section>
-      );
-    })
-  }
-
-  <section class="section">
-    <div class="site-shell">
-      <div class="guide-bottom-cta">
-        <div>
-          <p class="eyebrow">Find Contest</p>
-          <h2>参加できるコンテストを探す</h2>
-          <p>作りたいものが少し見えてきたら、締切順やジャンル別で応募先を探してみましょう。</p>
-        </div>
-        <a class="button primary" href="/contests">コンテスト一覧を見る</a>
-      </div>
-    </div>
-  </section>
 </BaseLayout>
+
+<style>
+  @media (max-width: 760px) {
+    .guide-page-hero h1 {
+      font-size: 1.9rem;
+    }
+  }
+</style>

@@ -7,7 +7,6 @@ import Clock3 from "@lucide/astro/icons/clock-3";
 import Heart from "@lucide/astro/icons/heart";
 import RotateCcw from "@lucide/astro/icons/rotate-ccw";
 import Sprout from "@lucide/astro/icons/sprout";
-import Trophy from "@lucide/astro/icons/trophy";
 
 const contests = await getActiveContests();
 const categoryFilters = ["ai-illustration", "ai-image", "ai-video", "photo", "writing", "ai-music", "design", "other"] as const;
@@ -18,41 +17,33 @@ const categoryFilters = ["ai-illustration", "ai-image", "ai-video", "photo", "wr
     <div class="site-shell">
       <p class="eyebrow">Contest List</p>
       <h1>コンテスト一覧</h1>
-      <p class="lead">気軽に参加しやすいコンテストを、締切順にゆるっと探せます。</p>
-      <SearchBar className="list-search" placeholder="キーワードで絞り込み" buttonLabel="探す" />
+      <p class="lead">締切順で、気軽に探せます。</p>
+      <SearchBar className="list-search" placeholder="キーワードで検索" buttonLabel="検索" />
     </div>
   </section>
 
   <section id="favorites" class="section contest-discovery-section">
     <div class="site-shell">
       <div class="contest-filter-panel" aria-label="コンテストの絞り込み">
-        <div class="contest-filter-group">
-          <p class="contest-filter-label">ジャンル</p>
-          <div class="contest-filter-scroll" data-category-filters>
-            <button class="contest-filter-chip is-active" type="button" data-category="all" aria-pressed="true">すべて</button>
-            {categoryFilters.map((category) => (
-              <button class="contest-filter-chip" type="button" data-category={category} aria-pressed="false">{categoryLabels[category]}</button>
-            ))}
-          </div>
+        <label class="contest-sort-control contest-category-control">
+          <span>ジャンル</span>
+          <select data-category-select>
+            <option value="all">すべて</option>
+            {categoryFilters.map((category) => <option value={category}>{categoryLabels[category]}</option>)}
+          </select>
+        </label>
+        <div class="contest-filter-scroll" data-quick-filters>
+          <button class="contest-filter-chip" type="button" data-quick="closing" aria-pressed="false"><Clock3 size={16} />締切間近</button>
+          <button class="contest-filter-chip" type="button" data-quick="beginner" aria-pressed="false"><Sprout size={16} />初心者OK</button>
+          <button class="contest-filter-chip" type="button" data-quick="favorites" aria-pressed="false"><Heart size={16} />お気に入り</button>
         </div>
-        <div class="contest-filter-row">
-          <div class="contest-filter-group">
-            <p class="contest-filter-label">条件</p>
-            <div class="contest-filter-scroll" data-quick-filters>
-              <button class="contest-filter-chip" type="button" data-quick="closing" aria-pressed="false"><Clock3 size={16} />締切間近</button>
-              <button class="contest-filter-chip" type="button" data-quick="beginner" aria-pressed="false"><Sprout size={16} />初心者OK</button>
-              <button class="contest-filter-chip" type="button" data-quick="prize" aria-pressed="false"><Trophy size={16} />賞金あり</button>
-              <button class="contest-filter-chip" type="button" data-quick="favorites" aria-pressed="false"><Heart size={16} />お気に入り</button>
-            </div>
-          </div>
-          <label class="contest-sort-control">
-            <span>並び順</span>
-            <select data-contest-sort>
-              <option value="deadline-asc">締切が近い順</option>
-              <option value="deadline-desc">締切が遠い順</option>
-            </select>
-          </label>
-        </div>
+        <label class="contest-sort-control">
+          <span>並び順</span>
+          <select data-contest-sort>
+            <option value="deadline-asc">締切が近い順</option>
+            <option value="deadline-desc">締切が遠い順</option>
+          </select>
+        </label>
       </div>
 
       <div class="contest-results-bar">
@@ -83,7 +74,7 @@ const categoryFilters = ["ai-illustration", "ai-image", "ai-video", "photo", "wr
         const reset = document.querySelector("[data-filter-reset]");
         const emptyReset = document.querySelector("[data-empty-reset]");
         const sort = document.querySelector("[data-contest-sort]");
-        const categoryButtons = [...document.querySelectorAll("[data-category]")];
+        const categorySelect = document.querySelector("[data-category-select]");
         const quickButtons = [...document.querySelectorAll("[data-quick]")];
 
         const state = {
@@ -116,11 +107,7 @@ const categoryFilters = ["ai-illustration", "ai-image", "ai-video", "photo", "wr
         const syncControls = () => {
           if (input) input.value = state.keyword;
           if (sort) sort.value = state.sort;
-          categoryButtons.forEach((button) => {
-            const active = button.dataset.category === state.category;
-            button.classList.toggle("is-active", active);
-            button.setAttribute("aria-pressed", active ? "true" : "false");
-          });
+          if (categorySelect) categorySelect.value = state.category;
           quickButtons.forEach((button) => {
             const active = button.dataset.quick === state.quick;
             button.classList.toggle("is-active", active);
@@ -183,10 +170,10 @@ const categoryFilters = ["ai-illustration", "ai-image", "ai-video", "photo", "wr
           state.keyword = input?.value.trim() || "";
           apply();
         });
-        categoryButtons.forEach((button) => button.addEventListener("click", () => {
-          state.category = button.dataset.category || "all";
+        categorySelect?.addEventListener("change", () => {
+          state.category = categorySelect.value || "all";
           apply();
-        }));
+        });
         quickButtons.forEach((button) => button.addEventListener("click", () => {
           const value = button.dataset.quick || "";
           state.quick = state.quick === value ? "" : value;

@@ -3,9 +3,7 @@ import Camera from "@lucide/astro/icons/camera";
 import BookOpen from "@lucide/astro/icons/book-open";
 import ImageIcon from "@lucide/astro/icons/image";
 import MessageCircle from "@lucide/astro/icons/message-circle";
-import Music from "@lucide/astro/icons/music";
 import Paintbrush from "@lucide/astro/icons/paintbrush";
-import Scissors from "@lucide/astro/icons/scissors";
 import Video from "@lucide/astro/icons/video";
 
 type Pill = {
@@ -25,9 +23,7 @@ const defaultPills: Pill[] = [
   { label: "AI画像", href: "/categories/ai-image", Icon: ImageIcon, tone: "mint" },
   { label: "動画", href: "/categories/ai-video", Icon: Video, tone: "blue" },
   { label: "写真", href: "/contests?keyword=%E5%86%99%E7%9C%9F", Icon: Camera, tone: "orange" },
-  { label: "音楽", href: "/categories/ai-music", Icon: Music, tone: "pink" },
   { label: "文章・小説", href: "/categories/writing", Icon: BookOpen, tone: "mint" },
-  { label: "工作・クラフト", href: "/contests?keyword=%E5%B7%A5%E4%BD%9C", Icon: Scissors, tone: "purple" },
   { label: "その他", href: "/categories/other", Icon: MessageCircle, tone: "blue" },
 ];
 

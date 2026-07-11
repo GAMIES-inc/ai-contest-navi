@@ -2,36 +2,18 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import XContactButton from "@/components/XContactButton.astro";
 
-const targets = ["イラスト", "AI画像", "動画", "写真", "音楽", "X投稿キャンペーン", "デザイン", "文章・アイデア", "学生向け", "その他"];
 const flow = [
-  ["1", "情報提供", "公式ページや募集要項のURLをお送りください。"],
-  ["2", "公式情報を確認", "応募条件、締切、提出形式、AI利用条件がある場合はその内容も確認します。"],
-  ["3", "掲載内容を整理", "応募者が見やすい形に要約し、必要に応じて確認します。"],
-  ["4", "公開・更新", "掲載後も、締切や公式情報に変更があれば更新します。"],
+  ["1", "送る", "公式ページのURLをXのDMへ。"],
+  ["2", "確認", "募集内容を公式情報で確認します。"],
+  ["3", "掲載", "応募者が見やすい形に整えて公開します。"],
 ];
 const requiredItems = [
   "コンテスト名",
-  "主催者名",
   "公式ページURL",
-  "募集要項URL",
   "応募締切",
-  "応募対象",
-  "ジャンル",
   "賞金・賞品",
   "応募形式",
-  "AI利用条件（ある場合）",
-  "著作権・二次利用条件",
-  "掲載用画像またはキービジュアル",
-  "画像の利用可否",
-  "画像出典または公式素材URL",
-  "問い合わせ先",
-];
-const cannotList = [
-  "公式情報が確認できないもの",
-  "応募条件や締切が不明確なもの",
-  "権利条件やAI利用条件が著しく不明瞭なもの",
-  "公序良俗に反する内容を含むもの",
-  "応募者に誤解を与える可能性が高いもの",
+  "公式画像（あれば）",
 ];
 ---
 
@@ -46,42 +28,11 @@ const cannotList = [
       <div>
         <p class="eyebrow">Submit Contest</p>
         <h1>コンテストの掲載依頼</h1>
-        <p class="lead">
-          コンテスト情報を、公式情報にもとづいてゆるコンテストなびに掲載します。イラスト・AI画像・動画・写真・音楽・X投稿キャンペーン・デザインなど、作品やアイデアを募集する情報を受け付けています。
-        </p>
+        <p class="lead">公式ページのURLを添えて、XのDMからお送りください。</p>
         <div class="hero-actions">
           <XContactButton label="Xで掲載依頼する" />
-          <a class="button" href="#required-info">掲載に必要な情報を見る</a>
-        </div>
-        <p class="cta-note">公式ページや募集要項URLを添えて、ゆるコンテストなびのXアカウントへDMでお送りください。</p>
-      </div>
-      <div class="submit-hero-card" aria-label="掲載で整理する情報">
-        <span>締切</span>
-        <span>賞金・賞品</span>
-        <span>応募形式</span>
-        <span>AI条件</span>
-        <span>権利条件</span>
-        <span>公式URL</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="site-shell submit-section">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">掲載対象</h2>
-          <p class="section-copy">
-            イラスト、AI画像、動画、写真、音楽、X投稿キャンペーン、デザイン、文章・アイデア募集など、初心者にも参加しやすいコンテストを中心に掲載します。
-          </p>
         </div>
       </div>
-      <div class="submit-tag-grid">
-        {targets.map((target) => <span>{target}</span>)}
-      </div>
-      <p class="submit-support-note">
-        掲載内容は、公式ページ・募集要項・公式SNSなど、確認可能な公開情報をもとに作成します。内容に変更がある場合や、掲載内容の修正・削除をご希望の場合は、XのDMよりご連絡ください。
-      </p>
     </div>
   </section>
 
@@ -90,7 +41,6 @@ const cannotList = [
       <div class="section-head">
         <div>
           <h2 class="section-title">掲載までの流れ</h2>
-          <p class="section-copy">公式情報を確認し、応募者が比較しやすい形に整理して掲載します。</p>
         </div>
       </div>
       <div class="submit-flow-grid">
@@ -110,15 +60,12 @@ const cannotList = [
       <div class="section-head">
         <div>
           <h2 class="section-title">掲載に必要な情報</h2>
-          <p class="section-copy">画像がない場合でも、ジャンル別プレースホルダーで掲載できます。可能であれば公式のキービジュアルもお送りください。</p>
+          <p class="section-copy">わかる範囲で大丈夫です。</p>
         </div>
       </div>
       <div class="submit-check-grid">
         {requiredItems.map((item) => <span>{item}</span>)}
       </div>
-      <p class="submit-support-note">
-        掲載用画像がない場合は、ジャンルに応じた共通プレースホルダーで掲載する場合があります。画像をお送りいただく場合は、利用可否と出典または公式素材URLもあわせてお知らせください。
-      </p>
     </div>
   </section>
 
@@ -126,50 +73,28 @@ const cannotList = [
     <div class="site-shell submit-section">
       <div class="section-head">
         <div>
-          <h2 class="section-title">通常掲載とPR掲載について</h2>
-          <p class="section-copy">
-            通常掲載は、公式情報にもとづき、応募者がコンテスト内容を確認しやすい形で掲載します。PR掲載を行う場合は、掲載区分としてPRであることが分かるように表示します。
-          </p>
+          <h2 class="section-title">掲載について</h2>
         </div>
       </div>
       <div class="submit-plan-grid">
         <article>
           <h3>通常掲載</h3>
-          <ul>
-            <li>公式情報をもとに掲載</li>
-            <li>締切・応募条件・賞品などを整理</li>
-            <li>掲載可否は内容確認のうえ判断</li>
-          </ul>
+          <p>公式情報を確認し、締切や応募条件を整理して掲載します。</p>
         </article>
         <article>
           <h3>PR掲載</h3>
-          <ul>
-            <li>PR表記を明示</li>
-            <li>掲載内容や導線を個別相談</li>
-            <li>SNSや特集導線との組み合わせも検討可能</li>
-          </ul>
-          <p>料金や掲載内容は個別にご相談ください。</p>
+          <p>PR表記を付け、内容や導線を相談して掲載します。</p>
         </article>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="site-shell submit-section submit-two-column">
-      <article>
-        <h2>掲載できない可能性があるもの</h2>
-        <p>以下に該当する場合、掲載を見送ることがあります。</p>
-        <ul>
-          {cannotList.map((item) => <li>{item}</li>)}
-        </ul>
-      </article>
-      <article>
-        <h2>掲載内容の修正・削除について</h2>
-        <p>
-          掲載後に、締切、応募条件、賞品内容、画像、権利条件などに変更がある場合は、XのDMよりご連絡ください。公式情報を確認のうえ、必要に応じて修正、画像差し替え、または掲載停止を行います。
-        </p>
-        <p><XContactButton label="XのDMで修正・削除を依頼する" /></p>
-      </article>
+      <p class="submit-inline-note">公式情報を確認できない場合は掲載できません。修正・削除もXのDMで受け付けています。</p>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  @media (max-width: 760px) {
+    .submit-hero h1 {
+      font-size: 1.9rem;
+    }
+  }
+</style>

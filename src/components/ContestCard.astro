@@ -6,7 +6,6 @@ import Heart from "@lucide/astro/icons/heart";
 import ImageIcon from "@lucide/astro/icons/image";
 import Send from "@lucide/astro/icons/send";
 import Sprout from "@lucide/astro/icons/sprout";
-import Star from "@lucide/astro/icons/star";
 
 type Props = {
   contest: Contest;
@@ -21,6 +20,8 @@ const isFallbackThumbnail = isContestFallbackImage(thumbnail);
 const placeholderType = getContestPlaceholderType(contest);
 const primaryCategory = categoryLabels[contest.categories[0]] ?? "コンテスト";
 const hasPrize = !/賞金なし|賞品なし/.test(contest.prize) && /[0-9,]+(?:万)?円|ギフト(?:カード|券)|Amazon|賞金総額|懸賞金/.test(contest.prize);
+const prizeMatch = contest.prize.match(/[0-9,]+(?:万)?円(?:分|相当)?|ギフト(?:カード|券)[^。、「」]{0,12}|Amazon[^。、「」]{0,14}/);
+const prizeShort = hasPrize && prizeMatch ? prizeMatch[0] : /賞品|各賞|表彰|入賞/.test(contest.prize) ? "賞品あり" : "公式で確認";
 const isBeginner = /初心者|初めて|標準|ゆる/.test(contest.difficulty);
 const applicationText = `${contest.title} ${contest.description} ${contest.applicationMethod}`;
 const isXApplication = /X|SNS|twitter|リポスト|引用投稿/i.test(applicationText);
@@ -32,8 +33,7 @@ const effortTags = [
   isXApplication ? { label: "X投稿だけ", Icon: Send, tone: "navy" } : null,
   isPostApplication ? { label: "投稿だけ", Icon: Send, tone: "navy" } : null,
   hasPrize ? { label: "賞金あり", Icon: Gift, tone: "pink" } : null,
-  { label: "ゆるっと参加", Icon: Star, tone: "orange" },
-].filter(Boolean).slice(0, 3) as { label: string; Icon: typeof Star; tone: string }[];
+].filter(Boolean).slice(0, 2) as { label: string; Icon: typeof Sprout; tone: string }[];
 ---
 
 <article
@@ -66,12 +66,12 @@ const effortTags = [
     </h3>
     <dl class="contest-summary">
       <div>
-        <dt>応募締切</dt>
+        <dt>締切</dt>
         <dd>{formatDate(contest.deadline)} まで</dd>
       </div>
       <div>
-        <dt>賞金・賞品</dt>
-        <dd>{contest.prize}</dd>
+        <dt>賞品</dt>
+        <dd>{prizeShort}</dd>
       </div>
     </dl>
     <div class="soft-tag-row" aria-label="参加しやすさ">
@@ -80,17 +80,7 @@ const effortTags = [
       ))}
     </div>
     <div class="card-actions">
-      <a class="button primary" href={`/contests/${contest.slug}`}>くわしく見る</a>
-      <a
-        class="button"
-        href={`/go/${contest.slug}?link=official&from=contest_card`}
-        target="_blank"
-        rel="noopener"
-        data-analytics-link="official"
-        data-contest-slug={contest.slug}
-      >
-        公式へ
-      </a>
+      <a class="button primary" href={`/contests/${contest.slug}`}>詳細を見る</a>
     </div>
   </div>
 </article>
