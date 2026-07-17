@@ -6,6 +6,9 @@ on:
     - cron: "0 0 * * 1"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   review-reminder:
     runs-on: ubuntu-latest
@@ -14,9 +17,11 @@ jobs:
       NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v6
         with:
-          node-version: 20.19.5
+          node-version: 24.14.0
           cache: npm
       - run: npm ci
       - name: List contests requiring review

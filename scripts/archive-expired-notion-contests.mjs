@@ -3,7 +3,6 @@ import { existsSync, readFileSync } from "node:fs";
 const NOTION_VERSION = "2022-06-28";
 const STATUS_PROPERTY = "開催ステータス";
 const DEADLINE_PROPERTY = "締切日";
-const TITLE_PROPERTY = "コンテスト名";
 const CHECKED_AT_PROPERTY = "最終確認日";
 const CALENDAR_NOTE_PROPERTY = "カレンダー表示補足";
 const ENDED_STATUS = "終了";
@@ -14,6 +13,7 @@ loadDotEnv();
 const token = process.env.NOTION_TOKEN;
 const databaseId = normalizeNotionId(process.env.NOTION_DATABASE_ID);
 const dryRun = process.argv.includes("--dry-run");
+const verbose = process.argv.includes("--verbose");
 const today = getArgumentValue("--today") ?? getTodayJst();
 
 if (!token || !databaseId) {
@@ -28,7 +28,7 @@ let skipped = 0;
 
 for (const page of pages) {
   const props = page.properties ?? {};
-  const title = getTitle(props[TITLE_PROPERTY]) || getTitle(props.Name) || page.id;
+  const title = verbose ? getTitle(props["コンテスト名"]) || getTitle(props.Name) || page.id : "";
   const deadline = getDate(props[DEADLINE_PROPERTY]);
   const status = getSelectName(props[STATUS_PROPERTY]);
 
@@ -48,14 +48,14 @@ for (const page of pages) {
   }
 
   if (status && !ACTIVE_STATUSES.has(status)) {
-    console.log(`SKIP: ${title} deadline=${deadline} status=${status}`);
+    if (verbose) console.log(`SKIP: ${title} deadline=${deadline} status=${status}`);
     skipped += 1;
     continue;
   }
 
   const note = `${deadline}締切のため、${today}時点で自動アーカイブ`;
   if (dryRun) {
-    console.log(`DRY: ${title} deadline=${deadline} status=${status || "(blank)"} -> ${ENDED_STATUS}`);
+    if (verbose) console.log(`DRY: ${title} deadline=${deadline} status=${status || "(blank)"} -> ${ENDED_STATUS}`);
   } else {
     await request(`https://api.notion.com/v1/pages/${page.id}`, {
       method: "PATCH",
@@ -67,7 +67,7 @@ for (const page of pages) {
         },
       }),
     });
-    console.log(`Archived: ${title} deadline=${deadline}`);
+    if (verbose) console.log(`Archived: ${title} deadline=${deadline}`);
   }
 
   archived += 1;
@@ -107,8 +107,7 @@ async function request(url, init = {}) {
   });
 
   if (!response.ok) {
-    const body = await response.text();
-    throw new Error(`Notion API ${response.status}: ${body}`);
+    throw new Error(`Notion API request failed (${response.status} ${response.statusText}).`);
   }
 
   return response.json();

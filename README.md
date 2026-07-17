@@ -31,7 +31,7 @@ Cloudflare Pages側の設定値:
 - Build command: `npm run build`
 - Output directory: `dist`
 - Production branch: `main`
-- Node.js version: `20.19.5`
+- Node.js version: `24.14.0`
 - Wrangler config: `wrangler.toml`
 
 環境変数:
@@ -39,7 +39,7 @@ Cloudflare Pages側の設定値:
 - `SITE_URL`: 公開URL。例 `https://ai-contest-navi.pages.dev`
 - `NOTION_TOKEN`: Notion API連携用
 - `NOTION_DATABASE_ID`: Notion DB連携用
-- `NODE_VERSION`: `20.19.5`
+- `NODE_VERSION`: `24.14.0`
 
 GitHub ActionsのSecrets:
 
@@ -237,7 +237,7 @@ AI作品を作って応募するまでを支援する読み物は、ブログで
 - CTAボタンが押しやすいサイズになっている
 - `SITE_URL/sitemap-index.xml` が開ける
 - `SITE_URL/robots.txt` がサイトマップURLを指している
-- Cloudflare Pagesに `SITE_URL`、`NOTION_TOKEN`、`NOTION_DATABASE_ID`、`NODE_VERSION=20.19.5` を設定している
+- Cloudflare Pagesに `SITE_URL`、`NOTION_TOKEN`、`NOTION_DATABASE_ID`、`NODE_VERSION=24.14.0` を設定している
 - 公開後に `npm run qa:site` が成功する
 
 ## GitHub / Deploy準備

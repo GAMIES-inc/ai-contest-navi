@@ -20,7 +20,7 @@ GitHubからの自動デプロイは `.github/workflows/deploy-cloudflare-pages.
 - Framework preset: `Astro`
 - Build command: `npm run build`
 - Output directory: `dist`
-- Node version: `20.19.5`
+- Node version: `24.14.0`
 - Production branch: `main`
 
 Cloudflare Pages側の環境変数:
@@ -28,7 +28,7 @@ Cloudflare Pages側の環境変数:
 - `SITE_URL`: Cloudflare Pagesの公開URL
 - `NOTION_TOKEN`: Notion Integration Token
 - `NOTION_DATABASE_ID`: Notion DB ID
-- `NODE_VERSION`: `20.19.5`
+- `NODE_VERSION`: `24.14.0`
 
 GitHub Actions secrets:
 

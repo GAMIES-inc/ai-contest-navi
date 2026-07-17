@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20.19.5"
+    "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "astro dev",
@@ -23,9 +23,9 @@
     "qa:site": "node scripts/qa-site.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.6.0",
-    "@lucide/astro": "^1.17.0",
-    "astro": "^5.13.8",
+    "@astrojs/sitemap": "^3.7.3",
+    "@lucide/astro": "^1.25.0",
+    "astro": "^7.1.0",
     "sharp": "^0.35.0"
   },
   "devDependencies": {

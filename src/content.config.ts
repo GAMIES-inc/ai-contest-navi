@@ -1,10 +1,11 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const guideCategories = ["はじめ方", "AI動画", "AI漫画", "AI画像", "応募前チェック", "選び方", "コラム"] as const;
 const contestCategories = ["ai-image", "ai-video", "ai-manga", "ai-music", "ai-illustration", "photo", "design", "writing", "other"] as const;
 
 const guides = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/guides" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),

@@ -100,8 +100,7 @@ async function queryDatabase(token: string, databaseId: string): Promise<NotionP
     });
 
     if (!response.ok) {
-      const body = await response.text();
-      throw new Error(`Notion API ${response.status}: ${body}`);
+      throw new Error(`Notion API request failed (${response.status} ${response.statusText}).`);
     }
 
     const data = (await response.json()) as NotionQueryResponse;
