@@ -4,12 +4,24 @@ dist/
 .env
 .env.*
 !.env.example
+.envrc
+.dev.vars
+.dev.vars.*
 npm-debug.log*
 .astro-dev*.log
 .astro-preview*.log
 .preview.*.log
 qa-screenshots/
+.wrangler/
 .DS_Store
+
+# Local credentials and private keys
+credentials*.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
 
 # Local research/source artifacts
 conversation.pdf
@@ -17,3 +29,8 @@ conversation_contact_sheet.jpg
 extracted_*.jpg
 tmp_sources/
 calendar_blueprint.md
+
+# Local audits and working files
+notion-schema-debug.json
+outputs/
+work/
