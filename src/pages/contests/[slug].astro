@@ -41,7 +41,9 @@ const relatedContests = (await getAllContests())
   })
   .slice(0, 3);
 const officialCtaLabel = "公式で応募条件を確認する";
-const officialGoHref = (from: string) => `/go/${contest.slug}?link=official&from=${from}`;
+const enableFirstPartyAnalytics = import.meta.env.PUBLIC_ENABLE_FIRST_PARTY_ANALYTICS === "true";
+const officialGoHref = (from: string) =>
+  enableFirstPartyAnalytics ? `/go/${contest.slug}?link=official&from=${from}` : contest.officialUrl;
 const calendarDate = (() => {
   const start = contest.deadline.replaceAll("-", "");
   const endDate = new Date(`${contest.deadline}T00:00:00+09:00`);
