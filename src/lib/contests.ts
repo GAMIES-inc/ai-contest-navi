@@ -61,7 +61,9 @@ export async function getClosingSoonContests(limit = 6): Promise<Contest[]> {
 }
 
 export async function getActiveContests(): Promise<Contest[]> {
-  return (await getAllContests()).filter((contest) => contest.status === "open" || contest.status === "closing-soon");
+  return (await getAllContests()).filter(
+    (contest) => contest.status === "open" || contest.status === "closing-soon" || contest.status === "upcoming",
+  );
 }
 
 export async function getEndedContests(): Promise<Contest[]> {

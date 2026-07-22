@@ -55,7 +55,10 @@ const effortTags = [
       decoding="async"
       onerror="this.onerror=null;this.src=this.dataset.fallbackSrc || '/images/contests/yuru-thumb-ai-image.webp';"
     />
-    <span class="category-label">{primaryCategory}</span>
+    <span class="contest-badge-stack">
+      <span class="category-label">{primaryCategory}</span>
+      {contest.status === "upcoming" && <span class="contest-status-label">開催予定</span>}
+    </span>
   </a>
   <button class="favorite-button" type="button" data-favorite-slug={contest.slug} data-favorite-label={contest.title} aria-label={`${contest.title}をお気に入りに追加`} aria-pressed="false">
     <Heart size={18} stroke-width={2.2} aria-hidden="true" />
