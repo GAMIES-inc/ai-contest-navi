@@ -42,6 +42,15 @@ AWS Amplify BackendやSSR用アダプターは使用しません。
 
 環境変数の実値は、リポジトリや `amplify.yml` へ記載しないでください。
 
+## Notion公開データの予備スナップショット
+
+AmplifyでNotion接続に一時的な問題があってもページ数が減らないよう、公開対象のコンテストだけを `src/data/contests.snapshot.json` に保持しています。
+
+- 通常は `NOTION_TOKEN` と `NOTION_DATABASE_ID` を使ったNotion取得が優先されます。
+- DB更新後は `npm run notion:sync-fallback` を実行してからcommit・pushします。
+- スナップショットには公開ページ用の項目だけを保存し、トークンやNotionページIDは含めません。
+- この仕組みはNotion接続の代替ではなく、ビルド失敗時の表示欠けを防ぐための予備経路です。
+
 ## Amplify仮URLでの確認
 
 初回ビルド完了後、Amplifyが発行した `amplifyapp.com` のURLで次を確認します。
