@@ -682,8 +682,8 @@
     "description": "「子どもの成長を感じるとき」をテーマに、noteでマンガ・エッセイ・イラストなど形式自由に投稿できるコンテスト。日常のエピソードから参加しやすい募集です。",
     "catchcopy": "身近な成長エピソードを、noteでゆるっと投稿。",
     "deadline": "2026-07-26",
-    "lastVerifiedAt": "2026-07-06",
-    "status": "open",
+    "lastVerifiedAt": "2026-07-27",
+    "status": "ended",
     "categories": [
       "writing"
     ],
@@ -720,8 +720,8 @@
     "description": "OiiOiiでAIサッカーストーリーを制作し、#OiiOii を付けて投稿するAIサッカー特別イベント。",
     "catchcopy": "OiiOiiでAIサッカーストーリーを制作し、クレジット報酬に挑戦。",
     "deadline": "2026-07-26",
-    "lastVerifiedAt": "2026-06-16",
-    "status": "open",
+    "lastVerifiedAt": "2026-07-27",
+    "status": "ended",
     "categories": [
       "ai-video"
     ],
@@ -751,6 +751,44 @@
     "thumbnailQuality": "公開情報",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "第65回 外国人による日本語弁論大会",
+    "slug": "japanese-speech-contest-65",
+    "description": "日本語を母語としない人が、共生や相互理解につながる自由なテーマで日本語スピーチを発表する全国大会です。",
+    "catchcopy": "日本語で伝えたい考えを、6分間のスピーチに",
+    "deadline": "2026-07-31",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "closing-soon",
+    "categories": [
+      "writing",
+      "ai-video"
+    ],
+    "prize": "外務大臣賞、文部科学大臣賞、国際交流基金理事長賞ほか",
+    "applicationMethod": "公式ページの応募方法に沿って、スピーチ動画、原稿、写真、応募情報を提出します。",
+    "difficulty": "作品力必要",
+    "aiUsage": "本人が日本語で発表する弁論が対象です。原稿作成で生成AIを使う場合は本人性と公式要項を確認してください。",
+    "rightsNote": "応募要項では入賞作品の著作権が主催者に帰属すると定められています。",
+    "officialUrl": "https://www.iec-nichibei.or.jp/results/speechcontest65/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/japanese-speech-2026.webp",
+    "entryFlow": [
+      "伝えたいテーマで6分以内の原稿を書く",
+      "スピーチ動画を撮影する",
+      "原稿・写真と一緒に応募する"
+    ],
+    "recommendedFor": [
+      "オンラインで応募したい",
+      "作品力を試したい",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第65回 外国人による日本語弁論大会のキービジュアル",
+    "imageSourceUrl": "https://www.iec-nichibei.or.jp/results/speechcontest65/",
+    "imageRightsOwner": "一般財団法人 国際教育振興会／国際交流基金",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "国際教育振興会公式募集ページの画面",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "WORLD Floyo AI CREATIVE AWARDS 2026 in Tokyo",
@@ -793,6 +831,44 @@
     "featured": true
   },
   {
+    "title": "Xfolio 第2回「イラストをテーマに小説を書こう！」",
+    "slug": "xfolio-illustration-novel-contest-2026",
+    "description": "5点の指定イラストから1点を表紙に選び、そのイラストをテーマにした小説を投稿するXfolioの公式キャンペーンです。",
+    "catchcopy": "好きな表紙イラストから、400字以上の物語を広げよう",
+    "deadline": "2026-08-03",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "closing-soon",
+    "categories": [
+      "writing",
+      "ai-illustration"
+    ],
+    "prize": "抽選で10名：BookLiveポイント3,000円分＋ステッカー",
+    "applicationMethod": "Xfolioで小説を公開し、応募フォームから対象作品を登録します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AIの使用可否はキャンペーン規約とXfolio利用規約を確認してください。",
+    "rightsNote": "著作権は作者に帰属します。主催者はキャンペーン運営、紹介、広報等で作品情報を利用する場合があります。",
+    "officialUrl": "https://xfolio.jp/features/1020",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/xfolio-novel-2026.webp",
+    "entryFlow": [
+      "5点の表紙イラストから1点選ぶ",
+      "400字以上の小説を書く",
+      "Xfolioで公開して応募する"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "オンラインで応募したい",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "Xfolio 第2回「イラストをテーマに小説を書こう！」のキービジュアル",
+    "imageSourceUrl": "https://xfolio.jp/features/1020",
+    "imageRightsOwner": "株式会社BookLive",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "Xfolio公式キャンペーンページの画面",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "AI実装ナレッジ逆輸入コンテスト by SMC-POWER",
     "slug": "smc-power-ai-knowledge-contest-2026",
     "description": "学生限定。テーマは「AIを活用した、実務に活かせるアイデア」。AI×デザイン、AI×マーケティング、AI×SNS、AI×動画制作などジャンル不問。",
@@ -831,6 +907,44 @@
     "featured": false
   },
   {
+    "title": "アビスパ福岡フォトコンテスト2026 -summer-",
+    "slug": "avispa-fukuoka-photo-contest-summer-2026",
+    "description": "試合、応援、クラブにまつわる風景など、アビスパ福岡をテーマにした夏の写真を募集します。スマートフォン撮影でも参加できます。",
+    "catchcopy": "アビスパ福岡の夏を、スマホやカメラで切り取ろう",
+    "deadline": "2026-08-09",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "選出作品をソニーストア福岡天神で展示",
+    "applicationMethod": "公式ページの応募方法を確認し、専用フォームから写真と必要事項を提出します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人が撮影した写真が対象です。生成AI画像は応募対象外です。",
+    "rightsNote": "選出作品は店頭展示、Web、SNS、広報等で使用される場合があります。公式規約を確認してください。",
+    "officialUrl": "https://www.sony.jp/store/retail/fukuoka-tenjin/event/avispa_contest_2026summer/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/avispa-photo-2026.webp",
+    "entryFlow": [
+      "アビスパ福岡にまつわる写真を撮る",
+      "応募する3点までを選ぶ",
+      "専用フォームから提出する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "オンラインで応募したい",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "アビスパ福岡フォトコンテスト2026 -summer-のキービジュアル",
+    "imageSourceUrl": "https://www.sony.jp/store/retail/fukuoka-tenjin/event/avispa_contest_2026summer/",
+    "imageRightsOwner": "ソニーストア 福岡天神／アビスパ福岡",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ソニーストア公式イベントページのメイン画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "news zero Next Creators Contest",
     "slug": "news-zero-next-creators-contest-2026-ai",
     "description": "news zero 20周年記念として、番組内でオンエアされる3秒のバンパー動画を募集する映像コンテスト。AI部門あり。",
@@ -864,6 +978,46 @@
     "imageRightsOwner": "日本テレビ放送網株式会社 / 企画・運営: 株式会社Vook",
     "thumbnailQuality": "要改善",
     "spotlight": false,
+    "featured": true
+  },
+  {
+    "title": "FFXIV FAN FESTIVAL 2026 ファンアートコンテスト",
+    "slug": "ffxiv-fan-festival-art-contest-2026",
+    "description": "FINAL FANTASY XIVをテーマに、イラストアート、未加工・加工スクリーンショット、クラフト作品を募集する公式ファンアートコンテストです。",
+    "catchcopy": "イラスト、スクリーンショット、クラフトでFFXIV愛を表現",
+    "deadline": "2026-08-11",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "photo",
+      "design",
+      "ai-image"
+    ],
+    "prize": "入賞者にインゲームアイテム、サイン入り記念品など",
+    "applicationMethod": "公式サイトで部門別の提出形式を確認し、専用応募フォームから作品を送信します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIの使用可否は公式の応募要項・禁止事項を確認してください。",
+    "rightsNote": "応募作品は主催者のイベント、Web、SNS、配信、広報等で利用される場合があります。二次創作の権利条件も公式要項を確認してください。",
+    "officialUrl": "https://fanfest.finalfantasyxiv.com/2026/jp/contests/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/ffxiv-fanfest-2026.webp",
+    "entryFlow": [
+      "応募部門を選ぶ",
+      "部門規格に合わせて作品を制作する",
+      "専用フォームから応募する"
+    ],
+    "recommendedFor": [
+      "オンラインで応募したい",
+      "作品力を試したい",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "FFXIV FAN FESTIVAL 2026 ファンアートコンテストのキービジュアル",
+    "imageSourceUrl": "https://fanfest.finalfantasyxiv.com/2026/jp/contests/",
+    "imageRightsOwner": "株式会社スクウェア・エニックス",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "FFXIV FAN FESTIVAL 2026公式OG画像",
+    "spotlight": true,
     "featured": true
   },
   {
@@ -979,6 +1133,45 @@
     "featured": true
   },
   {
+    "title": "GFX Challenge Grant Program 2026",
+    "slug": "gfx-challenge-grant-program-2026",
+    "description": "写真または映像の新しいプロジェクト企画を募集し、選出者に制作助成金とGFX機材を提供する国際的なグラントプログラムです。",
+    "catchcopy": "写真・映像プロジェクトの企画を、世界規模の制作支援へ",
+    "deadline": "2026-08-17",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-video",
+      "ai-image"
+    ],
+    "prize": "Global Grant Award：1万米ドル相当×5名、Regional Grant Award：5千米ドル相当×10名、GFX機材貸与",
+    "applicationMethod": "公式ページのオンラインフォームから英語の企画書とポートフォリオを提出します。日本語補足も可能です。",
+    "difficulty": "作品力必要",
+    "aiUsage": "写真・映像プロジェクトが対象です。生成AIを使う場合は企画内容、権利、公式規定を確認してください。",
+    "rightsNote": "応募者は必要な権利を保持した企画を提出します。選出後の作品公開、広報利用、機材使用等の条件は公式規約を確認してください。",
+    "officialUrl": "https://www.fujifilm-x.com/ja-jp/gfx-challenge-grant-program/year-2026/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/gfx-grant-2026.webp",
+    "entryFlow": [
+      "制作したい写真・映像企画をまとめる",
+      "英語の企画書とポートフォリオを用意する",
+      "公式フォームから応募する"
+    ],
+    "recommendedFor": [
+      "作品力を試したい",
+      "オンラインで応募したい",
+      "大型コンテストを先に押さえたい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "GFX Challenge Grant Program 2026のキービジュアル",
+    "imageSourceUrl": "https://www.fujifilm-x.com/ja-jp/gfx-challenge-grant-program/year-2026/",
+    "imageRightsOwner": "富士フイルム株式会社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "富士フイルム公式GFX Challenge Grant Program画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "2026年度グッドデザイン・ニューホープ賞",
     "slug": "good-design-new-hope-award-2026",
     "description": "学生や卒業・修了から間もない人を対象に、物・場・情報・仕組みのデザインを募集するアワード。学校制作や研究成果にも向いています。",
@@ -1055,6 +1248,83 @@
     "featured": false
   },
   {
+    "title": "note 写真・イラスト投稿コンテスト #夏の1コマ",
+    "slug": "note-summer-frame-contest-2026",
+    "description": "写真またはイラスト1枚で、あなたの「夏の1コマ」を表現するnote投稿コンテストです。記事の最初に置いた画像が審査対象になります。",
+    "catchcopy": "夏の一瞬を、写真かイラスト1枚で投稿",
+    "deadline": "2026-08-23",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "受賞10名：Amazonギフトカード5,000円分、404美術館での展示",
+    "applicationMethod": "noteで作品画像を最初に置いた記事を公開し、指定ハッシュタグを設定します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "AI作品の可否は公式記事とnoteの投稿規約を確認してください。第三者の権利を侵害しない作品に限ります。",
+    "rightsNote": "著作権は作者に帰属します。受賞作品は404美術館やnoteの広報等で紹介・展示されます。",
+    "officialUrl": "https://note.com/info/n/n06beda8fc0d1",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/note-summer-frame-2026.webp",
+    "entryFlow": [
+      "夏を感じる写真・イラストを選ぶ",
+      "noteの記事の最初に画像を置く",
+      "指定タグを付けて公開する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "オンラインで応募したい",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "note 写真・イラスト投稿コンテスト #夏の1コマのキービジュアル",
+    "imageSourceUrl": "https://note.com/info/n/n06beda8fc0d1",
+    "imageRightsOwner": "note株式会社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "note公式募集記事のメイン画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "お盆っていいなフォトコンテスト2026 #盆フォト2026",
+    "slug": "bon-photo-contest-2026",
+    "description": "お盆の風景、家族の時間、地域の行事などを写真で伝える、X・Instagram投稿型のフォトコンテストです。",
+    "catchcopy": "あなたの家のお盆や夏の思い出を、写真とエピソードで",
+    "deadline": "2026-08-23",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "最優秀賞ほか、賞金・商品券等で総額約10万円相当",
+    "applicationMethod": "XまたはInstagramで公式アカウントをフォローし、指定ハッシュタグ「#盆フォト2026」等を付けて投稿します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人が撮影した写真が対象です。生成AI画像は対象外と考え、公式規約を確認してください。",
+    "rightsNote": "応募写真は主催者のWeb、SNS、広告、印刷物等で利用される場合があります。人物の許諾と投稿規約を確認してください。",
+    "officialUrl": "https://prtimes.jp/main/html/rd/p/000000096.000049915.html",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/bon-photo-2026.webp",
+    "entryFlow": [
+      "お盆や夏の思い出を撮る",
+      "タイトルとエピソードを考える",
+      "指定ハッシュタグ付きで投稿する"
+    ],
+    "recommendedFor": [
+      "X投稿で応募したい",
+      "初心者向け",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "お盆っていいなフォトコンテスト2026 #盆フォト2026のキービジュアル",
+    "imageSourceUrl": "https://prtimes.jp/main/html/rd/p/000000096.000049915.html",
+    "imageRightsOwner": "株式会社日本香堂",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "日本香堂公式プレスリリースの募集画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "京都市動物園テーマソングプロジェクト 歌詞募集",
     "slug": "kyoto-zoo-theme-song-lyrics-2026",
     "description": "京都市動物園をイメージしたテーマソングの歌詞とタイトルを募集。プロ・アマ、年齢、居住地不問で応募できます。",
@@ -1127,6 +1397,82 @@
     "thumbnailQuality": "要改善",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "FULMA Creator Awards 2026",
+    "slug": "fulma-creator-awards-2026",
+    "description": "全国の小学生・中学生を対象にした動画コンテストです。縦型ショート、アニメーション、実況、3DCGなど幅広い作品を応募できます。",
+    "catchcopy": "小中学生のアイデアを、3分以内の動画で全国へ",
+    "deadline": "2026-08-31",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "ai-video"
+    ],
+    "prize": "最優秀賞：賞金10万円、優秀賞：賞金5万円、協賛企業賞・テーマ賞ほか",
+    "applicationMethod": "公式サイトで作品動画と必要事項を登録します。応募締切は2026年8月31日13時です。",
+    "difficulty": "標準",
+    "aiUsage": "アニメーションや3DCGも応募できます。生成AIを使う場合は、著作権と公式規定を確認してください。",
+    "rightsNote": "応募者は作品に必要な権利を確保する必要があります。主催者は審査、上映、Web、SNS、広報等で作品を利用する場合があります。",
+    "officialUrl": "https://fulma-creator-awards.com/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/fulma-creator-awards-2026.webp",
+    "entryFlow": [
+      "伝えたいテーマと動画形式を決める",
+      "3分以内の動画を制作する",
+      "公式サイトから応募する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "初心者でも挑戦したい",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "FULMA Creator Awards 2026のキービジュアル",
+    "imageSourceUrl": "https://fulma-creator-awards.com/",
+    "imageRightsOwner": "FULMA株式会社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "FULMA Creator Awards公式メイン画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "第22回 UBDC イラスト・マンガ グランプリ2026",
+    "slug": "ubdc-illustration-manga-grand-prix-2026",
+    "description": "中学生・高校生を対象にしたイラストとマンガのコンテストです。アナログ作品、デジタル作品のどちらでも応募できます。",
+    "catchcopy": "中高生のイラスト・マンガ作品を全国から募集",
+    "deadline": "2026-08-31",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "ai-image",
+      "ai-manga"
+    ],
+    "prize": "グランプリ：賞金10万円、液晶ペンタブレット賞、Amazonギフト券賞ほか",
+    "applicationMethod": "公式ページから応募票を用意し、作品と一緒に指定先へ郵送します。締切は当日消印有効です。",
+    "difficulty": "初心者向け",
+    "aiUsage": "デジタル作品は応募できます。生成AIの扱いは公式要項を確認してください。",
+    "rightsNote": "入賞作品の展示・広報利用、作品返却等の条件は公式要項を確認してください。",
+    "officialUrl": "https://www.ubdc.ac.jp/art/grand_prix_2026_gallery/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/ubdc-manga-illust-2026.webp",
+    "entryFlow": [
+      "イラストかマンガを選ぶ",
+      "応募規格に合わせて作品を作る",
+      "応募票を付けて郵送する"
+    ],
+    "recommendedFor": [
+      "中高生向け",
+      "高校生向け",
+      "短編漫画で応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第22回 UBDC イラスト・マンガ グランプリ2026のキービジュアル",
+    "imageSourceUrl": "https://www.ubdc.ac.jp/art/grand_prix_2026_gallery/",
+    "imageRightsOwner": "宇都宮アート＆スポーツ専門学校",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "宇都宮アート＆スポーツ専門学校公式募集画像",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "第60回 キヤノンフォトコンテスト",
@@ -1654,6 +2000,50 @@
     "featured": false
   },
   {
+    "title": "「世紀のダ・ヴィンチを探せ！」高校生アートコンペティション2026",
+    "slug": "davinci-highschool-art-competition-2026",
+    "description": "絵画、イラスト、写真、映像、音楽、文章など、大阪芸術大学の幅広い分野で高校生の作品を募集するアートコンペティションです。",
+    "catchcopy": "高校生の表現を、ジャンルを越えて募集",
+    "deadline": "2026-09-03",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "design",
+      "photo",
+      "writing",
+      "ai-music",
+      "ai-image",
+      "ai-video",
+      "ai-manga"
+    ],
+    "prize": "グランプリ、金賞、銀賞、銅賞ほか。部門ごとの賞・副賞は公式要項を確認",
+    "applicationMethod": "公式ページで分野別の応募要項を確認し、指定された方法で作品と応募書類を提出します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIの可否は分野別の応募要項で確認してください。",
+    "rightsNote": "展示、広報利用、作品返却などの条件は、分野別の公式応募要項を確認してください。",
+    "officialUrl": "https://davinci.osaka-geidai.ac.jp/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/davinci-art-2026.webp",
+    "entryFlow": [
+      "応募する分野を選ぶ",
+      "分野別要項に合わせて作品を仕上げる",
+      "指定方法で作品を提出する"
+    ],
+    "recommendedFor": [
+      "高校生向け",
+      "作品力を試したい",
+      "学生向け"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "「世紀のダ・ヴィンチを探せ！」高校生アートコンペティション2026のキービジュアル",
+    "imageSourceUrl": "https://davinci.osaka-geidai.ac.jp/",
+    "imageRightsOwner": "大阪芸術大学",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "大阪芸術大学公式コンペティションページの募集画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "第14回大谷大学文藝コンテスト",
     "slug": "otani-literature-contest-2026",
     "description": "高校生向けの小説部門と、高校生・中学生向けの「にんげん」エッセイ部門。テーマは自由で、指定原稿用紙を使って応募します。",
@@ -1765,6 +2155,44 @@
     "thumbnailNote": "2026-07-06追加。権利確認済みの公式画像がないため、ブランドプレースホルダーを使用。",
     "spotlight": false,
     "featured": true
+  },
+  {
+    "title": "Nikon TopEye フォトコンテスト2026 第2回",
+    "slug": "nikon-topeye-photo-contest-2026-round-2",
+    "description": "中学生・高校生・高等専門学校生を対象に、学校写真部や個人からプリント作品を募集するフォトコンテストです。",
+    "catchcopy": "中高生の写真表現を、プリント作品でじっくり審査",
+    "deadline": "2026-09-07",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "特選、準特選、入選など。入賞作品はTopEye誌・Web等で紹介",
+    "applicationMethod": "作品を指定サイズでプリントし、応募票を添えて郵送します。データ応募はありません。",
+    "difficulty": "標準",
+    "aiUsage": "生成AI作品は応募できません。スマートフォン撮影作品も対象外です。",
+    "rightsNote": "入賞作品は主催者の冊子、Web、展示、広報等で利用される場合があります。詳細は公式募集要項を確認してください。",
+    "officialUrl": "https://nij.nikon.com/cms/connect/topeye/pdf/2026_TopEye_photocontest.pdf",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/nikon-topeye-2026.webp",
+    "entryFlow": [
+      "カメラで撮影した写真を選ぶ",
+      "指定サイズでプリントする",
+      "応募票を付けて郵送する"
+    ],
+    "recommendedFor": [
+      "中高生向け",
+      "学生向け",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "Nikon TopEye フォトコンテスト2026 第2回のキービジュアル",
+    "imageSourceUrl": "https://nij.nikon.com/cms/connect/topeye/pdf/2026_TopEye_photocontest.pdf",
+    "imageRightsOwner": "株式会社ニコンイメージングジャパン",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ニコン公式募集PDFの1ページ目",
+    "spotlight": false,
+    "featured": false
   },
   {
     "title": "第31回 文房具アイデアコンテスト",
@@ -1912,6 +2340,120 @@
     "imageRightsOwner": "映画監督 三池崇史 / 26秒のカーニバル事務局",
     "thumbnailQuality": "要改善",
     "spotlight": false,
+    "featured": true
+  },
+  {
+    "title": "第38回 全国児童 自然体験絵画コンテスト",
+    "slug": "yamaha-childrens-nature-art-contest-2026",
+    "description": "夏休みなどに体験した自然とのふれあいを絵にする、幼児・小学生向けの全国絵画コンテストです。",
+    "catchcopy": "自然の中で心が動いた体験を、一枚の絵に",
+    "deadline": "2026-09-14",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "文部科学大臣賞、環境大臣賞、特別賞など",
+    "applicationMethod": "応募票を作品の裏面に貼り、学校・園・団体または個人で指定先へ郵送します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "子ども本人が描いた絵画作品が対象です。生成AI作品は対象外と考え、公式要項を確認してください。",
+    "rightsNote": "入賞作品の展示、印刷物、Web、広報等での利用条件は公式募集要項を確認してください。",
+    "officialUrl": "https://www.ymfs.jp/release/2026/20260608_ymfs_information.pdf",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/yamaha-nature-art-2026.webp",
+    "entryFlow": [
+      "自然の中で印象に残った体験を選ぶ",
+      "体験を絵に描く",
+      "応募票を付けて郵送する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "学生向け",
+      "初心者でも挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第38回 全国児童 自然体験絵画コンテストのキービジュアル",
+    "imageSourceUrl": "https://www.ymfs.jp/release/2026/20260608_ymfs_information.pdf",
+    "imageRightsOwner": "公益財団法人 ヤマハ発動機スポーツ振興財団",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "主催者公式募集PDFの1ページ目",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "第5回 TAMRON フォトコンテスト2026",
+    "slug": "tamron-photo-contest-2026",
+    "description": "メーカーや使用機材を問わず参加できる写真コンテストです。一般部門はテーマ自由、マクロ部門はクローズアップ撮影ならではの作品を募集します。",
+    "catchcopy": "テーマ自由の一般部門と、マクロの世界を楽しむ2部門",
+    "deadline": "2026-09-14",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "一般・マクロ各部門 金賞：賞金8万円＋タムロンレンズ、ほか",
+    "applicationMethod": "公式ページの応募フォームから作品データと必要事項を送信します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "写真作品が対象です。生成AI作品の扱いは公式要項を確認してください。",
+    "rightsNote": "著作権は撮影者に帰属します。主催者は入賞作品をコンテスト広報、展示、Web、印刷物等で利用する場合があります。",
+    "officialUrl": "https://www.tamron.com/jp/consumer/sp/contest/tamronphotocon2026/index.html",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/tamron-photo-2026.webp",
+    "entryFlow": [
+      "応募部門を選ぶ",
+      "写真と作品情報を用意する",
+      "公式応募フォームから送信する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "オンラインで応募したい",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第5回 TAMRON フォトコンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://www.tamron.com/jp/consumer/sp/contest/tamronphotocon2026/index.html",
+    "imageRightsOwner": "株式会社タムロン",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "タムロン公式コンテストページのメイン画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "アイスな瞬間！2026 写真投稿キャンペーン",
+    "slug": "icecream-photo-campaign-2026",
+    "description": "市販のアイスクリーム類が写った、夏らしい楽しい写真を募集する投稿キャンペーンです。期間中に新しく撮影した写真が対象です。",
+    "catchcopy": "アイスのおいしい瞬間を、スマホ写真で気軽に投稿",
+    "deadline": "2026-09-15",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "最優秀賞：アイス詰め合わせ＋QUOカードPay3万円分、ほか",
+    "applicationMethod": "公式キャンペーンページの応募フォームから写真と必要事項を送信します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "期間中に撮影した写真が対象のため、生成AI画像は応募対象外です。",
+    "rightsNote": "公式規約では応募作品の著作権・利用権に関する定めがあります。投稿前に権利条項を必ず確認してください。",
+    "officialUrl": "https://www.icecream.or.jp/campaign/2026/summer/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/icecream-photo-2026.webp",
+    "entryFlow": [
+      "市販アイスの楽しい写真を撮る",
+      "人物・背景の権利を確認する",
+      "公式フォームから応募する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "オンラインで応募したい",
+      "初心者でも挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "アイスな瞬間！2026 写真投稿キャンペーンのキービジュアル",
+    "imageSourceUrl": "https://www.icecream.or.jp/campaign/2026/summer/",
+    "imageRightsOwner": "一般社団法人 日本アイスクリーム協会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "日本アイスクリーム協会公式キャンペーン画像",
+    "spotlight": true,
     "featured": true
   },
   {
@@ -2183,6 +2725,126 @@
     "featured": true
   },
   {
+    "title": "第16回 大阪成蹊全国アート＆デザインコンペティション2026",
+    "slug": "osaka-seikei-art-design-competition-2026",
+    "description": "中学生・高校生を対象に、イラスト、写真、映像、漫画、デザイン、工芸、ファッション、文章、音楽など幅広い作品を募集します。",
+    "catchcopy": "テーマは「YOU」。中高生の自由な表現を全国から募集",
+    "deadline": "2026-10-01",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "upcoming",
+    "categories": [
+      "ai-illustration",
+      "design",
+      "photo",
+      "writing",
+      "ai-music",
+      "ai-video",
+      "ai-image",
+      "ai-manga"
+    ],
+    "prize": "高校生の部 金賞：賞金20万円＋入学時奨学金、ほか各賞",
+    "applicationMethod": "公式サイトからエントリーし、部門別の指定方法で作品を提出します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIの使用可否は部門別の応募要項で確認してください。",
+    "rightsNote": "入賞作品の展示、広報利用、作品返却等の条件は公式応募要項を確認してください。",
+    "officialUrl": "https://univ.osaka-seikei.jp/lp/art-design-competition/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/osaka-seikei-art-2026.webp",
+    "entryFlow": [
+      "テーマ「YOU」から表現を考える",
+      "部門別の規格で作品を制作する",
+      "エントリー後に作品を提出する"
+    ],
+    "recommendedFor": [
+      "中高生向け",
+      "高校生向け",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第16回 大阪成蹊全国アート＆デザインコンペティション2026のキービジュアル",
+    "imageSourceUrl": "https://univ.osaka-seikei.jp/lp/art-design-competition/",
+    "imageRightsOwner": "大阪成蹊大学",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "大阪成蹊大学公式コンペティションのキービジュアル",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "第49回 KICA 日本語エッセイコンテスト",
+    "slug": "kica-japanese-essay-contest-2026",
+    "description": "日本語を母語としない人を対象に、「日本語について思うこと」をテーマにした日本語エッセイを募集します。",
+    "catchcopy": "日本語を学ぶ中で感じたことを、自分の言葉で伝える",
+    "deadline": "2026-10-10",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "upcoming",
+    "categories": [
+      "writing"
+    ],
+    "prize": "最優秀賞：賞金7万円、優秀賞4名：賞金3万円と副賞",
+    "applicationMethod": "応募用紙とWord原稿をメールに添付して指定の応募先へ送信します。手書き原稿は不可です。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIに関する個別規定の明記はありません。本人の表現として応募できる内容か公式要項を確認してください。",
+    "rightsNote": "入賞作品の著作権・使用権は主催者に帰属します。",
+    "officialUrl": "https://kicainc.jp/pdf/essay_contest_2026.pdf",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/kica-essay-2026.webp",
+    "entryFlow": [
+      "テーマに沿って日本語で書く",
+      "1",
+      "900〜2",
+      "100字に整える",
+      "応募用紙と原稿をメールで送る"
+    ],
+    "recommendedFor": [
+      "オンラインで応募したい",
+      "作品力を試したい",
+      "初心者でも挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第49回 KICA 日本語エッセイコンテストのキービジュアル",
+    "imageSourceUrl": "https://kicainc.jp/pdf/essay_contest_2026.pdf",
+    "imageRightsOwner": "一般財団法人 京都国際文化協会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "KICA公式募集PDFの1ページ目",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "埼玉県 みんなのショートムービーコンテスト",
+    "slug": "saitama-short-movie-contest-2026",
+    "description": "地球温暖化対策を身近に伝える3分以内のショートムービーを募集します。実写、CG、アニメーション、ショートドラマなど表現形式は自由です。",
+    "catchcopy": "3分以内の動画で、温暖化対策の輪を広げよう",
+    "deadline": "2026-10-15",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "ai-video"
+    ],
+    "prize": "埼玉県知事賞：デジタルギフト5万円、ほか",
+    "applicationMethod": "公式サイトの応募フォームから作品または動画URLと必要事項を提出します。",
+    "difficulty": "標準",
+    "aiUsage": "CGやアニメーションは応募できます。生成AIを使用する場合は権利関係と公式要項を確認してください。",
+    "rightsNote": "著作権は応募者に帰属します。主催者は応募作品を審査、公開、啓発、広報等で無償利用する場合があります。",
+    "officialUrl": "https://comp-saitama-ondankaboushi.pref.saitama.lg.jp/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/saitama-short-movie-2026.webp",
+    "entryFlow": [
+      "伝えたい温暖化対策を決める",
+      "3分以内の動画を制作する",
+      "公式フォームから応募する"
+    ],
+    "recommendedFor": [
+      "オンラインで応募したい",
+      "初心者でも挑戦したい",
+      "学生向け"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "埼玉県 みんなのショートムービーコンテストのキービジュアル",
+    "imageSourceUrl": "https://comp-saitama-ondankaboushi.pref.saitama.lg.jp/",
+    "imageRightsOwner": "埼玉県",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "埼玉県公式プレスリリースの募集画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "第65回 富士フイルムフォトコンテスト",
     "slug": "fujifilm-photo-contest-65",
     "description": "自由写真、ネイチャーフォト、組写真、アンダー39、学生の5部門で作品を募集。幅広い年代が自分に合う部門から挑戦できます。",
@@ -2300,6 +2962,45 @@
     "imageRightsOwner": "株式会社Cygames",
     "thumbnailQuality": "公式画像OK",
     "thumbnailNote": "Cygames公式コンテストページの2026年OG画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "第7回 全国くにうみ漫画ワールドカップ",
+    "slug": "kuniumi-manga-world-cup-2026",
+    "description": "淡路島や日本遺産などのテーマに沿った漫画・イラストを募集する全国コンテストです。プロ・アマ、年齢、国籍を問わず参加できます。",
+    "catchcopy": "子どもから大人まで、漫画とイラストで淡路島を表現",
+    "deadline": "2026-11-30",
+    "lastVerifiedAt": "2026-07-29",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "ai-image",
+      "ai-manga"
+    ],
+    "prize": "漫画部門グランプリ：賞金20万円、イラスト部門グランプリ：賞金10万円ほか",
+    "applicationMethod": "公式サイトの応募フォームから作品データと必要事項を送信します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIを使用した作品は応募できません。",
+    "rightsNote": "著作権は応募者に帰属します。主催者は応募作品を審査、展示、広報、Web、印刷物等で利用する場合があります。",
+    "officialUrl": "https://kuniumimangaworldcup.com/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-07/kuniumi-manga-2026.webp",
+    "entryFlow": [
+      "部門とテーマを選ぶ",
+      "漫画またはイラストを制作する",
+      "公式フォームから応募する"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "短編漫画で応募したい",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第7回 全国くにうみ漫画ワールドカップのキービジュアル",
+    "imageSourceUrl": "https://kuniumimangaworldcup.com/",
+    "imageRightsOwner": "淡路島日本遺産委員会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "全国くにうみ漫画ワールドカップ公式メイン画像",
     "spotlight": true,
     "featured": true
   },
