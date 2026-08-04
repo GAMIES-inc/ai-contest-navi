@@ -758,8 +758,8 @@
     "description": "日本語を母語としない人が、共生や相互理解につながる自由なテーマで日本語スピーチを発表する全国大会です。",
     "catchcopy": "日本語で伝えたい考えを、6分間のスピーチに",
     "deadline": "2026-07-31",
-    "lastVerifiedAt": "2026-07-29",
-    "status": "closing-soon",
+    "lastVerifiedAt": "2026-08-01",
+    "status": "ended",
     "categories": [
       "writing",
       "ai-video"
@@ -796,8 +796,8 @@
     "description": "最先端のノード型AIクリエイティブ生成サービス「Floyo」を活用したAIクリエイティブ作品を募集するアワード。略称はWFAIA。",
     "catchcopy": "Floyoを使ったAIクリエイティブで賞金総額100万円に挑戦。",
     "deadline": "2026-07-31",
-    "lastVerifiedAt": "2026-06-16",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-01",
+    "status": "ended",
     "categories": [
       "ai-illustration",
       "ai-video",
@@ -836,8 +836,8 @@
     "description": "5点の指定イラストから1点を表紙に選び、そのイラストをテーマにした小説を投稿するXfolioの公式キャンペーンです。",
     "catchcopy": "好きな表紙イラストから、400字以上の物語を広げよう",
     "deadline": "2026-08-03",
-    "lastVerifiedAt": "2026-07-29",
-    "status": "closing-soon",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "ended",
     "categories": [
       "writing",
       "ai-illustration"
@@ -905,6 +905,44 @@
     "thumbnailQuality": "プレースホルダー",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "日本直販プレゼンツ ショートドラマ企画コンテスト",
+    "slug": "nihonchokuhan-short-drama-pitch-2026",
+    "description": "テーマやジャンルを問わず、ショートドラマの企画を募集します。監督経験は不問で、個人・企業・チームで参加できます。",
+    "catchcopy": "制作費1,000万円規模のショートドラマ企画を募集",
+    "deadline": "2026-08-09",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "ai-video",
+      "writing"
+    ],
+    "prize": "採択企画に制作予算1,000万円。買い取りの場合は最低100万円。クレジット表記・ロイヤリティあり",
+    "applicationMethod": "LIFeLogBoxの公式応募ページから必要資料を提出します。",
+    "difficulty": "作品力必要",
+    "aiUsage": "生成AIを利用した場合は、応募時に使用箇所や方法を申告します。権利処理済みの素材のみ使用できます。",
+    "rightsNote": "採択後の制作、買い取り、ロイヤリティなどの契約条件を、応募前に公式要項で確認してください。",
+    "officialUrl": "https://app.lifelogbox.com/event/festival/nihonchokuhanshortdramapitch",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/short-drama-pitch-2026.webp",
+    "entryFlow": [
+      "ショートドラマの企画を考える",
+      "プロットや世界観などをまとめる",
+      "応募料と契約条件を確認して提出する"
+    ],
+    "recommendedFor": [
+      "プレゼン経験を積みたい",
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "日本直販プレゼンツ ショートドラマ企画コンテストのキービジュアル",
+    "imageSourceUrl": "https://app.lifelogbox.com/event/festival/nihonchokuhanshortdramapitch",
+    "imageRightsOwner": "日本直販・LIFeLogBox",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "主催者公式プレスリリースの募集画像",
+    "spotlight": false,
+    "featured": true
   },
   {
     "title": "アビスパ福岡フォトコンテスト2026 -summer-",
@@ -1130,6 +1168,43 @@
     "imageRightsOwner": "Astana AI Film Festival",
     "thumbnailQuality": "要改善",
     "spotlight": false,
+    "featured": true
+  },
+  {
+    "title": "第2回 AED川柳コンテスト",
+    "slug": "aed-senryu-contest-2026",
+    "description": "AEDや救命を身近に感じるきっかけをつくる川柳コンテストです。年齢や経験を問わず、短いフォームから応募できます。",
+    "catchcopy": "AEDや救命への思いを、五・七・五に",
+    "deadline": "2026-08-16",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "writing"
+    ],
+    "prize": "最優秀賞 Amazonギフト券10万円分、優秀賞1万円分、入賞1,000円分など",
+    "applicationMethod": "公式ページの応募フォームから川柳と必要事項を送信します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人の言葉で作った川柳として応募できるよう、生成AI利用は控えるのが安心です。",
+    "rightsNote": "受賞・応募作品が主催者のWebサイト、SNS、広報物などで紹介される場合があります。",
+    "officialUrl": "https://inoti-aed.com/senryu/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/aed-senryu-2026.webp",
+    "entryFlow": [
+      "AEDや救命をテーマに川柳を考える",
+      "1人3句まで作品を選ぶ",
+      "公式フォームから送信する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "オンラインで応募したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第2回 AED川柳コンテストのキービジュアル",
+    "imageSourceUrl": "https://inoti-aed.com/senryu/",
+    "imageRightsOwner": "株式会社クオリティー",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "AED川柳コンテスト公式募集画像",
+    "spotlight": true,
     "featured": true
   },
   {
@@ -1397,6 +1472,197 @@
     "thumbnailQuality": "要改善",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "2026年『夏の陣』日本写真俳句大賞",
+    "slug": "japan-photo-haiku-summer-2026",
+    "description": "自作の写真と自作の俳句を組み合わせて応募する写真俳句コンテストです。写真と言葉の両方で季節や情景を表現できます。",
+    "catchcopy": "自分で撮った写真と俳句を、一つの作品に",
+    "deadline": "2026-08-31",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "photo",
+      "writing",
+      "ai-image"
+    ],
+    "prize": "大賞 Amazonギフト券3,000円分、各賞1,000～2,000円分など",
+    "applicationMethod": "公式サイトの応募フォームから、写真と俳句を提出します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIで作った写真・俳句は応募できません。",
+    "rightsNote": "著作権は作者に帰属します。主催者が展示や広報のために作品を利用する場合があります。",
+    "officialUrl": "https://shashin-haiku.org/contest/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/photo-haiku-summer-2026.webp",
+    "entryFlow": [
+      "自分で撮った写真に俳句を添える",
+      "未発表・AI不使用を確認する",
+      "応募料を確認してオンライン提出する"
+    ],
+    "recommendedFor": [
+      "オンラインで応募したい",
+      "作品力を試したい",
+      "初心者でも挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "2026年『夏の陣』日本写真俳句大賞のキービジュアル",
+    "imageSourceUrl": "https://shashin-haiku.org/contest/",
+    "imageRightsOwner": "日本写真俳句大賞実行委員会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "日本写真俳句大賞公式募集ページの画像",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "こんねきRemixコンテスト",
+    "slug": "konneki-remix-contest-2026",
+    "description": "提供されたステム音源を使い、楽曲『みんな来てね』のリミックス作品を募集します。音楽制作の個性を試せる企画です。",
+    "catchcopy": "公式ステム音源を使って『みんな来てね』を自由にリミックス",
+    "deadline": "2026-08-31",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "ai-music"
+    ],
+    "prize": "UVI製プラグイン、Maestraudio STAGEARなど。参加特典としてUVI製ソフトウェア",
+    "applicationMethod": "作品を指定方法で公開または共有し、公式Googleフォームから応募します。",
+    "difficulty": "標準",
+    "aiUsage": "AI生成素材も、商用利用と応募利用が認められたものに限り使用できます。",
+    "rightsNote": "応募作品の利用条件、配信、公開、二次利用は公式要項を確認してください。",
+    "officialUrl": "https://prtimes.jp/main/html/rd/p/000000268.000050441.html",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/konneki-remix-2026.webp",
+    "entryFlow": [
+      "公式ステム音源を入手する",
+      "権利を確認しながらリミックスする",
+      "Googleフォームから応募する"
+    ],
+    "recommendedFor": [
+      "AI音楽を出したい",
+      "オンラインで応募したい",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "こんねきRemixコンテストのキービジュアル",
+    "imageSourceUrl": "https://prtimes.jp/main/html/rd/p/000000268.000050441.html",
+    "imageRightsOwner": "株式会社HIKE",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "主催者公式プレスリリースの募集画像",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "ワクワク！工作ものづくりコンテスト",
+    "slug": "hack-craft-contest-2026",
+    "description": "未就学児から高校生までを対象に、イラスト、ぬりえ、粘土、木工、手芸、自由研究などの作品写真を募集します。",
+    "catchcopy": "子どもの自由な工作を、写真1枚からSNSで応募",
+    "deadline": "2026-08-31",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "design",
+      "ai-image"
+    ],
+    "prize": "アイデア賞、ハッピー賞、自由研究賞。受賞者にハックの商品セット",
+    "applicationMethod": "XまたはInstagramで作品写真を投稿し、指定ハッシュタグ「#ハック工作コン」を付けます。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人の工作・創作物が対象です。生成AI画像だけの応募は対象外と考え、公式要項を確認してください。",
+    "rightsNote": "応募投稿が主催者のWebサイト、SNS、広報物などで紹介される場合があります。",
+    "officialUrl": "https://hac72.jp/topics/craft_contest/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/hack-craft-2026.webp",
+    "entryFlow": [
+      "工作や自由研究を完成させる",
+      "作品を分かりやすく撮影する",
+      "指定ハッシュタグを付けて投稿する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "X投稿で応募したい",
+      "初心者でも挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "ワクワク！工作ものづくりコンテストのキービジュアル",
+    "imageSourceUrl": "https://hac72.jp/topics/craft_contest/",
+    "imageRightsOwner": "ハック",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "主催者公式プレスリリースの募集画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "古民家活用プランコンテスト『ノスタルジア』",
+    "slug": "kominka-nostalgia-plan-contest-2026",
+    "description": "広島県三原市の古民家を題材に、地域にひらかれた新しい活用方法を募集します。自由な発想を重視し、建築の専門知識は必須ではありません。",
+    "catchcopy": "建築知識がなくても参加できる、古民家再生のアイデア募集",
+    "deadline": "2026-08-31",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "design",
+      "writing"
+    ],
+    "prize": "最優秀案は、実現に向けた協議・支援の対象。賞金の設定はありません",
+    "applicationMethod": "公式ページで対象物件と提出物を確認し、指定方法で企画書を提出します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIを使った場合は、使用ツールと使用箇所を企画書内で説明します。",
+    "rightsNote": "採択案の実施や権利の取り扱いは、主催者との協議・契約条件を確認してください。",
+    "officialUrl": "https://www.machi-mihara.info/info.cgi?id=716",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/kominka-nostalgia-2026.webp",
+    "entryFlow": [
+      "対象の古民家と地域を知る",
+      "活用アイデアを企画書にまとめる",
+      "指定方法で提出する"
+    ],
+    "recommendedFor": [
+      "AIアイデアを形にしたい",
+      "プレゼン経験を積みたい",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "古民家活用プランコンテスト『ノスタルジア』のキービジュアル",
+    "imageSourceUrl": "https://www.machi-mihara.info/info.cgi?id=716",
+    "imageRightsOwner": "まちづくり三原",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "主催者公式募集ページのコンテスト画像",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "第2回 SPACE IDEA CONTEST",
+    "slug": "space-idea-contest-2026",
+    "description": "2040年の月面での暮らしをテーマに、大学生・大学院生から宇宙生活のアイデアを募集します。専攻を問わず参加できます。",
+    "catchcopy": "2040年の月面生活を、学生の自由な発想で描く",
+    "deadline": "2026-08-31",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "writing",
+      "design"
+    ],
+    "prize": "最優秀賞30万円、優秀賞10万円、審査員特別賞5万円",
+    "applicationMethod": "公式サイトの応募フォームから企画内容を提出します。応募無料です。",
+    "difficulty": "標準",
+    "aiUsage": "AI利用の可否や記載方法は、提出前に最新の公式要項を確認してください。",
+    "rightsNote": "提出アイデアの取り扱い、公開範囲、知的財産権は公式要項を確認してください。",
+    "officialUrl": "https://www.jamss.co.jp/space-idea-contest/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/space-idea-contest-2026.webp",
+    "entryFlow": [
+      "2040年の月面生活を想像する",
+      "アイデアを応募様式にまとめる",
+      "公式フォームから提出する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "AIアイデアを形にしたい",
+      "プレゼン経験を積みたい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第2回 SPACE IDEA CONTESTのキービジュアル",
+    "imageSourceUrl": "https://www.jamss.co.jp/space-idea-contest/",
+    "imageRightsOwner": "有人宇宙システム株式会社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "JAMSS公式コンテストページの募集ビジュアル",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "FULMA Creator Awards 2026",
@@ -2157,6 +2423,43 @@
     "featured": true
   },
   {
+    "title": "津田塾大学 第9回エッセーコンテストJr.",
+    "slug": "tsuda-essay-contest-jr-2026",
+    "description": "小学生・中学生を対象にしたエッセーコンテストです。日本語と英語のどちらでも応募でき、自分の経験や考えを文章にまとめられます。",
+    "catchcopy": "小中学生の考えを、日本語または英語のエッセーに",
+    "deadline": "2026-09-07",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "writing"
+    ],
+    "prize": "Jr.大賞、奨励賞。受賞者には記念品を贈呈",
+    "applicationMethod": "指定事項を添えて、メールまたは郵送で応募します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人が書いた作品として応募できるよう、AI利用は学校や公式要項の方針も確認してください。",
+    "rightsNote": "応募作品の著作権は津田塾大学へ譲渡されます。応募作品は返却されません。",
+    "officialUrl": "https://www.tsuda.ac.jp/aboutus/essay-jr/index.html",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/tsuda-essay-jr-2026.webp",
+    "entryFlow": [
+      "テーマに沿って自分の考えを書く",
+      "文字数と未発表条件を確認する",
+      "メールまたは郵送で提出する"
+    ],
+    "recommendedFor": [
+      "中高生向け",
+      "学生向け",
+      "初心者でも挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "津田塾大学 第9回エッセーコンテストJr.のキービジュアル",
+    "imageSourceUrl": "https://www.tsuda.ac.jp/aboutus/essay-jr/index.html",
+    "imageRightsOwner": "津田塾大学",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "津田塾大学公式募集ページのビジュアル",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "Nikon TopEye フォトコンテスト2026 第2回",
     "slug": "nikon-topeye-photo-contest-2026-round-2",
     "description": "中学生・高校生・高等専門学校生を対象に、学校写真部や個人からプリント作品を募集するフォトコンテストです。",
@@ -2228,6 +2531,43 @@
     "imageRightsOwner": "サンスター文具株式会社",
     "thumbnailQuality": "公式画像OK",
     "thumbnailNote": "サンスター文具公式コンテストページのOG画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "第一回 RPG-Cobo 作品コンテスト ～TGS2026杯～",
+    "slug": "rpg-cobo-tgs-2026",
+    "description": "ゲーム制作ツール「RPG-Cobo」で作ったオリジナルゲームを募集する作品コンテストです。完成作だけでなく、遊べる状態の体験版でも応募できます。",
+    "catchcopy": "RPG-Coboで作ったゲームを、東京ゲームショウの舞台へ",
+    "deadline": "2026-09-08",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "other"
+    ],
+    "prize": "賞金総額100万円。最優秀賞30万円、優秀賞・審査員賞各10万円など。各賞にRPG-Cobo ProまたはIndieライセンス",
+    "applicationMethod": "公式ページの応募フォームから、作品データと必要事項を送信します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AI素材を使う場合も、利用規約と商用利用・権利条件を確認してください。",
+    "rightsNote": "著作権は制作者に帰属します。主催者が審査、展示、動画配信、広報などに作品を利用する場合があります。",
+    "officialUrl": "https://rpg-cobo.com/post/20260709-contest1/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/rpg-cobo-tgs-2026.webp",
+    "entryFlow": [
+      "RPG-Coboでゲームを制作する",
+      "応募用データと紹介情報を整える",
+      "公式フォームから送信する"
+    ],
+    "recommendedFor": [
+      "作品力を試したい",
+      "オンラインで応募したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第一回 RPG-Cobo 作品コンテスト ～TGS2026杯～のキービジュアル",
+    "imageSourceUrl": "https://rpg-cobo.com/post/20260709-contest1/",
+    "imageRightsOwner": "株式会社Gotcha Gotcha Games",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "RPG-Cobo公式コンテストページの募集ビジュアル",
     "spotlight": true,
     "featured": true
   },
@@ -2306,6 +2646,45 @@
     "thumbnailNote": "同志社女子大学公式コンテストページのOG画像",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "第3回 お仏壇のはせがわ賞こどもコンクール",
+    "slug": "hasegawa-kodomo-art-contest-2026",
+    "description": "小学生が、お盆の思い出や家族との時間を絵画・工作で表現するコンクールです。作品を撮影してオンラインで応募できます。",
+    "catchcopy": "お盆の思い出を、絵や工作で自由に表現",
+    "deadline": "2026-09-10",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "design",
+      "ai-image"
+    ],
+    "prize": "各部門最優秀賞：図書カード1万円分、ギフト券1万円分、記念品。優秀賞・特別賞など",
+    "applicationMethod": "作品を撮影し、公式ページの応募フォームから写真と必要事項を送信します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AIを利用した作品は応募できません。",
+    "rightsNote": "受賞作品や応募写真が、主催者のWebサイト、店頭、広報物などで紹介される場合があります。",
+    "officialUrl": "https://www.hasegawa.jp/blogs/sale/kodomo-competition",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/hasegawa-kodomo-2026.webp",
+    "entryFlow": [
+      "お盆の思い出を絵や工作にする",
+      "作品を明るい場所で撮影する",
+      "公式フォームから応募する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "初心者でも挑戦したい",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第3回 お仏壇のはせがわ賞こどもコンクールのキービジュアル",
+    "imageSourceUrl": "https://www.hasegawa.jp/blogs/sale/kodomo-competition",
+    "imageRightsOwner": "株式会社はせがわ",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "お仏壇のはせがわ公式コンクール画像",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "26秒のカーニバル 第九回",
@@ -2532,6 +2911,157 @@
     "imageRightsOwner": "AIアートグランプリ実行委員会",
     "thumbnailQuality": "プレースホルダー",
     "spotlight": false,
+    "featured": true
+  },
+  {
+    "title": "法政大学 第22回 デジタルコンテンツ・コンテスト",
+    "slug": "hosei-digital-content-contest-2026",
+    "description": "法政大学の学生を対象に、静止画、動画、インタラクティブ作品の3部門でデジタル作品を募集します。",
+    "catchcopy": "法政大学生の静止画・動画・インタラクティブ作品を募集",
+    "deadline": "2026-09-29",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "upcoming",
+    "categories": [
+      "ai-illustration",
+      "ai-video",
+      "ai-image"
+    ],
+    "prize": "グランプリ20万円、各部門優秀賞10万円、準優秀賞5万円、選考委員賞1万円",
+    "applicationMethod": "2026年9月11日から29日の受付期間に、大学指定の方法で作品を提出します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIを使った場合は、使用ツール・使用箇所・方法を詳しく申告する必要があります。",
+    "rightsNote": "著作権は作者に帰属します。大学は広報目的で作品を継続的に利用できます。",
+    "officialUrl": "https://www.hosei.ac.jp/application/files/9717/8297/2319/2026_youkou.pdf",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/hosei-digital-content-2026.webp",
+    "entryFlow": [
+      "応募する部門と作品を決める",
+      "要項の形式に合わせてデータを整える",
+      "受付期間内に提出する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "AI活用作品を出したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "法政大学 第22回 デジタルコンテンツ・コンテストのキービジュアル",
+    "imageSourceUrl": "https://www.hosei.ac.jp/application/files/9717/8297/2319/2026_youkou.pdf",
+    "imageRightsOwner": "法政大学",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "法政大学公式募集要項PDFの表紙",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "第47回 横溝正史ミステリ＆ホラー大賞",
+    "slug": "yokomizo-mystery-horror-award-2026",
+    "description": "未発表の長編ミステリまたはホラー小説を募集する新人賞です。年齢やプロ・アマを問わず応募できます。",
+    "catchcopy": "長編ミステリ・ホラーで、書籍デビューを目指す",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "writing"
+    ],
+    "prize": "大賞300万円と書籍化、優秀賞30万円、読者賞は書籍化",
+    "applicationMethod": "公式テンプレートを使い、Webまたは郵送で原稿を提出します。",
+    "difficulty": "作品力必要",
+    "aiUsage": "生成AIは構成案や校正など補助的な利用に限られ、使用した場合は申告が必要です。",
+    "rightsNote": "最終候補作や受賞作には、出版・映像化などに関する優先交渉や独占的な利用条件があります。公式規定を確認してください。",
+    "officialUrl": "https://kadobun.jp/awards/yokomizo/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/yokomizo-award-2026.webp",
+    "entryFlow": [
+      "長編ミステリまたはホラーを完成させる",
+      "規定枚数と書式に整える",
+      "Webまたは郵送で応募する"
+    ],
+    "recommendedFor": [
+      "作品力を試したい",
+      "賞金ありに挑戦したい",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第47回 横溝正史ミステリ＆ホラー大賞のキービジュアル",
+    "imageSourceUrl": "https://kadobun.jp/awards/yokomizo/",
+    "imageRightsOwner": "KADOKAWA",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "KADOKAWA公式新人賞ページの募集画像",
+    "spotlight": false,
+    "featured": true
+  },
+  {
+    "title": "第39回 都電荒川線写真コンテスト",
+    "slug": "toden-arakawa-photo-contest-2026",
+    "description": "都電荒川線のある風景や、都電とバラをテーマにした写真コンテストです。一般部門と子ども向け部門があります。",
+    "catchcopy": "都電荒川線と沿線の魅力を、写真で残す",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "各賞の受賞者に賞状・記念品。応募者への参加賞あり",
+    "applicationMethod": "一般部門は郵送または持参、子ども部門はオンラインで応募します。",
+    "difficulty": "標準",
+    "aiUsage": "実際に撮影した写真が対象です。生成AI画像は応募できないものとして公式要項を確認してください。",
+    "rightsNote": "受賞作品などが展示、印刷物、Web、広報で利用される場合があります。",
+    "officialUrl": "https://www.acc-arakawa.jp/wp-content/uploads/2026/07/P1%E3%80%9CP4_compressed.pdf",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/toden-arakawa-photo-2026.webp",
+    "entryFlow": [
+      "都電荒川線や沿線を撮影する",
+      "部門に合うサイズ・点数を確認する",
+      "郵送・持参またはオンラインで応募する"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "学生向け",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第39回 都電荒川線写真コンテストのキービジュアル",
+    "imageSourceUrl": "https://www.acc-arakawa.jp/wp-content/uploads/2026/07/P1%E3%80%9CP4_compressed.pdf",
+    "imageRightsOwner": "ACC 公益財団法人荒川区芸術文化振興財団",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ACC公式募集チラシのメイン画像",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "第2回 StellaJeanコンテスト ホラー原作大賞",
+    "slug": "stellajean-horror-original-award-2026",
+    "description": "ホラーをテーマに、小説またはシナリオ形式の原作を募集します。受賞作は映像化などへの展開が検討されます。",
+    "catchcopy": "500文字から応募できる、映像化を見据えたホラー原作募集",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "writing"
+    ],
+    "prize": "優秀賞5万円と映像化検討、佳作1万円",
+    "applicationMethod": "StellaJeanへ作品を投稿し、コンテストの応募手続きを行います。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AIを使った作品も応募できますが、指定タグやAI利用の表示ルールに従う必要があります。",
+    "rightsNote": "著作権は作者に帰属します。映像化などを行う場合は、別途契約が結ばれます。",
+    "officialUrl": "https://stellajean.jp/novels/contests/7?post-id=5644",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/stellajean-horror-2026.webp",
+    "entryFlow": [
+      "ホラー原作を小説またはシナリオで書く",
+      "作品をStellaJeanへ投稿する",
+      "コンテストへ応募する"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "オンラインで応募したい",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第2回 StellaJeanコンテスト ホラー原作大賞のキービジュアル",
+    "imageSourceUrl": "https://stellajean.jp/novels/contests/7?post-id=5644",
+    "imageRightsOwner": "StellaJean",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "StellaJean公式コンテストページの募集ビジュアル",
+    "spotlight": true,
     "featured": true
   },
   {
@@ -2769,6 +3299,43 @@
     "featured": true
   },
   {
+    "title": "JTB ケンミンショー旅アワード 2026",
+    "slug": "jtb-kenmin-show-tabi-award-2026",
+    "description": "地域の食、文化、景色、人などを紹介するショート動画アワードです。TikTokまたはInstagramから投稿できます。",
+    "catchcopy": "地元の魅力を30～60秒の縦動画で全国へ",
+    "deadline": "2026-10-04",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "ai-video"
+    ],
+    "prize": "グランプリ100万円。ほか各種部門賞",
+    "applicationMethod": "動画を投稿し、「#JTBケンミンショー旅アワード2026」と都道府県の指定ハッシュタグを付けます。",
+    "difficulty": "標準",
+    "aiUsage": "AI素材を使う場合は、肖像権・著作権・商用利用条件を確認し、誤認を招く表現を避けてください。",
+    "rightsNote": "応募動画が主催者や関連番組のWebサイト、SNS、放送、広報などで利用される場合があります。",
+    "officialUrl": "https://www.kenminshowtabi.com/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/jtb-kenmin-tabi-2026.webp",
+    "entryFlow": [
+      "紹介したい地域の魅力を決める",
+      "30～60秒を目安に縦動画を作る",
+      "指定ハッシュタグを付けて投稿する"
+    ],
+    "recommendedFor": [
+      "X投稿で応募したい",
+      "オンラインで応募したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "JTB ケンミンショー旅アワード 2026のキービジュアル",
+    "imageSourceUrl": "https://www.kenminshowtabi.com/",
+    "imageRightsOwner": "JTB・讀賣テレビ放送",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "JTB ケンミンショー旅アワード公式画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "第49回 KICA 日本語エッセイコンテスト",
     "slug": "kica-japanese-essay-contest-2026",
     "description": "日本語を母語としない人を対象に、「日本語について思うこと」をテーマにした日本語エッセイを募集します。",
@@ -2883,6 +3450,45 @@
     "featured": true
   },
   {
+    "title": "第8回 エディコイラストコンテスト",
+    "slug": "edico-illustration-contest-2026",
+    "description": "22歳以下を対象に、デジタルイラストと漫画を募集します。小中学生向けのアナログぬりえ部門もあります。",
+    "catchcopy": "22歳以下のイラスト・漫画、子どものぬりえ作品を募集",
+    "deadline": "2026-10-30",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "ai-image",
+      "ai-manga"
+    ],
+    "prize": "イラスト部門・漫画部門 Amazonギフト券1万円分と審査コメント。ぬりえ部門は賞状・記念品など",
+    "applicationMethod": "GENSEKIの公式コンテストページから、対象部門を選んで作品を投稿します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AI利用の可否は部門ごとの応募要項を確認してください。",
+    "rightsNote": "受賞作品が主催者やGENSEKIのWebサイト、SNS、広報物などで紹介される場合があります。",
+    "officialUrl": "https://genseki.me/compes/lyqmbvBmr1d",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/edico-illustration-2026.webp",
+    "entryFlow": [
+      "年齢と作品に合う部門を選ぶ",
+      "部門のサイズ・形式に合わせて仕上げる",
+      "GENSEKIから投稿する"
+    ],
+    "recommendedFor": [
+      "中高生向け",
+      "学生向け",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第8回 エディコイラストコンテストのキービジュアル",
+    "imageSourceUrl": "https://genseki.me/compes/lyqmbvBmr1d",
+    "imageRightsOwner": "エディコ",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "GENSEKI公式コンテストページの募集画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "2026 AI Creativity Awards",
     "slug": "ai-creativity-awards-2026",
     "description": "AIを活用した多分野の創作作品を対象にした国際アワード。映像、画像、デザイン、音楽、文章、インタラクティブなど幅広い。",
@@ -2964,6 +3570,45 @@
     "thumbnailNote": "Cygames公式コンテストページの2026年OG画像",
     "spotlight": true,
     "featured": true
+  },
+  {
+    "title": "第16回 あらかわ絵手紙コンテスト",
+    "slug": "arakawa-etegami-contest-2026",
+    "description": "手描きの絵と言葉を組み合わせた絵手紙を全国から募集します。一般、子ども、荒川区内向けの部門があります。",
+    "catchcopy": "絵と言葉を一枚のはがきに。全国から応募できる絵手紙募集",
+    "deadline": "2026-11-30",
+    "lastVerifiedAt": "2026-08-04",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "writing",
+      "ai-image"
+    ],
+    "prize": "各賞の受賞者に記念品。規定を満たす応募作品は原則すべて展示",
+    "applicationMethod": "応募票を添え、郵送または会場へ持参します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "手描きの作品が対象です。コピー、印刷、生成AI画像は応募できません。",
+    "rightsNote": "応募作品は原則返却されず、使用権は主催者に帰属します。展示や広報に利用される場合があります。",
+    "officialUrl": "https://www.acc-arakawa.jp/event/5940/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08/arakawa-etegami-2026.webp",
+    "entryFlow": [
+      "手描きの絵と言葉で絵手紙を作る",
+      "応募票を記入して作品に添える",
+      "郵送または持参する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "学生向け",
+      "初心者でも挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第16回 あらかわ絵手紙コンテストのキービジュアル",
+    "imageSourceUrl": "https://www.acc-arakawa.jp/event/5940/",
+    "imageRightsOwner": "ACC 公益財団法人荒川区芸術文化振興財団",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ACC公式募集チラシの表面画像",
+    "spotlight": false,
+    "featured": false
   },
   {
     "title": "第7回 全国くにうみ漫画ワールドカップ",
