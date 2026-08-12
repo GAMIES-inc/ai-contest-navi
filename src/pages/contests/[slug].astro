@@ -46,9 +46,9 @@ const officialGoHref = (from: string) =>
   enableFirstPartyAnalytics ? `/go/${contest.slug}?link=official&from=${from}` : contest.officialUrl;
 const calendarDate = (() => {
   const start = contest.deadline.replaceAll("-", "");
-  const endDate = new Date(`${contest.deadline}T00:00:00+09:00`);
-  endDate.setDate(endDate.getDate() + 1);
-  const end = `${endDate.getFullYear()}${String(endDate.getMonth() + 1).padStart(2, "0")}${String(endDate.getDate()).padStart(2, "0")}`;
+  const [year, month, day] = contest.deadline.split("-").map(Number);
+  const endDate = new Date(Date.UTC(year, month - 1, day + 1));
+  const end = `${endDate.getUTCFullYear()}${String(endDate.getUTCMonth() + 1).padStart(2, "0")}${String(endDate.getUTCDate()).padStart(2, "0")}`;
   return `${start}/${end}`;
 })();
 const googleCalendarUrl = `https://calendar.google.com/calendar/render?${new URLSearchParams({

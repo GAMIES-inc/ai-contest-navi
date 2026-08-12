@@ -30,6 +30,7 @@ const deadlineDate = new Intl.DateTimeFormat("ja-JP", {
   month: "long",
   day: "numeric",
   weekday: "short",
+  timeZone: "Asia/Tokyo",
 }).format(new Date(`${contest.deadline}T00:00:00+09:00`));
 const prizeLabel = contest.prize.split(/[。、]/u)[0]?.trim() || contest.prize;
 ---
