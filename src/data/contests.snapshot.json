@@ -874,8 +874,8 @@
     "description": "学生限定。テーマは「AIを活用した、実務に活かせるアイデア」。AI×デザイン、AI×マーケティング、AI×SNS、AI×動画制作などジャンル不問。",
     "catchcopy": "学生向け、実務に活かせるAI活用アイデアを競うコンテスト。",
     "deadline": "2026-08-07",
-    "lastVerifiedAt": "2026-06-16",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-08",
+    "status": "ended",
     "categories": [
       "design",
       "ai-video",
@@ -912,8 +912,8 @@
     "description": "テーマやジャンルを問わず、ショートドラマの企画を募集します。監督経験は不問で、個人・企業・チームで参加できます。",
     "catchcopy": "制作費1,000万円規模のショートドラマ企画を募集",
     "deadline": "2026-08-09",
-    "lastVerifiedAt": "2026-08-04",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-10",
+    "status": "ended",
     "categories": [
       "ai-video",
       "writing"
@@ -950,8 +950,8 @@
     "description": "試合、応援、クラブにまつわる風景など、アビスパ福岡をテーマにした夏の写真を募集します。スマートフォン撮影でも参加できます。",
     "catchcopy": "アビスパ福岡の夏を、スマホやカメラで切り取ろう",
     "deadline": "2026-08-09",
-    "lastVerifiedAt": "2026-07-29",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-10",
+    "status": "ended",
     "categories": [
       "photo",
       "ai-image"
@@ -988,8 +988,8 @@
     "description": "news zero 20周年記念として、番組内でオンエアされる3秒のバンパー動画を募集する映像コンテスト。AI部門あり。",
     "catchcopy": "AI動画作品を応募できるコンテスト。",
     "deadline": "2026-08-09",
-    "lastVerifiedAt": "2026-06-16",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-10",
+    "status": "ended",
     "categories": [
       "ai-video"
     ],
@@ -1024,8 +1024,8 @@
     "description": "FINAL FANTASY XIVをテーマに、イラストアート、未加工・加工スクリーンショット、クラフト作品を募集する公式ファンアートコンテストです。",
     "catchcopy": "イラスト、スクリーンショット、クラフトでFFXIV愛を表現",
     "deadline": "2026-08-11",
-    "lastVerifiedAt": "2026-07-29",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "ended",
     "categories": [
       "ai-illustration",
       "photo",
@@ -1438,6 +1438,82 @@
     "featured": false
   },
   {
+    "title": "The VOCALOID Collection 2026 Summer",
+    "slug": "vocaloid-collection-2026-summer",
+    "description": "音声合成ソフトを主体にしたオリジナル楽曲やREMIXをニコニコ動画へ投稿するイベントです。ランキングに参加しない気軽なエキシビション枠もあります。",
+    "catchcopy": "新作ボカロ曲やREMIXを、夏のボカロ文化の祭典へ",
+    "deadline": "2026-08-24",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "upcoming",
+    "categories": [
+      "ai-music"
+    ],
+    "prize": "ランキング上位者へ奨励金と金の盾。プロセカへの楽曲収録やゲーム内採用などの副賞企画あり",
+    "applicationMethod": "期間中にニコニコ動画へ作品を投稿し、部門ごとの指定タグと説明文を設定します。",
+    "difficulty": "標準",
+    "aiUsage": "音声合成ソフトの使用条件と、利用する画像・動画・音源の権利を各部門の規約で確認してください。",
+    "rightsNote": "応募作品はボカコレ、ニコニコ、協賛社等のプロモーションに無償利用される場合があります。入賞後の有償利用は別途契約です。",
+    "officialUrl": "https://vocaloid-collection.jp/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/vocaloid-collection-2026-summer.webp",
+    "entryFlow": [
+      "参加部門の要項を選ぶ",
+      "権利処理済みの楽曲・動画を制作する",
+      "指定期間にニコニコ動画へ投稿する"
+    ],
+    "recommendedFor": [
+      "AI音楽を出したい",
+      "オンラインで応募したい",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "The VOCALOID Collection 2026 Summerのキービジュアル",
+    "imageSourceUrl": "https://vocaloid-collection.jp/",
+    "imageRightsOwner": "株式会社ドワンゴ",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ボカコレ2026夏公式サイトのメイン画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "agnès b. presents タラ号ポスターコンクール2026",
+    "slug": "tara-ocean-poster-2026",
+    "description": "海や地球環境のためにできることをポスターで表現する、小学1年生から中学3年生向けのコンクールです。線画を使う形式と自由形式から選べます。",
+    "catchcopy": "海や地球環境を良くするアイデアを、小中学生のポスターに",
+    "deadline": "2026-08-24",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "design",
+      "ai-image"
+    ],
+    "prize": "特別賞受賞者を粟島海洋環境クラブの1泊2日合宿へペア招待。応募者全員にドキュメンタリー映画のオンライン鑑賞券",
+    "applicationMethod": "作品を撮影し、公式応募フォームへ画像と必要事項を送信します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人が描いたポスターとして応募できるよう、生成AIは使わず制作するのが安心です。",
+    "rightsNote": "応募作品は公式Instagramなどで紹介される場合があります。詳しい利用条件は応募規約を確認してください。",
+    "officialUrl": "https://prtimes.jp/main/html/rd/p/000000024.000153009.html",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/tara-ocean-poster-2026.webp",
+    "entryFlow": [
+      "海で起きている問題を知る",
+      "線画または自由形式でポスターを作る",
+      "撮影してフォームから送る"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "初心者でも挑戦したい",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "agnès b. presents タラ号ポスターコンクール2026のキービジュアル",
+    "imageSourceUrl": "https://prtimes.jp/main/html/rd/p/000000024.000153009.html",
+    "imageRightsOwner": "一般社団法人タラ オセアン ジャパン・アニエスベージャパン株式会社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "主催者公式発表のコンクール画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "デジタネ AI＆プログラミングコンテスト2026",
     "slug": "digitane-ai-programming-contest-2026",
     "description": "小中学生向けのAI＆プログラミング作品コンテスト。2026年で第8回。Robloxやマインクラフト等を活用した創作作品が対象。",
@@ -1472,6 +1548,44 @@
     "thumbnailQuality": "要改善",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "FM AICHI ラジオCMコンテスト2026",
+    "slug": "fm-aichi-radio-cm-2026",
+    "description": "協賛企業ごとのテーマから、20秒以内のラジオCMコピーを考えるコンテストです。受賞作は実際のCMとして制作され、FM AICHIで放送されます。",
+    "catchcopy": "20秒の言葉で企業の魅力を伝えるラジオCMコピー募集",
+    "deadline": "2026-08-31",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "writing",
+      "ai-music"
+    ],
+    "prize": "グランプリ10万円、学生賞5万円、協賛企業賞2万円。受賞作品はラジオCMとして放送",
+    "applicationMethod": "協賛企業とテーマを選び、公式ページのメールフォームからCMコピーを送信します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "短いコピーでも自分の表現として説明できるよう、生成AIの出力をそのまま応募しないでください。",
+    "rightsNote": "受賞作品はFM AICHIで制作・放送され、協賛企業の広告に使用される場合があります。",
+    "officialUrl": "https://fma.co.jp/f/cmcontest/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/fm-aichi-radio-cm-2026.webp",
+    "entryFlow": [
+      "協賛企業のテーマを読む",
+      "20秒以内のCMコピーを書く",
+      "公式フォームから応募する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "オンラインで応募したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "FM AICHI ラジオCMコンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://fma.co.jp/f/cmcontest/",
+    "imageRightsOwner": "FM AICHI",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "FM AICHI公式コンテストページの募集画面",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "2026年『夏の陣』日本写真俳句大賞",
@@ -2687,6 +2801,44 @@
     "featured": true
   },
   {
+    "title": "智光山公園 大花壇デザインコンテスト2026",
+    "slug": "chikozan-flower-bed-design-2026",
+    "description": "智光山公園の冬の大花壇に使うデザイン画を募集します。応募作品は展示され、来園者の投票で採用作品が選ばれます。",
+    "catchcopy": "あなたのデザインが、冬の大花壇になる",
+    "deadline": "2026-09-13",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "design",
+      "ai-image"
+    ],
+    "prize": "グランプリ受賞者へ記念品。完成した大花壇の前で記念撮影を予定",
+    "applicationMethod": "公式サイトから応募用紙とデザイン用紙をダウンロードし、案内に沿って提出します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人が描いたデザイン画として応募できるよう、生成AI利用の可否は主催者へ確認してください。",
+    "rightsNote": "採用デザインは実際の冬花壇づくりに使用され、応募作品は園内展示と投票の対象になります。",
+    "officialUrl": "https://parks.or.jp/chikozan/event/009/009092.html",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/chikozan-flower-bed-design-2026.webp",
+    "entryFlow": [
+      "応募用紙とデザイン用紙を入手する",
+      "冬の大花壇をデザインする",
+      "指定方法で提出する"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "智光山公園 大花壇デザインコンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://parks.or.jp/chikozan/event/009/009092.html",
+    "imageRightsOwner": "智光山公園 都市緑化植物園",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "智光山公園公式ページの募集画像",
+    "spotlight": false,
+    "featured": false
+  },
+  {
     "title": "26秒のカーニバル 第九回",
     "slug": "26sec-carnival-9",
     "description": "三池崇史監督が審査する26秒ショート動画コンテスト。第九回テーマは「私はあなたとは違う」。AI作品も歓迎。",
@@ -2951,6 +3103,80 @@
     "thumbnailNote": "法政大学公式募集要項PDFの表紙",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "みんなが書く戯曲のコンテスト2026",
+    "slug": "minna-playwriting-contest-2026",
+    "description": "障がいのある人が登場する、または障害者手帳を持つ人が書いた短編戯曲を募集します。初心者向け動画と、一次選考通過後のプロ劇作家による伴走支援があります。",
+    "catchcopy": "はじめてでも参加できる、障がいを軸にした5～10分の短編戯曲",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "writing"
+    ],
+    "prize": "入選作はリーディング上演され、原稿料を支給予定。一次選考通過作は英訳され、NYでの上演候補になります",
+    "applicationMethod": "9月23日までに事前エントリーし、9月30日までにメール・郵送・持ち込みのいずれかで作品を提出します。",
+    "difficulty": "標準",
+    "aiUsage": "作者本人の表現によるオリジナル作品として応募できるよう、AI利用は慎重に判断してください。",
+    "rightsNote": "入選作は記録集への掲載やリーディング上演、一次通過作は英訳・海外上演候補となります。",
+    "officialUrl": "https://birdtheatre.org/gikyoku-disability/index.php",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/minna-playwriting-contest-2026.webp",
+    "entryFlow": [
+      "9月23日までに事前エントリーする",
+      "5～10分の短編戯曲を書く",
+      "メール・郵送・持ち込みで提出する"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "みんなが書く戯曲のコンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://birdtheatre.org/gikyoku-disability/index.php",
+    "imageRightsOwner": "文化庁・鳥の劇場",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "鳥の劇場公式コンテストページのメイン画像",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "第4回 三服文学賞",
+    "slug": "sanpuku-literary-award-2026",
+    "description": "温泉、お茶、うつわ、日本酒、旅、読むこと、書くことの7テーマから、エッセイ、小説、詩、短歌、俳句、川柳などを募集する文学賞です。",
+    "catchcopy": "2,000文字以内。温泉やお茶、旅から生まれる言葉を募集",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "writing"
+    ],
+    "prize": "大賞は1年間のライターインレジデンス権『三服作家』。入賞はパートナー企業の商品、参加賞あり",
+    "applicationMethod": "現地の応募箱、郵送、Webフォームのいずれかで応募します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人の言葉による未発表作品として応募できるよう、生成AI利用は避けるのが安心です。",
+    "rightsNote": "作品が記念冊子や館内に掲示される場合があります。二次利用時は主催者から相談されることがあります。",
+    "officialUrl": "https://wataya.co.jp/sanpuku_bungakusyo",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/sanpuku-literary-award-2026.webp",
+    "entryFlow": [
+      "7つのテーマから選ぶ",
+      "2",
+      "000文字以内で作品を書く",
+      "現地・郵送・Webから応募する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "オンラインで応募したい",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第4回 三服文学賞のキービジュアル",
+    "imageSourceUrl": "https://wataya.co.jp/sanpuku_bungakusyo",
+    "imageRightsOwner": "株式会社和多屋別荘・三服文学賞実行委員会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "和多屋別荘公式発表の文学賞募集画像",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "第47回 横溝正史ミステリ＆ホラー大賞",
@@ -3299,6 +3525,43 @@
     "featured": true
   },
   {
+    "title": "第2回 GAウェブ小説コンテスト",
+    "slug": "ga-web-novel-contest-2026",
+    "description": "ジャンルを問わず、日本語で書かれた5万文字以上のオリジナル小説を募集します。既にカクヨムで公開している作品や複数作品でも参加できます。",
+    "catchcopy": "5万文字から。書籍化とコミカライズを目指す長編小説募集",
+    "deadline": "2026-10-02",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "writing"
+    ],
+    "prize": "大賞100万円、3巻刊行確約、コミカライズ確約。特別賞、コミカライズ賞も書籍化予定",
+    "applicationMethod": "カクヨムに作品を公開し、小説投稿ページのコンテスト欄で本コンテストを選択します。",
+    "difficulty": "作品力必要",
+    "aiUsage": "AI利用について個別の明示がない場合も、自ら創作した一次創作として説明できる作品にしてください。",
+    "rightsNote": "受賞作はSBクリエイティブへ独占的利用を許諾し、書籍化等の契約を締結する必要があります。",
+    "officialUrl": "https://kakuyomu.jp/contests/ga_label_2026/detail",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/ga-web-novel-contest-2026.webp",
+    "entryFlow": [
+      "5万文字以上の小説を用意する",
+      "カクヨムで作品を公開する",
+      "応募欄からコンテストを選ぶ"
+    ],
+    "recommendedFor": [
+      "オンラインで応募したい",
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第2回 GAウェブ小説コンテストのキービジュアル",
+    "imageSourceUrl": "https://kakuyomu.jp/contests/ga_label_2026/detail",
+    "imageRightsOwner": "SBクリエイティブ株式会社・株式会社KADOKAWA",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "カクヨム公式コンテストページの募集画像",
+    "spotlight": false,
+    "featured": false
+  },
+  {
     "title": "JTB ケンミンショー旅アワード 2026",
     "slug": "jtb-kenmin-show-tabi-award-2026",
     "description": "地域の食、文化、景色、人などを紹介するショート動画アワードです。TikTokまたはInstagramから投稿できます。",
@@ -3371,6 +3634,44 @@
     "imageRightsOwner": "一般財団法人 京都国際文化協会",
     "thumbnailQuality": "公式画像OK",
     "thumbnailNote": "KICA公式募集PDFの1ページ目",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "JPM 次世代チャレンジコンテスト2026",
+    "slug": "jpm-next-generation-challenge-2026",
+    "description": "江崎グリコの協賛課題または自由課題に対し、企画書か具体的なクリエイティブ制作で提案するコンテストです。個人または原則3人までのグループで参加できます。",
+    "catchcopy": "学生・若手実務家のマーケティング企画とクリエイティブを募集",
+    "deadline": "2026-10-13",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "design",
+      "writing"
+    ],
+    "prize": "大賞10万円、マーケティング賞・クリエイティブ賞各5万円、特別協賛企業賞2万円",
+    "applicationMethod": "企画部門はPowerPoint10枚以内、制作部門はA3横5枚以内にまとめ、各Googleフォームから提出します。",
+    "difficulty": "標準",
+    "aiUsage": "AIを使った場合は利用意図と内容の記載が必要です。AIそのものが作成した企画は対象外です。",
+    "rightsNote": "協賛企業課題の応募企画・作品の権利はJPM協会に帰属します。二次利用は関係者間で別途協議されます。",
+    "officialUrl": "https://jpm-inc.jp/exhibition/young/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/jpm-next-generation-challenge-2026.webp",
+    "entryFlow": [
+      "協賛企業課題か自由課題を選ぶ",
+      "企画書または制作案をまとめる",
+      "部門別フォームから提出する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "プレゼン経験を積みたい",
+      "AI活用アイデアを出したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "JPM 次世代チャレンジコンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://jpm-inc.jp/exhibition/young/",
+    "imageRightsOwner": "一般社団法人 日本プロモーショナル・マーケティング協会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "JPM公式コンテストページの募集画像",
     "spotlight": false,
     "featured": false
   },
@@ -3489,6 +3790,43 @@
     "featured": true
   },
   {
+    "title": "第3回 京都クラフト＆デザインコンペティション TRADITION for TOMORROW",
+    "slug": "tradition-for-tomorrow-2026",
+    "description": "『つづくかたち｜Inherited Future Crafts』をテーマに、伝統技術や知恵を現代の暮らしと結びつける工芸作品・製品を募集します。",
+    "catchcopy": "京都の伝統技術を、今の暮らしに続く工芸へ",
+    "deadline": "2026-10-31",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "design"
+    ],
+    "prize": "職人・作家部門グランプリ100万円、学生部門賞30万円、オーディエンス賞10万円など",
+    "applicationMethod": "公式サイトで応募要項を確認し、エントリーフォームから書類と作品情報を提出します。",
+    "difficulty": "作品力必要",
+    "aiUsage": "工芸の実作品・製品が中心です。制作補助でAIを使う場合は、オリジナリティと権利条件を確認してください。",
+    "rightsNote": "入選後の展示、販売・受注、作品提出の条件を含め、応募要項を確認してください。",
+    "officialUrl": "https://kmtc.jp/tft/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/tradition-for-tomorrow-2026.webp",
+    "entryFlow": [
+      "応募部門とテーマを確認する",
+      "作品・製品と説明資料を整える",
+      "公式サイトからエントリーする"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第3回 京都クラフト＆デザインコンペティション TRADITION for TOMORROWのキービジュアル",
+    "imageSourceUrl": "https://kmtc.jp/tft/",
+    "imageRightsOwner": "京都伝統産業ミュージアム",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "京都クラフト＆デザインコンペティション公式サイトの募集画面",
+    "spotlight": false,
+    "featured": false
+  },
+  {
     "title": "2026 AI Creativity Awards",
     "slug": "ai-creativity-awards-2026",
     "description": "AIを活用した多分野の創作作品を対象にした国際アワード。映像、画像、デザイン、音楽、文章、インタラクティブなど幅広い。",
@@ -3532,6 +3870,44 @@
     "featured": false
   },
   {
+    "title": "第2回 日本の棚田フォトコンテスト",
+    "slug": "japan-tanada-photo-2026",
+    "description": "日本の棚田、その周囲の生態系、人々の営みをテーマにしたフォトコンテストです。18歳未満向けの賞では、写真を貼った棚田ワークシートでも参加できます。",
+    "catchcopy": "日本の棚田と、そこで暮らす人や生きものを写真に",
+    "deadline": "2026-11-02",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "最優秀賞は商品券10万円と棚田米10kg。優秀賞、未来のタネ賞、ONIGIRI SUN賞など",
+    "applicationMethod": "GANREFのコンテストページから作品を投稿します。18歳未満はワークシートでの応募も可能です。",
+    "difficulty": "初心者向け",
+    "aiUsage": "写真作品が対象です。生成AIによる画像ではなく、本人が撮影した作品で応募してください。",
+    "rightsNote": "作品の公開・展示などの利用条件は、GANREFの応募要項を確認してください。",
+    "officialUrl": "https://ganref.jp/common/special/yamatane2508/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/japan-tanada-photo-2026.webp",
+    "entryFlow": [
+      "棚田と周囲の風景を撮影する",
+      "応募する作品を選ぶ",
+      "公式ページから投稿する"
+    ],
+    "recommendedFor": [
+      "オンラインで応募したい",
+      "初心者でも挑戦したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第2回 日本の棚田フォトコンテストのキービジュアル",
+    "imageSourceUrl": "https://ganref.jp/common/special/yamatane2508/",
+    "imageRightsOwner": "株式会社ヤマタネ",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "主催者公式発表のコンテスト画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "サイゲームス クリエイティブコンテスト2026",
     "slug": "cygames-creative-contest-2026",
     "description": "ゲームに関わる多彩なクリエイティブ作品を募集。キャラクター、背景、3DCG、ゲーム、映像、ノンジャンル、高校生の各部門があります。",
@@ -3568,6 +3944,121 @@
     "imageRightsOwner": "株式会社Cygames",
     "thumbnailQuality": "公式画像OK",
     "thumbnailNote": "Cygames公式コンテストページの2026年OG画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "全国小中学生『紙リサイクル』コンテスト2026",
+    "slug": "paper-recycling-contest-2026",
+    "description": "全国の小中学生から、紙リサイクルをテーマにした作文とポスターを募集します。学校応募のほか、個人でも作品を送れます。",
+    "catchcopy": "身近な紙のリサイクルを、作文やポスターで考える",
+    "deadline": "2026-11-27",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "writing",
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "文部科学大臣賞は図書カード5万円。金賞・特別金賞3万円、銀賞1万円など。応募者全員に参加賞",
+    "applicationMethod": "公式の手引きと応募票を確認し、作品の原本をコンテスト事務局へ郵送します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人の学習と制作による作品として応募できるよう、生成AIは使わず取り組むのが安心です。",
+    "rightsNote": "作品原本の返却や受賞作品の掲載条件は、公式の応募の手引きを確認してください。",
+    "officialUrl": "https://www.prpc.or.jp/activities/public_relations/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/paper-recycling-contest-2026.webp",
+    "entryFlow": [
+      "作文かポスターを選ぶ",
+      "紙リサイクルについて作品を作る",
+      "応募票を付けて郵送する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "初心者でも挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "全国小中学生『紙リサイクル』コンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://www.prpc.or.jp/activities/public_relations/",
+    "imageRightsOwner": "公益財団法人 古紙再生促進センター",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "古紙再生促進センター公式募集チラシ",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "日本の国立公園フォトコンテスト2026",
+    "slug": "japan-national-parks-photo-2026",
+    "description": "日本の国立公園で撮影した写真をInstagramまたは応募フォームから募集します。入賞作品はオンラインギャラリーやアートギャラリーで展示される予定です。",
+    "catchcopy": "日本の国立公園で出会った、とっておきの風景を投稿",
+    "deadline": "2026-11-30",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "入賞作品は公式オンラインギャラリーとアートギャラリーで展示。賞品の詳細は公式サイトを確認",
+    "applicationMethod": "Instagramで指定アカウント・国立公園別ハッシュタグを付けて投稿、または公式フォームから応募します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "撮影原本の提出が必要なため、生成AI画像は応募できません。",
+    "rightsNote": "入賞候補時に撮影原本の確認があります。主催者による掲載・展示条件は公式規約を確認してください。",
+    "officialUrl": "https://nationalparksjp-photocontest.com/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/japan-national-parks-photo-2026.webp",
+    "entryFlow": [
+      "国立公園で写真を撮る",
+      "対象公園のタグと応募条件を確認する",
+      "Instagramかフォームから応募する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "オンラインで応募したい",
+      "作品力を試したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "日本の国立公園フォトコンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://nationalparksjp-photocontest.com/",
+    "imageRightsOwner": "環境省",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "日本の国立公園フォトコンテスト公式メイン画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "第7回 星空フォトコンテスト2026 ～それぞれの宙を見上げて～",
+    "slug": "vixen-starry-sky-photo-2026",
+    "description": "星景写真、天体写真、動画、22歳以下の4部門で、星空や月、惑星、天文現象などを捉えた作品を募集します。作品に込めた視点や想いも審査されます。",
+    "catchcopy": "星にまつわる写真や動画を、機材や撮影地を問わず募集",
+    "deadline": "2026-11-30",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image",
+      "ai-video"
+    ],
+    "prize": "グランプリはビクセンオンラインストアクーポン20万円分。各部門最優秀賞5万円分、優秀賞2万円分など",
+    "applicationMethod": "公式サイトの応募フォームから、作品データと必要事項を送信します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "本人が撮影した作品が対象です。生成AI画像の扱いは、応募前に最新の公式要項を確認してください。",
+    "rightsNote": "著作権は撮影者に帰属します。入賞作品は主催者の広報宣伝物などに無償で使用される場合があります。",
+    "officialUrl": "https://www.vixen.co.jp/lp/photo_contest/2026/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/vixen-starry-sky-photo-2026.webp",
+    "entryFlow": [
+      "応募部門を選ぶ",
+      "星にまつわる写真・動画を整える",
+      "公式フォームから応募する"
+    ],
+    "recommendedFor": [
+      "オンラインで応募したい",
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第7回 星空フォトコンテスト2026 ～それぞれの宙を見上げて～のキービジュアル",
+    "imageSourceUrl": "https://www.vixen.co.jp/lp/photo_contest/2026/",
+    "imageRightsOwner": "株式会社ビクセン",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ビクセン公式発表のコンテスト募集画像",
     "spotlight": true,
     "featured": true
   },
@@ -3684,5 +4175,42 @@
     "thumbnailNote": "松栄堂公式「香・大賞」ロゴ",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "2027年『海の日』ポスターコンクール",
+    "slug": "marine-day-poster-2027",
+    "description": "海の大切さや海事産業の重要性を伝える『海の日』ポスターを募集します。大賞作品は全国の海事関係施設や公共交通機関などに掲示されます。",
+    "catchcopy": "『海の日』の意義を伝える、全国掲示のポスター図案を募集",
+    "deadline": "2026-12-07",
+    "lastVerifiedAt": "2026-08-12",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "design"
+    ],
+    "prize": "大賞10万円、優秀賞3万円、特別賞。大賞作品は全国の海事関係施設・公共交通機関などに掲示",
+    "applicationMethod": "作品裏面に応募票を貼り、公益財団法人日本海事広報協会の事務局へ郵送します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIを使った作品は応募できません。",
+    "rightsNote": "受賞作品の著作権は主催者に帰属し、無期限・無制限で修正や加工を含め使用されます。",
+    "officialUrl": "https://www.kaijipr.or.jp/uminohips/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-12/marine-day-poster-2027.webp",
+    "entryFlow": [
+      "『海の日』をテーマに縦型ポスターを作る",
+      "応募票を作品裏に貼る",
+      "事務局へ郵送する"
+    ],
+    "recommendedFor": [
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "2027年『海の日』ポスターコンクールのキービジュアル",
+    "imageSourceUrl": "https://www.kaijipr.or.jp/uminohips/",
+    "imageRightsOwner": "国民の祝日『海の日』海事関係団体連絡会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "日本海事広報協会公式募集ページのメイン画像",
+    "spotlight": false,
+    "featured": true
   }
 ]
