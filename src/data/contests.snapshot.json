@@ -2686,6 +2686,45 @@
     "featured": true
   },
   {
+    "title": "『あったらいいな！こんな伝統工芸品』デザインコンテスト2026",
+    "slug": "tokyo-traditional-crafts-design-2026",
+    "description": "東京都の伝統工芸品42品目から1つ、または2つ以上を組み合わせて、『あったらいいな』と思う新しい工芸品を手描きでデザインする小学生向けコンテストです。",
+    "catchcopy": "小学生のアイデアを、東京の伝統工芸士が本物の作品に",
+    "deadline": "2026-09-08",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "design",
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "東京都知事賞1点、優秀賞5点、佳作10点、審査員奨励賞10点。最優秀作品は伝統工芸士が実物を製作し受賞者へ贈呈",
+    "applicationMethod": "公式応募用紙に必要事項とデザイン案を記入し、指定の事務局へ郵送します。締切当日の消印まで有効です。",
+    "difficulty": "初心者向け",
+    "aiUsage": "最終応募作は手描きであることが明記されています。生成AI画像をそのまま応募する形式ではありません。",
+    "rightsNote": "応募作品は会場ですべて展示予定です。入賞作品の製作・展示・広報利用などの詳細は、公式応募用紙の注意事項も確認してください。",
+    "officialUrl": "https://www.dentoukougei.jp/topics/2026/design-contest.html",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/tokyo-traditional-crafts-design-2026.webp",
+    "entryFlow": [
+      "東京の伝統工芸品を調べる",
+      "新しい工芸品を手描きでデザインする",
+      "応募用紙と一緒に郵送する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "初心者でも挑戦したい",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "『あったらいいな！こんな伝統工芸品』デザインコンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://www.dentoukougei.jp/topics/2026/design-contest.html",
+    "imageRightsOwner": "東京都・東京都伝統工芸士会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "東京都伝統工芸士会公式ページの募集バナー",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "第8回 セントレア空の絵コンテスト",
     "slug": "centrair-sky-art-contest-2026",
     "description": "飛行機、空、旅を感じさせる絵を募集する小中学生向けコンテストです。まず作品画像をオンラインで送り、一次審査通過者のみ原画を郵送します。",
@@ -3025,6 +3064,45 @@
     "featured": true
   },
   {
+    "title": "第59回（2026年）『おかねの作文』コンクール",
+    "slug": "jflec-money-essay-59",
+    "description": "将来の夢、家庭のルール、ニュース、活きたお金の使い方など、『おかね』に関する自由なテーマで、自分の体験や考えを1,200～2,000字にまとめる中学生向けコンクールです。",
+    "catchcopy": "中学生が身近なお金について考える、1,200～2,000字の作文",
+    "deadline": "2026-09-15",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "writing"
+    ],
+    "prize": "特選5編は図書カード4万円分、秀作5編は2万円分、佳作10編は3千円分。特選には金融担当大臣賞・文部科学大臣賞・日本銀行総裁賞など",
+    "applicationMethod": "公式サイトからオンライン送信するか、応募用紙を添えて事務局へ郵送します。郵送は消印有効、オンラインは締切日の24時までです。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AIが作成した文章をそのまま使うことはできません。生成AIによる生成物と認められた作品は審査対象外になります。",
+    "rightsNote": "入賞作品の著作権・版権は主催者に帰属します。応募作品は理由を問わず返却されません。",
+    "officialUrl": "https://ron2026.j-flec.go.jp/jh_detail.php",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/jflec-money-essay-59.webp",
+    "entryFlow": [
+      "お金に関する身近なテーマを選ぶ",
+      "1",
+      "200～2",
+      "000字で自分の考えを書く",
+      "オンラインまたは郵送で応募する"
+    ],
+    "recommendedFor": [
+      "中高生向け",
+      "初心者でも挑戦したい",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第59回（2026年）『おかねの作文』コンクールのキービジュアル",
+    "imageSourceUrl": "https://ron2026.j-flec.go.jp/jh_detail.php",
+    "imageRightsOwner": "金融経済教育推進機構（J-FLEC）",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "J-FLEC公式募集ページの2026年メイン画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "アイスな瞬間！2026 写真投稿キャンペーン",
     "slug": "icecream-photo-campaign-2026",
     "description": "市販のアイスクリーム類が写った、夏らしい楽しい写真を募集する投稿キャンペーンです。期間中に新しく撮影した写真が対象です。",
@@ -3257,6 +3335,81 @@
     "thumbnailNote": "法政大学公式募集要項PDFの表紙",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "ピティナ 2026年度 新曲課題曲募集",
+    "slug": "ptna-new-piece-2026",
+    "description": "ソロA2～F級と連弾各級を対象に、教育的な配慮があり、学習者が演奏できる未発表のピアノ作品を募集します。譜面と実演奏音源の両方が必要です。",
+    "catchcopy": "ピアノ学習者が弾く、2028年度以降の新しい課題曲を募集",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "ai-music"
+    ],
+    "prize": "課題曲採用時に、ソロA2～C級・連弾初級～中級Bは5万円、ソロD～F級・連弾上級は7万円。通過作品は楽譜出版予定",
+    "applicationMethod": "応募用紙、PDFまたは紙の楽譜、実演奏の音源をそろえ、公式フォームまたは郵送のどちらかで提出します。",
+    "difficulty": "作品力必要",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。未発表の自作曲、記譜した楽譜、ピアノの実演奏音源が求められます。",
+    "rightsNote": "初演権と初版権は主催者に属します。審査通過作を主催者が使用する際、著作権利用料などを請求しない条件です。",
+    "officialUrl": "https://compe.piano.or.jp/event/newpiece/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/ptna-new-piece-2026.webp",
+    "entryFlow": [
+      "応募する級と演奏時間を確認する",
+      "楽譜・教育的意義・実演奏音源を整える",
+      "フォームまたは郵送で提出する"
+    ],
+    "recommendedFor": [
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "ピティナ 2026年度 新曲課題曲募集のキービジュアル",
+    "imageSourceUrl": "https://compe.piano.or.jp/event/newpiece/",
+    "imageRightsOwner": "一般社団法人 全日本ピアノ指導者協会（ピティナ）",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ピティナ公式募集ページの2026年度タイトル画像",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "第1回『オンゲキ』オリジナルインスト楽曲・キャライラストコンテスト",
+    "slug": "ongeki-original-contest-2026",
+    "description": "『オンゲキ』のキャラクターをテーマに、1分40秒～2分40秒のオリジナルインスト楽曲と、ゲーム内カード化を想定したキャラクターイラストを募集します。採用作品は2027年以降に発表予定です。",
+    "catchcopy": "オンゲキ8周年、音ゲー楽曲とカード用イラストを募集",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "ai-music",
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "採用作品はゲーム内へ収録・カード化予定。採用時の権利譲渡契約に基づき、KUROGO所定の対価を支給",
+    "applicationMethod": "FEATアカウントを作成し、楽曲またはイラストの部門別投稿フォームから作品データと必要事項を送信します。",
+    "difficulty": "標準",
+    "aiUsage": "楽曲・イラストとも、生成AIを使用した作品は応募できません。イラストではフォントデータの使用も禁止されています。",
+    "rightsNote": "採用時はKUROGOを介して契約し、著作権・著作隣接権など一切の権利をセガへ譲渡します。採用者は著作者人格権を行使しない条件です。",
+    "officialUrl": "https://ongeki.sega.jp/contest2026/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/ongeki-original-contest-2026.webp",
+    "entryFlow": [
+      "応募部門とキャラクターを選ぶ",
+      "部門別の形式に沿って作品を制作する",
+      "FEATの投稿フォームから応募する"
+    ],
+    "recommendedFor": [
+      "AI音楽を出したい",
+      "作品力を試したい",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第1回『オンゲキ』オリジナルインスト楽曲・キャライラストコンテストのキービジュアル",
+    "imageSourceUrl": "https://ongeki.sega.jp/contest2026/",
+    "imageRightsOwner": "株式会社セガ",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "セガ公式コンテストページのOG画像",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "第82回 コバルト・イラスト大賞",
@@ -3866,6 +4019,45 @@
     "featured": true
   },
   {
+    "title": "第31回えほん大賞",
+    "slug": "bungeisha-picture-book-award-31",
+    "description": "絵と文章で構成する絵本部門と、絵本化を想定した文章を募集するストーリー部門の2部門です。画材、サイズ、原稿枚数、応募資格を問わず、共著でも参加できます。",
+    "catchcopy": "絵本とストーリーの2部門、テーマ・作風・応募資格は自由",
+    "deadline": "2026-10-10",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "writing",
+      "ai-image"
+    ],
+    "prize": "各部門の大賞は書籍化・出版と賞金50万円。優秀賞10万円、特別賞5万円、小学生以下対象の『絵本の森』賞も設定",
+    "applicationMethod": "作品タイトル・部門・プロフィールを添え、Webフォーム、メール、または郵送で応募します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。応募者が諸権利を有するオリジナル作品であることが必要です。",
+    "rightsNote": "入賞作は著作権の一部である出版権を主催者側に設定します。著作権使用料などは個別契約となり、書籍化時に作品を編集する場合があります。",
+    "officialUrl": "https://www.bungeisha.co.jp/ehon/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/bungeisha-picture-book-award-31.webp",
+    "entryFlow": [
+      "絵本部門かストーリー部門を選ぶ",
+      "自由なテーマで作品を整える",
+      "Web・メール・郵送のいずれかで応募する"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第31回えほん大賞のキービジュアル",
+    "imageSourceUrl": "https://www.bungeisha.co.jp/ehon/",
+    "imageRightsOwner": "文芸社出版文化振興基金",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "文芸社公式えほん大賞ページのメイン画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "第49回 KICA 日本語エッセイコンテスト",
     "slug": "kica-japanese-essay-contest-2026",
     "description": "日本語を母語としない人を対象に、「日本語について思うこと」をテーマにした日本語エッセイを募集します。",
@@ -3901,6 +4093,44 @@
     "imageRightsOwner": "一般財団法人 京都国際文化協会",
     "thumbnailQuality": "公式画像OK",
     "thumbnailNote": "KICA公式募集PDFの1ページ目",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "令和8年度 住まいのインテリアコーディネーションコンテスト",
+    "slug": "interior-coordination-contest-2026",
+    "description": "実際にコーディネートした新築・リフォーム・スタイリングの実例と、心を満たすリビングや和洋融合空間を提案する課題分野で、住空間のアイデアを募集します。",
+    "catchcopy": "実例と課題提案の2分野で、豊かな住空間をA3ボードに",
+    "deadline": "2026-10-13",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "upcoming",
+    "categories": [
+      "design",
+      "ai-image"
+    ],
+    "prize": "経済産業大臣賞50万円、製造産業局長賞40万円、協会会長賞30万円、部門最優秀賞10万円など",
+    "applicationMethod": "公式サイトのエントリーフォームに登録し、A3作品ボードと応募用紙を指定先へ郵送または宅配便で提出します。",
+    "difficulty": "作品力必要",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。パース等に使用する場合は、応募者が権利と制作過程を説明できる状態にしてください。",
+    "rightsNote": "応募作品に関する著作権は主催者に帰属します。権利条件を理解したうえで応募してください。",
+    "officialUrl": "https://www.interior.or.jp/contest/coordination/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/interior-coordination-contest-2026.webp",
+    "entryFlow": [
+      "事例分野か課題分野を選ぶ",
+      "平面図・スケッチ・コンセプト等をA3にまとめる",
+      "Web登録後に作品ボードを送る"
+    ],
+    "recommendedFor": [
+      "作品力を試したい",
+      "プレゼン経験を積みたい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "令和8年度 住まいのインテリアコーディネーションコンテストのキービジュアル",
+    "imageSourceUrl": "https://www.interior.or.jp/contest/coordination/",
+    "imageRightsOwner": "公益社団法人インテリア産業協会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "インテリア産業協会の公式募集ページ画像",
     "spotlight": false,
     "featured": false
   },
@@ -4175,6 +4405,43 @@
     "featured": true
   },
   {
+    "title": "ワン・ワールド・フェスティバル 動画コンテスト2026",
+    "slug": "one-world-festival-video-2026",
+    "description": "SDGs、国際交流・国際協力、環境に配慮した社会貢献活動などを題材に、視聴者の行動につながる90秒以内の映像作品を募集します。実写・CG・アニメなど表現方法は自由です。",
+    "catchcopy": "SDGsや国際交流を、90秒以内のオリジナル動画で伝える",
+    "deadline": "2026-11-05",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "ai-video"
+    ],
+    "prize": "小中高校生部門と専門・大学生・社会人部門で、各部門最優秀賞3万円、優秀賞1万円、スポンサー賞",
+    "applicationMethod": "応募用紙・誓約書・同意書を作品に添え、メールまたは大容量ファイル転送サービス等で事務局へ送ります。",
+    "difficulty": "標準",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。実写・CG・アニメは可ですが、応募者自身のオリジナル作品であることが必要です。",
+    "rightsNote": "第三者の著作権・著作隣接権・肖像権を侵害しないことが必要です。音楽は権利処理済みかオリジナルのものを使用してください。",
+    "officialUrl": "https://onefes.net/contest/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/one-world-festival-video-2026.webp",
+    "entryFlow": [
+      "伝えたいSDGsのテーマを決める",
+      "90秒以内のMP4動画を制作する",
+      "必要書類と一緒に事務局へ送る"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "学生向け",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "ワン・ワールド・フェスティバル 動画コンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://onefes.net/contest/",
+    "imageRightsOwner": "ワン・ワールド・フェスティバル実行委員会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ワン・ワールド・フェスティバル公式募集ポスター",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "ケアテック・イノベーション・コンテスト2026",
     "slug": "caretech-innovation-contest-2026",
     "description": "広い意味の『ケア』をテーマに、動く試作品・サービスを対象とするプロトタイプ部門、検証中の課題とアイデアを対象とするシン・アイディア部門、18歳以下のU-18部門で提案を募集します。",
@@ -4253,6 +4520,44 @@
     "featured": true
   },
   {
+    "title": "Sony World Photography Awards 2027 学生部門",
+    "slug": "sony-world-photography-student-2027",
+    "description": "写真を学ぶ18～30歳の学生が、2027年テーマ『Journeys』を自由に解釈し、5点から10点の組写真シリーズで表現する国際コンテストです。撮影機材や表現スタイルは問いません。",
+    "catchcopy": "『Journeys』を5～10点の組写真で描く、世界の写真学生向け部門",
+    "deadline": "2026-11-27",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "年間最優秀者と所属校へ総額3万ユーロ相当のソニー製デジタルイメージング機材。最終候補者にはロンドン授賞式の航空券・宿泊など",
+    "applicationMethod": "所属教育機関の登録を確認し、World Photography Organisationの応募ページから写真シリーズをアップロードします。",
+    "difficulty": "標準",
+    "aiUsage": "応募者自身が制作した写真であることが必要です。生成AI画像の可否は明記されていないため、写真作品として説明できる撮影データとEXIFを保持してください。",
+    "rightsNote": "応募画像は本人の独自制作物で、第三者の著作権・商標・プライバシー等を侵害しないことが必要です。画像は展示・印刷・デジタル表示に使われる場合があります。",
+    "officialUrl": "https://www.worldphoto.org/ja/sony-world-photography-awards/student",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/sony-world-photography-student-2027.webp",
+    "entryFlow": [
+      "所属校の登録と応募資格を確認する",
+      "Journeysを表す5～10点を編集する",
+      "公式サイトからアップロードする"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "作品力を試したい",
+      "大型コンテストを先に押さえたい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "Sony World Photography Awards 2027 学生部門のキービジュアル",
+    "imageSourceUrl": "https://www.worldphoto.org/ja/sony-world-photography-awards/student",
+    "imageRightsOwner": "World Photography Organisation",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "World Photography Organisation公式学生部門ページ画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "全国小中学生『紙リサイクル』コンテスト2026",
     "slug": "paper-recycling-contest-2026",
     "description": "全国の小中学生から、紙リサイクルをテーマにした作文とポスターを募集します。学校応募のほか、個人でも作品を送れます。",
@@ -4289,6 +4594,45 @@
     "thumbnailNote": "古紙再生促進センター公式募集チラシ",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "これぞ、やまなし 写真・動画コンテスト",
+    "slug": "korezo-yamanashi-photo-video-2026",
+    "description": "山梨県内で撮影した『山梨らしさ』が伝わる作品を、写真、30秒以内の縦型動画、31秒～3分の横型動画の3部門で募集します。実写・アニメ・CG・AI活用作品も応募できます。",
+    "catchcopy": "山梨らしい風景・暮らし・文化を、写真や縦横動画で発信",
+    "deadline": "2026-11-30",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-video",
+      "ai-image"
+    ],
+    "prize": "横型動画部門の最優秀賞15万円・優秀賞4万円、写真・縦型動画部門の最優秀賞各10万円・優秀賞各2万円など",
+    "applicationMethod": "写真と縦型動画はInstagramで指定ハッシュタグ投稿、横型動画はYouTube限定公開後に公式フォームから応募します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "AI活用作品も応募可能です。Instagramは『#AI利用』を付け、YouTube応募はフォームでAI利用を申告します。第三者の権利を侵害しないことが条件です。",
+    "rightsNote": "応募作品の一部は、公式Instagramなど主催者媒体で紹介・再掲載される場合があります。人物・楽曲の許諾は応募者側で確保します。",
+    "officialUrl": "https://korezo.pref.yamanashi.jp/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/korezo-yamanashi-photo-video-2026.webp",
+    "entryFlow": [
+      "山梨県内で題材を撮影・制作する",
+      "応募部門に合う形式へ整える",
+      "InstagramまたはYouTubeとフォームから応募する"
+    ],
+    "recommendedFor": [
+      "AI動画を出したい",
+      "AI活用作品を出したい",
+      "X投稿で応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "これぞ、やまなし 写真・動画コンテストのキービジュアル",
+    "imageSourceUrl": "https://korezo.pref.yamanashi.jp/",
+    "imageRightsOwner": "山梨県",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "山梨県公式特設サイトのOG画像",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "日本の国立公園フォトコンテスト2026",
@@ -4516,6 +4860,43 @@
     "thumbnailQuality": "公式画像OK",
     "thumbnailNote": "日本海事広報協会公式募集ページのメイン画像",
     "spotlight": false,
+    "featured": true
+  },
+  {
+    "title": "SQUARE ENIX GAME CONTEST 2026",
+    "slug": "square-enix-game-contest-2026",
+    "description": "新規性・独創性・娯楽性・完成度を軸に、モバイルまたはPC向けのオリジナルゲームを募集する大型コンテストです。企画書、ゲームプレイ動画、実行ファイルを提出します。",
+    "catchcopy": "最優秀賞3億円、モバイル・PC向けオリジナルゲームを募集",
+    "deadline": "2027-03-15",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "upcoming",
+    "categories": [
+      "ai-video"
+    ],
+    "prize": "最優秀賞1作品3億円、傑作賞4作品各1億円、優秀賞10作品各3,000万円。受賞後は出版・配信・マーケティングを支援し印税を支給",
+    "applicationMethod": "専用フォームからPDF企画書、YouTube限定公開のゲームプレイ動画、ZIP形式の実行ファイルを提出します。",
+    "difficulty": "作品力必要",
+    "aiUsage": "AI利用は可能ですが、使用ツールの開示と権利保証が必要です。商品化時にAI生成箇所の手作業によるリライト・再構成を求められる場合があります。",
+    "rightsNote": "受賞作はスクウェア・エニックスがパブリッシングを支援し、売上に対して印税を支払う方針です。応募開始時に最新の応募規約とAIガイドラインを再確認してください。",
+    "officialUrl": "https://gc2026.jp.square-enix.com/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19-b/square-enix-game-contest-2026.webp",
+    "entryFlow": [
+      "応募開始までにゲーム企画を固める",
+      "実行可能な作品とプレイ動画を制作する",
+      "12月15日以降に専用フォームから提出する"
+    ],
+    "recommendedFor": [
+      "AIアイデアを形にしたい",
+      "大型コンテストを先に押さえたい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "SQUARE ENIX GAME CONTEST 2026のキービジュアル",
+    "imageSourceUrl": "https://gc2026.jp.square-enix.com/",
+    "imageRightsOwner": "株式会社スクウェア・エニックス",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "SQUARE ENIX GAME CONTEST公式OG画像",
+    "spotlight": true,
     "featured": true
   }
 ]
