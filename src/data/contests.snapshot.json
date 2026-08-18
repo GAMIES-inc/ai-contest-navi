@@ -1064,8 +1064,8 @@
     "description": "高校生向けのイラストコンテスト。キャラクター、背景、キャラクター＋背景の3部門で、指定キーワードを組み合わせて制作します。",
     "catchcopy": "2D・3D・アナログ、好きな画材で高校生が挑戦",
     "deadline": "2026-08-15",
-    "lastVerifiedAt": "2026-07-22",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-16",
+    "status": "ended",
     "categories": [
       "ai-illustration",
       "ai-image"
@@ -1101,8 +1101,8 @@
     "description": "テーマ「生きものたちのコミュニケーション」に沿った体験型展示アイデアを募集するアワード。小学生の部と一般の部があります。",
     "catchcopy": "科学館の展示アイデアを、自由な発想で提案できます。",
     "deadline": "2026-08-15",
-    "lastVerifiedAt": "2026-07-06",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-16",
+    "status": "ended",
     "categories": [
       "design",
       "writing"
@@ -1140,8 +1140,8 @@
     "description": "カザフスタン・アスタナで開催されるAI-native cinemaの国際映画祭。AI映画制作者向けの大型コンペ。",
     "catchcopy": "AI動画作品を応募できるコンテスト。",
     "deadline": "2026-08-15",
-    "lastVerifiedAt": "2026-06-16",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-16",
+    "status": "ended",
     "categories": [
       "ai-video"
     ],
@@ -1176,8 +1176,8 @@
     "description": "AEDや救命を身近に感じるきっかけをつくる川柳コンテストです。年齢や経験を問わず、短いフォームから応募できます。",
     "catchcopy": "AEDや救命への思いを、五・七・五に",
     "deadline": "2026-08-16",
-    "lastVerifiedAt": "2026-08-04",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-17",
+    "status": "ended",
     "categories": [
       "writing"
     ],
@@ -1213,8 +1213,8 @@
     "description": "写真または映像の新しいプロジェクト企画を募集し、選出者に制作助成金とGFX機材を提供する国際的なグラントプログラムです。",
     "catchcopy": "写真・映像プロジェクトの企画を、世界規模の制作支援へ",
     "deadline": "2026-08-17",
-    "lastVerifiedAt": "2026-07-29",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-18",
+    "status": "ended",
     "categories": [
       "photo",
       "ai-video",
@@ -1252,8 +1252,8 @@
     "description": "学生や卒業・修了から間もない人を対象に、物・場・情報・仕組みのデザインを募集するアワード。学校制作や研究成果にも向いています。",
     "catchcopy": "学生・若手のデザイン作品を社会につなげる賞。",
     "deadline": "2026-08-17",
-    "lastVerifiedAt": "2026-07-06",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-18",
+    "status": "ended",
     "categories": [
       "design"
     ],
@@ -1548,6 +1548,43 @@
     "thumbnailQuality": "要改善",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "かばんのエース 旅行川柳コンテスト2026",
+    "slug": "ace-travel-senryu-2026",
+    "description": "荷造り、移動、旅先の景色、思わぬハプニングなど、旅行にまつわるエピソードを五・七・五で募集します。応募数の制限はなく、短い言葉で参加できます。",
+    "catchcopy": "旅の思い出やハプニングを、気軽な五・七・五に",
+    "deadline": "2026-08-31",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "closing-soon",
+    "categories": [
+      "writing"
+    ],
+    "prize": "入賞者にスーツケース、トラベルポーチ、ACEミニチュアトランクのカプセルトイセットなど",
+    "applicationMethod": "公式サイトの専用フォーム、または世界のカバン博物館に設置された応募用紙から応募します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。自分の旅行体験と言葉で作った未発表の川柳として応募してください。",
+    "rightsNote": "入賞作品は公式サイト、世界のカバン博物館、プレスリリースなどで発表されます。詳細は応募規約を確認してください。",
+    "officialUrl": "https://www.ace.jp/travel-senryu/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19/ace-travel-senryu-2026.webp",
+    "entryFlow": [
+      "旅行のエピソードを思い出す",
+      "五・七・五にまとめる",
+      "専用フォームか博物館で応募する"
+    ],
+    "recommendedFor": [
+      "初心者向け",
+      "オンラインで応募したい",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "かばんのエース 旅行川柳コンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://www.ace.jp/travel-senryu/",
+    "imageRightsOwner": "エース株式会社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "エース公式コンテストページの募集画像",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "FM AICHI ラジオCMコンテスト2026",
@@ -2649,6 +2686,44 @@
     "featured": true
   },
   {
+    "title": "第8回 セントレア空の絵コンテスト",
+    "slug": "centrair-sky-art-contest-2026",
+    "description": "飛行機、空、旅を感じさせる絵を募集する小中学生向けコンテストです。まず作品画像をオンラインで送り、一次審査通過者のみ原画を郵送します。",
+    "catchcopy": "飛行機・空・旅を感じる絵を、小中学生から募集",
+    "deadline": "2026-09-08",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "最優秀賞は旅行券10万円分、特別賞は旅行券3万円分、就航先賞、入選・佳作は図書カードなど",
+    "applicationMethod": "作品を撮影し、10MB以下の画像を公式フォームから送信します。原画は一次審査の結果が出るまで保管します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "デジタル作品は応募できず、本人が画用紙に描いた作品が対象です。生成AI画像は応募できません。",
+    "rightsNote": "応募作品は返却されず、作品の所有権と著作権は主催者に帰属します。第三者の著作権・商標権・肖像権を含む作品は応募できません。",
+    "officialUrl": "https://www.centrair.jp/special/event/skyart/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19/centrair-sky-art-contest-2026.webp",
+    "entryFlow": [
+      "画用紙に飛行機・空・旅の絵を描く",
+      "作品をきれいに撮影する",
+      "公式フォームから画像を送る"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "初心者でも挑戦したい",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第8回 セントレア空の絵コンテストのキービジュアル",
+    "imageSourceUrl": "https://www.centrair.jp/special/event/skyart/",
+    "imageRightsOwner": "中部国際空港利用促進協議会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "セントレア公式コンテストページの募集画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "第一回 RPG-Cobo 作品コンテスト ～TGS2026杯～",
     "slug": "rpg-cobo-tgs-2026",
     "description": "ゲーム制作ツール「RPG-Cobo」で作ったオリジナルゲームを募集する作品コンテストです。完成作だけでなく、遊べる状態の体験版でも応募できます。",
@@ -3066,6 +3141,85 @@
     "featured": true
   },
   {
+    "title": "Doronko パラリンアートカップ2026",
+    "slug": "doronko-paralymart-cup-2026",
+    "description": "障がいのある方を対象に、スポーツをテーマにしたアート作品を募集します。未就学児からシニアまで参加でき、個人・グループのほか、未就学児・小学生部門では親子共同制作も可能です。",
+    "catchcopy": "スポーツの感動や体を動かす喜びを、自由なアートに",
+    "deadline": "2026-09-20",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "グランプリ15万円、準グランプリ5万円、どろんこ賞各3万円、選手会賞・個人賞など",
+    "applicationMethod": "公式サイトの応募フォームから作品画像と必要事項を送信します。フォームでの応募が難しい場合は事務局へ相談できます。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。本人またはグループの制作物として、画材・制作方法と権利条件を確認してください。",
+    "rightsNote": "上位作品は主催者の関連商品のラベルなどに採用される予定です。作品利用の詳細は公式応募条件を確認してください。",
+    "officialUrl": "https://doronko-paralymartcup.com/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19/doronko-paralymart-cup-2026.webp",
+    "entryFlow": [
+      "スポーツにまつわる題材を決める",
+      "応募規定に合うアートを制作する",
+      "公式フォームから応募する"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "オンラインで応募したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "Doronko パラリンアートカップ2026のキービジュアル",
+    "imageSourceUrl": "https://doronko-paralymartcup.com/",
+    "imageRightsOwner": "一般社団法人 障がい者自立推進機構",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "パラリンアートカップ公式募集ビジュアル",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "第70回 旺文社 全国学芸サイエンスコンクール",
+    "slug": "obunsha-gakugei-science-contest-70",
+    "description": "小学生から高校生までを対象に、研究、絵画、書道、小説、詩、読書感想文、作文、写真、ポスター・デザイン、スタートアップアイデアなどを募集する全国コンクールです。",
+    "catchcopy": "研究・絵画・文芸・写真・デザイン・アイデアを幅広く募集",
+    "deadline": "2026-09-24",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "photo",
+      "writing",
+      "design",
+      "ai-image"
+    ],
+    "prize": "内閣総理大臣賞、文部科学大臣賞、環境大臣賞、こども家庭庁長官賞、各部門賞など",
+    "applicationMethod": "WEBエントリーで応募用紙と応募票を作成し、作品に添付して事務局へ郵送します。スタートアップ部門は電子データで提出します。",
+    "difficulty": "標準",
+    "aiUsage": "全分野で生成AIによる作品は応募できません。利用した場合の扱いも含め、公式の生成AI規定を必ず確認してください。",
+    "rightsNote": "作品名、応募者氏名、学校名、学年などが主催者サイトや刊行物、テレビ、雑誌などで発表される場合があります。",
+    "officialUrl": "https://www.obunsha.co.jp/gakkon/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19/obunsha-gakugei-science-contest-70.webp",
+    "entryFlow": [
+      "対象学年に合う部門を選ぶ",
+      "部門別の規定に沿って作品を整える",
+      "WEB登録後に郵送またはデータ提出する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "大型コンテストを先に押さえたい",
+      "研究・教育寄りで挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第70回 旺文社 全国学芸サイエンスコンクールのキービジュアル",
+    "imageSourceUrl": "https://www.obunsha.co.jp/gakkon/",
+    "imageRightsOwner": "株式会社旺文社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "旺文社公式コンテストページの募集画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "法政大学 第22回 デジタルコンテンツ・コンテスト",
     "slug": "hosei-digital-content-contest-2026",
     "description": "法政大学の学生を対象に、静止画、動画、インタラクティブ作品の3部門でデジタル作品を募集します。",
@@ -3103,6 +3257,119 @@
     "thumbnailNote": "法政大学公式募集要項PDFの表紙",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "第82回 コバルト・イラスト大賞",
+    "slug": "cobalt-illustration-award-82",
+    "description": "編集部が提示する小説のタイトルとあらすじを読み、カラーのカバーイラスト1点とモノクロの人物紹介イラスト1点を制作する、プロ志望者向けのイラスト賞です。",
+    "catchcopy": "文庫装画を想定したカラー表紙とモノクロ人物紹介を制作",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "大賞30万円、入選10万円。文庫装画や電子版表紙でデビューする機会あり",
+    "applicationMethod": "カラー作品とモノクロ作品の計2点を、指定の宛先へ郵送します。郵送応募のみ受け付けています。",
+    "difficulty": "作品力必要",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。自作・未発表の描き下ろし作品として説明できる制作方法で応募してください。",
+    "rightsNote": "著作権は応募者に帰属します。受賞作品の出版・電子配信などは、集英社が受賞者から独占的な許諾を受けます。",
+    "officialUrl": "https://orangebunko.shueisha.co.jp/illust-award/outline/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19/cobalt-illustration-award-82.webp",
+    "entryFlow": [
+      "指定の小説設定を読み込む",
+      "カラー表紙とモノクロ人物紹介を描く",
+      "応募要項に沿って郵送する"
+    ],
+    "recommendedFor": [
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第82回 コバルト・イラスト大賞のキービジュアル",
+    "imageSourceUrl": "https://orangebunko.shueisha.co.jp/illust-award/outline/",
+    "imageRightsOwner": "株式会社集英社 オレンジ文庫編集部",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "集英社オレンジ文庫公式応募要項のページ画像",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "神威がくぽ誕生祭2026 楽曲・カレンダーイラストコンテスト",
+    "slug": "gackpo-birthday-contests-2026",
+    "description": "神威がくぽのオリジナル楽曲と、2027年公式カレンダーに掲載するイラストを募集します。楽曲はニコニコ動画、イラストはCharaforioから応募します。",
+    "catchcopy": "神威がくぽのオリジナル楽曲と2027年カレンダーイラストを募集",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "ai-music",
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "楽曲部門はソフト、記念マグカップ、がくぽグッズなど。イラスト部門は12作品を公式カレンダーに採用し、ソフトやカレンダーなどを贈呈",
+    "applicationMethod": "楽曲はニコニコ動画へ指定タグで投稿後、フォーム送信と応募番号追記を行います。イラストはCharaforioの関連イベントから投稿します。",
+    "difficulty": "標準",
+    "aiUsage": "イラスト部門はStable Diffusion、NovelAIなどの画像生成AIを一部でも使った作品は応募できません。",
+    "rightsNote": "イラスト受賞作は公式カレンダーに使用されます。キャラクター利用、商品化、作品公開の条件を各ガイドラインで確認してください。",
+    "officialUrl": "https://www.ssw.co.jp/products/gackpo_bd2026/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19/gackpo-birthday-contests-2026.webp",
+    "entryFlow": [
+      "楽曲かイラストの部門を選ぶ",
+      "部門別ガイドラインに沿って制作する",
+      "指定サービスとフォームから応募する"
+    ],
+    "recommendedFor": [
+      "オンラインで応募したい",
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "神威がくぽ誕生祭2026 楽曲・カレンダーイラストコンテストのキービジュアル",
+    "imageSourceUrl": "https://www.ssw.co.jp/products/gackpo_bd2026/",
+    "imageRightsOwner": "株式会社インターネット",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "株式会社インターネット公式募集ページのメイン画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "Scratchプログラミングコンテスト ～りんごが育つ地球を取り戻せ！～",
+    "slug": "shinmai-apple-scratch-contest-2026",
+    "description": "地球温暖化からりんごが育つ環境を守ることをテーマに、Scratchでオリジナルゲームを作る小中学生向けコンテストです。小学1～4年生は指定テンプレートのリミックスでも参加できます。",
+    "catchcopy": "小中学生がScratchで、りんごと地球を守るゲームを制作",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "open",
+    "categories": [
+      "other"
+    ],
+    "prize": "最優秀賞5万円（1作品）、優秀賞3万円（3作品）と副賞",
+    "applicationMethod": "Scratchで作品を制作・公開し、公式サイトの応募フォームから必要事項を送信します。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。指定素材と自作内容のルール、第三者の権利を守って制作してください。",
+    "rightsNote": "第三者や主催者の著作権、知的財産権、プライバシー、肖像権を侵害する作品は応募できません。",
+    "officialUrl": "https://ringo.shinmai.co.jp/scratch/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19/shinmai-apple-scratch-contest-2026.webp",
+    "entryFlow": [
+      "学年に合う制作方法を確認する",
+      "Scratchでゲームを制作する",
+      "公式フォームから応募する"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "初心者でも挑戦したい",
+      "オンラインで応募したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "Scratchプログラミングコンテスト ～りんごが育つ地球を取り戻せ！～のキービジュアル",
+    "imageSourceUrl": "https://ringo.shinmai.co.jp/scratch/",
+    "imageRightsOwner": "信濃毎日新聞社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "信濃毎日新聞社の公式コンテストページ画像",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "みんなが書く戯曲のコンテスト2026",
@@ -3904,6 +4171,44 @@
     "imageRightsOwner": "株式会社ヤマタネ",
     "thumbnailQuality": "公式画像OK",
     "thumbnailNote": "主催者公式発表のコンテスト画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "ケアテック・イノベーション・コンテスト2026",
+    "slug": "caretech-innovation-contest-2026",
+    "description": "広い意味の『ケア』をテーマに、動く試作品・サービスを対象とするプロトタイプ部門、検証中の課題とアイデアを対象とするシン・アイディア部門、18歳以下のU-18部門で提案を募集します。",
+    "catchcopy": "介護・障がい・教育など、身近なケアの困りごとを技術やアイデアで解決",
+    "deadline": "2026-11-24",
+    "lastVerifiedAt": "2026-08-19",
+    "status": "upcoming",
+    "categories": [
+      "writing",
+      "design"
+    ],
+    "prize": "プロトタイプ部門は1,000万円2件・500万円6件・150万円10件、シン・アイディア部門は100万円10件の助成。U-18部門は図書カードの学習奨励金",
+    "applicationMethod": "8月31日以降、公式サイトで部門を選び、応募フォームへ必要事項を入力して提出書類をアップロードします。",
+    "difficulty": "標準",
+    "aiUsage": "AI、ロボット、アプリなどの技術活用も対象です。応募者自身が研究・開発・検証した内容と、社会への還元方法を具体的に示してください。",
+    "rightsNote": "採択後は財団との合意契約、中間発表、最終報告などが必要です。知的財産と成果公開の条件は部門別募集要項で確認してください。",
+    "officialUrl": "https://ysmf-caretech.jp/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-19/caretech-innovation-contest-2026.webp",
+    "entryFlow": [
+      "自分の段階に合う部門を選ぶ",
+      "困りごと・検証内容・提案を整理する",
+      "公式フォームから書類を提出する"
+    ],
+    "recommendedFor": [
+      "AIアイデアを形にしたい",
+      "プレゼン経験を積みたい",
+      "学生向け"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "ケアテック・イノベーション・コンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://ysmf-caretech.jp/",
+    "imageRightsOwner": "一般財団法人 篠原欣子記念財団",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ケアテック・イノベーション・コンテスト公式メイン画像",
     "spotlight": true,
     "featured": true
   },
