@@ -414,7 +414,7 @@
     "description": "UTOPIA-JPのAI美女オーディション。AIで制作した美女キャラクターの画像・動画どちらでも応募可能で、過去に発表した作品も応募対象です。",
     "catchcopy": "次のスターは、あなたが生み出すAI美女。",
     "deadline": "2026-06-30",
-    "lastVerifiedAt": "2026-07-01",
+    "lastVerifiedAt": "2026-08-19",
     "status": "ended",
     "categories": [
       "ai-video",
@@ -444,8 +444,8 @@
     "imageSourceUrl": "https://x.com/utopia_jp_/status/2063893694533767241?s=20",
     "imageRightsOwner": "UTOPIA-JP",
     "thumbnailQuality": "制作済み",
-    "spotlight": true,
-    "featured": true
+    "spotlight": false,
+    "featured": false
   },
   {
     "title": "U-18アーティストコンテスト2026 AI作品部門",
