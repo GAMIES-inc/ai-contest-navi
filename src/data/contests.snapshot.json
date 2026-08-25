@@ -1290,8 +1290,8 @@
     "description": "高校生を対象にしたプロダクトデザインコンテスト。オリジナルアイデア、自由、3Dモデリング、3Dプリンタ造形などの部門があります。",
     "catchcopy": "高校生がプロダクトのアイデアを形にできるコンテスト。",
     "deadline": "2026-08-20",
-    "lastVerifiedAt": "2026-07-06",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-21",
+    "status": "ended",
     "categories": [
       "design"
     ],
@@ -1328,8 +1328,8 @@
     "description": "写真またはイラスト1枚で、あなたの「夏の1コマ」を表現するnote投稿コンテストです。記事の最初に置いた画像が審査対象になります。",
     "catchcopy": "夏の一瞬を、写真かイラスト1枚で投稿",
     "deadline": "2026-08-23",
-    "lastVerifiedAt": "2026-07-29",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-24",
+    "status": "ended",
     "categories": [
       "photo",
       "ai-illustration",
@@ -1367,8 +1367,8 @@
     "description": "お盆の風景、家族の時間、地域の行事などを写真で伝える、X・Instagram投稿型のフォトコンテストです。",
     "catchcopy": "あなたの家のお盆や夏の思い出を、写真とエピソードで",
     "deadline": "2026-08-23",
-    "lastVerifiedAt": "2026-07-29",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-24",
+    "status": "ended",
     "categories": [
       "photo",
       "ai-image"
@@ -1405,8 +1405,8 @@
     "description": "京都市動物園をイメージしたテーマソングの歌詞とタイトルを募集。プロ・アマ、年齢、居住地不問で応募できます。",
     "catchcopy": "動物園への思い出を、歌詞にして届ける募集。",
     "deadline": "2026-08-23",
-    "lastVerifiedAt": "2026-07-06",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-24",
+    "status": "ended",
     "categories": [
       "writing",
       "ai-music"
@@ -1443,8 +1443,8 @@
     "description": "音声合成ソフトを主体にしたオリジナル楽曲やREMIXをニコニコ動画へ投稿するイベントです。ランキングに参加しない気軽なエキシビション枠もあります。",
     "catchcopy": "新作ボカロ曲やREMIXを、夏のボカロ文化の祭典へ",
     "deadline": "2026-08-24",
-    "lastVerifiedAt": "2026-08-12",
-    "status": "upcoming",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "ended",
     "categories": [
       "ai-music"
     ],
@@ -1480,8 +1480,8 @@
     "description": "海や地球環境のためにできることをポスターで表現する、小学1年生から中学3年生向けのコンクールです。線画を使う形式と自由形式から選べます。",
     "catchcopy": "海や地球環境を良くするアイデアを、小中学生のポスターに",
     "deadline": "2026-08-24",
-    "lastVerifiedAt": "2026-08-12",
-    "status": "open",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "ended",
     "categories": [
       "ai-illustration",
       "design",
@@ -2876,6 +2876,46 @@
     "featured": false
   },
   {
+    "title": "ユメカタリ 学生生成AIコンテスト 2026",
+    "slug": "yumekatari-student-generative-ai-2026",
+    "description": "学生が生成AIを活用して制作したアプリ・ツール・サービスを競う『開発部門』と、画像・動画・音楽・企画など自由な作品を提案する『クリエイティブ部門』を募集します。書類審査後、東京または名古屋の会場で1分ピッチを行います。",
+    "catchcopy": "生成AIでつくった作品やアイデアを、東京・名古屋の舞台へ",
+    "deadline": "2026-09-10",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "open",
+    "categories": [
+      "ai-video",
+      "ai-music",
+      "design",
+      "ai-image"
+    ],
+    "prize": "開発部門は各会場グランプリ30万円、クリエイティブ部門は各会場グランプリ10万円。協賛企業賞なども予定",
+    "applicationMethod": "公式サイトの応募フォームから部門・希望会場・作品概要を登録します。開発部門は概要資料とデモ動画、クリエイティブ部門は作品または企画資料を提出します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AIの活用を前提としたコンテストです。使用したAIや制作方法を説明できるよう、プロンプト・生成履歴・編集工程を残しておくのがおすすめです。",
+    "rightsNote": "応募者自身のオリジナル作品で、第三者の著作権・肖像権などを侵害しないことが必要です。使用するAIサービスの利用規約と商用利用条件も確認してください。",
+    "officialUrl": "https://aichi-select.net/ai_contest/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/yumekatari-student-generative-ai-2026.webp",
+    "entryFlow": [
+      "開発部門かクリエイティブ部門を選ぶ",
+      "生成AIを活用した作品と説明資料を整える",
+      "公式フォームから9月10日までに応募する"
+    ],
+    "recommendedFor": [
+      "AI活用作品を出したい",
+      "学生向け",
+      "プレゼン経験を積みたい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "ユメカタリ 学生生成AIコンテスト 2026のキービジュアル",
+    "imageSourceUrl": "https://aichi-select.net/ai_contest/",
+    "imageRightsOwner": "学生生成AIコンテスト実行委員会",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "学生生成AIコンテスト公式ページのメインビジュアル",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "第3回 お仏壇のはせがわ賞こどもコンクール",
     "slug": "hasegawa-kodomo-art-contest-2026",
     "description": "小学生が、お盆の思い出や家族との時間を絵画・工作で表現するコンクールです。作品を撮影してオンラインで応募できます。",
@@ -3335,6 +3375,45 @@
     "thumbnailNote": "法政大学公式募集要項PDFの表紙",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "センサリーマップコンテスト2026",
+    "slug": "sensory-map-contest-2026",
+    "description": "身近な場所を歩いて、音・光・におい・混雑などの五感情報を地図に見える化するコンテストです。手描き、付箋、シール、デジタル制作のどれでもよく、自由研究にも向いています。",
+    "catchcopy": "音・光・におい・混雑を地図にして、五感にやさしい街を考える",
+    "deadline": "2026-09-30",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "open",
+    "categories": [
+      "design",
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "最優秀賞は感覚過敏研究所オンラインストア5,000円分、入賞は3,000円分。結果は11月下旬に公式サイトで発表予定",
+    "applicationMethod": "JPEG・PNG・PDFのいずれか、10MB以下にして公式Googleフォームから提出します。紙作品は文字や絵が読める写真またはスキャンにします。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。本人のオリジナル作品が条件なので、AIを補助利用する場合は地図素材の権利と制作工程を説明できるようにしてください。",
+    "rightsNote": "著作権は作成者に帰属します。応募作品や入賞作品は、主催者サイト・SNS・イベント会場などで紹介、掲載、利用される場合があります。",
+    "officialUrl": "https://kabin.life/column/15807/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/sensory-map-contest-2026.webp",
+    "entryFlow": [
+      "観察したい街や施設の地図を用意する",
+      "現地で五感情報と感じ方を記録する",
+      "地図を画像またはPDFにしてフォームから送る"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "学生向け",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "センサリーマップコンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://kabin.life/column/15807/",
+    "imageRightsOwner": "感覚過敏研究所",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "感覚過敏研究所公式ページの募集ビジュアル",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "ピティナ 2026年度 新曲課題曲募集",
@@ -4019,6 +4098,81 @@
     "featured": true
   },
   {
+    "title": "第14回 日経『星新一賞』",
+    "slug": "nikkei-hoshi-shinichi-award-14",
+    "description": "『理系的な発想力を問う文学賞』として、科学や技術を題材にした自由なショートストーリーを募集します。一般部門は1万字以内、ジュニア部門は5千字以内で、生成AIを利用した作品にも明確な応募ルールがあります。",
+    "catchcopy": "生成AIとの共作も歓迎、科学する心を刺激するショートストーリー",
+    "deadline": "2026-10-06",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "open",
+    "categories": [
+      "writing"
+    ],
+    "prize": "一般部門グランプリ100万円、ジュニア部門グランプリ図書カードNEXT10万円分、準グランプリ5万円分、優秀賞など",
+    "applicationMethod": "公式応募フォームから作品ファイルと約200字のあらすじを提出します。ジュニア部門は郵送も可能です。オンライン締切は10月6日17時です。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AI利用可。利用ツールと制作過程を500字以内で申告し、プロンプト・生成原文・加筆修正前後を保存します。AI文章の無編集利用、作家名や作品名の入力、無許可の特化型AIは禁止です。",
+    "rightsNote": "応募者は作品の権利とAIツールの公開・書籍化・映像化・翻訳・商用利用条件を保証する必要があります。受賞作は電子書籍化等に利用されるため、公式規約を確認してください。",
+    "officialUrl": "https://hoshiaward.nikkei.co.jp/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/nikkei-hoshi-shinichi-award-14.webp",
+    "entryFlow": [
+      "科学する心を刺激する物語を考える",
+      "一般1万字・ジュニア5千字以内に整える",
+      "AI利用説明と作品ファイルを公式フォームへ送る"
+    ],
+    "recommendedFor": [
+      "AI活用作品を出したい",
+      "初心者でも挑戦したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第14回 日経『星新一賞』のキービジュアル",
+    "imageSourceUrl": "https://hoshiaward.nikkei.co.jp/",
+    "imageRightsOwner": "日本経済新聞社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "日経『星新一賞』公式サイトのメインビジュアル",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "KOKUYO DESIGN AWARD 2027",
+    "slug": "kokuyo-design-award-2027",
+    "description": "『dialogue』をテーマに、暮らす・学ぶ・働くシーンで使う文具・家具・道具の新しいデザインを募集します。年齢・職業・国籍を問わず参加でき、学生にはNEW GENERATION賞も用意されています。",
+    "catchcopy": "テーマは『dialogue』、暮らす・学ぶ・働く道具を世界から募集",
+    "deadline": "2026-10-07",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "open",
+    "categories": [
+      "design",
+      "ai-image"
+    ],
+    "prize": "グランプリ1点200万円、優秀賞3点各50万円。学生対象のNEW GENERATION賞を最大10点選定",
+    "applicationMethod": "エントリーサイトで応募者情報と作品情報を登録し、プレゼンテーションシートを送信します。締切は10月7日正午（日本時間）です。",
+    "difficulty": "作品力必要",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。応募者自身のオリジナルかつ未発表作品であることが必要なため、利用する場合は生成素材の権利と制作過程を説明できるようにしてください。",
+    "rightsNote": "受賞作品の特許・意匠・商標・著作権など全ての権利は主催者に帰属し、著作者人格権を行使しない条件です。受賞作以外の知的財産権は原則応募者に帰属します。",
+    "officialUrl": "https://www.kokuyo.com/design-award/2027/requirements/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/kokuyo-design-award-2027.webp",
+    "entryFlow": [
+      "『dialogue』から道具のアイデアを考える",
+      "指定形式のプレゼンテーションシートにまとめる",
+      "エントリーサイトから10月7日正午までに送信する"
+    ],
+    "recommendedFor": [
+      "作品力を試したい",
+      "学生向け",
+      "プレゼン経験を積みたい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "KOKUYO DESIGN AWARD 2027のキービジュアル",
+    "imageSourceUrl": "https://www.kokuyo.com/design-award/2027/requirements/",
+    "imageRightsOwner": "コクヨ株式会社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "コクヨデザインアワード公式サイトの2027メインビジュアル",
+    "spotlight": false,
+    "featured": false
+  },
+  {
     "title": "第31回えほん大賞",
     "slug": "bungeisha-picture-book-award-31",
     "description": "絵と文章で構成する絵本部門と、絵本化を想定した文章を募集するストーリー部門の2部門です。画材、サイズ、原稿枚数、応募資格を問わず、共著でも参加できます。",
@@ -4095,6 +4249,47 @@
     "thumbnailNote": "KICA公式募集PDFの1ページ目",
     "spotlight": false,
     "featured": false
+  },
+  {
+    "title": "第1回 viviON CREATOR AWARD",
+    "slug": "vivion-creator-award-2026",
+    "description": "『偏愛』をテーマに、ドット／解像度、癒し／回復、異世界／ファンタジーの3つの切り口で作品を募集します。イラスト、漫画、ゲーム、映像、立体、メディアアート、企画提案など幅広い形式が対象です。",
+    "catchcopy": "テーマは『偏愛』、絵・漫画・ゲーム・映像・立体まで表現形式は自由",
+    "deadline": "2026-10-12",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "ai-manga",
+      "design",
+      "ai-video",
+      "ai-image"
+    ],
+    "prize": "グランプリは100万円相当、部門賞などを含む賞金・副賞総額は200万円相当。受賞作品は展示や事業化相談の機会も予定",
+    "applicationMethod": "GENSEKIの募集ページにログインし、応募部門を選んで作品画像・動画・説明文などを登録します。展示を想定したサイズや実現方法も説明します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AI利用の一律可否は募集ページで明記されていません。AIを使う場合はGENSEKIの最新投稿ガイドラインと各部門条件を確認し、制作工程を開示できるようにしてください。",
+    "rightsNote": "応募作品は第三者の権利を侵害しないオリジナルであることが必要です。展示・広報・事業化に関する利用範囲は、GENSEKI上の応募規約を提出前に確認してください。",
+    "officialUrl": "https://genseki.me/compes/bBxW31AD63A",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/vivion-creator-award-2026.webp",
+    "entryFlow": [
+      "3つの部門テーマから1つを選ぶ",
+      "『偏愛』が伝わる作品または企画を整える",
+      "GENSEKIの応募ページから提出する"
+    ],
+    "recommendedFor": [
+      "作品力を試したい",
+      "AIアイデアを形にしたい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第1回 viviON CREATOR AWARDのキービジュアル",
+    "imageSourceUrl": "https://genseki.me/compes/bBxW31AD63A",
+    "imageRightsOwner": "株式会社viviON",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "viviON公式発表およびGENSEKI募集ページのメイン画像",
+    "spotlight": true,
+    "featured": true
   },
   {
     "title": "令和8年度 住まいのインテリアコーディネーションコンテスト",
@@ -4248,6 +4443,44 @@
     "featured": true
   },
   {
+    "title": "AIは布の記憶の夢を見るか",
+    "slug": "ai-fabric-memory-music-video-2026",
+    "description": "『服や布に宿る記憶』をテーマに、AIで制作した音楽と映像を組み合わせたミュージックビデオを募集する企画です。年齢・職業・スキルを問わず参加でき、11月29日にグランプリ発表イベントが予定されています。",
+    "catchcopy": "服や布に残る記憶を、AI音楽とAI映像のミュージックビデオへ",
+    "deadline": "2026-10-30",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "upcoming",
+    "categories": [
+      "ai-video",
+      "ai-music"
+    ],
+    "prize": "グランプリを選出予定。賞品・審査方法などの詳細は募集開始時の公式要項で確認してください",
+    "applicationMethod": "募集期間は9月15日から10月30日まで。提出形式や応募フォームは、募集開始後に公式特設ページと公式Xで公開される案内を確認してください。",
+    "difficulty": "標準",
+    "aiUsage": "AI音楽・AI映像の活用が企画の中心です。利用ツール、プロンプト、素材の出典、編集履歴を保存し、各サービスの公開・応募・商用利用条件を確認してください。",
+    "rightsNote": "応募作品の権利・二次利用条件は8月25日時点で詳細未公表です。募集開始後の公式規約を必ず確認してから提出してください。",
+    "officialUrl": "https://koromolab.site/event.html",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/ai-fabric-memory-music-video-2026.webp",
+    "entryFlow": [
+      "服や布にまつわる記憶をテーマにする",
+      "AI音楽とAI映像でMVを制作する",
+      "9月15日公開の応募要項に沿って提出する"
+    ],
+    "recommendedFor": [
+      "AI動画を出したい",
+      "AI音楽を出したい",
+      "初心者でも挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "AIは布の記憶の夢を見るかのキービジュアル",
+    "imageSourceUrl": "https://koromolab.site/event.html",
+    "imageRightsOwner": "コロモラボ",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "コロモラボ公式告知のメインビジュアル",
+    "spotlight": true,
+    "featured": true
+  },
+  {
     "title": "第8回 エディコイラストコンテスト",
     "slug": "edico-illustration-contest-2026",
     "description": "22歳以下を対象に、デジタルイラストと漫画を募集します。小中学生向けのアナログぬりえ部門もあります。",
@@ -4283,6 +4516,121 @@
     "imageRightsOwner": "エディコ",
     "thumbnailQuality": "公式画像OK",
     "thumbnailNote": "GENSEKI公式コンテストページの募集画像",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "TURNER AWARD 2026",
+    "slug": "turner-award-2026",
+    "description": "ターナー色彩の製品を使った絵画、イラスト、デザイン、立体などの作品を募集する学生向けアートアワードです。ジャンルやテーマに縛られず、自分らしい表現を発表できます。",
+    "catchcopy": "学生の自由な平面・立体表現を、ターナーの画材で作品に",
+    "deadline": "2026-10-31",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "upcoming",
+    "categories": [
+      "ai-illustration",
+      "design",
+      "ai-image"
+    ],
+    "prize": "大賞は賞金15万円、ターナー製品5万円分、個展開催支援金5万円。審査員賞各5万円、未来賞、学校賞など",
+    "applicationMethod": "応募受付は9月1日開始。公式サイトでエントリー後、作品情報を登録し、指定された方法で作品または作品画像を提出します。",
+    "difficulty": "標準",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。ターナー製品を使用した本人のオリジナル作品が条件なので、AI生成物の扱いは提出前に主催者へ確認してください。",
+    "rightsNote": "応募作品の著作権は原則応募者にありますが、主催者は審査・展示・広報で作品画像等を利用する場合があります。最新の応募規約を確認してください。",
+    "officialUrl": "https://turner.co.jp/award/ta/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/turner-award-2026.webp",
+    "entryFlow": [
+      "使用するターナー製品と表現方法を決める",
+      "未発表のオリジナル作品を制作する",
+      "9月1日以降に公式サイトからエントリーする"
+    ],
+    "recommendedFor": [
+      "学生向け",
+      "作品力を試したい",
+      "賞金ありに挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "TURNER AWARD 2026のキービジュアル",
+    "imageSourceUrl": "https://turner.co.jp/award/ta/",
+    "imageRightsOwner": "ターナー色彩株式会社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "ターナー色彩公式アワードページの2026募集ビジュアル",
+    "spotlight": false,
+    "featured": false
+  },
+  {
+    "title": "第15回 JAM キャラクターイラストコンテスト",
+    "slug": "jam-character-illustration-contest-15",
+    "description": "JAMのマスコットキャラクター『はんな』を自由な発想で擬人化する、中学生・高校生向けのイラストコンテストです。デジタル・アナログ、カラー・モノクロを問わず、初めての応募も歓迎されています。",
+    "catchcopy": "中高生歓迎、JAMのマスコット『はんな』を自由に擬人化",
+    "deadline": "2026-10-31",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "open",
+    "categories": [
+      "ai-illustration",
+      "ai-image"
+    ],
+    "prize": "各部門グランプリはギフトカード1万円分、オリジナルアクリルスタンド、プロによる作品添削。特別賞5,000円分、ファイナリスト賞500円分など",
+    "applicationMethod": "公式ページの応募フォームから作品画像と必要事項を送信します。郵送応募を選ぶ場合は公式ページの送付先と必要事項を確認してください。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AI利用の個別規定は明記されていません。自分で制作したオリジナルイラストとして応募できる作品にし、不明な場合は主催者へ確認してください。",
+    "rightsNote": "応募作品は第三者の権利を侵害しないオリジナルであることが必要です。入賞作品の掲載・展示などの扱いは公式応募要項を確認してください。",
+    "officialUrl": "https://web-jam.jp/46669/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/jam-character-illustration-contest-15.webp",
+    "entryFlow": [
+      "『はんな』の元デザインを確認する",
+      "自由な発想で擬人化イラストを描く",
+      "公式フォームまたは郵送で応募する"
+    ],
+    "recommendedFor": [
+      "中高生向け",
+      "初心者でも挑戦したい",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第15回 JAM キャラクターイラストコンテストのキービジュアル",
+    "imageSourceUrl": "https://web-jam.jp/46669/",
+    "imageRightsOwner": "日本アニメ・マンガ専門学校（JAM）",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "JAM公式募集ページのコンテストビジュアル",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "第4回 #カクレシアワセ フォトコンテスト",
+    "slug": "kakureshiawase-photo-contest-4",
+    "description": "日常で見つけた小さな『カクレシアワセ』を写真とエピソードで共有するInstagramフォトコンテストです。8月・9月・10月に月替わりで審査し、毎月11名、合計33名を表彰します。",
+    "catchcopy": "日常の小さなしあわせを写真にして、Instagramへ気軽に投稿",
+    "deadline": "2026-10-31",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "open",
+    "categories": [
+      "photo",
+      "ai-image"
+    ],
+    "prize": "大賞は毎月1名に賞金5万円とティシュー・トイレットロール1年分。入賞は毎月10名にクレシアギフト詰め合わせ",
+    "applicationMethod": "公式Instagram @crecia_cp をフォローし、写真とエピソードに『#カクレシアワセ』を付けてフィード投稿します。受賞連絡はDMで届きます。",
+    "difficulty": "初心者向け",
+    "aiUsage": "生成AIで作成した画像は審査対象外です。被写体の追加・削除・置換、背景生成など大きなAI加工も不可。明るさ・色調・トリミング・ノイズ除去など軽微な補正のみ認められます。",
+    "rightsNote": "著作権は応募者に留保されますが、主催者は投稿を無償で複製・頒布・改変・広告利用し、第三者にも利用させられます。応募者はその利用に権利主張しない条件です。",
+    "officialUrl": "https://www.crecia.co.jp/campaign/kakureshiawase4/",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/kakureshiawase-photo-contest-4.webp",
+    "entryFlow": [
+      "日常の小さなしあわせを撮影する",
+      "公式アカウントをフォローする",
+      "写真とエピソードを指定ハッシュタグ付きでフィード投稿する"
+    ],
+    "recommendedFor": [
+      "初心者でも挑戦したい",
+      "オンラインで応募したい",
+      "短期で挑戦したい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "第4回 #カクレシアワセ フォトコンテストのキービジュアル",
+    "imageSourceUrl": "https://www.crecia.co.jp/campaign/kakureshiawase4/",
+    "imageRightsOwner": "日本製紙クレシア株式会社",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "日本製紙クレシア公式キャンペーンサイトのメインビジュアル",
     "spotlight": true,
     "featured": true
   },
@@ -4438,6 +4786,44 @@
     "imageRightsOwner": "ワン・ワールド・フェスティバル実行委員会",
     "thumbnailQuality": "公式画像OK",
     "thumbnailNote": "ワン・ワールド・フェスティバル公式募集ポスター",
+    "spotlight": true,
+    "featured": true
+  },
+  {
+    "title": "地方創生☆政策アイデアコンテスト2026",
+    "slug": "resas-policy-idea-contest-2026",
+    "description": "RESASやRAIDAなどのデータを分析し、地域課題の解決につながる政策アイデアを提案するコンテストです。学生、自治体、民間、個人・グループを問わず参加でき、生成AIもルールに沿って利用できます。",
+    "catchcopy": "地域データを読み解き、生成AIも活用して政策アイデアを提案",
+    "deadline": "2026-11-16",
+    "lastVerifiedAt": "2026-08-25",
+    "status": "open",
+    "categories": [
+      "writing",
+      "design"
+    ],
+    "prize": "地方創生担当大臣賞、優秀賞、協賛企業賞などを選出。最終審査会でプレゼンテーションを実施予定",
+    "applicationMethod": "公式サイトでエントリーし、応募者情報と政策アイデアのPDFを11月16日17時までにアップロードします。",
+    "difficulty": "標準",
+    "aiUsage": "生成AI利用可。使用した生成AIと利用箇所を応募資料内で明示し、出力内容の事実確認を行います。著作権侵害などの責任は応募者が負います。",
+    "rightsNote": "応募アイデアの著作権は応募者に帰属します。主催者はコンテストの運営・広報・成果共有のために応募資料を公表、利用する場合があります。",
+    "officialUrl": "https://contest.resas-portal.go.jp/entry.html",
+    "thumbnail": "https://contest.gamies.io/images/contests/official-2026-08-25/resas-policy-idea-contest-2026.webp",
+    "entryFlow": [
+      "地域と解決したい課題を決める",
+      "RESAS・RAIDA等で根拠データを分析する",
+      "10～20ページのPDFにまとめて公式サイトから提出する"
+    ],
+    "recommendedFor": [
+      "AI活用作品を出したい",
+      "学生向け",
+      "プレゼン経験を積みたい"
+    ],
+    "image": "/images/contest-fallback.png",
+    "imageAlt": "地方創生☆政策アイデアコンテスト2026のキービジュアル",
+    "imageSourceUrl": "https://contest.resas-portal.go.jp/entry.html",
+    "imageRightsOwner": "内閣府 地方創生推進室",
+    "thumbnailQuality": "公式画像OK",
+    "thumbnailNote": "地方創生☆政策アイデアコンテスト公式サイトの2026メインビジュアル",
     "spotlight": true,
     "featured": true
   },
