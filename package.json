@@ -27,7 +27,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@lucide/astro": "^1.25.0",
     "astro": "^7.1.0",
-    "sharp": "^0.35.0"
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "typescript": "^5.9.2"
